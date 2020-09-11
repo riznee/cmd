@@ -3,7 +3,7 @@
 <div class="container is-fluid">
 	<div class="wrapper">
 		<head>
-			@include('partials.nav')
+			@include('partials.admiNav')
 		</head>
 		<section class="section">
 			<div class="hero is-large">
@@ -13,8 +13,7 @@
 					</div>
 				</div>
 			</div>
-		</section>
+        </section>		
 		@include('partials.footer')
 	</div>
 </div>
-@stop

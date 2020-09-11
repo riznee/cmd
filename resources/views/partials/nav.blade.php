@@ -15,18 +15,6 @@
       
       <div id="navbar-enol" class="navbar-menu">
         <div class="navbar-start">
-          {{--  <a class="navbar-item" href="{{route('about')}}">
-            About
-          </a>
-          <a class="navbar-item" href="{{route('services')}}">
-            Services
-          </a>
-          <a class="navbar-item" href="{{route('portfolio')}}">
-            Portfolio
-          </a>
-          <a class="navbar-item" href="{{route('contact')}}">
-            Contact Us
-          </a>  --}}
 
         </div>
     
