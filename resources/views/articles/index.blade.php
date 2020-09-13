@@ -4,7 +4,6 @@
 	<div class="wrapper">
 		<head>
 			@include('partials.admiNav')
-			@include('partials.flash-message')
 		</head>
 		<section class="columns">
 			<div class="column is-one-fifth">
@@ -49,13 +48,19 @@
 												<td>
 													<div class='columns'>
 														<div class='column'>
-															<a class="button  is-link" href="{{route('artiles.show',$row['id'])}}">View</a> 
+															<a class=" button is-rounded is-link is-small" href="{{route('articles.show',$row['id'])}}">
+																<i class="fas fa-eye" aria-hidden="true"></i>
+																	&nbsp; View
+															</a>  
 														</div>
 														<div class='column'>
 															<form  accept-charset="UTF-8" method="post" action="{{route('articles.destroy',$row['id'])}}">
 															@csrf
 															{{ method_field('DELETE') }}{{ method_field('DELETE') }}
-															<button type="submit" class="button  is-link">Delete</button>
+															<button type="submit" class="button is-rounded is-link is-small">
+																<i class="fas fa-times" aria-hidden="true"></i>
+																&nbsp;	Delete
+															</button>
 															</form>
 														</div>
 													</div>

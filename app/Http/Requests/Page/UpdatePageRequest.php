@@ -25,7 +25,7 @@ class UpdatePageRequest extends FormRequest
     {
         
         return [
-            'slug'      => 'required|unique:pages|max:255'. $this->id,
+            'slug'      => 'required|max:255'. $this->id,
             'parent_id' => 'nullable|numeric',
             'depth'     => 'nullable|numeric',
             'title'     => 'required|max:255',

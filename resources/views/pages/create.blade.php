@@ -111,7 +111,6 @@
                                             <label class="label" > Parent </label>
                                             <div class="select">
                                                 <select name="parent_id">
-                                                    <option value='' selected>NULL</option>
                                                     @foreach($pages as $page)
                                                         @if($page->parent_id == $page->id)
                                                             <option value="{{$page->id}}" selected >{{$page->title}}</option>
@@ -129,7 +128,7 @@
                                             <label class="label"> Depth</label>
                                             <div class="select">
                                                 <select name="depth">
-                                                    <option value="{{$page->depth}}" selected>NULL</option>
+                                                    <option value="{{$page->depth}}" selected>{{$page->depth}}</option>
                                                     <option value='1'>1</option>
                                                     <option value='2'>2</option>
                                                     <option value='3'>3</option>
