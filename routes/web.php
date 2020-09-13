@@ -3,6 +3,7 @@
 // Application Routes
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/page/{slug}', 'HomeController@page')->name('page');
+Route::get('/contactus', 'HomeController@contact')->name('contactus');
 
 
 // Application Routes
@@ -19,8 +20,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('settings', 'SettingController');
     Route::resource('pages', 'PageController');
     Route::resource('categories', 'CategoryController');
-
-
+    Route::post('ckeditor/image_upload', 'CKEditorController@upload')->name('upload');
   
 });
 

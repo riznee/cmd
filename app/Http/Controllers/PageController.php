@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Repositries\PageRepositry;
 use App\Http\Requests\Page\StorePageRequest;
 use App\Http\Requests\Page\UpdatePageRequest;
-use Illuminate\Http\Request;
-
 
 class PageController extends Controller
 {
@@ -19,8 +17,9 @@ class PageController extends Controller
 
     public function index()
     {
-        $pages = $this->repository->getall();
-        return view('pages.index', compact('pages'))->with('i', (request()->input('page', 1) - 1) * $this->perpage);
+        $pages = $this->repository->getPages();
+        // dd($pages);
+        return view('pages.index', compact('pages'));
     }
     
     public function create()
@@ -34,7 +33,7 @@ class PageController extends Controller
        
         try{
             $data = $this->repository->store($request);
-            return redirect()->route('pages.index')->with('success', $data->title.' Page is created');
+            return redirect()->route('pages.index')->with('success', $data->title.'New Page is created');
         }
         catch (\Exception $exeption)
         {
@@ -57,7 +56,7 @@ class PageController extends Controller
         try
         {
             $this->repository->updateUniquefeild($page,$request);
-            return redirect()->route('pages.index')->with('success', 'Updated Successfull');
+            return redirect()->route('pages.index')->with('success', 'Page information is updated Successfull');
         }
         catch (\Exception $exeption)
         {
@@ -72,7 +71,7 @@ class PageController extends Controller
     {
         try{
             $this->repository->destroy($id);
-            return redirect()->route('pages.index')->with('success','Deleted');
+            return redirect()->route('pages.index')->with('success','A Page is deleted');
         }
         catch (\Exception $exeption)
         {

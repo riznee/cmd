@@ -17,7 +17,9 @@
 
     public function getArticles()
     {
-        $articles = $this->model->with('page')->orderBy('id','desc')->get();
+        $articles = $this->model->with('page')
+        ->with('category')
+        ->orderBy('id','desc')->paginate();
         return $articles;
     }
 
@@ -26,6 +28,8 @@
         $latest =$this->model->latest()->where('published_at', '=','1')->first();
         return $latest;
     }
+
+    
  
     
  }

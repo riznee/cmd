@@ -15,7 +15,7 @@
 
     public function getPages()
     {
-        $pages = $this->model->with('children')->whereNull('parent_id')->orderBy('depth', 'asc')->get();
+        $pages = $this->model->with('parent')->orderBy('depth', 'asc')->paginate();
         return $pages;
     }
 

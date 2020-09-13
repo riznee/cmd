@@ -27,7 +27,7 @@
 								<thead>
 									<tr>
 										<th>Slug</th>
-										<th>Parent_id</th>
+										<th>Parent</th>
 										<th> Depth</th>
 										<th> Title</th>
 										<th> Description</th>
@@ -40,8 +40,8 @@
 										@foreach($pages as $row)			
 											<tr>
 												<td>{{$row->slug}}</td>
-												<td>{{$row->parent_id}}</td>
-												<td>{{$row->Depth}}</td>
+												<td>{{($row->parent->title ?? ' ')}}</td>
+												<td>{{$row->depth}}</td>
 												<td>{{$row->title}}</td>
 												<td>{{$row->description}}</td>
 												<td>{{$row->created_at}}</td>

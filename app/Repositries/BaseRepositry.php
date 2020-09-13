@@ -45,7 +45,7 @@
 
     public function findOrFail($id)
     {
-        return $this->model->findWithoutFail($id);
+        return $this->model->findOrFail($id);
     }
 
     public function updateUniquefeild($data, $request)

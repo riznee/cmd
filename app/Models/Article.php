@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-use Carbon\Carbon;
+use App\Models\Category;
+use App\Models\Page;
 
 class Article extends Model
 {
@@ -24,7 +25,7 @@ class Article extends Model
     public function category()
     {
        
-        return $this->belongsTo(Carbon::class);
+        return $this->belongsTo(Category::class);
     }
 
     public function page()

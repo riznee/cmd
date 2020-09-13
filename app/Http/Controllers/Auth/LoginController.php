@@ -49,7 +49,7 @@ class LoginController extends Controller
         }
         else
         {
-            return redirect()->route('home')->with('info', 'login failed');;
+            return redirect()->route('home')->with('info', 'username or password is incorrect tryagain');;
         }
     }
 

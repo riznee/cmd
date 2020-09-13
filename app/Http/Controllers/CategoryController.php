@@ -3,65 +3,91 @@
 namespace App\Http\Controllers;
 
 
-use App\Models\Category;
-// use App\Http\Requests\CategoryRequest;
-use Illuminate\Http\Request;
+use App\Repositries\CategoryRepositry;
+use App\Http\Requests\Category\StoreCategoryRequest;
+use App\Http\Requests\Category\UpdateCategoryRequest;
 
 class CategoryController extends Controller
 {
+
     public $perpage = 15;
+
+    public function __construct(CategoryRepositry $repository)
+    {
+        $this->repository = $repository;
+    }
 
     public function index()
     {
-        return view('categories.index');
+        $categories = $this->repository->getall();
+        return view('categories.index', compact('categories'))->with('i', (request()->input('page', 1) - 1) * $this->perpage);
+    }
+    
+    public function create()
+    {
+        return view('categories.create');
+    }
+    
+    public function store(StoreCategoryRequest $request)
+    {
+       
+        try{
+            $data = $this->repository->store($request);
+            return redirect()->route('categories.index')->with('success', $data->title.'New category is created');
+        }
+        catch (\Exception $exeption)
+        {
+            return redirect()->route('categories.create')
+                ->withError($exeption->getMessage())
+                ->withInput();
+        }
     }
 
-    // public function index()
-    // {
-    //     $categories = Category::latest()->paginate($this->perpage);
-    //     return view('category.index', compact('categories'))->with('i', (request()->input('page', 1) - 1) * $this->perpage);
-    // }
+    public function show($id)
+    {
+        $category =  $this->repository->getItem($id);      
+        return view('categories.create',compact('category'));   
+    }
+    
+    public function update(UpdateCategoryRequest $request, $id)
+    {
+        $category =  $this->repository->findOrFail($id);
+        try
+        {
+            $this->repository->updateUniquefeild($category,$request);
+            return redirect()->route('categories.index')->with('success', 'category information is updated Successfull');
+        }
+        catch (\Exception $exeption)
+        {
+            return redirect()->route('categories.index')
+                ->withError($exeption->getMessage())
+                ->withInput();
+        }
 
-    // public function create()
-    // {
-    //     // $pages = Category::all();
-    //     return view('category.create');
-    // }
+    }
     
-    // public function store(Request $request)
-    // {
-    //     $this->validate($request,$this->validationCreate());
-    //     Category::create($request->all());
-    //     return redirect()->route('category.index')->with('Successful', 'Page is created');
-    // }
-    
-    // public function show($id)
-    // {
-    //     $category = Category::find($id);
-    //     return view('category.edit',compact('category')); 
-    // }
-    
-    
-    // public function update(Request $request, $id)
-    // {
-    //     $this->validate($request,$this->validationCreate());
-    //     Category::find($id)->update($request->all());
-    //     return redirect()->route('category.index')->with('Successful', 'Updated Successfull'); 
-    // }
-    
-    // public function destroy($id)
-    // {
-    //     Category::find($id)->delete();
-    //     return redirect()->route('category.index')->with('success','Deleted Successfull');
-    // }
+    public function destroy($id)
+    {
+        try{
+            $this->repository->destroy($id);
+            return redirect()->route('category.index')->with('success','A category is deleted');
+        }
+        catch (\Exception $exeption)
+        {
+            return redirect()->route('category.index')
+                ->withError($exeption->getMessage())
+                ->withInput();
+        }
+
+    }
     
     // protected function validationCreate()
     // {
     //     return array ([
-    //         'slug'      => 'required|unique:posts|max:255',
+    //         'slug'      => 'required|max:255',
     //         'title'     => 'required|max:255',
-    //         'description' => 'required|max255',
-    //         'color' => 'required|max255',
+    //         'description' => 'required|max:255',
+    //         'color' => 'required|max:255',
     //         ]);
 
     // }

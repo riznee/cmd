@@ -65,21 +65,12 @@ class HomeController extends Controller
     //     return view('home.index' ,compact('pages', 'articles', 'latest'));
     // }
 
-    public function about(){
-
+    public function contact()
+    {
+        dd('contactus');
     }
 
-    public function contact(){
-        
-    }
-
-    public function services(){
-        
-    }
-
-    public function portfolio(){
-        
-    }
+    
 
     
 
