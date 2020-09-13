@@ -15,7 +15,10 @@
 
     public function getPages()
     {
-        $pages = $this->model->with('parent')->orderBy('depth', 'asc')->paginate();
+        $pages = $this->model
+        ->with('parent')
+        ->orderBy('depth', 'asc')
+        ->paginate();
         return $pages;
     }
 
@@ -28,6 +31,16 @@
     public function pageList()
     {
         $pages = $this->model->all();
+        return $pages;
+    }
+
+    public function homeMenuPages()
+    {
+        $pages = $this->model
+        ->with('children')
+        ->whereNull('parent_id')
+        ->orderBy('depth', 'asc')
+        ->paginate();
         return $pages;
     }
  }

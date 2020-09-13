@@ -2,24 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 
-use App\Operations\Operation;
+
+use App\Repositries\ArticleRepositry;
+use App\Repositries\CategoryRepositry;
+use App\Repositries\PageRepositry;
+
 
 
 class HomeController extends Controller
 {
     public $perpage = 15;
 
-    public function __construct(Operation $operation)
+    public function __construct(ArticleRepositry $articleRepository, CategoryRepositry $categoryRepositry, PageRepositry $pageRepositry )
     {
-        $this->operation = $operation;
+        $this->articleRepository = $articleRepository;
+        $this->categoryRepositry =$categoryRepositry;
+        $this->pageRepositry = $pageRepositry;
     }
 
     public function index()
     {
-        $pages = $this->operation->getPages();
-        $articles = $this->operation->getArticles();     
+        $pages = $this->pageRepositry->homeMenuPages();
+        $articles = $this->articleRepository->latesArtile();
+        dd($articles);
+          
         return view('home.index' ,compact ('pages', 'articles'));
     }
 

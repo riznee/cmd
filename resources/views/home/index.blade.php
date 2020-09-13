@@ -6,15 +6,13 @@
 			@include('partials.nav')
 		</head>
 		<section class="section">
-			<div class="hero is-large">
-				<div class="hero-body">
-					<div class="container">
-						@foreach($articles as $article)
-						{{$article->title}}
-						{{!!$article->content!!}}
-						@endforeach
-					</div>
-				</div>
+			<div class="container">
+				@if(!empty($articles))
+					@foreach($articles as $article)
+						<h1>{{$article->title}}</h1>
+						{!!$article->content!!}
+					@endforeach
+				@endif
 			</div>
 		</section>
 		@include('partials.footer')

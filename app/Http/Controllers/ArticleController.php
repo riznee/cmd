@@ -87,4 +87,10 @@ class ArticleController extends Controller
         }
 
     }
+
+    public function publish($id)
+    {
+        $this->repository->published($id);
+        return redirect()->route('articles.index')->with('success','Ariticle is Published');
+    }
 }

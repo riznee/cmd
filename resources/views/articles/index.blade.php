@@ -31,6 +31,7 @@
 										<th> Catergory</th>
 										<th> Page</th>
 										<th> Slug</th>
+										<th> Published</th>
 										<th>Created At</th>
 										<th>Actions</th>
 									</tr>
@@ -43,21 +44,28 @@
 												<td>{{$row->descrtiption}}</td>
 												<td>{{$row->category_id}}</td>
 												<td>{{$row->page_id}}</td>
-												<td>{{$row->Slug}}</td>
+												<td>{{$row->slug}}</td>
+												<td>{{$row->published_at}}</td>
 												<td>{{$row->created_at}}</td>
 												<td>
 													<div class='columns'>
 														<div class='column'>
-															<a class=" button is-rounded is-link is-small" href="{{route('articles.show',$row['id'])}}">
+															<a class=" button is-inverted is-link is-small" href="{{route('articles.show',$row['id'])}}">
 																<i class="fas fa-eye" aria-hidden="true"></i>
 																	&nbsp; View
-															</a>  
+															</a>
+														</div>
+														<div class="column">
+															<a class=" button is-inverted is-link is-small" href="{{route('articles.publish',$row['id'])}}">
+																<i class="fas fa-eye" aria-hidden="true"></i>
+																	&nbsp; Publish
+															</a>   
 														</div>
 														<div class='column'>
 															<form  accept-charset="UTF-8" method="post" action="{{route('articles.destroy',$row['id'])}}">
 															@csrf
 															{{ method_field('DELETE') }}{{ method_field('DELETE') }}
-															<button type="submit" class="button is-rounded is-link is-small">
+															<button type="submit" class="button is-inverted is-link is-small">
 																<i class="fas fa-times" aria-hidden="true"></i>
 																&nbsp;	Delete
 															</button>

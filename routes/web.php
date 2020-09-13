@@ -17,6 +17,7 @@ Route::group(['middleware' => ['auth']], function () {
     
     Route::get('admin', 'AdminController@index')->name('admin');
     Route::resource('articles', 'ArticleController');
+    Route::get('articles/{id}/publsih', 'ArticleController@publish')->name('articles.publish');
     Route::resource('settings', 'SettingController');
     Route::resource('pages', 'PageController');
     Route::resource('categories', 'CategoryController');

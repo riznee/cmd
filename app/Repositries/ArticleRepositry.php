@@ -25,8 +25,21 @@
 
     public function latesArtile()
     {
-        $latest =$this->model->latest()->where('published_at', '=','1')->first();
+        $latest =$this->model->latest()
+        ->where('published_at', '=','1')
+        ->with('page')
+        ->with('category')
+        ->first();
         return $latest;
+    }
+
+    public function published($id)
+    {
+        $article=$this->model->findOrFail($id);
+        $article->update(array(
+            'published_at' => 1
+        ));
+        return $article;
     }
 
     

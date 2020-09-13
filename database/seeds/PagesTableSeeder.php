@@ -12,23 +12,29 @@ class PagesTableSeeder extends Seeder
     public function run()
     {
         DB::table('pages')->insert([
-            'slug' => 'team',
-            'title' => 'Team',
+            'slug' => 'news',
+            'title' => 'News',
             'description' => ' Provides information about the company',
-        ]);
-
-        DB::table('pages')->insert([
-            'slug' => 'contact',
-            'title' => 'Contact Us',
-            'description' => ' Provides information on contactus information and collect user information',
         ]);
 
         DB::table('pages')->insert([
             'slug' => 'services',
             'title' => 'Services',
+            'description' => ' Provides information on contactus information and collect user information',
+        ]);
+
+        DB::table('pages')->insert([
+            'slug' => 'products',
+            'title' => 'Products',
             'description' => 'Provide all the service information ',
         ]);
 
+        DB::table('pages')->insert([
+            'slug' => 'about',
+            'title' => 'About Us',
+            'description' => 'Provide information of the finish products and projects ',
+        ]);
+        
         DB::table('pages')->insert([
             'slug' => 'protfolio',
             'title' => 'Protfolio',

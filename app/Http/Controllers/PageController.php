@@ -18,7 +18,6 @@ class PageController extends Controller
     public function index()
     {
         $pages = $this->repository->getPages();
-        // dd($pages);
         return view('pages.index', compact('pages'));
     }
     
