@@ -33,9 +33,4 @@ class Article extends Model
         return $this->belongsTo(Page::class);
     }
     
-  
-    // public function getLinkAttribute()
-    // {
-    //     return route('article', ['articleSlug' => $this->slug]);
-    // }
 }

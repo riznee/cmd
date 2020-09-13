@@ -9,7 +9,10 @@
 			<div class="hero is-large">
 				<div class="hero-body">
 					<div class="container">
-						
+						@foreach($articles as $article)
+						{{$article->title}}
+						{{!!$article->content!!}}
+						@endforeach
 					</div>
 				</div>
 			</div>
