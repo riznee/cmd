@@ -47,7 +47,10 @@ class LoginController extends Controller
         {
             return redirect()->route('admin');
         }
-        return redirect()->route('home');
+        else
+        {
+            return redirect()->route('home')->with('info', 'login failed');;
+        }
     }
 
     public function logout(Request $request)

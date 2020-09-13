@@ -4,6 +4,7 @@
 	<div class="wrapper">
 		<head>
 			@include('partials.admiNav')
+			@include('partials.flash-message')
 		</head>
 		<section class="columns">
 			<div class="column is-one-fifth">

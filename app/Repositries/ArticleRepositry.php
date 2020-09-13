@@ -5,14 +5,14 @@
  use App\Models\Article;
 
  use App\Repositries\BaseRepositry;
- use App\Validators\ArticleValidator;
+
 
  class ArticleRepositry extends BaseRepositry {
 
 
-    public function __construct(Article $article ,ArticleValidator $validator)
+    public function __construct(Article $article)
     {
-        parent::__construct($article, $validator);
+        parent::__construct($article);
     }
 
     public function getArticles()

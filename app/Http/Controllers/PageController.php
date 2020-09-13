@@ -2,71 +2,87 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Page;
-// use App\Http\Requests\PageRequest;
+use App\Repositries\PageRepositry;
+use App\Http\Requests\Page\StorePageRequest;
+use App\Http\Requests\Page\UpdatePageRequest;
 use Illuminate\Http\Request;
-use Illuminate\Pagination\Paginator;
 
 
 class PageController extends Controller
 {
     public $perpage = 5;
 
+    public function __construct(PageRepositry $repository)
+    {
+        $this->repository = $repository;
+    }
+
     public function index()
     {
-        $pages = Page::latest()->paginate($this->perpage);
-        // $paginator = new Paginator($pages->items(), $this->perpage, $pages->currentPage());
+        $pages = $this->repository->getall();
         return view('pages.index', compact('pages'))->with('i', (request()->input('page', 1) - 1) * $this->perpage);
     }
     
     public function create()
     {
-        $pages = Page::all();
+        $pages = $this->repository->pageList();
         return view('pages.create', compact('pages'));
     }
     
-    public function store(Request $request)
+    public function store(StorePageRequest $request)
     {
-        $this->validate($request,$this->validationCreate());
-        Page::create($request->all());
-        return redirect()->route('pages.index')->with('Successful', 'Page is created');
+       
+        try{
+            $data = $this->repository->store($request);
+            return redirect()->route('pages.index')->with('success', $data->title.' Page is created');
+        }
+        catch (\Exception $exeption)
+        {
+            return redirect()->route('pages.create')
+                ->withError($exeption->getMessage())
+                ->withInput();
+        }
     }
 
     public function show($id)
     {
-        $page = Page::find($id);
-        $pages = Page::all();
-        return view('pages.edit',compact('page', 'pages'));   
+        $page =  $this->repository->getItem($id);
+        $pages = $this->repository->pageList();
+        return view('pages.create',compact('page', 'pages'));   
     }
     
-    public function update(Request $request, $id)
+    public function update(UpdatePageRequest $request, $id)
     {
-        $this->validate($request,$this->validationCreate());
-        Page::find($id)->update($request->all());
-        return redirect()->route('pages.index')->with('Successful', 'Updated Successfull');
+        $page =  $this->repository->findOrFail($id);
+        try
+        {
+            $this->repository->updateUniquefeild($page,$request);
+            return redirect()->route('pages.index')->with('success', 'Updated Successfull');
+        }
+        catch (\Exception $exeption)
+        {
+            return redirect()->route('pages.create')
+                ->withError($exeption->getMessage())
+                ->withInput();
+        }
 
     }
     
     public function destroy($id)
     {
-        Page::find($id)->delete();
-        return redirect()->route('pages.index')->with('success','Deleted');
+        try{
+            $this->repository->destroy($id);
+            return redirect()->route('pages.index')->with('success','Deleted');
+        }
+        catch (\Exception $exeption)
+        {
+            return redirect()->route('pages.index')
+                ->withError($exeption->getMessage())
+                ->withInput();
+        }
 
     }
     
-    protected function validationCreate()
-    {
-        return array ([
-
-            'slug'      => 'required|unique:posts|max:255',
-            'parent_id' => 'nullable|numeric',
-            'depth'     => 'nullable|numeric',
-            'title'     => 'required|max:255',
-            'description' => 'required|max255',
-            
-            ]);
-
-    }
 
     
 }

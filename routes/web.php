@@ -3,10 +3,8 @@
 // Application Routes
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/page/{slug}', 'HomeController@page')->name('page');
-Route::get('/about', 'HomeController@index')->name('about');
-Route::get('/service', 'HomeController@index')->name('services');
-Route::get('/portfolio', 'HomeController@index')->name('portfolio');
-Route::get('/contact', 'HomeController@index')->name('contact');
+
+
 // Application Routes
 // Route::get('incidents/{id}', 'HomeController@incidents')->name('incidents');
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');

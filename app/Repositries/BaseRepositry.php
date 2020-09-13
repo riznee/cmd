@@ -2,60 +2,62 @@
  
  namespace App\Repositries;
 
- use Validator;
+ use Illuminate\Foundation\Validation\ValidatesRequests;
 
  class BaseRepositry {
 
+    use ValidatesRequests;
     protected $model;
     protected $validations;
 
     public $perpage = 15;
 
-    public function __construct($model,$validations )
+    public function __construct($model)
     {
         $this->model= $model;
-        $this->validations = $validations;
         
     }
 
-
     public function getall()
     {
-        $data = $this->model->latest()->paginate($this->perpage);
-        return $data;
+        return $this->model->latest()->paginate($this->perpage);
     }
     
     public function store($request)
     {
-        $this->validate($request,$this->validatator($this->validations->createValidation));
-        $this->model->create($request->all());
-    
+        return  $this->model->create($request->all());  
     }
 
     public function getitem($id)
     {
-        $data =  $this->model->find($id);
-        return $data;
+        return $this->model->find($id);
     }
     
     public function update($request, $id)
     {
-        $this->validate($request,$this->validatator($this->validations->updateValidation));
-        $this->mode->find($id)->update($request->all());
-     
-
+       return $this->mode->find($id)->update($request->all());
     }
     
     public function destroy($id)
     {
-        $this->model->find($id)->delete();
+        return $this->model->find($id)->delete();
     }
-    
-    protected function validatator($validation)
-    {
-        return $validation;
 
+    public function findOrFail($id)
+    {
+        return $this->model->findWithoutFail($id);
     }
+
+    public function updateUniquefeild($data, $request)
+    {
+        $data = $data->update($request->all());
+        return $data;
+    }
+
+    
+    
+    
+    
     
  }
 

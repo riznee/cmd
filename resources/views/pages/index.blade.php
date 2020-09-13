@@ -2,7 +2,7 @@
 @section('content')
 <div class="container is-fluid">
 	<div class="wrapper">
-		<head>
+		<head class="p-6">
 			@include('partials.admiNav')
 		</head>
 		<section class="columns">
@@ -16,7 +16,7 @@
 						  <p class="card-header-title">
 							Pages
 						  </p>
-						  <a href="{{route('articles.create')}}" class="card-header-icon" aria-label="more options">
+						  <a href="{{route('pages.create')}}" class="card-header-icon" aria-label="more options">
 							<span class="icon">
 							  <i class="fas fa-plus" aria-hidden="true"></i>
 							</span>
@@ -26,77 +26,86 @@
 							<table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
 								<thead>
 									<tr>
-										<th>Title</th>
-										<th>Descrtiption</th>
-										<th> Catergory</th>
-										<th> Page</th>
-										<th> Slug</th>
+										<th>Slug</th>
+										<th>Parent_id</th>
+										<th> Depth</th>
+										<th> Title</th>
+										<th> Description</th>
 										<th>Created At</th>
 										<th>Actions</th>
 									</tr>
 								</thead>
 								<tbody>
-									@if(!empty($articles))
-										@foreach($articles as $row)			
+									@if(!empty($pages))
+										@foreach($pages as $row)			
 											<tr>
+												<td>{{$row->slug}}</td>
+												<td>{{$row->parent_id}}</td>
+												<td>{{$row->Depth}}</td>
 												<td>{{$row->title}}</td>
-												<td>{{$row->descrtiption}}</td>
-												<td>{{$row->category_id}}</td>
-												<td>{{$row->page_id}}</td>
-												<td>{{$row->Slug}}</td>
+												<td>{{$row->description}}</td>
 												<td>{{$row->created_at}}</td>
 												<td>
 													<div class='columns'>
 														<div class='column'>
-															<a class="button  is-link" href="{{route('artiles.show',$row['id'])}}">View</a> 
+															<a class=" button is-rounded is-link is-small" href="{{route('pages.show',$row['id'])}}">
+																<i class="fas fa-eye" aria-hidden="true"></i>
+																	&nbsp; View
+															</a> 
+
 														</div>
 														<div class='column'>
-															<form  accept-charset="UTF-8" method="post" action="{{route('articles.destroy',$row['id'])}}">
+															<form  accept-charset="UTF-8" method="post" action="{{route('pages.destroy',$row['id'])}}">
 															@csrf
 															{{ method_field('DELETE') }}{{ method_field('DELETE') }}
-															<button type="submit" class="button  is-link">Delete</button>
+																<button type="submit" class="button is-rounded is-link is-small">
+																	<i class="fas fa-times" aria-hidden="true"></i>
+																	&nbsp;	Delete
+																</button>
 															</form>
 														</div>
 													</div>
 												</td>
 											</tr>
-										@endforeach	
+										@endforeach
+									@else
+											<tr> No Data</tr>
 									@endif								
 								</tbody>
 							</table>
-							@if ($articles->hasPages())
+							@if ($pages->hasPages())
 							<nav class="pagination is-centered is-small">
-								@if ($articles->onFirstPage())
+								@if ($pages->onFirstPage())
 									<a class="pagination-previous" disabled>Previous</a>
 								@else
-									<a href="{{ $articles->previousPageUrl() }}" rel="prev" class="pagination-previous">Previous</a>
+									<a href="{{ $pages->previousPageUrl() }}" rel="prev" class="pagination-previous">Previous</a>
 								@endif
-								@if ($articles->hasMorePages())
-									<a class="pagination-next" href="{{ $articles->nextPageUrl() }}" rel="next">Next</a>
+								@if ($pages->hasMorePages())
+									<a class="pagination-next" href="{{ $pages->nextPageUrl() }}" rel="next">Next</a>
 								@else
 									<a class="pagination-next" disabled>Next page</a>
 								@endif
 								
 								<ul class="pagination-list" role="navigation" aria-label="pagination">
-										@if($articles->lastPage() >= 1 && $articles->currentPage() <=2 )
+										@if($pages->lastPage() >= 1 && $pages->currentPage() <=2 )
 											<?php 
 												$j=1;
-												$page = $articles->lastPage();
+												$page = $pages->lastPage();
 											?>
 		
 										@else
 											<?php
-											 $j=$articles->currentPage()-5 ;
+											 $j=$pages->currentPage()-5 ;
 											 $page = currentPage()+5;
 											?>
 										@endif
 										@for($i=$j; $i <=  ($page); $i++)
 											<li>
-											<a class="pagination-link" href="{{ $articles->url($i)}}" aria-label="Goto page 1">{{$i}}</a>
+											<a class="pagination-link" href="{{ $pages->url($i)}}" aria-label="Goto page 1">{{$i}}</a>
 											</li>
 										@endfor
 										.....
-										<a class="pagination-link" href="{{ $articles->url($articles->lastPage())}}" aria-label="Goto page Last Page">{{$articles->lastPage()}}</a>
+										<a class="pagination-link" href="{{ $pages->url($pages->lastPage())}}" aria-label="Goto page Last Page">{{$pages->lastPage()}}</a>
 											</li>
 								</ul>
 			

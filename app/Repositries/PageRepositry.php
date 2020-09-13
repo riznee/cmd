@@ -3,13 +3,14 @@
  namespace App\Repositries;
 
  use App\Models\Page;
- use App\Validators\PageValidator;
+
 
  class PageRepositry extends BaseRepositry {
 
-    public function __construct(Page $page,PageValidator $pagevalidator )
+    public function __construct(Page $page )
     {
-        parent::__construct($page, $pagevalidator );
+        parent::__construct($page );
+        $this->perpage = 5;
     }
 
     public function getPages()
@@ -20,7 +21,13 @@
 
     public function latest()
     {
-        $pages = Page::latest()->paginate($this->perpage);
+        $pages = $this->model->latest()->paginate($this->perpage);
+        return $pages;
+    }
+
+    public function pageList()
+    {
+        $pages = $this->model->all();
         return $pages;
     }
  }
