@@ -93,4 +93,10 @@ class ArticleController extends Controller
         $this->repository->published($id);
         return redirect()->route('articles.index')->with('success','Ariticle is Published');
     }
+
+    public function unPublish($id)
+    {
+        $this->repository->unPublish($id);
+        return redirect()->route('articles.index')->with('success','Ariticle is Un-Published');
+    }
 }

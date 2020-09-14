@@ -23,7 +23,7 @@
 						  </a>
 						</header>
 						<div class="card-content">
-							<table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+							<table class="table  is-striped is-narrow is-hoverable is-fullwidth" style="justify-content: center">
 								<thead>
 									<tr>
 										<th>Title</th>
@@ -31,8 +31,6 @@
 										<th> Catergory</th>
 										<th> Page</th>
 										<th> Slug</th>
-										<th> Published</th>
-										<th>Created At</th>
 										<th>Actions</th>
 									</tr>
 								</thead>
@@ -45,8 +43,6 @@
 												<td>{{$row->category_id}}</td>
 												<td>{{$row->page_id}}</td>
 												<td>{{$row->slug}}</td>
-												<td>{{$row->published_at}}</td>
-												<td>{{$row->created_at}}</td>
 												<td>
 													<div class='columns'>
 														<div class='column'>
@@ -56,10 +52,17 @@
 															</a>
 														</div>
 														<div class="column">
-															<a class=" button is-inverted is-link is-small" href="{{route('articles.publish',$row['id'])}}">
-																<i class="fas fa-eye" aria-hidden="true"></i>
-																	&nbsp; Publish
-															</a>   
+															@if($row->published_at == 1)
+																<a class=" button is-inverted is-link is-small" href="{{route('articles.unpublish',$row['id'])}}">
+																	<i class="fas fa-eye" aria-hidden="true"></i>
+																		&nbsp; Unpublish
+																</a>
+															@else
+																<a class=" button is-inverted is-link is-small" href="{{route('articles.publish',$row['id'])}}">
+																	<i class="fas fa-eye" aria-hidden="true"></i>
+																		&nbsp; Publish
+																</a> 
+															@endif  
 														</div>
 														<div class='column'>
 															<form  accept-charset="UTF-8" method="post" action="{{route('articles.destroy',$row['id'])}}">

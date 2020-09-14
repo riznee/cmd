@@ -7,11 +7,13 @@
 		</head>
 		<section class="section">
 			<div class="container">
-				@if(!empty($articles))
-					@foreach($articles as $article)
-						<h1>{{$article->title}}</h1>
-						{!!$article->content!!}
-					@endforeach
+				@if(!empty($article))
+					<h1 class="{{$article->category->description}}">{{$article->title}}</h1>
+					<span class="tag {{$article->category->color}}"> Type:  &nbsp; {{$article->category->title}} Updated:  &nbsp; {{$article->category->created_at}}</span>
+					<nav class="breadcrumb" aria-label="breadcrumbs">
+						<li><a href="#">Bulma</a></li>
+					</nav>
+					{!!$article->content!!}
 				@endif
 			</div>
 		</section>

@@ -23,7 +23,7 @@
 						  </a>
 						</header>
 						<div class="card-content">
-							<table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+							<table class="table  is-striped is-narrow is-hoverable is-fullwidth" style="justify-content: center">
 								<thead>
 									<tr>
 										<th>Slug</th>

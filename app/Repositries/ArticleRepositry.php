@@ -42,6 +42,15 @@
         return $article;
     }
 
+    public function unPublish($id)
+    {
+        $article=$this->model->findOrFail($id);
+        $article->update(array(
+            'published_at' => 0
+        ));
+        return $article;
+    }
+
     
  
     

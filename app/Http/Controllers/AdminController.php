@@ -2,14 +2,13 @@
  
  namespace App\Http\Controllers;
 
-use App\Operations\Operation;
 
  class AdminController extends Controller
  {
     
-   public function __construct(Operation $operation)
+   public function __construct()
    {
-      $this->operation = $operation;
+      
    }
 
    public function index()
