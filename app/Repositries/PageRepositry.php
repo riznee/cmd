@@ -43,4 +43,14 @@
         ->paginate();
         return $pages;
     }
+
+    public function slugPages($slug)
+    {
+        
+        $page = $this->model
+            ->with('children')
+            ->where('slug','=',$slug)
+            ->first();
+        return $page;
+    }
  }

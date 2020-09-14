@@ -51,6 +51,15 @@
         return $article;
     }
 
+    public function getPageArtiles($page_id)
+    {
+        $articles = $this->model
+        ->where('page_id', $page_id)
+        ->where('published_at', '=','1')
+        ->get();
+        return $articles;
+    }
+
     
  
     

@@ -15,14 +15,6 @@ class Page extends Model
         'description',
         ];
  
-    public function sluggable()
-    {
-        return [
-            'slug' => [
-                'source' => 'title'
-            ]
-        ];
-    }
 
     public function articles()
     {
@@ -38,8 +30,4 @@ class Page extends Model
         return $this->hasMany(Page::class, 'parent_id')->orderBy('depth','asc');
     }
 
-    // public function getLinkAttribute()
-    // {
-    //     return route('page', ['pageSlug' => $this->slug]);
-    // }
 }

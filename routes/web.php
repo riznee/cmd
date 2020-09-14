@@ -4,6 +4,7 @@
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/page/{slug}', 'HomeController@page')->name('page');
 Route::get('/contactus', 'HomeController@contact')->name('contactus');
+Route::post('/contactus/send', 'HomeController@contactSend')->name('contactus.send');
 
 
 // Application Routes

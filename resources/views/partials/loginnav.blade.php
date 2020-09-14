@@ -3,7 +3,7 @@
           <a class="navbar-item" href="{{route('home')}}">
           {{--  <img src="{{URL::asset('img/favicon.png') }}" width="28" height="100">  --}}
           <span class="space"> &nbsp;&nbsp;</span>
-          <h1 class="subtitle is-3 ">Enol</h1>
+          <h1 class="subtitle is-3 ">{{ config('app.name') }}</h1>
           </a>
         <div class="navbar-burger burger" data-target="navbar-enol
 ">
