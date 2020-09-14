@@ -1,6 +1,7 @@
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+<p align="center"><img src="https://bulma.io/images/bulma-logo.png"></p>
 
-# Enol CMS
+# Simple Single User Content Managment System (SSUCMS)
 
 * composer install
 * run **php artisan key:generate**
@@ -10,7 +11,9 @@
 
 # Permissions
 * The public visibility translates to 0755 for directories and 0644 for files.
-* You can modify the permissions mappings in your filesystems configuration file:
+* You can modify the permissions mappings in your filesystems configuration file.
+
+# Intoduction
 
 
 
