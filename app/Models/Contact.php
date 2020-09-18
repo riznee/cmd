@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Category;
 use App\Models\Page;
 
-class Article extends Model
+class Contact extends Model
 {
    
     protected $fillable = [
