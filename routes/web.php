@@ -30,3 +30,10 @@ Route::group(['middleware' => ['auth']], function () {
 // Route::get('/admin/{params?}', ['as' => 'admin', 'uses' => 'DasehBoardController@index',
 // 'middleware' => ['auth',]]);
 // 
+// Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');
+
+// Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');

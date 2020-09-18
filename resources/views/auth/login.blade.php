@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
 <div class="container is-fluid ">
-	<div class="wrapper">
-		<head>
-			@include('partials.loginnav')
+    <div class="wrapper">
+        <head>
+            @include('partials.loginnav')
     </head>
 
     <section class="section">
@@ -52,10 +52,10 @@
             </div>
           </div>             
         </div>
-			</div>
-		</section>
-	
-	</div>
+            </div>
+        </section>
+    
+    </div>
 </div>
 @stop
 
