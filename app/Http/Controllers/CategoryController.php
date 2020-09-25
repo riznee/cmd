@@ -11,6 +11,7 @@ class CategoryController extends Controller
 {
 
     public $perpage = 15;
+    
 
     public function __construct(CategoryRepositry $repository)
     {

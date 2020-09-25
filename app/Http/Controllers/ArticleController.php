@@ -13,6 +13,8 @@ class ArticleController extends Controller
 {
     public $perpage = 15;
 
+    
+
     public function __construct(ArticleRepositry $repository, CategoryRepositry $categoryRepositry, PageRepositry $pageRepositry )
     {
         $this->repository = $repository;
