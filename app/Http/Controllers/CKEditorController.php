@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
  
 class CKEditorController extends Controller
 {
+    public $permissonName='upload';
+
     public function upload(Request $request)
     {
         if($request->hasFile('upload')) {

@@ -11,11 +11,13 @@ class CategoryController extends Controller
 {
 
     public $perpage = 15;
+    public $permissonName='categories';
     
 
     public function __construct(CategoryRepositry $repository)
     {
         $this->repository = $repository;
+        $this->setPermission($this->permissonName);
     }
 
     public function index()

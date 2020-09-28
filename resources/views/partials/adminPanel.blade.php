@@ -25,9 +25,13 @@
         &nbsp; Settings
     </a>
 
-    <a class="panel-block" href="{{route('user.index')}}">
+    <a class="panel-block" href="{{route('users.index')}}">
         {{--  <i class="fas fa-book" aria-hidden="true"></i>  --}}
         &nbsp; User Managment
+    </a>
+    <a class="panel-block" href="{{route('roles.index')}}">
+        {{--  <i class="fas fa-book" aria-hidden="true"></i>  --}}
+        &nbsp; Roles Managment
     </a>
 
 

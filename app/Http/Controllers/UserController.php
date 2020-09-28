@@ -15,11 +15,14 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public $permissonName='users';
 
     public function __construct(UserRepositry $repository)
     {
         $this->repository = $repository;
-    } 
+        $this->setPermission($this->permissonName);
+     } 
+
     public function index(Request $request)
     {
         $data = User::orderBy('id', 'DESC')->paginate(5);
@@ -120,5 +123,15 @@ class UserController extends Controller
         User::find($id)->delete();
         return redirect()->route('users.index')
             ->with('success', 'User deleted successfully');
+    }
+
+    public function register()
+    {
+        return redirect()->route('auth.register');
+    }
+
+    public function registerRequest()
+    {
+        dd('test');
     }
 }

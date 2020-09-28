@@ -11,4 +11,13 @@ use Illuminate\Support\Facades\Validator;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    public function setPermission($permission)
+    {
+        $this->middleware('permission:'.$permission.'-list|'.$permission.'-create|'.$permission.'-edit|'.$permission.'-delete', ['only' => ['index','show']]);
+        $this->middleware('permission:'.$permission.'-create', ['only' => ['create','store']]);
+        $this->middleware('permission:'.$permission.'-edit', ['only' => ['edit','update']]);
+        $this->middleware('permission:'.$permission.'-delete', ['only' => ['destroy']]);
+    }
+
 }
