@@ -30,15 +30,6 @@ class User extends Authenticatable
         'logged_out_at'
     ];
  
-    // public function setPasswordAttribute($password)
-    // {
-    //     $this->attributes['password'] = HasApiToken::make($password);
-    // }
- 
-    // public function getPictureAttribute($picture)
-    // {
-    //     return !empty($picture) ? asset($picture) : 'https://ssl.gstatic.com/accounts/ui/avatar_2x.png';
-    // }
   
     public function sendPasswordResetNotification($token)
     {

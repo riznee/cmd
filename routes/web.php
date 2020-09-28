@@ -8,7 +8,6 @@ Route::post('/contactus/send', 'HomeController@contactSend')->name('contactus.se
 
 
 // Application Routes
-// Route::get('incidents/{id}', 'HomeController@incidents')->name('incidents');
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
@@ -17,23 +16,14 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::group(['middleware' => ['auth']], function () {
     
     Route::get('admin', 'AdminController@index')->name('admin');
-    Route::resource('articles', 'ArticleController');
     Route::get('articles/{id}/publsih', 'ArticleController@publish')->name('articles.publish');
     Route::get('articles/{id}/unpublsih', 'ArticleController@unPublish')->name('articles.unpublish');
+    Route::post('ckeditor/image_upload', 'CKEditorController@upload')->name('upload');
+
+    Route::resource('articles', 'ArticleController');
     Route::resource('settings', 'SettingController');
     Route::resource('pages', 'PageController');
     Route::resource('categories', 'CategoryController');
-    Route::post('ckeditor/image_upload', 'CKEditorController@upload')->name('upload');
+    Route::resource('users', 'UserController');
   
 });
-
-// Route::get('/admin/{params?}', ['as' => 'admin', 'uses' => 'DasehBoardController@index',
-// 'middleware' => ['auth',]]);
-// 
-// Auth::routes();
-
-// Route::get('/home', 'HomeController@index')->name('home');
-
-// Auth::routes();
-
-// Route::get('/home', 'HomeController@index')->name('home');

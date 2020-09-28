@@ -25,5 +25,10 @@
         &nbsp; Settings
     </a>
 
+    <a class="panel-block" href="{{route('user.index')}}">
+        {{--  <i class="fas fa-book" aria-hidden="true"></i>  --}}
+        &nbsp; User Managment
+    </a>
+
 
 </article>

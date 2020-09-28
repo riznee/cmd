@@ -48,6 +48,13 @@ class PermissionTableSeeder extends Seeder
             'settings-destroy',
             'settings-update',
             'settings-edit',
+            'users-index',      
+            'users-store',        
+            'users-create',      
+            'users-show',     
+            'users-update',      
+            'users-destroy',     
+            'users-edit',
             
         ];
         foreach ($permissions as $permission) {

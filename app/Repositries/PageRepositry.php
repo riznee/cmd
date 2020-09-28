@@ -46,7 +46,6 @@
 
     public function slugPages($slug)
     {
-        
         $page = $this->model
             ->with('children')
             ->where('slug','=',$slug)
