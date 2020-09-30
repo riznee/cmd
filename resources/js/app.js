@@ -3,11 +3,7 @@ import Vuetify from 'vuetify';
 import 'material-design-icons-iconfont/dist/material-design-icons.css';
 import 'vuetify/dist/vuetify.min.css';
 import '@mdi/font/css/materialdesignicons.css';
-
-import './components';
-
-
-import App from './views/App';
+import App from './App';
 import Routes from './route.js';
 
 const vuetifyOptions = {
