@@ -40,7 +40,7 @@
         ->with('children')
         ->whereNull('parent_id')
         ->orderBy('depth', 'asc')
-        ->paginate();
+        ->get();
         return $pages;
     }
 

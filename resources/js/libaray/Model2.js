@@ -2,7 +2,7 @@ import { http } from '../plugins/axios.js';
 
 export default class Model {
 
-    constructor(url, id, includes) {
+    constructor(url, id, params) {
         this.http = http;
         this.pendingRequest = null;
         this.loading = false;

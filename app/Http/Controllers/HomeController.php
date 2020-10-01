@@ -23,9 +23,15 @@ class HomeController extends Controller
 
     public function index()
     {
-        $pages = $this->pageRepositry->homeMenuPages();
         $article = $this->articleRepository->latesArtile();          
-        return view('home.index' ,compact ('pages', 'article'));
+        return $article;
+    }
+    
+    public function homePagePages()
+    {
+        $pages = $this->pageRepositry->homeMenuPages();
+        return $pages;
+
     }
 
     public function page($slug)

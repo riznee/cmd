@@ -3,8 +3,16 @@ import Vuetify from 'vuetify';
 import 'material-design-icons-iconfont/dist/material-design-icons.css';
 import 'vuetify/dist/vuetify.min.css';
 import '@mdi/font/css/materialdesignicons.css';
-import App from './App';
+
+import App from './view/App';
 import Routes from './route.js';
+
+import SiteLayout from './layouts/SiteLayout.vue';
+import AdminLayout from './layouts/AdminLayout.vue';
+
+
+Vue.component("site-layout", SiteLayout);
+Vue.component("admin-layout", AdminLayout);
 
 const vuetifyOptions = {
                 iconfont: 'mdi',
