@@ -18,7 +18,7 @@ use Illuminate\Http\Request;
 // });
 
 Route::get('home', 'HomeController@index')->name('home');
-// Route::get('contactus', 'HomeController@contact')->name('contactus');
+Route::get('contactus', 'HomeController@contact')->name('contactus');
 
 Route::get('getpages', 'HomeController@homePagePages')->name('homepagespage');
 

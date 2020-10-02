@@ -20,4 +20,5 @@ class Controller extends BaseController
         $this->middleware('permission:'.$permission.'-delete', ['only' => ['destroy']]);
     }
 
+
 }

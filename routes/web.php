@@ -1,6 +1,6 @@
 <?php
 
-// // Application Routes
+// Application Routes
 // Route::get('/', 'HomeController@index')->name('home');
 // Route::get('/page/{slug}', 'HomeController@page')->name('page');
 // Route::get('/contactus', 'HomeController@contact')->name('contactus');

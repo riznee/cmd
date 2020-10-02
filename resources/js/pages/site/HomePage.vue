@@ -28,7 +28,7 @@ export default {
         async fetch ()
         {
             const url='home';
-            this.pageData = await this.resource.fetch();
+            this.pageData = await this.resource.fetch(url);
         }
     }
 

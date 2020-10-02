@@ -40,24 +40,31 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+
+
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials))
         {
-            return redirect()->route('admin');
+            $user = Auth::user();
+            return response()->json($user , 200);
         }
         else
         {
-            return redirect()->route('home')->with('info', 'username or password is incorrect tryagain');;
+            $data = Null;
+            return response()->json($data ,403)
+            // return redirect()->route('home')->with('info', 'username or password is incorrect tryagain');
         }
     }
 
     public function logout(Request $request)
     {
         Auth::logout();
-        return redirect()->route('home');
+        $data = Null;
+        return response()->json($data ,200)
+        // return redirect()->route('home');
     }
 
 }
