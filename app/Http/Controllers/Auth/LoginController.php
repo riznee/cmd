@@ -48,23 +48,24 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials))
         {
-            $user = Auth::user();
-            return response()->json($user , 200);
+            // $user = Auth::user();
+            // return response()->json($user , 200);
+            return redirect()->route('admin');
         }
         else
         {
-            $data = Null;
-            return response()->json($data ,403)
-            // return redirect()->route('home')->with('info', 'username or password is incorrect tryagain');
+            // $data = Null;
+            // return response()->json($data ,403);
+            return redirect()->route('home')->with('info', 'username or password is incorrect tryagain');
         }
     }
 
     public function logout(Request $request)
     {
-        Auth::logout();
-        $data = Null;
-        return response()->json($data ,200)
-        // return redirect()->route('home');
+        // Auth::logout();
+        // $data = Null;
+        // return response()->json($data ,200);
+        return redirect()->route('/');
     }
 
 }

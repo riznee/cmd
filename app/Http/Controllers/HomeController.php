@@ -23,12 +23,12 @@ class HomeController extends Controller
 
     public function index()
     {
-        // $pages = $this->pageRepositry->homeMenuPages();
-        // $article = $this->articleRepository->latesArtile();          
-        // return view('home.index', compact('article','pages'));
+        $pages = $this->pageRepositry->homeMenuPages();
+        $article = $this->articleRepository->latesArtile();          
+        return view('home.index', compact('article','pages'));
 
-        $article = $this->articleRepository->latesArtile();         
-        return $article; 
+        // $article = $this->articleRepository->latesArtile();         
+        // return $article; 
    
     }
     
