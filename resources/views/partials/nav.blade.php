@@ -28,11 +28,7 @@
                   @endif
               </p>
               @endforeach
-              <p class="control">
-                <a class="navbar-item" href="{{route('contactus')}}">
-                 Contact Us
-                </a>
-              </p>
+              
             </div>
           </div>
         </div>

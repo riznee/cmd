@@ -35,6 +35,7 @@
   </nav>
 </div>
 @include('partials.flash-message')
-<br/>
+<br>
+
 
 

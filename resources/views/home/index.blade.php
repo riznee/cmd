@@ -62,36 +62,38 @@
 		  <a class="button is-primary" href=""> Live Chat </a>
 		</div>
 		<div class="column is-6">
-		  <div class="field">
-			<label class="label">Name</label>
-			<div class="control">
-			  <input class="input is-medium" type="text" placeholder="Ahmed Mohamed">
-			</div>
-		  </div>
-		  <br>
+			<form method="post" action="{{route('contactus.send')}}">
+				{{ csrf_field() }}		
+				<div class="field">
+					<label class="label">Name</label>
+					<div class="control">
+					<input class="input is-medium" type="text" placeholder="Ahmed Mohamed">
+					</div>
+				</div>
+				<br>
 
-		  <div class="field">
-			<label class="label">Email</label>
-			<div class="control">
-			  <input class="input is-medium" type="email" placeholder="Ahmed@enol.mv">
-			</div>
-		  </div>
-		  <br>
-		  
-		  <div class="field">
-			<label class="label">Message</label>
-			<div class="control">
-			  <textarea class="textarea is-medium" placeholder="your inquery"></textarea>
-			</div>
-		  </div>
-		  <br>
+				<div class="field">
+					<label class="label">Email</label>
+					<div class="control">
+					<input class="input is-medium" type="email" placeholder="Ahmed@enol.mv">
+					</div>
+				</div>
+				<br>
+				
+				<div class="field">
+					<label class="label">Message</label>
+					<div class="control">
+					<textarea class="textarea is-medium" placeholder="your inquery"></textarea>
+					</div>
+				</div>
+				<br>
 
-		  <div class="field is-grouped">
-			<div class="control">
-			  <button class="button is-white is-rounded is-outlined">Submit</button>
-			</div>
-
-		  </div>
+				<div class="field is-grouped">
+					<div class="control">
+					<button class="button is-white is-rounded is-outlined">Submit</button>
+					</div>
+				</div>
+			</form>
 		</div>
 	  </div>
 	</div>
