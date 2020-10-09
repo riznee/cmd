@@ -12,6 +12,11 @@ class PagesTableSeeder extends Seeder
     public function run()
     {
         DB::table('pages')->insert([
+            'slug' => 'home',
+            'title' => 'Home',
+            'description' => ' Provides information about the company',
+        ]);
+        DB::table('pages')->insert([
             'slug' => 'news',
             'title' => 'News',
             'description' => ' Provides information about the company',

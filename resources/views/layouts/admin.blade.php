@@ -9,7 +9,7 @@
         <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
     </head>
     <body>
+        
         @yield('content')
-       
     </body>
 </html>

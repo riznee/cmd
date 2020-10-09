@@ -3,7 +3,6 @@
 // Application Routes
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/page/{slug}', 'HomeController@page')->name('page');
-Route::get('/contactus', 'HomeController@contact')->name('contactus');
 Route::post('/contactus/send', 'HomeController@contactSend')->name('contactus.send');
 
 // Application Routes
@@ -27,6 +26,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('categories', 'CategoryController');
     Route::resource('users', 'UserController');
     Route::resource('roles', 'RoleController');
+    Route::resource('contacts', 'ContactController');
   
 });
 
