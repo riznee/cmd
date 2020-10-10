@@ -127,7 +127,7 @@ class UserController extends Controller
 
     public function register()
     {
-        return redirect()->route('auth.register');
+        return view('auth.signup');
     }
 
     public function registerRequest()

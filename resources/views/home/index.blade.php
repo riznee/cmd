@@ -55,19 +55,20 @@
 	<div class="container">
 	  <div class="columns">
 		<div class="column is-6">
-		  <h1 class="title is-1 ">Contactus</h1>
+		  <h1 class="title is-1 ">Contact Us</h1>
 		  <hr class="content-divider">
 		  <h2 class="subtitle">Please select topic below to relate you inquiry  if you dont find out what you need , fill the contact form. Our team is ready to answer all questions </h2>
-		  <a class="button is-primary" href=""> Inquire About your project </a>
-		  <a class="button is-primary" href=""> Live Chat </a>
+		  <a class="button is-primary" href="{{route('login')}}"> Inquire About your project </a>
+		  <a class="button is-primary" href="{{route('login')}}"> Live Chat </a>
 		</div>
 		<div class="column is-6">
+
 			<form method="post" action="{{route('contactus.send')}}">
 				{{ csrf_field() }}		
 				<div class="field">
 					<label class="label">Name</label>
 					<div class="control">
-					<input class="input is-medium" type="text" placeholder="Ahmed Mohamed">
+					<input class="input is-medium" name="name" type="text" placeholder="Ahmed Mohamed">
 					</div>
 				</div>
 				<br>
@@ -75,7 +76,7 @@
 				<div class="field">
 					<label class="label">Email</label>
 					<div class="control">
-					<input class="input is-medium" type="email" placeholder="Ahmed@enol.mv">
+					<input class="input is-medium" name="email" type="email" placeholder="Ahmed@enol.mv">
 					</div>
 				</div>
 				<br>
@@ -83,7 +84,7 @@
 				<div class="field">
 					<label class="label">Message</label>
 					<div class="control">
-					<textarea class="textarea is-medium" placeholder="your inquery"></textarea>
+					<textarea class="textarea is-medium" name="message" placeholder="your inquery"></textarea>
 					</div>
 				</div>
 				<br>
@@ -94,6 +95,7 @@
 					</div>
 				</div>
 			</form>
+
 		</div>
 	  </div>
 	</div>

@@ -9,7 +9,7 @@ Route::post('/contactus/send', 'HomeController@contactSend')->name('contactus.se
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
-Route::get('register', 'UserController@register')->name('register');
+Route::get('signup', 'UserController@register')->name('signup');
 Route::post('register/request', 'UserController@registerRequest')->name('register.request');
 
 Route::group(['middleware' => ['auth']], function () {

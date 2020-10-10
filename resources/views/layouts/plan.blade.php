@@ -10,7 +10,6 @@
         <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
       </head>
       <body>
-        @include('partials.nav')
         @include('partials.flash-message')
         @yield('content')
         @include('partials.footer')

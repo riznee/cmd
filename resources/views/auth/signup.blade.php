@@ -7,7 +7,7 @@
       <div class="column is-4 is-offset-4">
         <h3 class="title has-text-black">ENOL</h3>
         <hr class="login-hr">
-        <p class="subtitle has-text-black">Sign in </p>
+        <p class="subtitle has-text-black">Sign up </p>
 
             <form method="post" action="{{route('login.post')}}">
               {{ csrf_field() }}
@@ -33,17 +33,20 @@
                     </span>
                   </p> 
                 </div>
+                <div class="field">
+                  <p class="control has-icons-left">
+                    <input class="input" name="confirmpassword" type="password" placeholder="Password">
+                    <span class="icon is-small is-left">
+                      <i class="fas fa-lock"></i>
+                    </span>
+                  </p> 
+                </div>
               
               
                 <div class="field">
                   <p class="control">
                     <button class="button is-block is-info is-large is-fullwidth">Login <i class="fa fa-sign-in" aria-hidden="true"></i></button>
-                  </p>
-                  <p class="has-text-grey">
-                    <a href="{{route('signup')}}/">Sign Up</a> &nbsp;·&nbsp;
-                    <a href="../">Forgot Password</a> &nbsp;·&nbsp;
-                    <a href="../">Need Help?</a>
-                  </p>         
+                  </p>   
                 </div> 
               
             </div>

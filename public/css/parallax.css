@@ -1,4 +1,4 @@
-.va {
+/* .va {
   display: flex;
   align-items: center;
 }
@@ -11,7 +11,7 @@
 .cta {
   height: 1000px;
   border-top: 10px solid turquoise;
-}
+} */
 
 footer {
   color: white;
@@ -24,25 +24,6 @@ footer strong {
 
 footer a {
   color: turquoise;
-}
-
-.title {
-  color: white;
-  font-weight: 800;
-  font-size: 4rem;
-  font-family: 'Nunito Sans', sans-serif;
-  text-shadow: 1px 1px 1px #000, 3px 3px 5px rgb(0, 0, 3);
-}
-
-.subtitle {
-  color: white;
-  font-size: 1.2rem;
-  text-shadow: 1px 1px 1px #000, 3px 3px 5px rgb(0, 0, 3);
-}
-
-hr.content-divider {
-  max-width: 75px;
-  height: 5px;
 }
 
 #parallax-1 {
@@ -84,26 +65,9 @@ hr.content-divider {
   background: hotpink;
 }
 
-.label {
-  color: white;
+#loginImage {
+  width: 10%;
+  height: 10%;
+
 }
 
-input {
-  background: transparent !important;
-  border: 1px solid turquoise !important;
-  color: white !important;
-}
-
-input::placeholder {
-  color: white !important;
-}
-
-textarea {
-    background: transparent !important;
-    border: 1px solid turquoise !important;
-    color: white !important;
-  }
-
-  textarea::placeholder {
-    color: white !important;
-  }

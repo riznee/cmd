@@ -58,12 +58,12 @@ class HomeController extends Controller
     public function contactSend(StoreContactRequest $request)
     {
         try{
-            $data = $this->repository->store($request);
-            return redirect()->route('home.index')->with('success', $data->title.'Contact Request is send');
+            $data = $this->contactRepository->store($request);
+            return redirect()->route('home')->with('success', 'Contact Request is send');
         }
         catch (\Exception $exeption)
         {
-            return redirect()->route('home.index')
+            return redirect()->route('home')
                 ->withError($exeption->getMessage())
                 ->withInput();
         }
