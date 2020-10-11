@@ -8,9 +8,11 @@ Route::post('/contactus/send', 'HomeController@contactSend')->name('contactus.se
 // Application Routes
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
+
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+
 Route::get('signup', 'UserController@register')->name('signup');
-Route::post('register/request', 'UserController@registerRequest')->name('register.request');
+Route::post('signup', 'UserController@registerRequest')->name('signup.post');
 
 Route::group(['middleware' => ['auth']], function () {
     

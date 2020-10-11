@@ -26,6 +26,7 @@ class HomeController extends Controller
         $this->categoryRepositry =$categoryRepositry;
         $this->pageRepositry = $pageRepositry;
         $this->contactRepository = $contactRepository;
+        parent::__construct();
     }
 
     public function index()

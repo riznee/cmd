@@ -18,6 +18,7 @@ class CategoryController extends Controller
     {
         $this->repository = $repository;
         $this->setPermission($this->permissonName);
+        parent::__construct();
     }
 
     public function index()

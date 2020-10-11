@@ -22,6 +22,7 @@ class ArticleController extends Controller
         $this->categoryRepositry =$categoryRepositry;
         $this->pageRepositry = $pageRepositry;
         $this->setPermission($this->permissonName);
+        parent::__construct();
 
     }
 

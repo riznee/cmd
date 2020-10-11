@@ -62,10 +62,10 @@ class LoginController extends Controller
 
     public function logout(Request $request)
     {
-        // Auth::logout();
+        Auth::logout();
         // $data = Null;
         // return response()->json($data ,200);
-        return redirect()->route('/');
+        return redirect()->route('home');
     }
 
 }

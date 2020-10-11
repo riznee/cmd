@@ -19,9 +19,10 @@ class UsersTableSeeder extends Seeder
             'email' => 'm.rizny@test.com',
             'password' => bcrypt('password')
             ]);
-            $role = Role::create(['name' => 'SuperAdmin']);
-            $permissions = Permission::pluck('id','id')->all();
-            $role->syncPermissions($permissions);
-            $user->assignRole([$role->id]);
+        $role = Role::create(['name' => 'SuperAdmin']);
+        $permissions = Permission::pluck('id','id')->all();
+        $role->syncPermissions($permissions);
+        $user->assignRole([$role->id]);
+        $userRole = Role::create(['name' => 'user']);
     }
 }

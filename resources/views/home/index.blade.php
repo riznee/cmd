@@ -55,7 +55,7 @@
 	<div class="container">
 	  <div class="columns">
 		<div class="column is-6">
-		  <h1 class="title is-1 ">Contact Us</h1>
+		  <h1 class="title is-1 ">Contact us</h1>
 		  <hr class="content-divider">
 		  <h2 class="subtitle">Please select topic below to relate you inquiry  if you dont find out what you need , fill the contact form. Our team is ready to answer all questions </h2>
 		  <a class="button is-primary" href="{{route('login')}}"> Inquire About your project </a>

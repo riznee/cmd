@@ -16,12 +16,7 @@ class PagesTableSeeder extends Seeder
             'title' => 'Home',
             'description' => ' Provides information about the company',
         ]);
-        DB::table('pages')->insert([
-            'slug' => 'news',
-            'title' => 'News',
-            'description' => ' Provides information about the company',
-        ]);
-
+        
         DB::table('pages')->insert([
             'slug' => 'services',
             'title' => 'Services',
@@ -35,15 +30,17 @@ class PagesTableSeeder extends Seeder
         ]);
 
         DB::table('pages')->insert([
+            'slug' => 'news',
+            'title' => 'News',
+            'description' => ' Provides information about the company',
+        ]);
+
+        DB::table('pages')->insert([
             'slug' => 'about',
             'title' => 'About Us',
             'description' => 'Provide information of the finish products and projects ',
         ]);
         
-        DB::table('pages')->insert([
-            'slug' => 'protfolio',
-            'title' => 'Protfolio',
-            'description' => 'Provide information of the finish products and projects ',
-        ]);
+        
     }
 }

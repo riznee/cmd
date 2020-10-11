@@ -37,7 +37,7 @@
               
                 <div class="field">
                   <p class="control">
-                    <button class="button is-block is-info is-large is-fullwidth">Login <i class="fa fa-sign-in" aria-hidden="true"></i></button>
+                    <button class="button is-block is-info is-large is-fullwidth">Login <i class="fas fa-sign-in-alt" aria-hidden="true"></i></button>
                   </p>
                   <p class="has-text-grey">
                     <a href="{{route('signup')}}/">Sign Up</a> &nbsp;·&nbsp;
@@ -55,13 +55,3 @@
 </section>
 
 @stop
-
-
-
-{{--  <section  class="level">
-  <div class="level-item has-text-centered"> 
-    <div class="hero is-large" style="justify-content: center">
-      
-    </div>
-  </div>
-</section>  --}}

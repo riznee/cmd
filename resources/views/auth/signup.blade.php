@@ -9,7 +9,7 @@
         <hr class="login-hr">
         <p class="subtitle has-text-black">Sign up </p>
 
-            <form method="post" action="{{route('login.post')}}">
+            <form method="post" action="{{route('signup.post')}}">
               {{ csrf_field() }}
               <div class="box">
                 <figure class="avatar">
@@ -35,7 +35,7 @@
                 </div>
                 <div class="field">
                   <p class="control has-icons-left">
-                    <input class="input" name="confirmpassword" type="password" placeholder="Password">
+                    <input class="input" name="confirm-password" type="password" placeholder="confrimPassword">
                     <span class="icon is-small is-left">
                       <i class="fas fa-lock"></i>
                     </span>
@@ -45,7 +45,7 @@
               
                 <div class="field">
                   <p class="control">
-                    <button class="button is-block is-info is-large is-fullwidth">Login <i class="fa fa-sign-in" aria-hidden="true"></i></button>
+                    <button class="button is-block is-info is-large is-fullwidth">Create <i class="fa fa-sign-up" aria-hidden="true"></i></button>
                   </p>   
                 </div> 
               
