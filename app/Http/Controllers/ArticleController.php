@@ -12,12 +12,18 @@ use App\Http\Requests\Article\UpdateArticleRequest;
 class ArticleController extends Controller
 {
     public $perpage = 15;
+    public $permissonName='articles';
+
+    
 
     public function __construct(ArticleRepositry $repository, CategoryRepositry $categoryRepositry, PageRepositry $pageRepositry )
     {
         $this->repository = $repository;
         $this->categoryRepositry =$categoryRepositry;
         $this->pageRepositry = $pageRepositry;
+        $this->setPermission($this->permissonName);
+        parent::__construct();
+
     }
 
     public function index()

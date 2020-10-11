@@ -40,13 +40,12 @@
         ->with('children')
         ->whereNull('parent_id')
         ->orderBy('depth', 'asc')
-        ->paginate();
+        ->get();
         return $pages;
     }
 
     public function slugPages($slug)
     {
-        
         $page = $this->model
             ->with('children')
             ->where('slug','=',$slug)

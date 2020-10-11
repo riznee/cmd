@@ -13,6 +13,7 @@ class Page extends Model
         'depth', 
         'title',
         'description',
+        'icon'
         ];
  
 

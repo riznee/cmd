@@ -1,5 +1,5 @@
 @if ($message = Session::get('success'))
-<div class="notification is-primary">
+<div class="notification is-success">
    
     {{$message}}
 </div>
@@ -13,7 +13,7 @@
 @endif
 
 @if ($message = Session::get('warning'))
-<div class="notificationis-warning">
+<div class="notification is-warning">
    
     {{$message}}
 </div>

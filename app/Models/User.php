@@ -5,10 +5,12 @@ namespace App\Models;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
+
 
 class User extends Authenticatable
 {
-    use Notifiable, HasApiTokens;
+    use Notifiable, HasApiTokens, HasRoles;
 
   
     protected $fillable = [
@@ -28,15 +30,6 @@ class User extends Authenticatable
         'logged_out_at'
     ];
  
-    // public function setPasswordAttribute($password)
-    // {
-    //     $this->attributes['password'] = HasApiToken::make($password);
-    // }
- 
-    // public function getPictureAttribute($picture)
-    // {
-    //     return !empty($picture) ? asset($picture) : 'https://ssl.gstatic.com/accounts/ui/avatar_2x.png';
-    // }
   
     public function sendPasswordResetNotification($token)
     {
