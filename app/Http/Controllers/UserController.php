@@ -8,6 +8,7 @@ use App\Repositries\UserRepositry;
 use App\Http\Requests\User\StoreUserRequest;
 use App\Http\Requests\User\UpdateUserRequest;
 
+
 class UserController extends Controller
 {
     /**
@@ -26,7 +27,7 @@ class UserController extends Controller
 
     public function index(Request $request)
     {
-        $data = User::orderBy('id', 'DESC')->paginate(5);
+        $data = $this->repository->getusers();
         return view('users.index', compact('data'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
@@ -37,7 +38,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $roles = Role::pluck('name', 'name')->all();
+        $roles = $this->repository->getRoles();
         return view('users.create', compact('roles'));
     }
     /**
@@ -46,18 +47,9 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|same:confirm-password',
-            'roles' => 'required'
-        ]);
-        $input = $request->all();
-        $input['password'] = Hash::make($input['password']);
-        $user = User::create($input);
-        $user->assignRole($request->input('roles'));
+        $user = $this->repository->store($request);
         return redirect()->route('users.index')
             ->with('success', 'User created successfully');
     }
@@ -69,7 +61,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
+        $user = $this->repository->find($id);
         return view('users.show', compact('user'));
     }
     /**
@@ -80,8 +72,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = User::find($id);
-        $roles = Role::pluck('name', 'name')->all();
+        $user = $this->repository->find($id);
+        $roles = $this->repository->getRoles();;
         $userRole = $user->roles->pluck('name', 'name')->all();
         return view('users.edit', compact('user', 'roles', 'userRole'));
     }
@@ -92,24 +84,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update( UpdateUserRequest $request, $id)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email,' . $id,
-            'password' => 'same:confirm-password',
-            'roles' => 'required'
-        ]);
-        $input = $request->all();
-        if (!empty($input['password'])) {
-            $input['password'] = Hash::make($input['password']);
-        } else {
-            $input = array_except($input, array('password'));
-        }
-        $user = User::find($id);
-        $user->update($input);
-        DB::table('model_has_roles')->where('model_id', $id)->delete();
-        $user->assignRole($request->input('roles'));
+        $user = $this->repository->update($request, $id);
         return redirect()->route('users.index')
             ->with('success', 'User updated successfully');
     }
@@ -121,7 +98,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        User::find($id)->delete();
+        $this->repository->delete($id);
         return redirect()->route('users.index')
             ->with('success', 'User deleted successfully');
     }
@@ -131,8 +108,10 @@ class UserController extends Controller
         return view('auth.signup');
     }
 
-    public function registerRequest()
+    public function registerRequest(StoreUserRequest $request)
     {
-        dd('test');
+        $user = $this->repository->register($request);
+        return redirect()->route('home.index')
+            ->with('success', 'User created successfully');
     }
 }

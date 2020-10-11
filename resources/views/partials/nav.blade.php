@@ -34,6 +34,9 @@
                       {{ $user->name}}  &nbsp; <i class="fas fa-user" aria-hidden="true"></i>
                     </a>
                     <div class="navbar-dropdown">
+                    <a class="navbar-item" href="{{route('dashboard')}}">
+                        User Dashboard
+                      </a>
                       <a class="navbar-item">
                         Profile
                       </a>

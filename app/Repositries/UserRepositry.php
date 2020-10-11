@@ -16,7 +16,7 @@ class UserRepositry extends BaseRepositry
         $this->role = $role;
     }
 
-    public function getUser()
+    public function getUsers()
     {
         $data = $this->model->orderBy('id', 'DESC')->paginate($this->perpage);
         return $data;
@@ -27,6 +27,17 @@ class UserRepositry extends BaseRepositry
         $data = $this->role->pluck('name', 'name')->all();
         return $data;
     }
+
+    public function register($request)
+    {
+        $input = $request->all();
+        $input['password'] = Hash::make($input['password']);
+        $user = User::create($input);
+        $user->assignRole('user');
+        return $user;
+    }
+
+
 
     public function store($request)
     {

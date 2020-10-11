@@ -5,7 +5,7 @@
   <div class="hero-body">
     <div class="container is-info has-text-centered">
       <div class="column is-4 is-offset-4">
-        <h3 class="title has-text-black">ENOL</h3>
+        <h3 class="title has-text-black">{{ config('app.name', 'SSCM') }}</h3>
         <hr class="login-hr">
         <p class="subtitle has-text-black">Sign up </p>
 
@@ -16,6 +16,12 @@
                   <img id="logigImage" src="{{asset('img/pngwave.png')}}">
                 </figure>
                 
+                <div class="field">
+                  <p class="control has-icons-left has-icons-right">
+                    <input class="input" name="name" type="text" placeholder="Name">
+                  </p>
+                </div>
+
                 <div class="field">
                   <p class="control has-icons-left has-icons-right">
                     <input class="input" name="email" type="email" placeholder="Email">
@@ -45,7 +51,7 @@
               
                 <div class="field">
                   <p class="control">
-                    <button class="button is-block is-info is-large is-fullwidth">Create <i class="fa fa-sign-up" aria-hidden="true"></i></button>
+                    <button class="button is-block is-info is-large is-fullwidth">Sign Up <i class="fas fa-user" aria-hidden="true"></i></button>
                   </p>   
                 </div> 
               

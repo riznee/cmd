@@ -54,7 +54,9 @@
   <section class="cta va">
 	<div class="container">
 	  <div class="columns">
+		 
 		<div class="column is-6">
+			<br>
 		  <h1 class="title is-1 ">Contact us</h1>
 		  <hr class="content-divider">
 		  <h2 class="subtitle">Please select topic below to relate you inquiry  if you dont find out what you need , fill the contact form. Our team is ready to answer all questions </h2>
@@ -62,7 +64,7 @@
 		  <a class="button is-primary" href="{{route('login')}}"> Live Chat </a>
 		</div>
 		<div class="column is-6">
-
+			<br>
 			<form method="post" action="{{route('contactus.send')}}">
 				{{ csrf_field() }}		
 				<div class="field">
@@ -91,7 +93,7 @@
 
 				<div class="field is-grouped">
 					<div class="control">
-					<button class="button is-white is-rounded is-outlined">Submit</button>
+					<button class="button is-primary is-rounded">Submit</button>
 					</div>
 				</div>
 			</form>
