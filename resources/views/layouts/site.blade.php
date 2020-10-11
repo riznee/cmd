@@ -11,7 +11,9 @@
       </head>
       <body>
         @include('partials.nav')
-        @include('partials.flash-message')
+        <div class="level-right">
+          @include('partials.flash-message')
+        </div>
         @yield('content')
         @include('partials.footer')
     </body>

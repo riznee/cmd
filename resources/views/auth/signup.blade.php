@@ -19,6 +19,9 @@
                 <div class="field">
                   <p class="control has-icons-left has-icons-right">
                     <input class="input" name="name" type="text" placeholder="Name">
+                    <span class="icon is-small is-left">
+                      <i class="fas fa-user"></i>
+                    </span>
                   </p>
                 </div>
 

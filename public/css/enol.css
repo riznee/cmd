@@ -66,5 +66,9 @@ footer a {
 
 }
 
-
+.notification{
+  margin-top: 10%;
+  width: 30%;
+  z-index: 9999 !important;
+  }
 

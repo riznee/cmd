@@ -111,7 +111,7 @@ class UserController extends Controller
     public function registerRequest(StoreUserRequest $request)
     {
         $user = $this->repository->register($request);
-        return redirect()->route('home.index')
+        return view('auth.verify')
             ->with('success', 'User created successfully');
     }
 }

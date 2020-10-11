@@ -14,6 +14,8 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('signup', 'UserController@register')->name('signup');
 Route::post('signup', 'UserController@registerRequest')->name('signup.post');
 
+
+
 Route::group(['middleware' => ['auth']], function () {
     
     Route::post('ckeditor/image_upload', 'CKEditorController@upload')->name('upload');
