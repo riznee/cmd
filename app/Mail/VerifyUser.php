@@ -1,17 +1,16 @@
 <?php
 
-namespace App\Lib;
+namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-// use Illuminate\Contracts\Queue\ShouldQueue;
 
-class VerifyMail extends Mailable
+class VerifyUser extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $user;
     /**
      * Create a new message instance.
      *
@@ -29,8 +28,7 @@ class VerifyMail extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.verifyUser');
+        $user = $this->user;
+        return $this->view('emails.verifyUser' ,compact('user'));
     }
 }
-
-// https://www.5balloons.info/user-email-verification-and-account-activation-in-laravel-5-5/

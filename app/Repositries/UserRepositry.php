@@ -3,17 +3,20 @@
 namespace App\Repositries;
 
 use App\Models\User;
+use App\Models\VerifyUser;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Str;
 use DB;
 use Hash;
 
 class UserRepositry extends BaseRepositry
 {
 
-    public function __construct(User $user, Role $role)
+    public function __construct(User $user, Role $role,VerifyUser $verifyUser )
     {
         parent::__construct($user);
         $this->role = $role;
+        $this->verifyUser= $verifyUser;
     }
 
     public function getUsers()
@@ -34,6 +37,10 @@ class UserRepositry extends BaseRepositry
         $input['password'] = Hash::make($input['password']);
         $user = User::create($input);
         $user->assignRole('user');
+        $verifyUser = $this->verifyUser->create([
+            'user_id' => $user->id,
+            'token' => Str::random(40)
+        ]);
         return $user;
     }
 

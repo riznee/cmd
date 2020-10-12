@@ -7,7 +7,9 @@ use App\Http\Controllers\Controller;
 use App\Repositries\UserRepositry;
 use App\Http\Requests\User\StoreUserRequest;
 use App\Http\Requests\User\UpdateUserRequest;
-
+use App\Mail\VerifyUser;
+// use App\Mail\MailNotify;
+use Mail;
 
 class UserController extends Controller
 {
@@ -111,7 +113,8 @@ class UserController extends Controller
     public function registerRequest(StoreUserRequest $request)
     {
         $user = $this->repository->register($request);
-        return view('auth.verify')
-            ->with('success', 'User created successfully');
+        Mail::to($user->email)->send(new VerifyUser($user));
+        return redirect()->route('home')
+            ->with('success', 'Email is sent to your email account to for verification');
     }
 }
