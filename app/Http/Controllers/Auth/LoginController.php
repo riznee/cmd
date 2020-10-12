@@ -48,19 +48,19 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials))
         {
-         
-            if(Auth::routes(['verify' => true])){
+            $user = Auth::user();
 
+            if($user->verified){
                 return redirect()->route('home');
             } else{
                 $this->logout($request);
-                return redirect()->route('home')->with('info', 'your account is not verified');
-            };
+                return back()->with('info', 'your account is not verified');
+            }
         }
         else
         {
         
-            return redirect()->route('home')->with('info', 'username or password is incorrect tryagain');
+            return back()->with('warning', 'username or password is incorrect tryagain');
         }
     }
 

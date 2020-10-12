@@ -67,8 +67,8 @@ footer a {
 }
 
 .notification{
-  margin-top: 10%;
-  width: 30%;
+  margin-top: 5%;
+  width: auto;
   z-index: 9999 !important;
   }
 

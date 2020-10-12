@@ -79,7 +79,22 @@ class UserRepositry extends BaseRepositry
         return $user;
     }
 
-    
+    public function verifyUser($token)
+    {
+        $verifyUser = $this->verifyUser->where('token',$token)->first();
+        if(isset($verifyUser) ){
+            $user = $verifyUser->user;
+            if(!$user->verified) {
+                $verifyUser->user->verified = 1;
+                $verifyUser->user->save();
+            }
+                $status = true;
+            
+        }else{
+            $status = false;
+        }
+        return $status;
+    }
 
 
 }

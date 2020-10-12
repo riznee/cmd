@@ -120,6 +120,12 @@ class UserController extends Controller
 
     public function userVerification($token)
     {
-        
+        $status = $this->repository->verifyUser($token);
+        if ($status){
+            return redirect()->route('home')
+            ->with('success', 'Your account is verified you can login ');
+        }
+        return redirect()->route('home')
+        ->with('danger', 'We are unable to verify you email address');
     }
 }

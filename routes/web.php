@@ -6,6 +6,8 @@ Route::get('/page/{slug}', 'HomeController@page')->name('page');
 Route::post('/contactus/send', 'HomeController@contactSend')->name('contactus.send');
 
 // Application Routes
+Route::get('/user/verify/{token}','UserController@userVerification');
+
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 
@@ -13,6 +15,7 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('signup', 'UserController@register')->name('signup');
 Route::post('signup', 'UserController@registerRequest')->name('signup.post');
+
 
 
 
