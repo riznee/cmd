@@ -117,4 +117,9 @@ class UserController extends Controller
         return redirect()->route('home')
             ->with('success', 'Email is sent to your email account to for verification');
     }
+
+    public function userVerification($token)
+    {
+        
+    }
 }
