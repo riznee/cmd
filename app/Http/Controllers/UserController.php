@@ -9,6 +9,8 @@ use App\Http\Requests\User\StoreUserRequest;
 use App\Http\Requests\User\UpdateUserRequest;
 use App\Http\Requests\User\ResetRequest;
 use App\Mail\VerifyUser;
+use App\Mail\PasswordReset;
+
 // use App\Mail\MailNotify;
 use Mail;
 use SebastianBergmann\Environment\Console;
@@ -139,6 +141,16 @@ class UserController extends Controller
 
     public function sendResetRequest(ResetRequest $request)
     {
-        dd($request);
+        $user = $this->repository->resetRequest($request);
+        if(isset($user)){
+
+            Mail::to($user->email)->send( new PasswordReset($user));
+            return redirect()->route('home')
+            ->with('success', 'Email is sent to your email reset the password');
+
+        } else{
+            return redirect()->route('home')
+            ->with('warning', 'We are unable to verify you account');
+        }
     }
 }

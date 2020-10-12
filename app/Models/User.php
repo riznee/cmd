@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use App\Models\VerifyUser;
+use App\Models\PasswordReset;
 
 
 
@@ -32,14 +33,13 @@ class User extends Authenticatable
         'logged_out_at'
     ];
  
-  
-    public function sendPasswordResetNotification($token)
-    {
-        $this->notify(new ResetPassword($token));
-    }
-
     public function verifyUser()
     {
         return $this->hasOne(VerifyUser::class);
+    }
+
+    public function passwordReset()
+    {
+        return $this->hasOne(PasswordReset::class, 'email' ,'email');
     }
 }

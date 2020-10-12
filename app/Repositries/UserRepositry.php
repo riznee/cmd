@@ -3,6 +3,7 @@
 namespace App\Repositries;
 
 use App\Models\User;
+use App\Models\PasswordReset;
 use App\Models\VerifyUser;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Str;
@@ -12,11 +13,12 @@ use Hash;
 class UserRepositry extends BaseRepositry
 {
 
-    public function __construct(User $user, Role $role,VerifyUser $verifyUser )
+    public function __construct(User $user, Role $role,VerifyUser $verifyUser, PasswordReset $passwordReset )
     {
         parent::__construct($user);
         $this->role = $role;
         $this->verifyUser= $verifyUser;
+        $this->passwordReset = $passwordReset;
     }
 
     public function getUsers()
@@ -94,6 +96,25 @@ class UserRepositry extends BaseRepositry
             $status = false;
         }
         return $status;
+    }
+
+    public function resetRequest($request)
+    {
+        $input = $request->all();
+        $user = $this->model->where('email', $input->email)->get();
+        dd($user);
+        // if(isset($user)){
+        //     $this->passwordReset->create([
+        //         'email'=> $user->email,
+        //         'token'=>Str::random(40),
+        //     ]);
+        //     return $user;
+        // }
+        // else
+        // {
+        //     $status = false;
+        //     return $status;
+        // }
     }
 
 
