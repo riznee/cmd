@@ -16,8 +16,8 @@
             <form method="post" action="{{route('signup.post')}}">
               {{ csrf_field() }}
               <div class="box">
-                <figure class="avatar">
-                  <img id="logigImage" src="{{asset('img/pngwave.png')}}">
+                <figure>
+                  <img id="loginImage" src="{{asset('img/pngwave.png')}}">
                 </figure>
                 
                 <div class="field">

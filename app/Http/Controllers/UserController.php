@@ -7,9 +7,11 @@ use App\Http\Controllers\Controller;
 use App\Repositries\UserRepositry;
 use App\Http\Requests\User\StoreUserRequest;
 use App\Http\Requests\User\UpdateUserRequest;
+use App\Http\Requests\User\ResetRequest;
 use App\Mail\VerifyUser;
 // use App\Mail\MailNotify;
 use Mail;
+use SebastianBergmann\Environment\Console;
 
 class UserController extends Controller
 {
@@ -127,5 +129,16 @@ class UserController extends Controller
         }
         return redirect()->route('home')
         ->with('danger', 'We are unable to verify you email address');
+    }
+
+    public function resetPassword()
+    {
+        return view('auth.reset');
+        
+    }
+
+    public function sendResetRequest(ResetRequest $request)
+    {
+        dd($request);
     }
 }

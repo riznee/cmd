@@ -5,8 +5,11 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/page/{slug}', 'HomeController@page')->name('page');
 Route::post('/contactus/send', 'HomeController@contactSend')->name('contactus.send');
 
-// Application Routes
+// User Managment
 Route::get('/user/verify/{token}','UserController@userVerification');
+
+Route::get('password-reset', 'UserController@resetPassword')->name('reset');
+Route::post('password-reset','UserController@sendResetRequest')->name('reset.post');
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
@@ -15,6 +18,7 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('signup', 'UserController@register')->name('signup');
 Route::post('signup', 'UserController@registerRequest')->name('signup.post');
+
 
 
 
