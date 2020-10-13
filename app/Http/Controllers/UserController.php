@@ -154,26 +154,31 @@ class UserController extends Controller
         }
     }
 
-    Public function resetRequestVerified($token){
+    Public function resetRequestVerified($token)
+    {
 
         $resetRequestVerified = $this->repository->passwordResetVerificatio($token);
-        $vaibleType = gettype($resetRequestVerified);
-        dd($vaibleType);
+        if($resetRequestVerified =='null')
+        {
+            return redirect()->route('home')->with('warning', 'Unable find you request please try again');
+        }
 
-        // switch ($resetRequestVerified) {
-        //     case "not-found":
-        //         return redirect()->route('home')
-        //         ->with('warning', 'Unable find you request please try again');
-        //         break;
-        //     case "expired"
-        //         return redirect()->route('home')
-        //         ->with('warning', 'Your requested token expired');
-        //         break;
-        //     case "user-not-found"
-        //         return redirect()->route('home')
-        //         ->with('warning', 'We are unbale to find you');
-        //         break;
-        // }
+        $user = $this->repository->getUserMail($resetRequestVerified);
+
+        switch ($user) {
+            case "expired":
+                return redirect()->route('home')
+                ->with('warning', 'Your requested token expired');
+                break;
+            case "user-not-found":
+                return redirect()->route('home')
+                ->with('warning', 'We are unbale to find you');
+                break;
+            default:
+            return view('auth.resetpassword', compact('user'));
+            break;
+        }
+        
 
     }
 }

@@ -122,36 +122,33 @@ class UserRepositry extends BaseRepositry
     public function passwordResetVerificatio($token)
     {
         $token_verfication = $this->passwordReset->where('token',$token)->first();
-        if($token_verfication =='null')
+        return $token_verfication;
+    }
+
+    public function getUserMail($token_verfication)
+    {
+        if(!isset($token_verfication->verified))
         {
-            $status = "not-found";
+            $status = "expired";
             return $status;
         }
         else
         {
-            dd($token_verfication);
-            if($token_verfication->verified)
+            $user = $this->model->where('email', $token_verfication->emial)->first();
+            if($user == 'null')
             {
-                $status = "expired";
+                $status ="user-not-found";
                 return $status;
             }
             else
             {
-                $user = $this->model->where('emial', $token_verfication->emial)->first();
-                if($usr == 'null')
-                {
-                    $status ="user-not-found";
-                    return $status;
-                }
-                else
-                {
-                    $token_verfication->verfied = true;
-                    $token_verfication->save();
-                    return $user;
-                }
+                $token = $this->passwordReset->where('token',$token_verfication->token)
+                ->update(['verified' => true]);
+                return $user;
             }
         }
     }
+       
 
 
 }
