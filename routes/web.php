@@ -7,6 +7,7 @@ Route::post('/contactus/send', 'HomeController@contactSend')->name('contactus.se
 
 // User Managment
 Route::get('/user/verify/{token}','UserController@userVerification');
+Route::get('user/password-reset/{token}', 'UserController@resetRequestVerified');
 
 Route::get('password-reset', 'UserController@resetPassword')->name('reset');
 Route::post('password-reset','UserController@sendResetRequest')->name('reset.post');

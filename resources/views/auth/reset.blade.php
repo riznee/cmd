@@ -32,7 +32,7 @@
               
                 <div class="field">
                   <p class="control">
-                    <button class="button is-block is-info is-large is-fullwidth">Send Reset Request <i class="fas fa-envelope" aria-hidden="true"></i></button>
+                    <button class="button is-block is-info is-large is-fullwidth">Send Request <i class="fas fa-envelope" aria-hidden="true"></i></button>
                   </p>       
                 </div> 
               

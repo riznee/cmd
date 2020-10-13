@@ -101,20 +101,56 @@ class UserRepositry extends BaseRepositry
     public function resetRequest($request)
     {
         $input = $request->all();
-        $user = $this->model->where('email', $input->email)->get();
-        dd($user);
-        // if(isset($user)){
-        //     $this->passwordReset->create([
-        //         'email'=> $user->email,
-        //         'token'=>Str::random(40),
-        //     ]);
-        //     return $user;
-        // }
-        // else
-        // {
-        //     $status = false;
-        //     return $status;
-        // }
+        $email = $input['email'];
+        $user = $this->model->where('email', $email)->first();
+        if(isset($user)){
+            if($user == 'null'){
+                $status = false;
+                return $status;
+            }
+            else
+            {      
+                $this->passwordReset->create([
+                    'email'=> $user->email,
+                    'token'=>Str::random(40),
+                ]);
+                return $user;
+            }
+        }
+    }
+
+    public function passwordResetVerificatio($token)
+    {
+        $token_verfication = $this->passwordReset->where('token',$token)->first();
+        if($token_verfication =='null')
+        {
+            $status = "not-found";
+            return $status;
+        }
+        else
+        {
+            dd($token_verfication);
+            if($token_verfication->verified)
+            {
+                $status = "expired";
+                return $status;
+            }
+            else
+            {
+                $user = $this->model->where('emial', $token_verfication->emial)->first();
+                if($usr == 'null')
+                {
+                    $status ="user-not-found";
+                    return $status;
+                }
+                else
+                {
+                    $token_verfication->verfied = true;
+                    $token_verfication->save();
+                    return $user;
+                }
+            }
+        }
     }
 
 

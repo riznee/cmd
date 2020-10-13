@@ -153,4 +153,27 @@ class UserController extends Controller
             ->with('warning', 'We are unable to verify you account');
         }
     }
+
+    Public function resetRequestVerified($token){
+
+        $resetRequestVerified = $this->repository->passwordResetVerificatio($token);
+        $vaibleType = gettype($resetRequestVerified);
+        dd($vaibleType);
+
+        // switch ($resetRequestVerified) {
+        //     case "not-found":
+        //         return redirect()->route('home')
+        //         ->with('warning', 'Unable find you request please try again');
+        //         break;
+        //     case "expired"
+        //         return redirect()->route('home')
+        //         ->with('warning', 'Your requested token expired');
+        //         break;
+        //     case "user-not-found"
+        //         return redirect()->route('home')
+        //         ->with('warning', 'We are unbale to find you');
+        //         break;
+        // }
+
+    }
 }
