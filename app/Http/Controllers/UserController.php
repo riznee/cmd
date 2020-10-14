@@ -8,6 +8,7 @@ use App\Repositries\UserRepositry;
 use App\Http\Requests\User\StoreUserRequest;
 use App\Http\Requests\User\UpdateUserRequest;
 use App\Http\Requests\User\ResetRequest;
+use App\Http\Requests\User\ResetPasswordRequest;
 use App\Mail\VerifyUser;
 use App\Mail\PasswordReset;
 
@@ -133,7 +134,7 @@ class UserController extends Controller
         ->with('danger', 'We are unable to verify you email address');
     }
 
-    public function resetPassword()
+    public function resetPasswordView()
     {
         return view('auth.reset');
         
@@ -162,23 +163,39 @@ class UserController extends Controller
         {
             return redirect()->route('home')->with('warning', 'Unable find you request please try again');
         }
-
-        $user = $this->repository->getUserMail($resetRequestVerified);
-
-        switch ($user) {
+        $status = $this->repository->getUserMail($resetRequestVerified);
+        switch ($status) {
+            case "not-found":
+                return redirect()->route('home')
+                    ->with('warning', 'Your requested token expired');
+                break;
             case "expired":
                 return redirect()->route('home')
-                ->with('warning', 'Your requested token expired');
+                    ->with('warning', 'Your requested token expired');
                 break;
             case "user-not-found":
                 return redirect()->route('home')
-                ->with('warning', 'We are unbale to find you');
+                    ->with('warning', 'We are unbale to find you');
                 break;
-            default:
-            return view('auth.resetpassword', compact('user'));
-            break;
         }
-        
+        $user = $status;
+        return view('auth.resetpassword', compact('user'));
 
+    }
+
+    public function resetPassword(ResetPasswordRequest $request)
+    {
+
+        $user = $this->repository->findByemail($request->email);
+        try {
+            $this->repository->resetPassword($user, $request);
+            return redirect()->route('home')
+                   ->with('success', 'your password has been reset');
+        } catch (\Exception $exeption)
+        {
+            return redirect()->route('home')
+                ->withError($exeption->getMessage())
+                ->withInput();
+        }
     }
 }

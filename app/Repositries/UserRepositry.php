@@ -102,7 +102,7 @@ class UserRepositry extends BaseRepositry
     {
         $input = $request->all();
         $email = $input['email'];
-        $user = $this->model->where('email', $email)->first();
+        $user = $this->findByemail($email);
         if(isset($user)){
             if($user == 'null'){
                 $status = false;
@@ -110,10 +110,26 @@ class UserRepositry extends BaseRepositry
             }
             else
             {      
-                $this->passwordReset->create([
-                    'email'=> $user->email,
-                    'token'=>Str::random(40),
-                ]);
+                $reset =$this->passwordReset->where('email' , $user->email)->first();
+                if(!isset($reset)){
+
+                    $this->passwordReset->create([
+                        'email'=> $user->email,
+                        'token'=>Str::random(40),
+                        'verified' => False,
+                        ]);
+                       
+                }
+                else
+                {
+                    $this->passwordReset->where('email', $user->email)
+                        ->update([
+                        'email' => $user->email,
+                        'token' => Str::random(40),
+                        'verified' => False,
+                    ]);
+
+                }
                 return $user;
             }
         }
@@ -129,26 +145,37 @@ class UserRepositry extends BaseRepositry
     {
         if(!isset($token_verfication->verified))
         {
-            $status = "expired";
+            $status = "not-found";
             return $status;
         }
         else
         {
-            $user = $this->model->where('email', $token_verfication->emial)->first();
-            if($user == 'null')
+            if($token_verfication->verified == 1)
             {
-                $status ="user-not-found";
+                $status = "expired";
                 return $status;
             }
-            else
+            else if($token_verfication->verified == 0)
             {
-                $token = $this->passwordReset->where('token',$token_verfication->token)
-                ->update(['verified' => true]);
+                $user = $this->findByemail($token_verfication->email);          
                 return $user;
             }
         }
     }
-       
 
+    public function findByemail($email)
+    {
+        $user = $this->model->where('email', $email)->first();  
+        return $user;
+    }
+
+    public function resetPassword($user , $request)
+    {
+        $user->update(['password' => Hash::make($request->password)]);
+        $this->passwordReset->where('email', $user->email)->update(['verified' => True]);
+        return $user;
+
+    }
+       
 
 }

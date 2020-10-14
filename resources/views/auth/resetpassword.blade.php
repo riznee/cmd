@@ -5,7 +5,7 @@
   <div class="hero-body">
     <div class="container is-info has-text-centered">
       <div class="column is-4 is-offset-4">
-      <h3 class="title has-text-black">
+      <h3 class="title">
           <a  href="{{route('home')}}">
           {{ config('app.name', 'SSCM') }}
         </a>
@@ -13,21 +13,14 @@
         <hr class="login-hr">
         <p class="subtitle has-text-black">Reset Pasword</p>
 
-            <form method="post" action="{{route('signup.post')}}">
+            <form method="post" action="{{route('resetpassword.post')}}">
               {{ csrf_field() }}
               <div class="box">
                 <figure>
                   <img id="loginImage" src="{{asset('img/pngwave.png')}}">
                 </figure>
-      
-                <div class="field">
-                  <p class="control has-icons-left has-icons-right">
-                    <input class="input" name="email" type="email" placeholder="Email">
-                    <span class="icon is-small is-left">
-                      <i class="fas fa-envelope"></i>
-                    </span>
-                  </p>
-                </div>
+
+                <input type="hidden" name="email" value="{{$user->email}}">               
                 
                 <div class="field">
                   <p class="control has-icons-left">
@@ -49,7 +42,7 @@
               
                 <div class="field">
                   <p class="control">
-                    <button class="button is-block is-info is-large is-fullwidth">Sign Up <i class="fas fa-user" aria-hidden="true"></i></button>
+                    <button class="button is-block is-info is-large is-fullwidth">Reset <i class="fas fa-key" aria-hidden="true"></i></button>
                   </p>   
                 </div> 
               

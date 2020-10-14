@@ -9,8 +9,9 @@ Route::post('/contactus/send', 'HomeController@contactSend')->name('contactus.se
 Route::get('/user/verify/{token}','UserController@userVerification');
 Route::get('user/password-reset/{token}', 'UserController@resetRequestVerified');
 
-Route::get('password-reset', 'UserController@resetPassword')->name('reset');
+Route::get('password-reset', 'UserController@resetPasswordView')->name('reset');
 Route::post('password-reset','UserController@sendResetRequest')->name('reset.post');
+Route::post('password-confirmation','UserController@resetPassword')->name('resetpassword.post');
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
