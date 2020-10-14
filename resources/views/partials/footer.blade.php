@@ -1,7 +1,7 @@
 <footer class="footer">
     <div class="content has-text-centered">
-        <p>
-            <small>&copy; Copyright {{date('Y')}} <a href="https://enol.mv/">Enol</a>
-        </p>
+      <p>
+        <a href="https://enol.mv"> Enol Maldives </a>  by&copy {{ date ('Y')}}
+      </p>
     </div>
 </footer>

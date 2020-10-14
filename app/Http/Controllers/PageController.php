@@ -9,10 +9,13 @@ use App\Http\Requests\Page\UpdatePageRequest;
 class PageController extends Controller
 {
     public $perpage = 5;
+    public $permissonName='pages';
 
     public function __construct(PageRepositry $repository)
     {
         $this->repository = $repository;
+        $this->setPermission($this->permissonName);
+        parent::__construct();
     }
 
     public function index()

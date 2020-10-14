@@ -1,23 +1,105 @@
-@extends('layouts.app')
+@extends('layouts.site')
 @section('content')
-<div class="container is-fluid">
-	<div class="wrapper">
-		<head>
-			@include('partials.nav')
-		</head>
-		<section class="section">
-			<div class="container">
-				@if(!empty($article))
-					<h1 class="{{$article->category->description}}">{{$article->title}}</h1>
-					<span class="tag {{$article->category->color}}"> Type:  &nbsp; {{$article->category->title}} Updated:  &nbsp; {{$article->category->created_at}}</span>
-					<nav class="breadcrumb" aria-label="breadcrumbs">
-						<li><a href="{{route('page', $article->page->slug )}}">{{$article->page->title}}</a></li>
-					</nav>
-					{!!$article->content!!}
-				@endif
-			</div>
-		</section>
-		@include('partials.footer')
+<section class="hero is-medium">
+	<div class="hero-body">
+	  <div class="container">
+		<h1 class="title is-1 ">Enol</h1>
+		<h2 class="subtitle">We makes things easy  <br>to bond with technoloy.</h2>
+		<a href="#" class="button is-white is-medium is-inverted">Learn More&ensp;<i class="fad fa-chevron-right"></i></a>
+	  </div>
 	</div>
-</div>
+  </section>
+  <section id="parallax-1" class="hero is-large ">
+	<div class="hero-body">
+	  <div class="container">
+		<div class="columns">
+		  <div class="column is-6 is-offset-6">
+			<h1 class="title is-1 ">Real time Help</h1>
+			<hr class="content-divider">
+			<h2 class="subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit explicabo amet magni illum eum voluptate! Eveniet voluptatem nam magnam necessitatibus.</h2>
+			<a href="#" class="button is-white is-inverted">Next&ensp;<i class="fad fa-chevron-right"></i></a>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </section>
+  <section id="parallax-2" class="hero is-large ">
+	<div class="hero-body">
+	  <div class="container">
+		<div class="columns">
+		  <div class="column is-6">
+			<h1 class="title is-1 ">Our Sevices</h1>
+			<hr class="content-divider">
+			<h2 class="subtitle">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque veritatis sequi natus minima distinctio ullam deleniti quasi quisquam autem deserunt.</h2>
+			<a href="#" class="button is-white is-inverted">Next&ensp;<i class="fad fa-chevron-right"></i></a>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </section>
+  <section id="parallax-3" class="hero is-large ">
+	<div class="hero-body">
+	  <div class="container">
+		<div class="columns">
+		  <div class="column is-6 is-offset-6">
+			<h1 class="title is-1 ">About us</h1>
+			<hr class="content-divider">
+			<h2 class="subtitle">We welcome you inquire about our service</h2>
+			<a href="#" class="button is-white is-inverted">Next&ensp;<i class="fad fa-chevron-right"></i></a>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </section>
+  <section class="cta va">
+	<div class="container">
+	  <div class="columns">
+		 
+		<div class="column is-6 ">
+			<br>
+		  <h1 class="title is-1 has-text-white ">Contact us</h1>
+		  <hr class="content-divider">
+		  <h2 class="subtitle has-text-white">Please select topic below to relate you inquiry  if you dont find out what you need , fill the contact form. Our team is ready to answer all questions </h2>
+		  <a class="button is-primary" href="{{route('login')}}"> Inquire About your project </a>
+		  <a class="button is-primary" href="{{route('login')}}"> Live Chat </a>
+		</div>
+		<div class="column is-6">
+			<br>
+			<form method="post" action="{{route('contactus.send')}}">
+				{{ csrf_field() }}		
+				<div class="field">
+					<label class="label has-text-white">Name</label>
+					<div class="control">
+					<input class="input is-medium" name="name" type="text" placeholder="Ahmed Mohamed">
+					</div>
+				</div>
+				<br>
+
+				<div class="field">
+					<label class="label has-text-white">Email</label>
+					<div class="control">
+					<input class="input is-medium" name="email" type="email" placeholder="Ahmed@enol.mv">
+					</div>
+				</div>
+				<br>
+				
+				<div class="field">
+					<label class="label has-text-white">Message</label>
+					<div class="control">
+					<textarea class="textarea is-medium" name="message" placeholder="your inquery"></textarea>
+					</div>
+				</div>
+				<br>
+
+				<div class="field is-grouped">
+					<div class="control">
+					<button class="button is-primary is-rounded">Submit</button>
+					</div>
+				</div>
+			</form>
+
+		</div>
+	  </div>
+	</div>
+</section>
 @stop

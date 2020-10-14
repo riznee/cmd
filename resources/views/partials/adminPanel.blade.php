@@ -1,6 +1,6 @@
 <article class=" panel is-link">
     <p class="panel-header">
-        <a class="navbar-item" href="{{route('admin')}}">
+        <a class="navbar-item" href="{{route('dashboard')}}">
             Dashboard
         </a>  
     </p>
@@ -23,6 +23,15 @@
     <a class="panel-block" href="{{route('settings.index')}}">
         {{--  <i class="fas fa-book" aria-hidden="true"></i>  --}}
         &nbsp; Settings
+    </a>
+
+    <a class="panel-block" href="{{route('users.index')}}">
+        {{--  <i class="fas fa-book" aria-hidden="true"></i>  --}}
+        &nbsp; User Managment
+    </a>
+    <a class="panel-block" href="{{route('roles.index')}}">
+        {{--  <i class="fas fa-book" aria-hidden="true"></i>  --}}
+        &nbsp; Roles Managment
     </a>
 
 

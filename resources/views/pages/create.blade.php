@@ -44,6 +44,13 @@
                                             <input name='slug' type="text" class="input" placeholder="enter page slug">
                                         </div>
                                     </div>
+
+                                    <div class ="column">
+                                        <div class="feild">
+                                            <label class="label">Icon</label>
+                                            <input name='icon' type="text" class="input" placeholder="icon name">
+                                        </div>
+                                    </div>
                                     <div class="column">
                                         <div class="control">
                                             <label class="label" > Parent </label>

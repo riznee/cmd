@@ -40,22 +40,33 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+
+
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials))
         {
-            return redirect()->route('admin');
+            $user = Auth::user();
+
+            if($user->verified){
+                return redirect()->route('home');
+            } else{
+                $this->logout($request);
+                return back()->with('info', 'your account is not verified');
+            }
         }
         else
         {
-            return redirect()->route('home')->with('info', 'username or password is incorrect tryagain');;
+        
+            return back()->with('warning', 'username or password is incorrect tryagain');
         }
     }
 
     public function logout(Request $request)
     {
+     
         Auth::logout();
         return redirect()->route('home');
     }

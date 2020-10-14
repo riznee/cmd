@@ -1,19 +1,20 @@
-<nav class="navbar" style="navbar-height:10rem;">
+@if(Auth::check())
+  <?php $user  = Auth::user(); ?>
+@endif
+<nav class="navbar is-fixed-top">
         <div class="navbar-brand">
-          <a class="navbar-item" href="{{route('home')}}">
-          {{--  <img src="{{URL::asset('img/favicon.png') }}" width="28" height="100">  --}}
+          <a class="navbar-item " href="{{route('home')}}">
           <span class="space"> &nbsp;&nbsp;</span>
           <h4 class="subtitle is-5 ">{{ config('app.name') }}</h4>
           </a>
-        <div class="navbar-burger burger" data-target="navbar-enol
-">
+        <div class="navbar-burger burger" data-target="navbar">
             <span></span>
             <span></span>
             <span></span>
         </div>
       </div>
       
-      <div id="navbar-enol" class="navbar-menu">
+      <div id="navbar" class="navbar-menu">
         <div class="navbar-start">
         </div>
         <div class="navbar-end">
@@ -21,20 +22,42 @@
             <div class="field is-grouped">
               @foreach($pages as $page)
               <p class="control">
-                  <a class="navbar-item" href="{{route('page',$page->slug)}}">
+                  <a class="navbar-item is-success" href="{{route('page',$page->slug)}}">
                     {{$page->title}}
                   </a>
               </p>
               @endforeach
-              <p class="control">
-                <a class="navbar-item" href="{{route('contactus')}}">
-                 Contact Us
-                </a>
-              </p>
+            
+              @if($user ?? '')
+                <div class="navbar-item has-dropdown is-hoverable is-primary">
+                    <a class="navbar-link button">
+                      {{ $user->name}}  &nbsp; <i class="fas fa-user" aria-hidden="true"></i>
+                    </a>
+                    <div class="navbar-dropdown">
+                    <a class="navbar-item" href="{{route('dashboard')}}">
+                        User Dashboard
+                      </a>
+                      <a class="navbar-item">
+                        Profile
+                      </a>
+                      <a class="navbar-item" href="{{route('logout')}}">
+                        logout &nbsp; <i class="fas fa-sign-out-alt" aria-hidden="true"></i>
+                      </a>
+                    </div>
+                </div>
+    
+              @else
+                <p class="control">
+                  <a class="navbar-item button is-rounded is-outlined is-primary" href="{{route('signup')}}">Sign Up  &nbsp; </a> 
+                </p>                 
+                <p class="control">
+                  <a class="navbar-item button is-rounded is-outlined is-success " href="{{route('login')}}">Sign In  &nbsp; <i class="fas fa-sign-in-alt" aria-hidden="true"></i></a>
+                </p>
+              @endif  
             </div>
           </div>
         </div>
       </div>
 </nav>
-@include('partials.flash-message')
+
 <br/>
