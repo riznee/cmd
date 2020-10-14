@@ -7,7 +7,14 @@ use App\Http\Controllers\Controller;
 use App\Repositries\UserRepositry;
 use App\Http\Requests\User\StoreUserRequest;
 use App\Http\Requests\User\UpdateUserRequest;
+use App\Http\Requests\User\ResetRequest;
+use App\Http\Requests\User\ResetPasswordRequest;
+use App\Mail\VerifyUser;
+use App\Mail\PasswordReset;
 
+// use App\Mail\MailNotify;
+use Mail;
+use SebastianBergmann\Environment\Console;
 
 class UserController extends Controller
 {
@@ -111,7 +118,84 @@ class UserController extends Controller
     public function registerRequest(StoreUserRequest $request)
     {
         $user = $this->repository->register($request);
-        return redirect()->route('home.index')
-            ->with('success', 'User created successfully');
+        Mail::to($user->email)->send(new VerifyUser($user));
+        return redirect()->route('home')
+            ->with('success', 'Email is sent to your email account to for verification');
+    }
+
+    public function userVerification($token)
+    {
+        $status = $this->repository->verifyUser($token);
+        if ($status){
+            return redirect()->route('home')
+            ->with('success', 'Your account is verified you can login ');
+        }
+        return redirect()->route('home')
+        ->with('danger', 'We are unable to verify you email address');
+    }
+
+    public function resetPasswordView()
+    {
+        return view('auth.reset');
+        
+    }
+
+    public function sendResetRequest(ResetRequest $request)
+    {
+        $user = $this->repository->resetRequest($request);
+        if(isset($user)){
+
+            Mail::to($user->email)->send( new PasswordReset($user));
+            return redirect()->route('home')
+            ->with('success', 'Email is sent to your email reset the password');
+
+        } else{
+            return redirect()->route('home')
+            ->with('warning', 'We are unable to verify you account');
+        }
+    }
+
+    Public function resetRequestVerified($token)
+    {
+
+        $resetRequestVerified = $this->repository->passwordResetVerificatio($token);
+        if($resetRequestVerified =='null')
+        {
+            return redirect()->route('home')->with('warning', 'Unable find you request please try again');
+        }
+        $status = $this->repository->getUserMail($resetRequestVerified);
+        switch ($status) {
+            case "not-found":
+                return redirect()->route('home')
+                    ->with('warning', 'Your requested token expired');
+                break;
+            case "expired":
+                return redirect()->route('home')
+                    ->with('warning', 'Your requested token expired');
+                break;
+            case "user-not-found":
+                return redirect()->route('home')
+                    ->with('warning', 'We are unbale to find you');
+                break;
+        }
+        $user = $status;
+        return view('auth.resetpassword', compact('user'));
+
+    }
+
+    public function resetPassword(ResetPasswordRequest $request)
+    {
+
+        $user = $this->repository->findByemail($request->email);
+        try {
+            $this->repository->resetPassword($user, $request);
+            return redirect()->route('home')
+                   ->with('success', 'your password has been reset');
+        } catch (\Exception $exeption)
+        {
+            return redirect()->route('home')
+                ->withError($exeption->getMessage())
+                ->withInput();
+        }
     }
 }

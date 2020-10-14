@@ -1,7 +1,7 @@
 @if(Auth::check())
   <?php $user  = Auth::user(); ?>
 @endif
-<nav class="navbar is-fixed-top ">
+<nav class="navbar is-fixed-top">
         <div class="navbar-brand">
           <a class="navbar-item " href="{{route('home')}}">
           <span class="space"> &nbsp;&nbsp;</span>
@@ -48,10 +48,10 @@
     
               @else
                 <p class="control">
-                  <a class="navbar-item button is-primary" href="{{route('signup')}}">Sign Up  &nbsp; </a> 
+                  <a class="navbar-item button is-rounded is-outlined is-primary" href="{{route('signup')}}">Sign Up  &nbsp; </a> 
                 </p>                 
                 <p class="control">
-                  <a class="navbar-item button is-info" href="{{route('login')}}">Sign In  &nbsp; <i class="fas fa-sign-in-alt" aria-hidden="true"></i></a>
+                  <a class="navbar-item button is-rounded is-outlined is-success " href="{{route('login')}}">Sign In  &nbsp; <i class="fas fa-sign-in-alt" aria-hidden="true"></i></a>
                 </p>
               @endif  
             </div>

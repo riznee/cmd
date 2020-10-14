@@ -60,11 +60,15 @@ footer a {
   background: hotpink;
 }
 
-#loginImage {
-  width: 10%;
-  height: 10%;
+#loginImage{
+  widows: 100px;
+  height: 100px;
 
 }
 
-
+.notification{
+  margin-top: 5%;
+  width: auto;
+  z-index: 9999 !important;
+  }
 
