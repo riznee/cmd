@@ -28,7 +28,6 @@ Route::post('signup', 'UserController@registerRequest')->name('signup.post');
 Route::group(['middleware' => ['auth']], function () {
     
     Route::post('ckeditor/image_upload', 'CKEditorController@upload')->name('upload');
-
     Route::get('dashboard', 'AdminController@index')->name('dashboard');
     Route::get('articles/{id}/publsih', 'ArticleController@publish')->name('articles.publish');
     Route::get('articles/{id}/unpublsih', 'ArticleController@unPublish')->name('articles.unpublish');
