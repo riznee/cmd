@@ -43,8 +43,8 @@
 						</a>
 					</div>               
 			@else
-					<a class="navbar-item button is-rounded is-outlined is-primary" href="{{route('signup')}}">Sign Up  &nbsp; </a>                
-					<a class="navbar-item button is-rounded is-outlined is-success " href="{{route('login')}}">Sign In  &nbsp; <i class="fas fa-sign-in-alt" aria-hidden="true"></i></a>
+					<a class="navbar-item   is-primary" href="{{route('signup')}}">Sign Up  &nbsp; </a>                
+					<a class="navbar-item   is-success " href="{{route('login')}}">Sign In  &nbsp; <i class="fas fa-sign-in-alt" aria-hidden="true"></i></a>
 			@endif  
 				</div>
 		</div>
