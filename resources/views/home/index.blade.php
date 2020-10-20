@@ -9,7 +9,7 @@
 	  </div>
 	</div>
   </section>
-  <section id="parallax-1" class="hero is-large ">
+  <section id="parallax-1" class="hero is-medium ">
 	<div class="hero-body">
 	  <div class="container">
 		<div class="columns">
@@ -23,7 +23,7 @@
 	  </div>
 	</div>
   </section>
-  <section id="parallax-2" class="hero is-large ">
+  <section id="parallax-2" class="hero is-medium ">
 	<div class="hero-body">
 	  <div class="container">
 		<div class="columns">
@@ -37,7 +37,7 @@
 	  </div>
 	</div>
   </section>
-  <section id="parallax-3" class="hero is-large ">
+  <section id="parallax-3" class="hero is-medium ">
 	<div class="hero-body">
 	  <div class="container">
 		<div class="columns">

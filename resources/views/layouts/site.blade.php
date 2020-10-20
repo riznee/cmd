@@ -8,15 +8,15 @@
         <title>{{ config('app.name', 'SSCM') }}</title>
         <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script> 
         <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
-        <script src="{{ asset('js/bulma.js') }}"></script>
       </head>
-      <body class="container.is ">
+      <body class="container.is-flex ">
         <div class="card">
           @include('partials.nav')
         </div>
         @include('partials.flash-message')
         @yield('content')
         @include('partials.footer')
-
+        
+        <script src="{{ asset('js/bulma.js') }}"></script>
     </body>
 </html>
