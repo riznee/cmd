@@ -9,7 +9,7 @@
         <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script> 
         <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
       </head>
-      <body class="container.is-flex ">
+      <body>
         <div class="card">
           @include('partials.nav')
         </div>

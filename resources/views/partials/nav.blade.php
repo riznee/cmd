@@ -27,7 +27,7 @@
 				</a>
 			@endforeach                  
 			@if($user ?? '')
-				<div class="navbar-item has-dropdown is-hoverable is-primary">
+				< class="navbar-item has-dropdown is-hoverable is-primary">
 					<a class="navbar-link button">
 						{{ $user->name}}  &nbsp; <i class="fas fa-user" aria-hidden="true"></i>
 					</a>
@@ -43,10 +43,11 @@
 						</a>
 					</div>               
 			@else
-					<a class="navbar-item   is-primary" href="{{route('signup')}}">Sign Up  &nbsp; </a>                
-					<a class="navbar-item   is-success " href="{{route('login')}}">Sign In  &nbsp; <i class="fas fa-sign-in-alt" aria-hidden="true"></i></a>
-			@endif  
+				<div>
+					<a class="navbar-item tag is-info" href="{{route('signup')}}">Sign Up  &nbsp; </a>              
+					<a class="navbar-item tag is-link " href="{{route('login')}}">Sign In  &nbsp; <i class="fas fa-sign-in-alt" aria-hidden="true"></i></a>
 				</div>
+			@endif  
 		</div>
 		
   	</div>
