@@ -15,31 +15,31 @@ class PagesTableSeeder extends Seeder
         DB::table('pages')->insert([
             'slug' => 'home',
             'title' => 'Home',
-            'visible' => true,
+            'visible' => 1,
         ]);
         
         DB::table('pages')->insert([
             'slug' => 'services',
             'title' => 'Services',
-            'visible' => false,
+            'visible' => 0,
         ]);
 
         DB::table('pages')->insert([
             'slug' => 'products',
             'title' => 'Products',
-            'visible' => false,
+            'visible' => 0,
         ]);
 
         DB::table('pages')->insert([
             'slug' => 'news',
             'title' => 'News',
-            'visible' => true,
+            'visible' => 0,
         ]);
 
         DB::table('pages')->insert([
             'slug' => 'about',
             'title' => 'About Us',
-            'visible' => true,
+            'visible' => 1,
         ]);
         
         

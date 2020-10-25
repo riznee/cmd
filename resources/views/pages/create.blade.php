@@ -85,12 +85,14 @@
                                 <div class="feild">
                                     <label class="label"> Visible</label>
                                     <div class="control">
-                                        <div class="select">
-                                            <select name="visible">
-                                                <option value="" selected>NULL</option>
-                                                <option value='true'>Yes</option>
-                                                <option value='false'>No</option>
-                                            </select>
+                                            <label class="radio">
+                                                <input type="radio" name="visible" value = 1>
+                                                Yes
+                                            </label>
+                                            <label class="radio">
+                                                <input type="radio" name="visible" value= 0>
+                                                No
+                                            </label>
                                         </div>
                                     </div>
                                 </div>
@@ -159,14 +161,14 @@
                                 <div class="feild">
                                     <label class="label"> Visible</label>
                                     <div class="control">
-                                        <div class="select">
-                                            <select name="visible">
-                                                <option value="" selected>NULL</option>
-                                                <option value="{{$page->visible}}" selected>{{$page->visible}}</option>
-                                                <option value='1'>Yes</option>
-                                                <option value='0'>No</option>
-                                            </select>
-                                        </div>
+                                    <label class="radio">
+                                            <input type="radio" name="visible" value = 1>
+                                            Yes
+                                        </label>
+                                        <label class="radio">
+                                            <input type="radio" name="visible" value= 0>
+                                            No
+                                        </label>
                                     </div>
                                 </div>
                                 <hr> 
