@@ -85,13 +85,13 @@
                                 <div class="feild">
                                     <label class="label"> Visible</label>
                                     <div class="control">
-                                    <div class="control">
-                                        <select name="visible">
-                                            <option value="{{$page->visible}}" selected>{{$page->depth}}</option>
-                                            <option value='true'>Yes</option>
-                                            <option value='false'>No</option>
-                                        </select>
-                                    </div>
+                                        <div class="select">
+                                            <select name="visible">
+                                                <option value="" selected>NULL</option>
+                                                <option value='true'>Yes</option>
+                                                <option value='false'>No</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                                 <hr> 
@@ -126,6 +126,7 @@
                                             <label class="label" > Parent </label>
                                             <div class="select">
                                                 <select name="parent_id">
+                                                <option value='' selected>NULL</option>
                                                     @foreach($pages as $page)
                                                         @if($page->parent_id == $page->id)
                                                             <option value="{{$page->id}}" selected >{{$page->title}}</option>
@@ -158,11 +159,14 @@
                                 <div class="feild">
                                     <label class="label"> Visible</label>
                                     <div class="control">
-                                        <select name="visible">
-                                            <option value="{{$page->visible}}" selected>{{$page->depth}}</option>
-                                            <option value='true'>Yes</option>
-                                            <option value='false'>No</option>
-                                        </select>
+                                        <div class="select">
+                                            <select name="visible">
+                                                <option value="" selected>NULL</option>
+                                                <option value="{{$page->visible}}" selected>{{$page->visible}}</option>
+                                                <option value='1'>Yes</option>
+                                                <option value='0'>No</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                                 <hr> 
