@@ -83,8 +83,18 @@
                                 </div>  
                                 <hr>
                                 <div class="feild">
-                                    <label class="label"> Descriptions</label>
-                                    <textarea id ="editor" name='description' class="textarea" rows="3" placeholder="Post Descriptions"></textarea>
+                                    <label class="label"> Visible</label>
+                                    <div class="control">
+                                            <label class="radio">
+                                                <input type="radio" name="visible" value = 1>
+                                                Yes
+                                            </label>
+                                            <label class="radio">
+                                                <input type="radio" name="visible" value= 0>
+                                                No
+                                            </label>
+                                        </div>
+                                    </div>
                                 </div>
                                 <hr> 
                                  
@@ -118,6 +128,7 @@
                                             <label class="label" > Parent </label>
                                             <div class="select">
                                                 <select name="parent_id">
+                                                <option value='' selected>NULL</option>
                                                     @foreach($pages as $page)
                                                         @if($page->parent_id == $page->id)
                                                             <option value="{{$page->id}}" selected >{{$page->title}}</option>
@@ -148,8 +159,17 @@
                                 </div>  
                                 <hr>
                                 <div class="feild">
-                                    <label class="label"> Descriptions</label>
-                                    <textarea id ="editor" name='description' class="textarea" rows="3" >{{$page->description}}</textarea>
+                                    <label class="label"> Visible</label>
+                                    <div class="control">
+                                    <label class="radio">
+                                            <input type="radio" name="visible" value = 1>
+                                            Yes
+                                        </label>
+                                        <label class="radio">
+                                            <input type="radio" name="visible" value= 0>
+                                            No
+                                        </label>
+                                    </div>
                                 </div>
                                 <hr> 
                                  

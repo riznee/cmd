@@ -32,6 +32,7 @@ class PageController extends Controller
     
     public function store(StorePageRequest $request)
     {
+        dd($request);
        
         try{
             $data = $this->repository->store($request);
@@ -55,6 +56,7 @@ class PageController extends Controller
     public function update(UpdatePageRequest $request, $id)
     {
         $page =  $this->repository->findOrFail($id);
+
         try
         {
             $this->repository->updateUniquefeild($page,$request);

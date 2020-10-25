@@ -14,7 +14,11 @@ class CreatePagesTable extends Migration
             $table->integer('depth')->nullable();
             $table->string('title');
             $table->string('icon')->nullable();
+<<<<<<< HEAD
             $table->boolean('active')->default(false);
+=======
+            $table->smallInteger('visible')->nullable();
+>>>>>>> ba0249a14fe7e772911c34393518b68dbf39f09f
             $table->timestamps();
             $table->foreign('parent_id')->references('id')->on('pages')->onDelete('cascade');
         });
