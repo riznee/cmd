@@ -21,13 +21,14 @@
 
             <div class="field">
                   <p class="control">
-                  <a class="button is-rounded is-success" href="{{url('user/password-reset', $user->passwordReset->token)}}"> Reset Password </a>
+                    <a class="button is-rounded is-success" href="{{url('user/password-reset', $user->passwordReset->token)}}"> Reset Password </a>
                   </p>
                   <p class="has-text-grey">
-                  Didn't ask to reset your password? If you didn't ask for your password, it's likely that another user entered your username or email address by mistake while trying to reset their password. If that's the case, you don't need to take any further action and can safely disregard this email.
-                  </p>         
-              
-              
+                    Did not ask to reset your password? If you didnt ask for your password, 
+                    it is likely that another user entered your username or email address by
+                    mistake while trying to reset their password. If that is the case, 
+                    you do not need to take any further action and can safely disregard this email.
+                  </p>  
             </div>
           </form>
         

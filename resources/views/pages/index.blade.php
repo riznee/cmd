@@ -58,6 +58,21 @@
 															</a> 
 
 														</div>
+
+														<div class="column">
+															@if($row->published_at == 1)
+																<a class=" button is-inverted is-link is-small" href="{{route('pages.enable',$row['id'])}}">
+																	<i class="fas fa-eye" aria-hidden="true"></i>
+																		&nbsp; Enable
+																</a>
+															@else
+																<a class=" button is-inverted is-link is-small" href="{{route('pages.disable',$row['id'])}}">
+																	<i class="fas fa-eye" aria-hidden="true"></i>
+																		&nbsp; Disable
+																</a> 
+															@endif  
+														</div>
+
 														<div class='column'>
 															<form  accept-charset="UTF-8" method="post" action="{{route('pages.destroy',$row['id'])}}">
 															@csrf

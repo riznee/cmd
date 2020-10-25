@@ -81,21 +81,6 @@
                                         </div>
                                     </div>
                                 </div>  
-                                <hr>
-                                <div class="feild">
-                                    <label class="label"> Visible</label>
-                                    <div class="control">
-                                            <label class="radio">
-                                                <input type="radio" name="visible" value = 1>
-                                                Yes
-                                            </label>
-                                            <label class="radio">
-                                                <input type="radio" name="visible" value= 0>
-                                                No
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
                                 <hr> 
                                  
                                 <div class="field is-grouped">

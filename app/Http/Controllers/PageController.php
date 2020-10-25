@@ -32,7 +32,6 @@ class PageController extends Controller
     
     public function store(StorePageRequest $request)
     {
-        dd($request);
        
         try{
             $data = $this->repository->store($request);
@@ -86,6 +85,16 @@ class PageController extends Controller
 
     }
     
+    public function enable($id)
+    {
+        $this->repository->enable($id);
+        return redirect()->route('pages.index')->with('success','Enable is Papge to public');
+    }
 
+    public function disable($id)
+    {
+        $this->repository->disable($id);
+        return redirect()->route('pages.index')->with('success','Disable is Page to public');
+    }
     
 }
