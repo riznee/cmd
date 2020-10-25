@@ -7,7 +7,6 @@
         <link rel="stylesheet" href="{{'css/enol.css'}}">
         <title>{{ config('app.name', 'SSCM') }}</title>
         <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script> 
-        <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
       </head>
       <body>
         @include('partials.flash-message')
