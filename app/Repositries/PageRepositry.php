@@ -39,6 +39,7 @@
         $pages = $this->model
         ->with('children')
         ->whereNull('parent_id')
+        ->where('visible', true)
         ->orderBy('depth', 'asc')
         ->get();
         return $pages;

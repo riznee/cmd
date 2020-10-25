@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use phpDocumentor\Reflection\PseudoTypes\False_;
 
 class PagesTableSeeder extends Seeder
 {
@@ -14,31 +15,31 @@ class PagesTableSeeder extends Seeder
         DB::table('pages')->insert([
             'slug' => 'home',
             'title' => 'Home',
-            'description' => ' Provides information about the company',
+            'visible' => true,
         ]);
         
         DB::table('pages')->insert([
             'slug' => 'services',
             'title' => 'Services',
-            'description' => ' Provides information on contactus information and collect user information',
+            'visible' => false,
         ]);
 
         DB::table('pages')->insert([
             'slug' => 'products',
             'title' => 'Products',
-            'description' => 'Provide all the service information ',
+            'visible' => false,
         ]);
 
         DB::table('pages')->insert([
             'slug' => 'news',
             'title' => 'News',
-            'description' => ' Provides information about the company',
+            'visible' => true,
         ]);
 
         DB::table('pages')->insert([
             'slug' => 'about',
             'title' => 'About Us',
-            'description' => 'Provide information of the finish products and projects ',
+            'visible' => true,
         ]);
         
         
