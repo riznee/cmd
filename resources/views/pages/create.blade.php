@@ -83,8 +83,16 @@
                                 </div>  
                                 <hr>
                                 <div class="feild">
-                                    <label class="label"> Descriptions</label>
-                                    <textarea id ="editor" name='description' class="textarea" rows="3" placeholder="Post Descriptions"></textarea>
+                                    <label class="label"> Visible</label>
+                                    <div class="control">
+                                    <div class="control">
+                                        <select name="visible">
+                                            <option value="{{$page->visible}}" selected>{{$page->depth}}</option>
+                                            <option value='true'>Yes</option>
+                                            <option value='false'>No</option>
+                                        </select>
+                                    </div>
+                                    </div>
                                 </div>
                                 <hr> 
                                  
@@ -148,8 +156,14 @@
                                 </div>  
                                 <hr>
                                 <div class="feild">
-                                    <label class="label"> Descriptions</label>
-                                    <textarea id ="editor" name='description' class="textarea" rows="3" >{{$page->description}}</textarea>
+                                    <label class="label"> Visible</label>
+                                    <div class="control">
+                                        <select name="visible">
+                                            <option value="{{$page->visible}}" selected>{{$page->depth}}</option>
+                                            <option value='true'>Yes</option>
+                                            <option value='false'>No</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <hr> 
                                  

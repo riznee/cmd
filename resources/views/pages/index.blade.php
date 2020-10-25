@@ -30,7 +30,7 @@
 										<th>Parent</th>
 										<th> Depth</th>
 										<th> Title</th>
-										<th> Description</th>
+										<th> Visible</th>
 										<th>Created At</th>
 										<th>Actions</th>
 									</tr>
@@ -42,8 +42,12 @@
 												<td>{{$row->slug}}</td>
 												<td>{{($row->parent->title ?? ' ')}}</td>
 												<td>{{$row->depth}}</td>
-												<td>{{$row->title}}</td>
-												<td>{{$row->description}}</td>
+												<td>{{$row->title}}</td>												
+												@if($row->visible == true )
+													<td>Yes</td>
+												@else
+													<td>No</td>
+												@endif
 												<td>{{$row->created_at}}</td>
 												<td>
 													<div class='columns'>
