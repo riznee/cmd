@@ -15,6 +15,7 @@ class CreatePagesTable extends Migration
             $table->string('title');
             $table->string('icon')->nullable();
             $table->boolean('visible')->default(false);
+            $table->string('description');
             $table->timestamps();
             $table->foreign('parent_id')->references('id')->on('pages')->onDelete('cascade');
         });

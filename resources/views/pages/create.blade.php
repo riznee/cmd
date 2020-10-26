@@ -82,6 +82,13 @@
                                     </div>
                                 </div>  
                                 <hr> 
+
+                                <div class="feild">
+                                    <label class="label"> Descriptions</label>
+                                    <textarea id ="editor" name='description' class="textarea" rows="3" placeholder="Post Descriptions"></textarea>
+                                </div>
+                                <hr> 
+
                                  
                                 <div class="field is-grouped">
                                     <div class="control">
@@ -142,7 +149,13 @@
                                         </div>
                                     </div>
                                 </div>  
-                                <hr>                                 
+                                <hr> 
+                                <div class="feild">
+                                    <label class="label"> Descriptions</label>
+                                    <textarea id ="editor" name='description' class="textarea" rows="3" >{{$page->description}}</textarea>
+                                </div>
+                                <hr> 
+                                
                                 <div class="field is-grouped">
                                     <div class="control">
                                         <button  type="submit" class="button is-link">Save</button>

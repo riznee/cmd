@@ -32,27 +32,30 @@ class HomeController extends Controller
     public function index()
     {
         $pages = $this->pageRepositry->homeMenuPages();
-        $article = $this->articleRepository->latesArtile();          
-        return view('home.index', compact('article','pages'));
-
-        // $article = $this->articleRepository->latesArtile();         
-        // return $article; 
-   
+        $article = $this->articleRepository->latesArtile();
+        // dd($pages[0]->children[0]->title);          
+        return view('home.index', compact('article','pages'));   
     }
     
     public function homePagePages()
     {
         $pages = $this->pageRepositry->homeMenuPages();
         return $pages;
-
     }
 
     public function page($slug)
     {
         $pages = $this->pageRepositry->homeMenuPages();
-        $page = $this->pageRepositry->slugPages($slug);
-        $articles = $this->articleRepository->getPageArtiles($page->id);
-        return view('home.slug', compact('page', 'articles','pages'));
+        $page = $this->pageRepositry->slugPages($slug);        
+        if($page->visible == true) {
+            $articles = $this->articleRepository->getPageArtiles($page->id);
+            return view('home.slug', compact('page', 'articles','pages'));
+        }
+        else
+        {
+            return redirect()->route('home')->with('info', ' The page is comming Soon');
+        }
+
 
     }
 
@@ -60,6 +63,7 @@ class HomeController extends Controller
     {
         try{
             $data = $this->contactRepository->store($request);
+            
             return redirect()->route('home')->with('success', 'Contact Request is send');
         }
         catch (\Exception $exeption)

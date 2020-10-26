@@ -30,6 +30,7 @@ class UpdatePageRequest extends FormRequest
             'depth'     => 'nullable|numeric',
             'title'     => 'required|max:255',
             'icon' => 'nullable|max:255',
+            'description' => 'required|max:255',
         ];
     } 
 
