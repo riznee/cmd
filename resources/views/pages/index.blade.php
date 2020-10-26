@@ -30,7 +30,7 @@
 										<th>Parent</th>
 										<th> Depth</th>
 										<th> Title</th>
-										<th> Visible</th>
+										<th> Visible to Public </th>
 										<th>Created At</th>
 										<th>Actions</th>
 									</tr>
@@ -60,16 +60,16 @@
 														</div>
 
 														<div class="column">
-															@if($row->published_at == 1)
+															@if($row->visible == true)
+															<a class=" button is-inverted is-link is-small" href="{{route('pages.disable',$row['id'])}}">
+																<i class="fas fa-eye" aria-hidden="true"></i>
+																&nbsp; Disable
+															</a> 
+															@else
 																<a class=" button is-inverted is-link is-small" href="{{route('pages.enable',$row['id'])}}">
 																	<i class="fas fa-eye" aria-hidden="true"></i>
-																		&nbsp; Enable
+																	&nbsp; Enable
 																</a>
-															@else
-																<a class=" button is-inverted is-link is-small" href="{{route('pages.disable',$row['id'])}}">
-																	<i class="fas fa-eye" aria-hidden="true"></i>
-																		&nbsp; Disable
-																</a> 
 															@endif  
 														</div>
 

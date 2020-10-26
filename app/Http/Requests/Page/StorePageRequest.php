@@ -17,7 +17,7 @@ class StorePageRequest extends FormRequest
             'parent_id' => 'nullable|numeric',
             'depth'     => 'nullable|numeric',
             'title'     => 'required|max:255',
-            'visible' => 'required',
+            // 'visibile'  => 'required',
             'icon' => 'nullable|max:255',
         ];
     } 

@@ -39,7 +39,7 @@
         $pages = $this->model
         ->with('children')
         ->whereNull('parent_id')
-        ->where('visible' == 1)
+        ->where('visible' , true)
         ->orderBy('depth', 'asc')
         ->get();
         return $pages;
@@ -50,6 +50,7 @@
         $page = $this->model
             ->with('children')
             ->where('slug','=',$slug)
+            ->where('visible', true)
             ->first();
         return $page;
     }
@@ -58,7 +59,7 @@
     {
         $page=$this->model->findOrFail($id);
         $page->update(array(
-            'visible' => 1
+            'visible' => true
         ));
         return $page;
     }
@@ -67,7 +68,7 @@
     {
         $page=$this->model->findOrFail($id);
         $page->update(array(
-            'visible' => 0
+            'visible' => false
         ));
         return $page;
     }

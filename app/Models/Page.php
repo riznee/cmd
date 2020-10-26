@@ -12,7 +12,7 @@ class Page extends Model
         'parent_id',
         'depth', 
         'title',
-        'description',
+        'visible',
         'icon'
         ];
  
