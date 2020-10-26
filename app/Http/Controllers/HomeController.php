@@ -32,8 +32,7 @@ class HomeController extends Controller
     public function index()
     {
         $pages = $this->pageRepositry->homeMenuPages();
-        $article = $this->articleRepository->latesArtile();
-        // dd($pages[0]->children[0]->title);          
+        $article = $this->articleRepository->latesArtile();       
         return view('home.index', compact('article','pages'));   
     }
     

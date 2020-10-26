@@ -1,6 +1,6 @@
 <?php
 
-$id = 1
+$id = 0
 
 ?>
 @extends('layouts.site')
@@ -16,10 +16,11 @@ $id = 1
 	  </div>
 	</div>
   </section>
-  @if(!empty($pages))
-	  @foreach($pages as $page)
-	    
-		<section id="parallax-{{$id+1}}" class="hero is-medium ">
+  @if(!empty($pages)) 
+  @foreach($pages as $page)
+  
+  	<?php $id=$id+1 ?>
+		<section id="parallax-{{$id}}" class="hero is-medium ">
 			<div class="hero-body">
 				<div class="container">
 					<div class="columns">
@@ -29,7 +30,7 @@ $id = 1
 							<h2 class="subtitle"> {{$page->description}}</h2>
 							@if($page->children != [])
 								@foreach($page->children as $child)
-									<a href="#" class="button is-white is-inverted">{{$child->title}}&ensp;<i class="fad fa-chevron-right"></i></a>
+									<a href="{{route('page', $child->slug)}}" class="button is-white is-inverted">{{$child->title}}&ensp;<i class="fad fa-chevron-right"></i></a>
 								@endforeach
 							@endif
 						</div>

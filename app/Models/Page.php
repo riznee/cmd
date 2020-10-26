@@ -31,4 +31,6 @@ class Page extends Model
         return $this->hasMany(Page::class, 'parent_id')->orderBy('depth','asc');
     }
 
+   
+
 }

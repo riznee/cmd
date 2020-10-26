@@ -5,6 +5,15 @@
 	<div class="hero-body">
 		<div class="container">
 		<br>
+		<nav class="breadcrumb" aria-label="breadcrumbs">
+			<ul>
+				<li><a href="{{route('home')}}">Home Page</a></li>
+				@if($page->parent != [])
+				<li><a href="{{route('page',$page->parent->slug)}}">{{$page->parent->title}}</a></li>
+				@endif
+				<li><a href="#">{{$page->title}}</a></li>
+			</ul>
+		</nav>
 			<h1 class="title">{{$page->title}}</h1>	
 		</div>
 	</div>
@@ -21,83 +30,39 @@
     	@endif
 		</ul>
 	</div>
-	<div class="tab-content">
-		<div class="tab-panel">
+	<div class="card">
+	
 			<div class="colums">
 				<div class="container">
 					@if(!empty($articles))
 						@foreach($articles as $article)
-							<header class="bd-header">
-								<div class="bd-header-title">
+							<div class="card">
+								<div class="card-header">
 									<h1 class="title">
 										{{$article->title}}
 									</h1>
-									<div class="control">
+								</div>
+								<div class="card-content">
 										<span class="tag is-white">Type: &nbsp; 
 											<a class="tag {{$article->category->color}}"> {{$article->category->title}} </a>
 										</span>
 										<span class="tag is-white"> Updated &nbsp; 
 											{{$article->category->created_at}}
 										</span>
-									</div>
 								</div>
-							</header>
+								</div>
+							</div>
 							<br/>
-							<div class="bd-content">
+							<div class="card-content">
 								{!!$article->content!!}
 							</div>
 						@endforeach
 					@else					
-					<div class="tile is-ancestor">
-						<div class="tile is-vertical is-8">
-							<div class="tile">
-							<div class="tile is-parent is-vertical">
-								<article class="tile is-child notification is-primary">
-								<p class="title">Vertical...</p>
-								<p class="subtitle">Top tile</p>
-								</article>
-								<article class="tile is-child notification is-warning">
-								<p class="title">...tiles</p>
-								<p class="subtitle">Bottom tile</p>
-								</article>
-							</div>
-							<div class="tile is-parent">
-								<article class="tile is-child notification is-info">
-								<p class="title">Middle tile</p>
-								<p class="subtitle">With an image</p>
-								<figure class="image is-4by3">
-									<img src="https://bulma.io/images/placeholders/640x480.png">
-								</figure>
-								</article>
-							</div>
-							</div>
-							<div class="tile is-parent">
-							<article class="tile is-child notification is-danger">
-								<p class="title">Wide tile</p>
-								<p class="subtitle">Aligned with the right tile</p>
-								<div class="content">
-								<!-- Content -->
-								</div>
-							</article>
-							</div>
-						</div>
-						<div class="tile is-parent">
-							<article class="tile is-child notification is-success">
-							<div class="content">
-								<p class="title">Tall tile</p>
-								<p class="subtitle">With even more content</p>
-								<div class="content">
-								<!-- Content -->
-								</div>
-							</div>
-							</article>
-						</div>
-					</div>
-										
+					sdfdkjshfkjdshfkjh
 					@endif
 				</div>
 			</div>
-		</div>
+		
 	</div>
 
 </section>

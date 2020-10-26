@@ -49,6 +49,7 @@
     {
         $page = $this->model
             ->with('children')
+            ->with('parent')
             ->where('slug','=',$slug)    
             ->first();
         return $page;
@@ -71,6 +72,8 @@
         ));
         return $page;
     }
+
+  
 
 
 
