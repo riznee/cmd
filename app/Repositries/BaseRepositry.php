@@ -3,6 +3,7 @@
  namespace App\Repositries;
 
  use Illuminate\Foundation\Validation\ValidatesRequests;
+ 
 
  class BaseRepositry {
 

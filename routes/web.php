@@ -2,7 +2,11 @@
 
 // Application Routes
 Route::get('/', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/page/{slug}', 'HomeController@page')->name('page');
+
+//contact us Post informstion
 Route::post('/contactus/send', 'HomeController@contactSend')->name('contactus.send');
 
 // User Managment
