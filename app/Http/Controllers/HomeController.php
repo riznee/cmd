@@ -44,13 +44,14 @@ class HomeController extends Controller
 
     public function page($slug)
     {
+        $pages = $this->getHomePageMenu();
         $page = $this->pageRepository->slugPages($slug); 
-
+        $articles = $this->articleRepository->getPageArtiles($page->id);
+        $grandParent = $this->getGrandParents($slug);
+        // dd($grandParent);
         if($page->visible == true) {
-            $pages = $this->getHomePageMenu();
-            $grandParent = $this->getGrandParents($slug);
-            $articles = $this->articleRepository->getPageArtiles($page->id);
-            return view('home.slug', compact('pages', 'articles','page', 'grandParent'));
+            
+            return view('home.slug', compact('pages', 'articles','page','grandParent'));
         }
         else
         {
@@ -89,7 +90,6 @@ class HomeController extends Controller
         $gradParent = cache(''.$slug.'', function() use($slug){
             return $this->pageRepository->findGrandParents($slug);
         });
-
         return $gradParent;
     }
 

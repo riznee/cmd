@@ -9,10 +9,12 @@
 			
 			<ul>
 				<li><a href="{{route('home')}}">Back</a></li>
-				@foreach(array_reverse($grandParent) as $parent)
-				{{$parent}}
-				<li><a href="{{route('page',$parent->slug)}}">{{$parent->title}}</a></li>
-				@endforeach
+				@if(!empty($grandParent))
+					@foreach(array_reverse($grandParent) as $parent)
+						<li><a href="{{route('page',$parent->slug)}}">{{$parent->title}}</a></li>
+					@endforeach
+				@endif
+				
 			</ul>
 		</nav>
 		<h1 class="title">{{$page->title}}</h1>	

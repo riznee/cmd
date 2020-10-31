@@ -2,7 +2,7 @@
 
 // Application Routes
 Route::get('/', 'HomeController@index')->name('home');
-// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home.get');
 
 Route::get('/page/{slug}', 'HomeController@page')->name('page');
 

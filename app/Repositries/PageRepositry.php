@@ -37,31 +37,40 @@ class PageRepositry extends BaseRepositry {
 
     public function homeMenuPages()
     {
-        $pages = $this->model
+        $pages = Cache::remember('homePage', 60, function () {
+            return $this->model
             ->with('children')
             ->whereNull('parent_id')
             ->where('visible', true)
             ->orderBy('depth', 'asc')
             ->get();            
+        });
         return $pages;
 
     }
 
     public function findGrandParents($slug)
     {
-        $i=0;
-        $parent = Cache::remember(''.$slug.'', 60, function () use ($slug,$i ){            
-            $newPage = $this->slugPages($slug);
-            $pageNames[''.$i.'']=$newPage;  
-            $i=$i+1; 
-            do {     
-                $newPage = $this->model->findOrFail($newPage['parent_id']);
-                $pageNames[''.$i.'']=$newPage;
-            } while ($newPage['parent_id'] != null) ;
+        $pages = Cache::remember(''.$slug.'', 60, function () use($slug) {
+            $i=0;            
+            $data = $this->slugPages($slug);
+            $pageNames[''.$i.'']= $data;
+            $i= $i+1;
+            $test = true;
+            while( $test == true)
+            {
+                if($data->parent_id !=null) {
+                    $data = $this->slugPages( $data->parent->slug);
+                    $pageNames[''.$i.'']= $data;
+                    $i= $i+1;
+                    $test = true;
+                } else {
+                    $test = false; 
+                }
+            }
             return $pageNames;
         });
-              
-        return $parent;
+        return $pages;
     }
 
     public function slugPages($slug)
