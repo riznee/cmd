@@ -16,13 +16,7 @@ class Controller extends BaseController
 
     public function __construct()
     {
-        // $this->getuser();
-    }
 
-    public function getuser()
-    {
-        $user = auth()->user();
-        $this->user = $user;
     }
 
     public function setPermission($permission)
