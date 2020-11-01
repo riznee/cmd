@@ -5,9 +5,9 @@
  use App\Models\Article;
 
  use App\Repositries\BaseRepositry;
+use PhpParser\Node\Expr\FuncCall;
 
-
- class ArticleRepositry extends BaseRepositry {
+class ArticleRepositry extends BaseRepositry {
 
 
     public function __construct(Article $article)
@@ -58,6 +58,21 @@
         ->where('published_at', '=','1')
         ->paginate(1);
         return $articles;
+    }
+
+    public function listPageArticles($page_id)
+    {
+        $result = $this->model->where('page_id', $page_id)->get();
+        return $result;
+    }
+
+    public function articleBySlug($slug)
+    {
+        $result = $this->model
+        ->with('page')
+        ->where('slug','=',$slug)
+        ->paginate();        
+        return $result;
     }
 
     

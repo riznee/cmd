@@ -44,21 +44,36 @@ class HomeController extends Controller
 
     public function page($slug)
     {
-        $pages = $this->getHomePageMenu();
         $page = $this->pageRepository->slugPages($slug); 
-        $articles = $this->articleRepository->getPageArtiles($page->id);
-        $grandParent = $this->getGrandParents($slug);
-        // dd($grandParent);
+        
         if($page->visible == true) {
-            
-            return view('home.slug', compact('pages', 'articles','page','grandParent'));
+            $pages = $this->getHomePageMenu();
+            $grandParent = $this->getGrandParents($slug);
+            $articles = $this->articleRepository->getPageArtiles($page->id);            
+            $articleList = $this->articleRepository->listPageArticles($page->id);
+            return view('home.slug', compact('pages', 'articles','page','grandParent','articleList'));
         }
         else
         {
             return redirect()->route('home')->with('info', ' The page is comming Soon');
         }
+    }
 
-
+    public function artilcePage($slug)
+    {
+        $articles = $this->articleRepository->articleBySlug($slug);  
+        // dd($articles);
+        $page = $this->pageRepository->slugPages($articles[0]->page->slug);             
+        if($page->visible == true) {
+            $pages = $this->getHomePageMenu();
+            $grandParent = $this->getGrandParents($articles[0]->page->slug);           
+            $articleList = $this->articleRepository->listPageArticles($articles[0]->page->id);
+            return view('home.slug', compact('pages', 'articles','page','grandParent','articleList'));
+        }
+        else
+        {
+            return redirect()->route('home')->with('info', ' The page is comming Soon');
+        }
     }
 
     public function contactSend(StoreContactRequest $request)
@@ -92,5 +107,8 @@ class HomeController extends Controller
         });
         return $gradParent;
     }
+
+
+    
 
 }

@@ -35,26 +35,21 @@
 <section class="section">
 <div class="columns">	
 		<nav class="column   panenl is-one-fifth menu">
+			
+			@if(!$articleList->isEmpty())
 			<p class="panel-heading">
 				Document Availble
 			</p>
-			@if(!$articles->isEmpty())
-			<a class="panel-block">
-				<span class="panel-icon">
-					<i class="fas fa-book" aria-hidden="true"></i>
-				</span>
-				marksheet
-			</a>
-			<a class="panel-block">
-				<span class="panel-icon">
-					<i class="fas fa-book" aria-hidden="true"></i>
-				</span>
-				minireset.css
-			</a>
+			  	@foreach($articleList as $item)
+					<a class="panel-block" href="{{route('article',$item->slug)}}">
+						{{$item->title}}
+					</a>
+				@endforeach
+			
 			@else
-			<a class="panel-block">
-
-			</a>			
+			<p class="panel-heading">
+				No Content Availble
+			</p>			
 			@endif
 		</nav>
 		<div class=" column  slugArticle container">
