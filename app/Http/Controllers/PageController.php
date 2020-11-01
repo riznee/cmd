@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Repositries\PageRepositry;
 use App\Http\Requests\Page\StorePageRequest;
 use App\Http\Requests\Page\UpdatePageRequest;
+use Illuminate\Support\Facades\Cache;
 
 class PageController extends Controller
 {

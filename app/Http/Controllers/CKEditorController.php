@@ -8,6 +8,19 @@ class CKEditorController extends Controller
 {
     public $permissonName='upload';
 
+    public function __construct()
+    {
+        
+        $this->setPermission($this->permissonName);
+        parent::__construct();
+
+    }
+
+    public function setPermission($permission)
+    {
+        $this->middleware('permission:'.$this->permissonName , ['only' => ['upload']]);
+    }
+
     public function upload(Request $request)
     {
         if($request->hasFile('upload')) {

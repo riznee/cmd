@@ -51,7 +51,7 @@ class LoginController extends Controller
             $user = Auth::user();
 
             if($user->verified){
-                return redirect()->route('home');
+                return back();
             } else{
                 $this->logout($request);
                 return back()->with('info', 'your account is not verified');

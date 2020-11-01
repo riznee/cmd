@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use cache;
 
 use App\Repositries\ArticleRepositry;
 use App\Repositries\CategoryRepositry;
@@ -23,33 +23,35 @@ class HomeController extends Controller
                                 )
     {
         $this->articleRepository = $articleRepository;
-        $this->categoryRepositry =$categoryRepositry;
-        $this->pageRepositry = $pageRepositry;
+        $this->categoryRepository =$categoryRepositry;
+        $this->pageRepository = $pageRepositry;
         $this->contactRepository = $contactRepository;
         parent::__construct();
     }
 
     public function index()
-    {
-        $pages = $this->pageRepositry->homeMenuPages();
-        $article = $this->articleRepository->latesArtile();
-       
+    {   
+        $pages = $this->getHomePageMenu();
+        $article = $this->articleRepository->latesArtile();       
         return view('home.index', compact('article','pages'));   
     }
     
     public function homePagePages()
     {
-        $pages = $this->pageRepositry->homeMenuPages();
+        $pages = $this->pageRepository->homeMenuPages();
         return $pages;
     }
 
     public function page($slug)
     {
-        $pages = $this->pageRepositry->homeMenuPages();
-        $page = $this->pageRepositry->slugPages($slug);        
+        $pages = $this->getHomePageMenu();
+        $page = $this->pageRepository->slugPages($slug); 
+        $articles = $this->articleRepository->getPageArtiles($page->id);
+        $grandParent = $this->getGrandParents($slug);
+        // dd($grandParent);
         if($page->visible == true) {
-            $articles = $this->articleRepository->getPageArtiles($page->id);
-            return view('home.slug', compact('page', 'articles','pages'));
+            
+            return view('home.slug', compact('pages', 'articles','page','grandParent'));
         }
         else
         {
@@ -72,6 +74,23 @@ class HomeController extends Controller
                 ->withError($exeption->getMessage())
                 ->withInput();
         }
+    }
+
+
+    public function getHomePageMenu()
+    {
+        $pages = cache('homeMenuPages', function() {
+            return $this->pageRepository->homeMenuPages();
+        });
+        return $pages;
+    }
+
+    public function getGrandParents($slug)
+    {
+        $gradParent = cache(''.$slug.'', function() use($slug){
+            return $this->pageRepository->findGrandParents($slug);
+        });
+        return $gradParent;
     }
 
 }

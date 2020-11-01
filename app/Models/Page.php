@@ -2,6 +2,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Events\PageCreated;
 
 class Page extends Model
 {
@@ -15,6 +16,10 @@ class Page extends Model
         'visible',
         'icon'
         ];
+    
+    protected $dispactchesEvents =[
+        'created' => PageCreated ::class
+    ];
  
 
     public function articles()

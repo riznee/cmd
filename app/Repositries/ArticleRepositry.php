@@ -56,7 +56,7 @@
         $articles = $this->model
         ->where('page_id', $page_id)
         ->where('published_at', '=','1')
-        ->get();
+        ->paginate(1);
         return $articles;
     }
 
