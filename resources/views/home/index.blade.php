@@ -11,7 +11,7 @@ $id = 0
 	  	@if(!empty($article))
 			<h1 class="title is-1">{{$article->title}}</h1>
 			<h2 class="subtitle">{{$article->description}}</h2>
-			<a href="{{route('page',$article->page->slug)}}" class="button is-white is-medium is-inverted">Learn More &ensp; ....<i class="fad fa-chevron-right"></i></a>
+			<a href="{{route('article',$article->slug)}}" class="button is-white is-medium is-inverted">Learn More &ensp; ....<i class="fad fa-chevron-right"></i></a>
 		@endif
 	  </div>
 	</div>

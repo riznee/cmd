@@ -1,36 +1,37 @@
 
 @extends('layouts.site')
 @section('content')
-<section class="hero is-dark">
-	<div class="hero-body">
+<section class=" section">
+	<div>
 		<div class="container">
-		<br>
-		<nav class="breadcrumb" aria-label="breadcrumbs">
+			<br>
+			<nav class="breadcrumb is-primary" aria-label="breadcrumbs">				
+				<ul>
+					<li><a href="{{route('home')}}">Back</a></li>
+					@if(!empty($grandParent))
+						@foreach(array_reverse($grandParent) as $parent)
+							<li><a href="{{route('page',$parent->slug)}}">{{$parent->title}}</a></li>
+						@endforeach
+					@endif
+					
+				</ul>
+			</nav>
+			<h1 class="title">{{$page->title}}</h1>	
+			<div class="tabs is-right">
+				<ul>
 			
-			<ul>
-				<li><a href="{{route('home')}}">Back</a></li>
-				@if(!empty($grandParent))
-					@foreach(array_reverse($grandParent) as $parent)
-						<li><a href="{{route('page',$parent->slug)}}">{{$parent->title}}</a></li>
-					@endforeach
-				@endif
+					@if(empty($page->childrean))
+						@foreach ($page->children as $child)		
+							<li> <a class=" button is-normal  is-outlined" href="{{route('page',$child->slug)}}">
+								&nbsp; {{$child->title}}
+							</a></li>
+						@endforeach
+					@endif
+				</ul>
 				
-			</ul>
-		</nav>
-		<h1 class="title">{{$page->title}}</h1>	
+			</div>
+		</div>
 	</div>
-</div>
-<div class="navbar">
-	<div class="navbar-menu is-centered">
-		@if(empty($page->childrean))
-			@foreach ($page->children as $child)		
-				<a class="navbar-item  button is-info" href="{{route('page',$child->slug)}}">
-					&nbsp; {{$child->title}}
-				</a>
-			@endforeach
-    	@endif
-	</div>
-</div>
 </section>
 <section class="section">
 <div class="columns">	
