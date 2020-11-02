@@ -14,6 +14,7 @@ class CreateBannersTable extends Migration
             $table->boolean('visible')->default(false);
             $table->string('message');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

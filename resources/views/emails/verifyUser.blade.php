@@ -1,6 +1,5 @@
 @extends('layouts.plan')
 @section('content')
-
 <section class="hero  is-fullheight">
   <div class="hero-body">
     <div class="container is-info has-text-centered">
@@ -13,7 +12,7 @@
         <hr class="login-hr">
         <p class="subtitle has-text-black"> </p>
         <p class="subtitle">
-           Hello {{$user['name']}} 
+           Hello {{$user->name}} 
         </p>
         <p class="subtitle">
         Thank you for siginig up to {{ config('app.name', 'SSCM') }}
@@ -37,7 +36,6 @@
     </div>
   </div>
 </section>
-
 @stop
 
 

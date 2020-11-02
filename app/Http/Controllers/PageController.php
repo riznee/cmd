@@ -33,7 +33,6 @@ class PageController extends Controller
     
     public function store(StorePageRequest $request)
     {
-       
         try{
             $data = $this->repository->store($request);
             return redirect()->route('pages.index')->with('success', $data->title.'New Page is created');

@@ -17,6 +17,7 @@ class CreateArticlesTable extends Migration
             $table->text('content');
             $table->string('description');
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('category_id')->references('id')->on('categories');
             $table->foreign('page_id')->references('id')->on('pages');

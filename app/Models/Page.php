@@ -3,10 +3,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Events\PageCreated;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Page extends Model
 {
-   
+   use SoftDeletes;
  
     protected $fillable = [
         'slug',
@@ -14,7 +15,8 @@ class Page extends Model
         'depth', 
         'title',
         'visible',
-        'icon'
+        'icon',
+        'description'
         ];
     
     protected $dispactchesEvents =[
