@@ -5,7 +5,7 @@
 	<div>
 		<div class="container">
 			<br>
-			<nav class="breadcrumb is-primary" aria-label="breadcrumbs">				
+			<nav class="breadcrumb has-arrow-separator" aria-label="breadcrumbs">				
 				<ul>
 					<li><a href="{{route('home')}}">Back</a></li>
 					@if(!empty($grandParent))
