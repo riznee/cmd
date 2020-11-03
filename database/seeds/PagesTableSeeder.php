@@ -11,34 +11,33 @@ class PagesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('pages')->insert([
-            'slug' => 'home',
-            'title' => 'Home',
-            'description' => ' Provides information about the company',
-        ]);
-        
+            
         DB::table('pages')->insert([
             'slug' => 'services',
             'title' => 'Services',
-            'description' => ' Provides information on contactus information and collect user information',
+            'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat pulvinar,',
+            'visible' => 0,
         ]);
 
         DB::table('pages')->insert([
             'slug' => 'products',
             'title' => 'Products',
-            'description' => 'Provide all the service information ',
+            'description' => 'When crafting a product description, you’ll want to sell the benefits, not the features. ',
+            'visible' => 0,
         ]);
 
         DB::table('pages')->insert([
-            'slug' => 'news',
-            'title' => 'News',
-            'description' => ' Provides information about the company',
+            'slug' => 'press-release',
+            'title' => 'Press Releases',
+            'description' => 'Announcements of new products and services can be a great way to expand brand awareness on the web',
+            'visible' => 0,
         ]);
 
         DB::table('pages')->insert([
             'slug' => 'about',
             'title' => 'About Us',
-            'description' => 'Provide information of the finish products and projects ',
+            'description' => 'The About page is an opportunity to elaborate on your brand’s vision and accomplishments.',
+            'visible' => 1,
         ]);
         
         

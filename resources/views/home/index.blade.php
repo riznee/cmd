@@ -1,56 +1,45 @@
+<?php
+
+$id = 0
+
+?>
 @extends('layouts.site')
 @section('content')
 <section class="hero is-medium">
 	<div class="hero-body">
 	  <div class="container">
-		<h1 class="title is-1 ">Enol</h1>
-		<h2 class="subtitle">We makes things easy  <br>to bond with technoloy.</h2>
-		<a href="#" class="button is-white is-medium is-inverted">Learn More&ensp;<i class="fad fa-chevron-right"></i></a>
+	  	@if(!empty($article))
+			<h1 class="title is-1">{{$article->title}}</h1>
+			<h2 class="subtitle">{{$article->description}}</h2>
+			<a href="{{route('article',$article->slug)}}" class="button is-white is-medium is-inverted">Learn More &ensp; ....<i class="fad fa-chevron-right"></i></a>
+		@endif
 	  </div>
 	</div>
   </section>
-  <section id="parallax-1" class="hero is-large ">
-	<div class="hero-body">
-	  <div class="container">
-		<div class="columns">
-		  <div class="column is-6 is-offset-6">
-			<h1 class="title is-1 ">Real time Help</h1>
-			<hr class="content-divider">
-			<h2 class="subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit explicabo amet magni illum eum voluptate! Eveniet voluptatem nam magnam necessitatibus.</h2>
-			<a href="#" class="button is-white is-inverted">Next&ensp;<i class="fad fa-chevron-right"></i></a>
-		  </div>
-		</div>
-	  </div>
-	</div>
-  </section>
-  <section id="parallax-2" class="hero is-large ">
-	<div class="hero-body">
-	  <div class="container">
-		<div class="columns">
-		  <div class="column is-6">
-			<h1 class="title is-1 ">Our Sevices</h1>
-			<hr class="content-divider">
-			<h2 class="subtitle">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloremque veritatis sequi natus minima distinctio ullam deleniti quasi quisquam autem deserunt.</h2>
-			<a href="#" class="button is-white is-inverted">Next&ensp;<i class="fad fa-chevron-right"></i></a>
-		  </div>
-		</div>
-	  </div>
-	</div>
-  </section>
-  <section id="parallax-3" class="hero is-large ">
-	<div class="hero-body">
-	  <div class="container">
-		<div class="columns">
-		  <div class="column is-6 is-offset-6">
-			<h1 class="title is-1 ">About us</h1>
-			<hr class="content-divider">
-			<h2 class="subtitle">We welcome you inquire about our service</h2>
-			<a href="#" class="button is-white is-inverted">Next&ensp;<i class="fad fa-chevron-right"></i></a>
-		  </div>
-		</div>
-	  </div>
-	</div>
-  </section>
+  @if(!empty($pages)) 
+  @foreach($pages as $page)
+  
+  	<?php $id=$id+1 ?>
+		<section id="parallax-{{$id}}" class="hero is-medium ">
+			<div class="hero-body">
+				<div class="container">
+					<div class="columns">
+						<div class="column is-6 is-offset-6">
+							<h1 class="title is-1 ">{{$page->title}}</h1>
+							<hr class="content-divider">
+							<h2 class="subtitle"> {{$page->description}}</h2>
+							@if($page->children != [])
+								@foreach($page->children as $child)
+									<a href="{{route('page', $child->slug)}}" class="button is-white is-inverted">{{$child->title}}&ensp;<i class="fad fa-chevron-right"></i></a>
+								@endforeach
+							@endif
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	@endforeach
+  @endif
   <section class="cta va">
 	<div class="container">
 	  <div class="columns">

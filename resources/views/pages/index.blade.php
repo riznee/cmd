@@ -30,7 +30,7 @@
 										<th>Parent</th>
 										<th> Depth</th>
 										<th> Title</th>
-										<th> Description</th>
+										<th> Visible to Public </th>
 										<th>Created At</th>
 										<th>Actions</th>
 									</tr>
@@ -42,8 +42,12 @@
 												<td>{{$row->slug}}</td>
 												<td>{{($row->parent->title ?? ' ')}}</td>
 												<td>{{$row->depth}}</td>
-												<td>{{$row->title}}</td>
-												<td>{{$row->description}}</td>
+												<td>{{$row->title}}</td>												
+												@if($row->visible == true )
+													<td>Yes</td>
+												@else
+													<td>No</td>
+												@endif
 												<td>{{$row->created_at}}</td>
 												<td>
 													<div class='columns'>
@@ -54,6 +58,21 @@
 															</a> 
 
 														</div>
+
+														<div class="column">
+															@if($row->visible == true)
+															<a class=" button is-inverted is-link is-small" href="{{route('pages.disable',$row['id'])}}">
+																<i class="fas fa-eye" aria-hidden="true"></i>
+																&nbsp; Disable
+															</a> 
+															@else
+																<a class=" button is-inverted is-link is-small" href="{{route('pages.enable',$row['id'])}}">
+																	<i class="fas fa-eye" aria-hidden="true"></i>
+																	&nbsp; Enable
+																</a>
+															@endif  
+														</div>
+
 														<div class='column'>
 															<form  accept-charset="UTF-8" method="post" action="{{route('pages.destroy',$row['id'])}}">
 															@csrf

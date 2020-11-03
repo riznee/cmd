@@ -3,6 +3,7 @@
  namespace App\Repositries;
 
  use Illuminate\Foundation\Validation\ValidatesRequests;
+ 
 
  class BaseRepositry {
 
@@ -25,7 +26,8 @@
     
     public function store($request)
     {
-        return  $this->model->create($request->all());  
+        // return  $this->model->create($request->all());  
+        return  $this->model->create($request->all())->toSql();  
     }
 
     public function getitem($id)

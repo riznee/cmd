@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
  
 use Illuminate\Http\Request;
  
-class CKEditorController extends Controller
+class FileController extends Controller
 {
     public $permissonName='upload';
 

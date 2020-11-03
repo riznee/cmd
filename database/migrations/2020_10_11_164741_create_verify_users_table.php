@@ -17,6 +17,7 @@ class CreateVerifyUsersTable extends Migration
             $table->integer('user_id');
             $table->string('token');
             $table->timestamps();
+            
         });
     }
 

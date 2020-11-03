@@ -1,22 +1,25 @@
 @if(Auth::check())
   <?php $user  = Auth::user(); ?>
 @endif
-<nav class="navbar is-fixed-top">
-        <div class="navbar-brand">
-          <a class="navbar-item " href="{{route('home')}}">
+<nav class="navbar is-fixed-top ">
+  	<div class="navbar-brand">
+     	<a class="navbar-item " href="{{route('home')}}">
           <span class="space"> &nbsp;&nbsp;</span>
           <h4 class="subtitle is-5 ">{{ config('app.name') }}</h4>
-          </a>
-        <div class="navbar-burger burger" data-target="navbar">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-      </div>
-      
-      <div id="navbar" class="navbar-menu">
-        <div class="navbar-start">
-        </div>
+		</a>
+		<div class="navbar-burger burger" data-target="navBarmain">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>	
+	</div>
+
+          
+    <div id="navBarmain" class="navbar-menu">
+
+		<div class="navbar-start">
+		</div>
+
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="field is-grouped">
@@ -30,7 +33,7 @@
             
               @if($user ?? '')
                 <div class="navbar-item has-dropdown is-hoverable is-primary">
-                    <a class="navbar-link button">
+                    <a class="navbar-link button is-rounded">
                       {{ $user->name}}  &nbsp; <i class="fas fa-user" aria-hidden="true"></i>
                     </a>
                     <div class="navbar-dropdown">
@@ -44,15 +47,11 @@
                         logout &nbsp; <i class="fas fa-sign-out-alt" aria-hidden="true"></i>
                       </a>
                     </div>
+                    
+                    @else
+                      <a class="button is-info" href="{{route('signup')}}">Sign Up  &nbsp; </a>  &nbsp;              
+                      <a class="button is-link " href="{{route('login')}}">Sign In  &nbsp; <i class="fas fa-sign-in-alt" aria-hidden="true"></i></a>
                 </div>
-    
-              @else
-                <p class="control">
-                  <a class="navbar-item button is-rounded is-outlined is-primary" href="{{route('signup')}}">Sign Up  &nbsp; </a> 
-                </p>                 
-                <p class="control">
-                  <a class="navbar-item button is-rounded is-outlined is-success " href="{{route('login')}}">Sign In  &nbsp; <i class="fas fa-sign-in-alt" aria-hidden="true"></i></a>
-                </p>
               @endif  
             </div>
           </div>
@@ -60,4 +59,4 @@
       </div>
 </nav>
 
-<br/>
+

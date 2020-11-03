@@ -2,7 +2,12 @@
 
 // Application Routes
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home.get');
+
 Route::get('/page/{slug}', 'HomeController@page')->name('page');
+Route::get('/article/{slug}', 'HomeController@artilcePage')->name('article');
+
+//contact us Post informstion
 Route::post('/contactus/send', 'HomeController@contactSend')->name('contactus.send');
 
 // User Managment
@@ -28,10 +33,13 @@ Route::post('signup', 'UserController@registerRequest')->name('signup.post');
 Route::group(['middleware' => ['auth']], function () {
     
     Route::post('ckeditor/image_upload', 'CKEditorController@upload')->name('upload');
-
     Route::get('dashboard', 'AdminController@index')->name('dashboard');
+    
     Route::get('articles/{id}/publsih', 'ArticleController@publish')->name('articles.publish');
     Route::get('articles/{id}/unpublsih', 'ArticleController@unPublish')->name('articles.unpublish');
+
+    Route::get('pages/{id}/publsih', 'PageController@enable')->name('pages.enable');
+    Route::get('pages/{id}/unpublsih', 'PageController@disable')->name('pages.disable');
 
     Route::resource('articles', 'ArticleController');
     Route::resource('settings', 'SettingController');

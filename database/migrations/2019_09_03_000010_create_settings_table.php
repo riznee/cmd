@@ -15,6 +15,7 @@ class CreateSettingsTable extends Migration
             $table->string('twitter')->nullable();
             $table->string('disqus_shortname')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
