@@ -10,6 +10,6 @@
     </head>
     <body>
         @yield('content')
-       
+        <script src="{{ asset('js/bulma.js') }}"></script>
     </body>
 </html>

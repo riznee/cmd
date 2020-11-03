@@ -2,19 +2,26 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Events\PageCreated;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Page extends Model
 {
-   
+   use SoftDeletes;
  
     protected $fillable = [
         'slug',
         'parent_id',
         'depth', 
         'title',
-        'description',
-        'icon'
+        'visible',
+        'icon',
+        'description'
         ];
+    
+    protected $dispactchesEvents =[
+        'created' => PageCreated ::class
+    ];
  
 
     public function articles()
@@ -30,5 +37,7 @@ class Page extends Model
     {
         return $this->hasMany(Page::class, 'parent_id')->orderBy('depth','asc');
     }
+
+   
 
 }

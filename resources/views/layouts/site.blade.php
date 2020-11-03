@@ -10,9 +10,13 @@
         <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
       </head>
       <body>
-        @include('partials.nav')
+        <div class="card">
+          @include('partials.nav')
+        </div>
         @include('partials.flash-message')
         @yield('content')
         @include('partials.footer')
+        
+        <script src="{{ asset('js/bulma.js') }}"></script>
     </body>
 </html>

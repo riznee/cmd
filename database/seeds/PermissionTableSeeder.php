@@ -17,6 +17,7 @@ class PermissionTableSeeder extends Seeder
             'role-create',
             'role-edit',
             'role-delete',
+
             'articles-store',
             'articles-index', 
             'articles-create',
@@ -26,6 +27,7 @@ class PermissionTableSeeder extends Seeder
             'articles-edit',
             'articles-publish',
             'articles-unpublish', 
+
             'categories-store',
             'categories-index',
             'categories-create',
@@ -33,7 +35,9 @@ class PermissionTableSeeder extends Seeder
             'categories-update',
             'categories-destroy ',
             'categories-edit',
+
             'upload',
+
             'pages-index',
             'pages-store',
             'pages-create',
@@ -41,6 +45,9 @@ class PermissionTableSeeder extends Seeder
             'pages-show',
             'pages-destroy',
             'pages-edit',
+            'pages-enable',
+            'pages-disable',
+
             'settings-store',
             'settings-index',
             'settings-create',
@@ -48,6 +55,7 @@ class PermissionTableSeeder extends Seeder
             'settings-destroy',
             'settings-update',
             'settings-edit',
+            
             'users-index',      
             'users-store',        
             'users-create',      
@@ -55,6 +63,7 @@ class PermissionTableSeeder extends Seeder
             'users-update',      
             'users-destroy',     
             'users-edit',
+
             
         ];
         foreach ($permissions as $permission) {

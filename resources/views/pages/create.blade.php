@@ -81,10 +81,11 @@
                                         </div>
                                     </div>
                                 </div>  
-                                <hr>
+                                <hr> 
+
                                 <div class="feild">
                                     <label class="label"> Descriptions</label>
-                                    <textarea id ="editor" name='description' class="textarea" rows="3" placeholder="Post Descriptions"></textarea>
+                                    <textarea id ="editor" name='description' class="textarea" rows="3" placeholder="Post descriptions"></textarea>
                                 </div>
                                 <hr> 
                                  
@@ -112,12 +113,18 @@
                                             <input name='slug' type="text" class="input" value="{{$page->slug}}">
                                         </div>
                                     </div>
-                                    
+                                    <div class="column">
+                                        <div class="feild">
+                                            <label class="label">Icon</label>
+                                            <input name='icon' type="text" class="input" value="{{$page->icon}}">
+                                        </div>
+                                    </div>
                                     <div class="column">
                                         <div class="control">
                                             <label class="label" > Parent </label>
                                             <div class="select">
                                                 <select name="parent_id">
+                                                <option value='' selected>NULL</option>
                                                     @foreach($pages as $page)
                                                         @if($page->parent_id == $page->id)
                                                             <option value="{{$page->id}}" selected >{{$page->title}}</option>
@@ -146,16 +153,16 @@
                                         </div>
                                     </div>
                                 </div>  
-                                <hr>
+                                <hr> 
                                 <div class="feild">
-                                    <label class="label"> Descriptions</label>
+                                    <label class="label"> descriptions</label>
                                     <textarea id ="editor" name='description' class="textarea" rows="3" >{{$page->description}}</textarea>
                                 </div>
                                 <hr> 
-                                 
+                                
                                 <div class="field is-grouped">
                                     <div class="control">
-                                        <button  type="submit" class="button is-link">Save</button>
+                                        <button  type="submit" class="button is-link">Update</button>
                                     </div>
                                 </div>
                             </form>
