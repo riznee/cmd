@@ -38,9 +38,7 @@
 		<nav class="column   panenl is-one-fifth menu">
 			
 			@if(!$articleList->isEmpty())
-			<p class="panel-heading">
-				Document Availble
-			</p>
+			
 			  	@foreach($articleList as $item)
 					<a class="panel-block" href="{{route('article',$item->slug)}}">
 						{{$item->title}}
@@ -48,9 +46,7 @@
 				@endforeach
 			
 			@else
-			<p class="panel-heading">
-				No Content Availble
-			</p>			
+						
 			@endif
 		</nav>
 		<div class=" column  slugArticle container">

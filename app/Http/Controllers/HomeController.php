@@ -62,7 +62,6 @@ class HomeController extends Controller
     public function artilcePage($slug)
     {
         $articles = $this->articleRepository->articleBySlug($slug);  
-        // dd($articles);
         $page = $this->pageRepository->slugPages($articles[0]->page->slug);             
         if($page->visible == true) {
             $pages = $this->getHomePageMenu();

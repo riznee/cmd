@@ -51,6 +51,7 @@
 												<td>{{$row->created_at}}</td>
 												<td>
 													<div class='columns'>
+														@can('pages-edit')
 														<div class='column'>
 															<a class=" button is-rounded is-link is-small" href="{{route('pages.show',$row['id'])}}">
 																<i class="fas fa-eye" aria-hidden="true"></i>
@@ -58,22 +59,28 @@
 															</a> 
 
 														</div>
+														@endcan
 
 														<div class="column">
 															@if($row->visible == true)
+															@can('pages-disable')
 															<a class=" button is-inverted is-link is-small" href="{{route('pages.disable',$row['id'])}}">
 																<i class="fas fa-eye" aria-hidden="true"></i>
 																&nbsp; Disable
-															</a> 
+															</a>
+															@endcan 
 															@else
+															@can('pages-enable')
 																<a class=" button is-inverted is-link is-small" href="{{route('pages.enable',$row['id'])}}">
 																	<i class="fas fa-eye" aria-hidden="true"></i>
 																	&nbsp; Enable
 																</a>
+															@endcan
 															@endif  
 														</div>
 
 														<div class='column'>
+															@can('pages-destroy')
 															<form  accept-charset="UTF-8" method="post" action="{{route('pages.destroy',$row['id'])}}">
 															@csrf
 															{{ method_field('DELETE') }}{{ method_field('DELETE') }}
@@ -82,6 +89,7 @@
 																	&nbsp;	Delete
 																</button>
 															</form>
+															@endcan
 														</div>
 													</div>
 												</td>

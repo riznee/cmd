@@ -3,6 +3,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Events\PageCreated;
+use App\Events\PageUpDate;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Page extends Model
@@ -20,7 +21,8 @@ class Page extends Model
         ];
     
     protected $dispactchesEvents =[
-        'created' => PageCreated ::class
+        'created' => PageCreated ::class,
+        'update' =>PageUpDate::class
     ];
  
 

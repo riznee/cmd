@@ -62,7 +62,10 @@ class ArticleRepositry extends BaseRepositry {
 
     public function listPageArticles($page_id)
     {
-        $result = $this->model->where('page_id', $page_id)->get();
+        $result = $this->model
+        ->where('page_id', $page_id)
+        ->where('published_at', '=','1')
+        ->get();
         return $result;
     }
 
@@ -71,6 +74,7 @@ class ArticleRepositry extends BaseRepositry {
         $result = $this->model
         ->with('page')
         ->where('slug','=',$slug)
+        ->where('published_at', '=','1')
         ->paginate();        
         return $result;
     }

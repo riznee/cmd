@@ -39,6 +39,13 @@ class PagesTableSeeder extends Seeder
             'description' => 'The About page is an opportunity to elaborate on your brand’s vision and accomplishments.',
             'visible' => 1,
         ]);
+
+        DB::table('pages')->insert([
+            'slug' => 'contactus',
+            'title' => 'Contact Us',
+            'description' => 'The About page is an opportunity to elaborate on your brand’s vision and accomplishments.',
+            'visible' => 1,
+        ]);
         
         
     }

@@ -77,5 +77,12 @@ class CategoriesTableSeeder extends Seeder
             'color' => 'is-link',
         ]);
 
+        DB::table('categories')->insert([
+            'slug' => 'staff-profile',
+            'title' => 'Staff Profile',
+            'description' => 'An authoritative report or guide that informs readers concisely about a complex issue and presents the issuing body is philosophy on the matter.',
+            'color' => 'is-link',
+        ]);
+
     }
 }

@@ -35,7 +35,7 @@ class PageController extends Controller
     {
         try{
             $data = $this->repository->store($request);
-            return redirect()->route('pages.index')->with('success', $data->title.'New Page is created');
+            return redirect()->route('pages.index')->with('success','New Page is created');
         }
         catch (\Exception $exeption)
         {
