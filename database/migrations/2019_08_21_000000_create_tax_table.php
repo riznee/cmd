@@ -3,16 +3,15 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBannersTable extends Migration
+class CreateTaxTable extends Migration
 {
     public function up()
     {
-        Schema::create('banners', function(Blueprint $table){
+        Schema::create('tax', function(Blueprint $table){
             $table->increments('id');
-            $table->integer('filename');
-            $table->string('url');
+            $table->string('tax');
+            $table->integer('tax_perce');
             $table->boolean('visible')->default(false);
-            $table->string('message');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -21,6 +20,6 @@ class CreateBannersTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('banners');
+        Schema::dropIfExists('tax');
     }
 }
