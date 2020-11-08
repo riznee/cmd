@@ -6,7 +6,7 @@
  use Illuminate\Support\Facades\Cache;
 use PhpParser\Node\Stmt\While_;
 
-class PageRepositry extends BaseRepositry {
+class PageRepository extends BaseRepository {
 
     public function __construct(Page $page )
     {

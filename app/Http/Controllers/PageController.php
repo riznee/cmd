@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositries\PageRepositry;
+use App\Repositries\PageRepository;
 use App\Http\Requests\Page\StorePageRequest;
 use App\Http\Requests\Page\UpdatePageRequest;
 use Illuminate\Support\Facades\Cache;
@@ -12,7 +12,7 @@ class PageController extends Controller
     public $perpage = 5;
     public $permissonName='pages';
 
-    public function __construct(PageRepositry $repository)
+    public function __construct(PageRepository $repository)
     {
         $this->repository = $repository;
         $this->setPermission($this->permissonName);

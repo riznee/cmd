@@ -5,7 +5,7 @@
  use Illuminate\Foundation\Validation\ValidatesRequests;
  
 
- class BaseRepositry {
+ class BaseRepository {
 
     use ValidatesRequests;
     protected $model;

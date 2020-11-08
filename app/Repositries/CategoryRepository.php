@@ -5,7 +5,7 @@
  use App\Models\Category;
 
 
- class CategoryRepositry  extends BaseRepositry{
+ class CategoryRepository  extends BaseRepository{
 
     public function __construct(Category $category)
     {

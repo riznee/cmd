@@ -4,7 +4,7 @@
 
  use App\Models\Setting;
 
- class SettingRepositry extends BaseRepositry {
+ class SettingRepository extends BaseRepository {
 
 
     public function __construct(Setting $setting)

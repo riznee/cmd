@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositries\ArticleRepositry;
-use App\Repositries\CategoryRepositry;
-use App\Repositries\PageRepositry;
+use App\Repositries\ArticleRepository;
+use App\Repositries\CategoryRepository;
+use App\Repositries\PageRepository;
 
 use App\Http\Requests\Article\StoreArticleRequest;
 use App\Http\Requests\Article\UpdateArticleRequest;
@@ -16,7 +16,7 @@ class ArticleController extends Controller
 
     
 
-    public function __construct(ArticleRepositry $repository, CategoryRepositry $categoryRepositry, PageRepositry $pageRepositry )
+    public function __construct(ArticleRepository $repository, CategoryRepository $categoryRepositry, PageRepository $pageRepositry )
     {
         $this->repository = $repository;
         $this->categoryRepositry =$categoryRepositry;

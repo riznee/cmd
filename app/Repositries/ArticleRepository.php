@@ -4,10 +4,10 @@
  
  use App\Models\Article;
 
- use App\Repositries\BaseRepositry;
+ use App\Repositries\BaseRepository;
 use PhpParser\Node\Expr\FuncCall;
 
-class ArticleRepositry extends BaseRepositry {
+class ArticleRepository extends BaseRepository {
 
 
     public function __construct(Article $article)
