@@ -1,62 +1,46 @@
 @if(Auth::check())
   <?php $user  = Auth::user(); ?>
 @endif
-<nav class="navbar is-fixed-top ">
-  	<div class="navbar-brand">
-     	<a class="navbar-item " href="{{route('home')}}">
-          <span class="space"> &nbsp;&nbsp;</span>
-          <h4 class="subtitle is-5 ">{{ config('app.name') }}</h4>
-		</a>
-		<div class="navbar-burger burger" data-target="navBarmain">
-			<span></span>
-			<span></span>
-			<span></span>
-		</div>	
-	</div>
 
-          
-    <div id="navBarmain" class="navbar-menu">
 
-		<div class="navbar-start">
-		</div>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark"> 
+  <a class="navbar-brand" href="{{route('home')}}">{{ config('app.name') }}</a>
 
-        <div class="navbar-end">
-          <div class="navbar-item">
-            <div class="field is-grouped">
-              @foreach($pages as $page)
-              <p class="control">
-                  <a class="navbar-item is-success" href="{{route('page',$page->slug)}}">
-                    {{$page->title}}
-                  </a>
-              </p>
-              @endforeach
-            
-              @if($user ?? '')
-                <div class="navbar-item has-dropdown is-hoverable is-primary">
-                    <a class="navbar-link button is-rounded">
-                      {{ $user->name}}  &nbsp; <i class="fas fa-user" aria-hidden="true"></i>
-                    </a>
-                    <div class="navbar-dropdown">
-                    <a class="navbar-item" href="{{route('dashboard')}}">
-                        User Dashboard
-                      </a>
-                      <a class="navbar-item">
-                        Profile
-                      </a>
-                      <a class="navbar-item" href="{{route('logout')}}">
-                        logout &nbsp; <i class="fas fa-sign-out-alt" aria-hidden="true"></i>
-                      </a>
-                    </div>
-                    
-                    @else
-                      <a class="button is-info" href="{{route('signup')}}">Sign Up  &nbsp; </a>  &nbsp;              
-                      <a class="button is-link " href="{{route('login')}}">Sign In  &nbsp; <i class="fas fa-sign-in-alt" aria-hidden="true"></i></a>
-                </div>
-              @endif  
-            </div>
-          </div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="enol-navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="#navbar">
+    <ul class="navbar-nav ml-auto">
+      @foreach($pages as $page)
+      <li class="nav-item">
+        @if($page->slug =='contactus')
+          <a class="nav-link" href="#{{$page->slug}}">
+            {{$page->title}}
+          </a>
+        @else
+        <a class="nav-link" href="{{route('page',$page->slug)}}">
+          {{$page->title}}
+        </a>
+        @endif
+      </li>
+      @endforeach
+      @if($user ?? '')
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="userprofile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> {{ $user->name}}</a>
+        <div class="dropdown-menu" aria-labelledby="userprofile">
+          <a class="dropdown-item" href="{{route('dashboard')}}">UserDashbord</a>
+          <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
         </div>
-      </div>
-</nav>
+      </li>
+      @else
+      <li class="nav-item">
+        <a class=" btn   btn-outline-info" href="{{route('signup')}}">Sign Up  &nbsp; </a>  &nbsp;              
+      </li>
+      <li class="nav-item">
+        <a class=" btn  btn-outline-info" href="{{route('login')}}">Sign In  &nbsp; <i class="fas fa-sign-in-alt" aria-hidden="true"></i></a>
+      </li>
+      @endif
+    </ul>
 
+</nav>
 

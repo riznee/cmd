@@ -12,10 +12,12 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+    public $theme;
+
 
     public function __construct()
     {
-
+        $this->setTheme();
     }
 
     public function setPermission($permission)
@@ -24,6 +26,11 @@ class Controller extends BaseController
         $this->middleware('permission:'.$permission.'-create', ['only' => ['create','store']]);
         $this->middleware('permission:'.$permission.'-edit', ['only' => ['edit','update']]);
         $this->middleware('permission:'.$permission.'-destroy', ['only' => ['destroy']]);
+    }
+
+    public function setTheme()
+    {
+        $this->theme = 'dark';
     }
 
 

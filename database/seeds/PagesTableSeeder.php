@@ -16,7 +16,7 @@ class PagesTableSeeder extends Seeder
             'slug' => 'services',
             'title' => 'Services',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat pulvinar,',
-            'visible' => 0,
+            'visible' => 1,
             'type_id' =>3
         ]);
 
@@ -32,7 +32,7 @@ class PagesTableSeeder extends Seeder
             'slug' => 'press-release',
             'title' => 'Press Releases',
             'description' => 'Announcements of new products and services can be a great way to expand brand awareness on the web',
-            'visible' => 0,
+            'visible' => 1,
             'type_id' =>3
         ]);
 

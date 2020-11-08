@@ -16,9 +16,12 @@ class CreatePagesTable extends Migration
             $table->string('page_layout')->nullable();
             $table->integer('type_id')->unsigned();
             $table->string('icon')->nullable();
+            $table->string('url');
+            $table->integer('file_id')->nullable();
             $table->boolean('visible')->default(false);
             $table->string('description');
             $table->timestamps();
+            $table->foreign('file_id')->references('id')->on('files')->onDelete('cascade');
             $table->foreign('parent_id')->references('id')->on('pages')->onDelete('cascade');
             $table->foreign('type_id')->references('id')->on('pagetypes')->onDelete('cascade');
             $table->softDeletes();
