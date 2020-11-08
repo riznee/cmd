@@ -14,9 +14,9 @@ class File extends Model
    use SoftDeletes;
 
     protected $fillable = [
-        'url'
-        'filename'
-        'visible'
+        'url',
+        'filename',
+        'visible',
         'page_id', 
     ];
   
