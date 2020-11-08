@@ -5,7 +5,7 @@
  use App\Models\Contact;
 
 
- class ContactRepositry  extends BaseRepositry{
+ class ContactRepository  extends BaseRepository{
 
     public function __construct(Contact $contact)
     {
