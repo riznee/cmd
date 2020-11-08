@@ -3,6 +3,7 @@
 namespace App\Models;
 
 
-class PageType {
+
+class PageLayout {
     
 }
