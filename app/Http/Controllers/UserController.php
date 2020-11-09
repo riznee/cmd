@@ -136,7 +136,7 @@ class UserController extends Controller
 
     public function resetPasswordView()
     {
-        return view('auth.reset');
+        return view($this->theme.'.auth.reset');
         
     }
 
@@ -179,7 +179,7 @@ class UserController extends Controller
                 break;
         }
         $user = $status;
-        return view('auth.resetpassword', compact('user'));
+        return view($this->theme.'auth.resetpassword', compact('user'));
 
     }
 
