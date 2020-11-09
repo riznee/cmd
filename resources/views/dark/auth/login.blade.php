@@ -1,4 +1,4 @@
-@extends('layouts.plan')
+@extends('dark.layouts.plan')
 @section('content')
 
 <section class="hero  is-fullheight">
