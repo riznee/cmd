@@ -1,5 +1,5 @@
 
-@extends('layouts.site')
+@extends('dark.layouts.site')
 @section('content')
 <section class=" section">
 	<div>

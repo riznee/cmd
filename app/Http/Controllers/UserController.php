@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Repositries\UserRepositry;
+use App\Repositries\UserRepository;
 use App\Http\Requests\User\StoreUserRequest;
 use App\Http\Requests\User\UpdateUserRequest;
 use App\Http\Requests\User\ResetRequest;
@@ -25,7 +25,7 @@ class UserController extends Controller
      */
     public $permissonName='users';
 
-    public function __construct(UserRepositry $repository)
+    public function __construct(UserRepository $repository)
     {
         $this->repository = $repository;
         $this->setPermission($this->permissonName);
@@ -35,7 +35,7 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $data = $this->repository->getusers();
-        return view('users.index', compact('data'))
+        return view('dark.users.index', compact('data'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
     /**
@@ -112,7 +112,7 @@ class UserController extends Controller
 
     public function register()
     {
-        return view('auth.signup');
+        return view($this->theme.'.auth.signup');
     }
 
     public function registerRequest(StoreUserRequest $request)
