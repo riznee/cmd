@@ -21,11 +21,7 @@ class CreatePagesTable extends Migration
             $table->boolean('visible')->default(false);
             $table->string('description');
             $table->timestamps();
-<<<<<<< HEAD
-            $table->foreign('file_id')->references('id')->on('files')->onDelete('cascade');
-=======
             $table->foreign('page_layout')->references('id')->on('page_layoutts')->onDelete('cascade');
->>>>>>> a7cd76cecf5c509c604fed607df4a831f56b0bc4
             $table->foreign('parent_id')->references('id')->on('pages')->onDelete('cascade');
             $table->foreign('type_id')->references('id')->on('pagetypes')->onDelete('cascade');
             $table->softDeletes();
