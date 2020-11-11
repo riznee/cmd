@@ -45,7 +45,7 @@ class LoginController extends Controller
     public function showLoginForm()
     {
         // dd($this->theme);
-        return view($this->theme.'.auth.login');
+        return view('auth.login');
     }
 
     public function login(Request $request)

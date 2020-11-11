@@ -1,7 +1,7 @@
 <?php
 $index = 0; ?>
 
-@extends('dark.layouts.site')
+@extends('layouts.site')
 @section('content')
 
 

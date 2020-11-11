@@ -35,7 +35,7 @@ class UserController extends Controller
     public function index(Request $request)
     {
         $data = $this->repository->getusers();
-        return view('dark.users.index', compact('data'))
+        return view('users.index', compact('data'))
             ->with('i', ($request->input('page', 1) - 1) * 5);
     }
     /**
@@ -112,7 +112,7 @@ class UserController extends Controller
 
     public function register()
     {
-        return view($this->theme.'.auth.signup');
+        return view('auth.signup');
     }
 
     public function registerRequest(StoreUserRequest $request)
@@ -136,7 +136,7 @@ class UserController extends Controller
 
     public function resetPasswordView()
     {
-        return view($this->theme.'.auth.reset');
+        return view('auth.reset');
         
     }
 
@@ -179,7 +179,7 @@ class UserController extends Controller
                 break;
         }
         $user = $status;
-        return view($this->theme.'auth.resetpassword', compact('user'));
+        return view('auth.resetpassword', compact('user'));
 
     }
 

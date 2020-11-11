@@ -33,7 +33,7 @@ class HomeController extends Controller
     {   
         $pages = $this->getHomePageMenu();
         $article = $this->articleRepository->latesArtile();       
-        return view($this->theme.'.home.index', compact('article','pages'));   
+        return view('home.index', compact('article','pages'));   
     }
     
     public function homePagePages()
@@ -51,7 +51,7 @@ class HomeController extends Controller
             $grandParent = $this->getGrandParents($slug);
             $articles = $this->articleRepository->getPageArtiles($page->id);            
             $articleList = $this->articleRepository->listPageArticles($page->id);
-            return view($this->theme.'.home.slug', compact('pages', 'articles','page','grandParent','articleList'));
+            return view('home.slug', compact('pages', 'articles','page','grandParent','articleList'));
         }
         else
         {
@@ -67,7 +67,7 @@ class HomeController extends Controller
             $pages = $this->getHomePageMenu();
             $grandParent = $this->getGrandParents($articles[0]->page->slug);           
             $articleList = $this->articleRepository->listPageArticles($articles[0]->page->id);
-            return view($this->theme.'.home.slug', compact('pages', 'articles','page','grandParent','articleList'));
+            return view('home.slug', compact('pages', 'articles','page','grandParent','articleList'));
         }
         else
         {
