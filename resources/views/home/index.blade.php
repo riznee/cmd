@@ -92,20 +92,14 @@ $index = 0; ?>
 
                     <div class="form-group">
                         <div class="control">
-                            <button class="button is-primary is-rounded">Submit</button>
+                            <button class="btn btn-primary">Submit</button>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
 
-
-
-
-
     </div>
 
-
-
-
+    <br>
 @stop
