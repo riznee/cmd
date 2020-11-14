@@ -10,9 +10,11 @@
 
       </head>
       <body>
-        @include('partials.flash-message')
-        @yield('content')
-        @include('partials.footer')
+        <main class="container-fluid">
+          @include('partials.flash-message')
+          @yield('content')
+          @include('partials.footer')
+        </main>
          <script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
     </body>
 </html>

@@ -26,7 +26,7 @@
       @endforeach
       @if($user ?? '')
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="userprofile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> {{ $user->name}}</a>
+        <a class="nav-link dropdown-toggle" href="#" id="userprofile" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> {{ $user->name}}</a>
         <div class="dropdown-menu" aria-labelledby="userprofile">
           <a class="dropdown-item" href="{{route('dashboard')}}">UserDashbord</a>
           <a class="dropdown-item" href="{{route('logout')}}">Logout</a>

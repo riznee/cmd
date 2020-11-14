@@ -1,42 +1,28 @@
-<div class="card">
-<nav class="navbar" style="navbar-height:10rem;">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="{{route('home')}}">
-      <span class="space"> &nbsp;&nbsp;</span>
-      <h4 class="subtitle is-5 ">{{ config('app.name') }}</h4>
-      </a>
-    <div class="navbar-burger burger" data-target="navbar-enol">
-              <span></span>
-              <span></span>
-              <span></span>
-          </div>
-        </div>
-        
-        <div id="navbar-enol" class="navbar-menu">
-            <div class="navbar-start">
-                
-            </div>
-        </div>
-        <div class="navbar-end">
-            <div class="navbar-item">
-              <div class="feild is grouped">
-                <p class="control">
-                    <a class="button is-white" href="{{route('logout')}}">
-                      <span class="icon">
-                        <i class="fas fa-sign-out-alt"></i>
-                      </span>
-                      <span>Sign out</span>
-                    </a>
-                  </p>
-              </div>
-            </div>
-        </div>
-    </div>
-  </nav>
-</div>
-<br>
-@include('partials.flash-message')
-<br>
+@if(Auth::check())
+  <?php $user  = Auth::user(); ?>
+@endif
 
+
+<nav class="navbar navbar-expand-md  fixed-top "> 
+  <a class="navbar-brand" href="{{route('home')}}">{{ config('app.name') }}</a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="enol-navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="#navbar">
+    <ul class="navbar-nav ml-auto">
+     
+      @if($user ?? '')
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="userprofile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> {{ $user->name}}</a>
+        <div class="dropdown-menu" aria-labelledby="userprofile">
+          <a class="dropdown-item" href="{{route('dashboard')}}">UserDashbord</a>
+          <a class="dropdown-item" href="{{route('logout')}}">Logout</a>
+        </div>
+      </li>
+      @endif
+    </ul>
+
+</nav>
 
 

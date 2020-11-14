@@ -1,7 +1,7 @@
-<footer class="footer mt-auto py-3">
+<footer class="footer mt-auto py-3 fixed-bottom">
     <div class="container">
         <p>
-            <a href="https://enol.mv"> Enol Maldives </a> by&copy {{ date('Y') }}
+            by&copy <a href="https://enol.mv"> Enol Maldives </a> 2019 from {{ date('Y') }}
         </p>
     </div>
 </footer>
