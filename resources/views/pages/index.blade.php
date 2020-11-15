@@ -50,23 +50,28 @@
 						<td>{{$row->created_at}}</td>
 						<td>{{$row->updated_at}}</td>
 						<td>
-							
-							@can('pages-edit')
-								<a class=" btn btn-outline-primary" href="{{route('pages.show',$row['id'])}}">
-									<i class="fas fa-pen" aria-hidden="true"></i>
-								</a> 
-							@endcan
+							<div class="row">
+								<div class="col-sm">
 
-							
-							@can('pages-destroy')
-								<form  accept-charset="UTF-8" method="post" action="{{route('pages.destroy',$row['id'])}}">
-									@csrf
-									{{ method_field('DELETE') }}{{ method_field('DELETE') }}
-									<button type="submit" class="btn btn-outline-danger">
-										<i class="fas fa-times" aria-hidden="true"></i>
-									</button>
-								</form>
-							@endcan
+									@can('pages-edit')
+									<a class=" btn btn-outline-primary" href="{{route('pages.show',$row['id'])}}">
+										<i class="fas fa-pen" aria-hidden="true"></i>
+									</a> 
+									@endcan
+								</div>
+
+								<div class="col-sm">
+									@can('pages-destroy')
+									<form  accept-charset="UTF-8" method="post" action="{{route('pages.destroy',$row['id'])}}">
+										@csrf
+										{{ method_field('DELETE') }}{{ method_field('DELETE') }}
+										<button type="submit" class="btn btn-outline-danger">
+											<i class="fas fa-times" aria-hidden="true"></i>
+										</button>
+									</form>
+									@endcan
+								</div>								
+							</div>
 						
 						</td>
 					</tr>
@@ -82,15 +87,24 @@
 				<ul class="pagination">
 					@if ($pages->onFirstPage())
 						<li class="page-item"><a class="pagination-previous" href="#">Previous</a></li>
-						{{--  <a class="pagination-previous" disabled>Previous</a>  --}}
 					@else
-						<li class="page-item"><a class="pagination-previous"  href="{{ $pages->previousPageUrl() }}" rel="prev">Previous</a></li>
-						{{--  <a href="{{ $pages->previousPageUrl() }}" rel="prev" class="pagination-previous">Previous</a>  --}}
+						<li class="page-item"><a class="pagination-previous"  href="{{ $pages->previousPageUrl() }}" rel="prev">Previous</a></li>	
 					@endif
-					<li class="page-item"><a class="page-link" href="#">Previous</a></li>
+
+					
+					
 					<li class="page-item"><a class="page-link" href="#">1</a></li>
 					<li class="page-item"><a class="page-link" href="#">2</a></li>
 					<li class="page-item"><a class="page-link" href="#">3</a></li>
+
+
+					@if ($pages->hasMorePages())
+						<li class="page-item"><a class="page-link" href="{{ $pages->nextPageUrl() }}" rel="next">Next</a></li>
+					@else
+						<a class="pagination-next" disabled>Next page</a>
+						<li class="page-item"><a class="page-link" href="#">Next</a></li>
+					@endif
+
 					<li class="page-item"><a class="page-link" href="#">Next</a></li>
 				</ul>
 							<nav class="pagination is-centered is-small">
