@@ -12,6 +12,7 @@ class CreateProductsTable extends Migration
             $table->string('upc')->index();
             $table->string('name')->index();
             $table->integer('product_catergory_id')->unsigned();
+            $table->integer('page_id')->unsigned();
             $table->integer('attrib_id')->nullable()->unsigned();
             $table->integer('tax_type_id')->nullable()->unsigned();
             $table->double('price', 8, 2);
@@ -22,6 +23,7 @@ class CreateProductsTable extends Migration
             $table->string('taxable')->default(false);
             $table->boolean('visible')->default(false);
 
+            $table->foreign('page_id')->references('id')->on('pages')->onDelete('cascade');
             $table->foreign('tax_type_id')->references('id')->on('tax')->onDelete('cascade');
             $table->foreign('attrib_id')->references('id')->on('attributes')->onDelete('cascade');
             $table->foreign('product_catergory_id')->references('id')->on('productcategories')->onDelete('cascade');

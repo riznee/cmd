@@ -22,6 +22,10 @@
             <a class="nav-link" href="#{{$page->slug}}">
                 {{$page->title}}
             </a>
+            @elseif($page->slug =='home')
+            <a class="nav-link" href="{{route('home')}}">
+                {{$page->title}}
+            </a>
             @else
             <a class="nav-link" href="{{route('page',$page->slug)}}">
             {{$page->title}}

@@ -215,7 +215,7 @@ body {
 
 .sidebar-heading {
   font-size: .75rem;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 

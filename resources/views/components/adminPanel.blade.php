@@ -15,7 +15,7 @@
                     &nbsp; Web Setting
                 </a>
 
-                <ul class="collapse list-unstyled" id="websitesetting">
+                <ul class="collapse list-unstyled sublist" id="websitesetting">
                     @can('pages-index')
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('pages.index')}}">
@@ -49,11 +49,11 @@
 
             <li class="nav-item">
                 <a  class="nav-link" href="#settingMenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <i class="fas fa-cog" aria-hidden="true"></i>
-                    &nbsp; Settings
+                    <i class="fas fa-tools"></i>
+                    &nbsp; Configuration
                 </a>
 
-                <ul class="collapse list-unstyled" id="settingMenu">
+                <ul class="collapse list-unstyled sublist" id="settingMenu">
                     @can('users-index')
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('users.index')}}">
@@ -71,6 +71,42 @@
                             </a>
                         </li>
                     @endcan
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-hand-holding-usd"></i>
+                            &nbsp; Tax Setting
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="far fa-list-alt"></i>
+                            &nbsp; Page Layouts
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fab fa-buffer" aria-hidden="true"></i>
+                            &nbsp; Page Types
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fab fa-dropbox"></i>
+                            &nbsp; Product Catergories
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fab fa-whmcs"></i>
+                            &nbsp; Site Settings
+                        </a>
+                    </li>
+
                 </ul>
             </li>
 

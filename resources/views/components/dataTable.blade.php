@@ -1,22 +1,9 @@
-@extends('layouts.admin')
-@section('content')
 
-	<div class="row">
-		<div class="col">
-			<h2>Pages</h2> 
-		</div>
-		<div class=" col col-align-left">
-			<a href="{{route('pages.create')}}"  aria-label="">
-				<i class="fas fa-plus" aria-hidden="true"></i>
-			</a>
-		</div>
-	</div>
-
-
-    <div class="table-responsive">
+<div class="table-responsive">
     	<table class="table table-striped table-sm table-hover ">
           <thead>
             <tr>
+            @foreach($headers as $header)
               <th>#</th>
               <th>slug</th>
               <th>Parent</th>
@@ -26,10 +13,11 @@
               <th>Created At </th>
               <th>Updated At</th>
               <th>Actions</th>
+            @endforeach
             </tr>
           </thead>
           <tbody>
-			@if(!empty($pages))
+			@if(!empty($data))
 				@foreach($pages as $row)			
 					<tr>
 						<td>{{$row->id}}</td>
@@ -92,12 +80,3 @@
 				@endif								
           </tbody>
 		</table>
-		@if ($pages->hasPages())
-			<x-paginator :pages =>
-		@endif
-	</div>
-@stop
-				 
-
-		
-	

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 
-use App\Repositries\CategoryRepositry;
+use App\Repositries\CategoryRepository;
 use App\Http\Requests\Category\StoreCategoryRequest;
 use App\Http\Requests\Category\UpdateCategoryRequest;
 
@@ -14,7 +14,7 @@ class CategoryController extends Controller
     public $permissonName='categories';
     
 
-    public function __construct(CategoryRepositry $repository)
+    public function __construct(CategoryRepository $repository)
     {
         $this->repository = $repository;
         $this->setPermission($this->permissonName);
