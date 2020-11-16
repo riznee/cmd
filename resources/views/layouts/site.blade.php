@@ -11,14 +11,13 @@
       </head>
       <body>
         <header>
-          @include('partials.nav')
+         <x-navbar></x-navbar>
         </header>
         <main class="container">
-          @include('partials.flash-message')
+          <x-alert></x-alert>
           @yield('content')
-          @include('partials.footer')
-        </main>
-        
+          <x-footer></x-footer>
+        </main>        
         <script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
         <script src="{{ asset('enol/js/enolscripts.js') }}"></script>
     </body>

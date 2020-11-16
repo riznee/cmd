@@ -13,15 +13,15 @@
     <body>
 
         <main class="container-fluid">
-            @include('partials.admiNav')
+           <x-adminNav></x-adminNav>
             <div class="row">
-                @include('partials.adminPanel')
+               <x-adminPanel></x-adminPanel>
                 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-                    @include('partials.flash-message')
+                    <x-alert></x-alert>
                     @yield('content')
                 </main>
             </div>
-            @include('partials.footer')
+            <x-footer></x-footer>
         </main>
         <script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
     </body>

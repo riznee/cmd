@@ -11,9 +11,9 @@
       </head>
       <body>
         <main class="container-fluid">
-          @include('partials.flash-message')
+          <x-alert></x-alert>
           @yield('content')
-          @include('partials.footer')
+          <x-footer></x-footer>
         </main>
          <script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
     </body>

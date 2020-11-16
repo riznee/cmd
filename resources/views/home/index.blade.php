@@ -1,5 +1,7 @@
 <?php
-$index = 0; ?>
+$index = 0; 
+
+?>
 
 @extends('layouts.site')
 @section('content')

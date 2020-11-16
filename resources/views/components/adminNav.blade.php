@@ -1,6 +1,8 @@
-@if(Auth::check())
-  <?php $user  = Auth::user(); ?>
-@endif
+<?php
+if(Auth::check()) { 
+    $user  = Auth::user();
+}
+?>
 
 
 <nav class="navbar navbar-expand-md  fixed-top "> 
@@ -24,5 +26,3 @@
     </ul>
 
 </nav>
-
-

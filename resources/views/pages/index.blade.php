@@ -92,68 +92,8 @@
 				@endif								
           </tbody>
 		</table>
-
 		@if ($pages->hasPages())
-			<nav aria-label="Page Pagination">
-				<ul class="pagination">
-					@if ($pages->onFirstPage())
-						<li class="page-item"><a class="pagination-previous" href="#">Previous</a></li>
-					@else
-						<li class="page-item"><a class="pagination-previous"  href="{{ $pages->previousPageUrl() }}" rel="prev">Previous</a></li>	
-					@endif
-
-					
-					
-					<li class="page-item"><a class="page-link" href="#">1</a></li>
-					<li class="page-item"><a class="page-link" href="#">2</a></li>
-					<li class="page-item"><a class="page-link" href="#">3</a></li>
-
-
-					@if ($pages->hasMorePages())
-						<li class="page-item"><a class="page-link" href="{{ $pages->nextPageUrl() }}" rel="next">Next</a></li>
-					@else
-						<a class="pagination-next" disabled>Next page</a>
-						<li class="page-item"><a class="page-link" href="#">Next</a></li>
-					@endif
-
-					<li class="page-item"><a class="page-link" href="#">Next</a></li>
-				</ul>
-							<nav class="pagination is-centered is-small">
-								@if ($pages->onFirstPage())
-									<a class="pagination-previous" disabled>Previous</a>
-								@else
-									<a href="{{ $pages->previousPageUrl() }}" rel="prev" class="pagination-previous">Previous</a>
-								@endif
-								@if ($pages->hasMorePages())
-									<a class="pagination-next" href="{{ $pages->nextPageUrl() }}" rel="next">Next</a>
-								@else
-									<a class="pagination-next" disabled>Next page</a>
-								@endif
-								
-								<ul class="pagination-list" role="navigation" aria-label="pagination">
-										@if($pages->lastPage() >= 1 && $pages->currentPage() <=2 )
-											<?php 
-												$j=1;
-												$page = $pages->lastPage();
-											?>
-		
-										@else
-											<?php
-											 $j=$pages->currentPage()-5 ;
-											 $page = currentPage()+5;
-											?>
-										@endif
-										@for($i=$j; $i <=  ($page); $i++)
-											<li>
-											<a class="pagination-link" href="{{ $pages->url($i)}}" aria-label="Goto page 1">{{$i}}</a>
-											</li>
-										@endfor
-										.....
-										<a class="pagination-link" href="{{ $pages->url($pages->lastPage())}}" aria-label="Goto page Last Page">{{$pages->lastPage()}}</a>
-											</li>
-								</ul>
-			
-			</nav>
+			<x-paginator :pages =>
 		@endif
 	</div>
 @stop

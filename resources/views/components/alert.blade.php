@@ -13,6 +13,7 @@
 @if ($message = Session::get('error'))
     <div class="_11mpalert alert-light alert-dismissible fade show" role="alert">
         <strong>
+            {{type}}
             {{ $message }}
         </strong>
         <button type="button" class="btn btn-outline-danger" data-dismiss="alert" aria-label="Close">
@@ -24,7 +25,7 @@
 @if ($message = Session::get('warning'))
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
         <strong>
-            {{ $message }}
+            {{ $message }}s
         </strong>
         <button type="button" class="btn btn-outline-danger" data-dismiss="alert" aria-label="Close">
             <i class="fas fa-times" aria-hidden="true"></i>
