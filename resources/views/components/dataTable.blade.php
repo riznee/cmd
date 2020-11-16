@@ -4,22 +4,15 @@
           <thead>
             <tr>
             @foreach($headers as $header)
-              <th>#</th>
-              <th>slug</th>
-              <th>Parent</th>
-              <th>Depth</th>
-              <th>Title</th>
-              <th>Visible to public</th>
-              <th>Created At </th>
-              <th>Updated At</th>
-              <th>Actions</th>
+              <th>{{$header}}</th>
             @endforeach
             </tr>
           </thead>
           <tbody>
 			@if(!empty($data))
-				@foreach($pages as $row)			
+				@foreach($data as $row)			
 					<tr>
+
 						<td>{{$row->id}}</td>
 						<td>{{$row->slug}}</td>
 						<td>{{($row->parent->title ?? ' ')}}</td>
