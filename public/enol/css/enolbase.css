@@ -219,10 +219,23 @@ body {
 }
 
 
-.table{
-  background-color:lightsteelblue;
+.table {
+  background-color:white;
 }
 
+.col-align-left {
+  align-items: left;
+  display: inline;
+
+}
+
+.col-align-left a {
+  color:white;
+}
+
+.col-align-left a:hover {
+  color:lightsalmon;
+}
 
 @media (min-width: 768px) {
   .bd-placeholder-img-lg {

@@ -1,7 +1,18 @@
 @extends('layouts.admin')
 @section('content')
 
-	<h2>Page</h2>
+	<div class="row">
+		<div class="col">
+			<h2>Pages</h2> 
+		</div>
+		<div class=" col col-align-left">
+			<a href="{{route('pages.create')}}"  aria-label="">
+				<i class="fas fa-plus" aria-hidden="true"></i>
+			</a>
+		</div>
+	</div>
+
+
     <div class="table-responsive">
     	<table class="table table-striped table-sm table-hover">
           <thead>
@@ -51,7 +62,7 @@
 						<td>{{$row->updated_at}}</td>
 						<td>
 							<div class="row">
-								<div class="col-sm">
+								<div class="col">
 
 									@can('pages-edit')
 									<a class=" btn btn-outline-primary" href="{{route('pages.show',$row['id'])}}">
@@ -60,7 +71,7 @@
 									@endcan
 								</div>
 
-								<div class="col-sm">
+								<div class="col">
 									@can('pages-destroy')
 									<form  accept-charset="UTF-8" method="post" action="{{route('pages.destroy',$row['id'])}}">
 										@csrf
