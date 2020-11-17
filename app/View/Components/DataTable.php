@@ -14,17 +14,17 @@ class DataTable extends Component
     
 
     public $headers =null;
-    public $data = null;
+    public $items = null;
     public $action = false;
     public $action_view = false;
     public $action_delete = false;
     public $permissionname = null;
 
 
-    public function __construct($headers, $data, $permissionname)
+    public function __construct($headers,$items, $permissionname)
     {
         $this->headers = $headers;
-        $this->data = $data;
+        $this->items = $items;
         $this->permissionname = $permissionname;
 
 

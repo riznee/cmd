@@ -5,45 +5,45 @@
             <tr>
             @foreach($headers as $header)
               <th>{{$header['title']}}</th>
-            @endforeach
+			@endforeach
+			@if($action)
+				<th>Action</th>
+			@endif
             </tr>
         </thead>
         <tbody>
-			{{dd($data)}}
-			@if(!empty($data))
-				@foreach($data as $row)	
+		
+			@if(!empty($items))
+				@foreach($items as $item)	
 					<tr>
 						@foreach($headers as $header)
-							<td>{{$row[$header['value']]}}</td>
+							<td>{{$item[$header['value']]}}</td>
 						@endforeach
-
 						@if($action)
 							<td>
 								<div class="row">
 
-									@if($action_view)
 									<div class="col">
-										@can( $permission_name.'-show')
-										<a class=" btn btn-outline-primary" href="{{route('$permission_name.show',$row['id'])}}">
+										@can( $permissionname.'-show')
+										<a class=" btn btn-outline-primary" href="{{route('$permissionname.show',$item['id'])}}">
 											<i class="fas fa-pen" aria-hidden="true"></i>
 										</a> 
 										@endcan
 									</div>
-									@endif
+								
 
-									@if($action_delete)
-										<div class="col">
-											@can($permission_name.'-destroy')											
-											<form  accept-charset="UTF-8" method="post" action="{{route('$permission_name.destroy',$row['id'])}}">
-												@csrf
-												{{ method_field('DELETE') }}{{ method_field('DELETE') }}
-												<button type="submit" class="btn btn-outline-danger">
+									<div class="col">
+										@can($permissionname.'-destroy')											
+										<form  accept-charset="UTF-8" method="post" action="{{route('$permissionname.destroy',$item['id'])}}">
+											@csrf
+											{{ method_field('DELETE') }}{{ method_field('DELETE') }}
+											<button type="submit" class="btn btn-outline-danger">
 													<i class="fas fa-times" aria-hidden="true"></i>
-												</button>
-											</form>
-											@endcan
-										</div>
-									@endif
+											</button>
+										</form>
+										@endcan
+									</div>
+								
 
 								</div>
 							</td>
@@ -52,7 +52,7 @@
 					</tr>
 				@endforeach		
 			@else
-				<tr> No Data</tr>
+				<tr> <td></td>No Data</tr>
 			@endif								
         </tbody>
 	</table>

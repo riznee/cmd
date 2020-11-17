@@ -4,8 +4,10 @@
 
 	<x-datatable
 	:headers="$headers"
-	:data="$pages"
-	:permissionname="$permissionNamee ?? ''"
+	:items="$pages"
+	:permissionname="$permisson"
+	:action="$action"
+
 	></x-datatable>
 	
 @stop

@@ -27,9 +27,10 @@ class PageController extends Controller
             array ( 'title'=>'Title', 'value' =>'title')
         );
 
-        $permissonName = $this->permissonName;
+        $permisson = $this->permissonName;
         $pages = $this->repository->getPages();
-        return view('pages.index', compact('headers','pages','permissionName'));
+        $action = true;
+        return view('pages.index', compact('headers','pages','permisson','action'));
     }
     
     public function create()
