@@ -12,11 +12,6 @@ class AdminNav extends Component
      * @return void
      */    
     
-
-    public $type;
-    public $message;    
-
-
     public function __construct()
     {
         

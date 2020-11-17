@@ -12,6 +12,7 @@ class PageController extends Controller
     public $perpage = 5;
     public $permissonName='pages';
 
+  
     public function __construct(PageRepository $repository)
     {
         $this->repository = $repository;
@@ -21,8 +22,14 @@ class PageController extends Controller
 
     public function index()
     {
+        $headers=array( 
+            array('title'=>'Slug', 'value'=>'slug'),
+            array ( 'title'=>'Title', 'value' =>'title')
+        );
+
+        $permissonName = $this->permissonName;
         $pages = $this->repository->getPages();
-        return view('pages.index', compact('pages'));
+        return view('pages.index', compact('headers','pages','permissionName'));
     }
     
     public function create()

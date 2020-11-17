@@ -9,10 +9,10 @@
             </tr>
         </thead>
         <tbody>
-			{{dd($data)}}
 			@if(!empty($data))
 				@foreach($data as $row)	
 					<tr>
+
 						@foreach($headers as $header)
 							<td>{{$row[$header['value']]}}</td>
 						@endforeach
@@ -56,4 +56,4 @@
 			@endif								
         </tbody>
 	</table>
-</div>
+</div>  --}}

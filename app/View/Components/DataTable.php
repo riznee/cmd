@@ -13,18 +13,22 @@ class DataTable extends Component
      */    
     
 
-    public $headers;
-    public $data;    
-    public $feilds;    
+    public $headers =null;
+    public $data = null;
+    public $action = false;
+    public $action_view = false;
+    public $action_delete = false;
+    public $permissionname = null;
 
 
-    public function __construct($headers, $data, $feilds)
+    public function __construct($headers, $data, $permissionname)
     {
         $this->headers = $headers;
-        $this->data = $data; 
-        $this->feilds = $feilds;
+        $this->data = $data;
+        $this->permissionname = $permissionname;
+
+
     }
-       
 
     /**
      * Get the view / contents that represent the component.
@@ -33,6 +37,6 @@ class DataTable extends Component
      */
     public function render()
     {
-        return view('components.dataTable');
+        return view('components.datatable');
     }
 }
