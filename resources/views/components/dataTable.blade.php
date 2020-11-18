@@ -25,7 +25,15 @@
 
 									<div class="col">
 										@can( $permissionname.'-show')
-										<a class=" btn btn-outline-primary" href="{{route('$permissionname.show',$item['id'])}}">
+										<a class=" btn btn-outline-primary" href="{{route($permissionname.'.show',$item['id'])}}">
+											<i class="fas fa-eye" aria-hidden="true"></i>
+										</a> 
+										@endcan
+									</div>
+
+									<div class="col">
+										@can( $permissionname.'-show')
+										<a class=" btn btn-outline-primary" href="{{route($permissionname.'.edit',$item['id'])}}">
 											<i class="fas fa-pen" aria-hidden="true"></i>
 										</a> 
 										@endcan
@@ -34,7 +42,7 @@
 
 									<div class="col">
 										@can($permissionname.'-destroy')											
-										<form  accept-charset="UTF-8" method="post" action="{{route('$permissionname.destroy',$item['id'])}}">
+										<form  accept-charset="UTF-8" method="post" action="{{route($permissionname.'.destroy',$item['id'])}}">
 											@csrf
 											{{ method_field('DELETE') }}{{ method_field('DELETE') }}
 											<button type="submit" class="btn btn-outline-danger">
@@ -56,4 +64,7 @@
 			@endif								
         </tbody>
 	</table>
+	@if($items->hasPages())
+		<x-paginator :items="$items"></x-paginator>
+	@endif
 </div>

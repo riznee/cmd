@@ -1,13 +1,15 @@
 @extends('layouts.admin')
 @section('content')
 
-
-	<x-datatable
+	<div class ="row">
+		<div class="col"> Pages</div>
+	</div>
+	<x-dataTable
 	:headers="$headers"
 	:items="$pages"
 	:permissionname="$permisson"
 	:action="$action"
-
-	></x-datatable>
+	
+	></x-dataTable>
 	
 @stop

@@ -1,9 +1,9 @@
 <?php
  
- namespace App\Repositries;
+namespace App\Repositries;
 
- use App\Models\Page;
- use Illuminate\Support\Facades\Cache;
+use App\Models\Page;
+use Illuminate\Support\Facades\Cache;
 use PhpParser\Node\Stmt\While_;
 
 class PageRepository extends BaseRepository {
