@@ -13,7 +13,7 @@ class Alert extends Component
      */    
     
 
-    public $type;
+    // public $type;
     public $message;    
 
 

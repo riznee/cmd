@@ -4,7 +4,7 @@ namespace App\Repositries;
 
  use App\Models\File;
  use App\Repositries\BaseRepository;
- use Illuminate\Database\Eloquent\SoftDeletes;
+
 
 
 class FileRepository extends BaseRepository {
