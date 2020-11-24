@@ -96,15 +96,7 @@ class PermissionTableSeeder extends Seeder
             'attriibutes-destroy',
             'attriibutes-update',
             'attriibutes-edit',
-
-            'pagelayouts-store',
-            'pagelayouts-index',
-            'pagelayouts-create',
-            'pagelayouts-show',
-            'pagelayouts-destroy',
-            'pagelayouts-update',
-            'pagelayouts-edit',
-
+            
             'contacts-store',
             'contacts-index',
             'contacts-create',

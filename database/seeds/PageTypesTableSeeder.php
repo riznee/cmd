@@ -13,20 +13,20 @@ class PagesTypesTableSeeder extends Seeder
     {
             
         DB::table('pagetypes')->insert([
-            'slug' => 'time-line',
+
             'title' => 'Time Line',
             'description' => 'Show ',
             
         ]);        
        
         DB::table('pagetypes')->insert([
-            'slug' => 'article',
+          
             'title' => 'Article',
             'description' => 'article ',
         ]);
 
         DB::table('pagetypes')->insert([
-            'slug' => 'gallary',
+           
             'title' => 'Gallery',
             'description' => 'Show cacse ',
         ]);

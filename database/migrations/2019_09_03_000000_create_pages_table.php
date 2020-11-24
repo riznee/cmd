@@ -13,22 +13,24 @@ class CreatePagesTable extends Migration
             $table->integer('parent_id')->nullable()->unsigned();
             $table->integer('depth')->nullable();
             $table->string('title');
-            $table->string('page_layout')->nullable();
+            $table->integer('layout_id')->unsigned();
             $table->integer('type_id')->unsigned();
             $table->string('icon')->nullable();
-            $table->string('url');
             $table->integer('file_id')->nullable();
             $table->boolean('visible')->default(false);
             $table->string('description');
-            $table->timestamps();
-            $table->foreign('page_layout')->references('id')->on('page_layoutts')->onDelete('cascade');
-            $table->foreign('parent_id')->references('id')->on('pages')->onDelete('cascade');
-            $table->foreign('type_id')->references('id')->on('pagetypes')->onDelete('cascade');
+            $table->timestamps();            
             $table->softDeletes();
+        });
+
+        Schema::table('pages', function($table) {
+            $table->foreign('parent_id')->references('id')->on('pages')->onDelete('cascade');
+            $table->foreign('layout_id')->references('id')->on('pagelayouts')->onDelete('cascade');
+            $table->foreign('type_id')->references('id')->on('pagetypes')->onDelete('cascade');
         });
     }
 
-
+    
     public function down()
     {
         Schema::dropIfExists('pages');

@@ -64,7 +64,7 @@
 														</div>
 													</div>
 												</td>
-											</tr>
+											</tr>categories
 										@endforeach
 									@else
 										<tr> No Data</tr>
