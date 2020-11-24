@@ -33,7 +33,7 @@ class PermissionTableSeeder extends Seeder
             'categories-create',
             'categories-show',
             'categories-update',
-            'categories-destroy ',
+            'categories-destroy',
             'categories-edit',
 
             'upload',
@@ -96,7 +96,7 @@ class PermissionTableSeeder extends Seeder
             'attriibutes-destroy',
             'attriibutes-update',
             'attriibutes-edit',
-            
+
             'contacts-store',
             'contacts-index',
             'contacts-create',
