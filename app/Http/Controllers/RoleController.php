@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Repositries\PageRepositry;
+use App\Repositries\PageRepository;
 use App\Http\Requests\Role\StoreRoleRequest;
 use App\Http\Requests\Role\UpdateRoleRequest;
 
@@ -13,7 +13,7 @@ class RoleController extends Controller
     public $perpage = 5;
     public $permissonName = 'role';
 
-    public function __construct(PageRepositry $repository)
+    public function __construct(PageRepository $repository)
     {
         $this->repository = $repository;
         $this->setPermission($this->permissonName);

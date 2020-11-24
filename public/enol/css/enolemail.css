@@ -1,0 +1,155 @@
+
+body {
+  height: 100%;
+  width: 100%;
+  padding-top: 3.5rem;
+  padding-bottom: 3rem;
+  background-color: rgb(29, 29, 29);
+  color:rgb(245, 100, 42);
+}
+
+.navbar{
+  background-color: darkslategray;
+}
+
+.nav-link{
+  color:whitesmoke;
+  text-transform: uppercase;
+}
+
+.navbar .nav-item:hover .nav-link{ 
+  color:lightsalmon;  
+}
+
+
+.navbar-brand{
+  padding-left: 3.5rem;
+  color:whitesmoke;
+  text-transform: uppercase;
+}
+
+.navbar-brand:hover{
+  color:lightsalmon;
+}
+
+.navbar * {
+  display: inline;
+}
+
+.carousel {
+    margin-bottom: 4rem;
+  }
+  
+.carousel-caption {
+    bottom: 3rem;
+    z-index: 10;
+  }
+  
+  
+.carousel-item {
+    height: 32rem;
+  }
+
+.carousel-item > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 32rem;
+  }
+
+  
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+.footer {
+  background-color: darkslategray;
+  text-transform: uppercase;
+}
+
+.footer a {
+  color:whitesmoke;
+  text-decoration: none;
+}
+.foot a:hover{
+  color:lightsalmon;
+}
+
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content:">";
+}
+
+.single-page{
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px; 
+  
+}
+
+.single-page a {
+  color:whitesmoke;
+  display: inline;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+.form-signin a {
+  color:white;
+  text-transform: uppercase;
+  text-decoration:none;
+}
+
+.form-signin a:hover {
+  color:lightsalmon;
+}
+
+.form-signin .checkbox {
+  font-weight: 400;
+}
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+button{
+  
+}

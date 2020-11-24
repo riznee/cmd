@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 use DB;
 use Hash;
 
-class UserRepositry extends BaseRepositry
+class UserRepository extends BaseRepository
 {
 
     public function __construct(User $user, Role $role,VerifyUser $verifyUser, PasswordReset $passwordReset )

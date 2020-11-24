@@ -38,9 +38,15 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+        $this->setTheme();
     }
 
 
+    public function showLoginForm()
+    {
+        // dd($this->theme);
+        return view('auth.login');
+    }
 
     public function login(Request $request)
     {

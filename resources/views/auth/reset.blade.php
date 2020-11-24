@@ -1,47 +1,27 @@
 @extends('layouts.plan')
 @section('content')
 
-<section class="hero  is-fullheight">
-  <div class="hero-body">
-    <div class="container is-info has-text-centered">
-      <div class="column is-4 is-offset-4">
-        <h3 class="title has-text-black">
-          <a  href="{{route('home')}}">
-          {{ config('app.name', 'SSCM') }}
-        </a>
-        </h3>
-        <hr class="login-hr">
-        <p class="subtitle has-text-black">Resest Password</p>
+<div class="sigle-page">
 
-            <form method="post" action="{{route('reset.post')}}">
-              {{ csrf_field() }}
-              <div class="box">
-                <figure>
-                  <img id="loginImage" src="{{asset('img/pngwave.png')}}">
-                </figure>
-                
-                <div class="field">
-                  <p class="control has-icons-left has-icons-right">
-                    <input class="input" name="email" type="email" placeholder="Email">
-                    <span class="icon is-small is-left">
-                      <i class="fas fa-envelope"></i>
-                    </span>
-                  </p>
-                </div>               
-              
-              
-                <div class="field">
-                  <p class="control">
-                    <button class="button is-block is-info is-large is-fullwidth">Send Request <i class="fas fa-envelope" aria-hidden="true"></i></button>
-                  </p>       
-                </div> 
-              
-            </div>
-          </form>
-        
-      </div>        
-    </div>
-  </div>
-</section>
+  <form class="form-signin" method="post" action="{{route('reset.post')}}">
+      <h3>
+          <a href="{{ route('home') }}">{{ config('app.name', 'SSCM') }}</a>
+      </h3>
+
+      <img src="{{ asset('img/pngwave.png') }}" alt="" width="150" height="150">
+      {{ csrf_field() }}
+      <h1 class="h3 mb-3 font-weight-normal">Resest Password</h1>
+      <label for="inputEmail" class="sr-only">Email address</label>
+      <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>
+      <br>
+      
+      <button class="btn btn-lg btn-primary btn-block" type="submit"> Sign in
+        <i class="fas fa-envelope" aria-hidden="true"></i>
+      </button>
+  </form>
+
+</div>
+
 
 @stop
+

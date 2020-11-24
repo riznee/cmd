@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use cache;
 
-use App\Repositries\ArticleRepositry;
-use App\Repositries\CategoryRepositry;
-use App\Repositries\PageRepositry;
-use App\Repositries\ContactRepositry;
+use App\Repositries\ArticleRepository;
+use App\Repositries\CategoryRepository;
+use App\Repositries\PageRepository;
+use App\Repositries\ContactRepository;
 use App\Http\Requests\Contact\StoreContactRequest;
 
 
@@ -16,15 +16,15 @@ class HomeController extends Controller
 {
     public $perpage = 15;
 
-    public function __construct(ArticleRepositry $articleRepository, 
-                                CategoryRepositry $categoryRepositry, 
-                                PageRepositry $pageRepositry, 
-                                ContactRepositry $contactRepository
+    public function __construct(ArticleRepository $articleRepository, 
+                                CategoryRepository $categoryRepository, 
+                                PageRepository $pageRepository, 
+                                ContactRepository $contactRepository
                                 )
     {
         $this->articleRepository = $articleRepository;
-        $this->categoryRepository =$categoryRepositry;
-        $this->pageRepository = $pageRepositry;
+        $this->categoryRepository =$categoryRepository;
+        $this->pageRepository = $pageRepository;
         $this->contactRepository = $contactRepository;
         parent::__construct();
     }
@@ -47,11 +47,10 @@ class HomeController extends Controller
         $page = $this->pageRepository->slugPages($slug); 
         
         if($page->visible == true) {
-            $pages = $this->getHomePageMenu();
             $grandParent = $this->getGrandParents($slug);
             $articles = $this->articleRepository->getPageArtiles($page->id);            
             $articleList = $this->articleRepository->listPageArticles($page->id);
-            return view('home.slug', compact('pages', 'articles','page','grandParent','articleList'));
+            return view('home.slug', compact( 'articles','page','grandParent','articleList'));
         }
         else
         {
@@ -62,13 +61,11 @@ class HomeController extends Controller
     public function artilcePage($slug)
     {
         $articles = $this->articleRepository->articleBySlug($slug);  
-        // dd($articles);
         $page = $this->pageRepository->slugPages($articles[0]->page->slug);             
         if($page->visible == true) {
-            $pages = $this->getHomePageMenu();
             $grandParent = $this->getGrandParents($articles[0]->page->slug);           
             $articleList = $this->articleRepository->listPageArticles($articles[0]->page->id);
-            return view('home.slug', compact('pages', 'articles','page','grandParent','articleList'));
+            return view('home.slug', compact('articles','page','grandParent','articleList'));
         }
         else
         {

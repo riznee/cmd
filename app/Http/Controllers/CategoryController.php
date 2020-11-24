@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 
-use App\Repositries\CategoryRepositry;
+use App\Repositries\CategoryRepository;
 use App\Http\Requests\Category\StoreCategoryRequest;
 use App\Http\Requests\Category\UpdateCategoryRequest;
 
@@ -12,9 +12,18 @@ class CategoryController extends Controller
 
     public $perpage = 15;
     public $permissonName='categories';
+
+    public $headers=array( 
+        array('title'=>'Slug', 'value'=>'slug'),
+        array ( 'title'=>'Title', 'value' =>'title'),
+        // array ( 'title'=>'Description', 'value' =>'description'),
+        array ( 'title'=>'Color', 'value' =>'color'),
+        array ( 'title'=>'Created At', 'value' =>'created_at'),
+        array ( 'title'=>'Updated At', 'value' =>'updated_at')
+    );
     
 
-    public function __construct(CategoryRepositry $repository)
+    public function __construct(CategoryRepository $repository)
     {
         $this->repository = $repository;
         $this->setPermission($this->permissonName);
@@ -23,8 +32,12 @@ class CategoryController extends Controller
 
     public function index()
     {
+
+        $headers = $this->headers;
+        $permisson = $this->permissonName;
         $categories = $this->repository->getall();
-        return view('categories.index', compact('categories'))->with('i', (request()->input('page', 1) - 1) * $this->perpage);
+        $action = true;
+        return view('categories.index', compact('headers','categories','permisson','action'));
     }
     
     public function create()
@@ -37,7 +50,7 @@ class CategoryController extends Controller
        
         try{
             $data = $this->repository->store($request);
-            return redirect()->route('categories.index')->with('success', $data->title.'New category is created');
+            return redirect()->route('categories.index')->with( $data->title.'New category is created');
         }
         catch (\Exception $exeption)
         {

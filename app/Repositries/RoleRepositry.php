@@ -7,7 +7,7 @@ use Spatie\Permission\Models\Permission;
 use DB;
 
 
-class RoleRepositry extends BaseRepositry
+class RoleRepository extends BaseRepository
 {
 
     public function __construct(Role $role, Permission $permission)
