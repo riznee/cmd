@@ -17,7 +17,24 @@
 				@foreach($items as $item)	
 					<tr>
 						@foreach($headers as $header)
-							<td>{{$item[$header['value']]}}</td>
+							<td>
+								@if(!empty($header['type']))
+									@if($header['type'] =='boolen')
+										@if($item[$header['value']] == 1)
+											{{$data ?? ''['true']}}
+										@else
+											{{$data ?? ''['false']}}
+										@endif
+									@endif
+
+									@if($header['type'] =='variable')
+
+									@endif
+
+								@else
+								{{$item[$header['value']]}}
+								@endif
+							</td>						
 						@endforeach
 						@if($action)
 							<td>

@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 use App\Models\VerifyUser;
 use App\Models\PasswordReset;
+use Spatie\Permission\Models\Role;
 
 
 
@@ -45,4 +46,7 @@ class User extends Authenticatable
     {
         return $this->hasOne(PasswordReset::class, 'email' ,'email');
     }
+
+   
+
 }

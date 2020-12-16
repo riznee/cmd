@@ -19,7 +19,8 @@
 		:headers="$headers"
 		:items="$pages"
 		:permissionname="$permisson"
-		:action="$action"	
+		:action="$action"
+		:data="$data ?? ''"
 		></x-dataTable>
 	</div>
 		

@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class DataTable extends Component
+class Cards extends Component
 {
     /**
      * Create a new component instance.
@@ -17,16 +17,19 @@ class DataTable extends Component
     public $items = null;
     public $action = false;
     public $permissionname = null;
-    public $data = null;
+    public $slotFeilds =null;
 
 
-    public function __construct($headers,$items, $permissionname, $action = false, $data = null)
+    public function __construct($headers,$item, $permissionname, $action = false, $slotFeilds = null, $title = null)
     {
         $this->headers = $headers;
-        $this->items = $items;
+        $this->item = $item;
         $this->permissionname = $permissionname;
         $this->action = $action;
-        $this->data = $data;
+        $this->slotFeilds = $slotFeilds;
+        $this->title = $title;
+
+
     }
 
     /**
@@ -36,6 +39,6 @@ class DataTable extends Component
      */
     public function render()
     {
-        return view('components.datatable');
+        return view('components.card');
     }
 }

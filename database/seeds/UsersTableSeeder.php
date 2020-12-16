@@ -24,6 +24,6 @@ class UsersTableSeeder extends Seeder
         $permissions = Permission::pluck('id','id')->all();
         $role->syncPermissions($permissions);
         $user->assignRole([$role->id]);
-        $userRole = Role::create(['name' => 'user']);
+        $userRole = Role::create(['name' => 'customer']);
     }
 }

@@ -38,7 +38,7 @@ class UserRepository extends BaseRepository
         $input = $request->all();
         $input['password'] = Hash::make($input['password']);
         $user = User::create($input);
-        $user->assignRole('user');
+        $user->assignRole('customer');
         $verifyUser = $this->verifyUser->create([
             'user_id' => $user->id,
             'token' => Str::random(40)

@@ -15,7 +15,7 @@ class PageController extends Controller
     public $headers=array( 
         array('title'=>'Slug', 'value'=>'slug'),
         array ( 'title'=>'Title', 'value' =>'title'),
-        array ( 'title'=>'Published', 'value' =>'visible'),
+        array ( 'title'=>'Published', 'value' =>'visible', 'type' =>'boolen'),
         array ( 'title'=>'Created At', 'value' =>'created_at'),
         array ( 'title'=>'Updated At', 'value' =>'updated_at')
     );
@@ -35,13 +35,15 @@ class PageController extends Controller
 
     public function index()
     {
-       
         $headers = $this->headers;
         $permisson = $this->permissonName;
         $pages = $this->repository->getPages();
         $action = true;
+    
         return view('pages.index', compact('headers','pages','permisson','action'));
     }
+
+   
     
     public function create()
     {
@@ -65,15 +67,16 @@ class PageController extends Controller
 
     public function show($id)
     {
+        $headers = $this->headers;
+        $permisson = $this->permissonName;
         $page =  $this->repository->getItem($id);
-        $pages = $this->repository->pageList();
-        return view('pages.create',compact('page', 'pages'));   
+        $action = true;
+        return view('pages.show',compact('headers','page','permisson','action'));   
     }
     
     public function update(UpdatePageRequest $request, $id)
     {
         $page =  $this->repository->findOrFail($id);
-
         try
         {
             $this->repository->updateUniquefeild($page,$request);
