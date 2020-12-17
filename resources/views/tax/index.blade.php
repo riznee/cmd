@@ -3,18 +3,21 @@
 
 	<div class ="row">
 		<div class="col">
-			<h2> Roles </h2>
+			<h2> Tax </h2>
 		</div>
 	</div>
 
 	<div class ="row">
 		<x-dataTable
 		:headers="$headers"
-		:items="$roles"
+		:items="$tax"
 		:permissionname="$permisson"
 		:action="$action"
 		:option="$data"	
 		>
 		</x-dataTable>
-	</div>	
+	</div>
+		
+
+	
 @stop

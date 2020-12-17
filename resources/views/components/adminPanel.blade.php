@@ -73,21 +73,21 @@
                     @endcan
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{route('tax.index')}}">
                             <i class="fas fa-hand-holding-usd"></i>
                             &nbsp; Tax Setting
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{route('pagelayouts.index')}}">
                             <i class="far fa-list-alt"></i>
                             &nbsp; Page Layouts
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{route('pagetypes.index')}}">
                             <i class="fab fa-buffer" aria-hidden="true"></i>
                             &nbsp; Page Types
                         </a>

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Repositries\PageRepository;
+use App\Repositries\RoleRepository;
 use App\Http\Requests\Role\StoreRoleRequest;
 use App\Http\Requests\Role\UpdateRoleRequest;
 
@@ -11,9 +11,16 @@ use App\Http\Requests\Role\UpdateRoleRequest;
 class RoleController extends Controller
 {
     public $perpage = 5;
-    public $permissonName = 'role';
+    public $permissonName = 'roles';
 
-    public function __construct(PageRepository $repository)
+    public $headers=array( 
+        array('title'=>'Name ', 'value'=>'name'),
+        array('title'=>'Guard Name ', 'value'=>'guard_name'),     
+        array ( 'title'=>'Created At', 'value' =>'created_at'),
+        array ( 'title'=>'Updated At', 'value' =>'updated_at'),
+    );
+
+    public function __construct(RoleRepository $repository)
     {
         $this->repository = $repository;
         $this->setPermission($this->permissonName);
@@ -22,8 +29,14 @@ class RoleController extends Controller
 
     public function index(Request $request)
     {
+        $headers = $this->headers;
+        $permisson = $this->permissonName;
         $roles = $this->repository->getRoles();
-        return view('roles.index', compact('roles'))->with('i', ($request->input('page', 1) - 1) * 5);
+        $action = true;
+        $data = array('data'=> "not null");
+
+        return view('roles.index', compact('headers','roles','permisson','action','data'));
+     
     }
 
     public function create()

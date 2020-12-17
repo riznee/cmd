@@ -3,18 +3,22 @@
 
 	<div class ="row">
 		<div class="col">
-			<h2> Roles </h2>
+			<h2>Page Types </h2>
+
 		</div>
+		
 	</div>
 
 	<div class ="row">
 		<x-dataTable
 		:headers="$headers"
-		:items="$roles"
+		:items="$pagetypelist"
 		:permissionname="$permisson"
 		:action="$action"
-		:option="$data"	
-		>
-		</x-dataTable>
-	</div>	
+		:option="$data"
+		></x-dataTable>
+	</div>
+		
+
+	
 @stop

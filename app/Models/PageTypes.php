@@ -9,7 +9,7 @@ class PageType extends Model {
 
     use SoftDeletes;
 
-    protected $table ='page_type';
+    protected $table ='pagetypes';
 
     protected $fillable =[
         'title',

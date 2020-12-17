@@ -13,7 +13,7 @@
 		:items="$users"
 		:permissionname="$permisson"
 		:action="$action"
-	
+		:option="$data"	
 		>
 		</x-dataTable>
 	</div>

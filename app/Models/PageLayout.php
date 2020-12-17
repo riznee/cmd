@@ -9,7 +9,7 @@ class PageLayout extends Model {
 
     use SoftDeletes;
 
-    protected $table ='page_layouts';
+    protected $table ='pagelayouts';
 
     protected $fillables=[
         'type',

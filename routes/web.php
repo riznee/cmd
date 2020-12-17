@@ -48,6 +48,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('users', 'UserController');
     Route::resource('roles', 'RoleController');
     Route::resource('contacts', 'ContactController');
+    Route::resource('tax', 'TaxController');
+    Route::resource('pagelayouts', 'PageLayoutController');
+    Route::resource('pagetypes', 'PageTypeController');
+    Route::resource('productcatergories', 'ProductCatergoryController');
   
 });
 

@@ -20,7 +20,7 @@
 		:items="$pages"
 		:permissionname="$permisson"
 		:action="$action"
-		:data="$data ?? ''"
+		:option="$data"
 		></x-dataTable>
 	</div>
 		

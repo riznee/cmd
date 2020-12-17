@@ -39,8 +39,9 @@ class PageController extends Controller
         $permisson = $this->permissonName;
         $pages = $this->repository->getPages();
         $action = true;
+        $data = array('true' => 'Published', 'false' => 'Unpublished');
     
-        return view('pages.index', compact('headers','pages','permisson','action'));
+        return view('pages.index', compact('headers','pages','permisson','action', 'data'));
     }
 
    

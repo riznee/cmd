@@ -19,12 +19,20 @@
 						@foreach($headers as $header)
 							<td>
 								@if(!empty($header['type']))
-									@if($header['type'] =='boolen')
-										@if($item[$header['value']] == 1)
-											{{$data ?? ''['true']}}
-										@else
-											{{$data ?? ''['false']}}
+									@if(!empty($option))
+										@if($header['type'] =='boolen')
+											@if($item[$header['value']] == 1)
+												{{$option['true']}}
+											@else
+												{{$option['false']}}
+											@endif
 										@endif
+										
+										@if($header['type'] =='userRole')
+											{{$item->roles()->pluck('name')->implode(' ') }}
+										@endif
+									@else
+										No Option is define
 									@endif
 
 									@if($header['type'] =='variable')

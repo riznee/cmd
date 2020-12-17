@@ -29,7 +29,7 @@ class UserController extends Controller
         array('title'=>'Name ', 'value'=>'name'),
         array ( 'title'=>'Email', 'value' =>'email'),
         array ( 'title'=>'Last IP Address', 'value' =>'ip_address'),
-        array ( 'title'=>'User Role', 'value' =>'role', 'type'=>'variable'),
+        array ( 'title'=>'User Role', 'value' =>'role', 'type'=>'userRole'),
         array ( 'title'=>'Created At', 'value' =>'created_at'),
         array ( 'title'=>'Updated At', 'value' =>'updated_at')
     );
@@ -60,7 +60,7 @@ class UserController extends Controller
         $permisson = $this->permissonName;
         $users = $this->repository->getUsers();
         $action = true;
-        $data = array('true' => 'Published', 'false' => 'Unpublished');
+        $data = array('data'=> "not null");
         return view('users.index', compact('headers','users','permisson','action','data'));
     }
     /**
