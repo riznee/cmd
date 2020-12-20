@@ -93,6 +93,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
+        $title="User Information";
         $headers = $this->fields;
         $permisson = $this->permissonName;
         $action = true;

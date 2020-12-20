@@ -2,14 +2,14 @@
  
 namespace App\Repositries;
  
-use App\Models\ProductCategory;
+use App\Models\ProductCatergory;
 
 use App\Repositries\BaseRepository;
 
 class ProductCatergoryRepository extends BaseRepository {
 
 
-    public function __construct(ProductCategory $productcategory)
+    public function __construct(ProductCatergory $productcategory)
     {
         parent::__construct($productcategory);
     }

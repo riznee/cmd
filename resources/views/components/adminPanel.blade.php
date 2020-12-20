@@ -94,14 +94,14 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{route( 'productcatergories.index')}}">
                             <i class="fab fa-dropbox"></i>
                             &nbsp; Product Catergories
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{route('settings.index')}}">
                             <i class="fab fa-whmcs"></i>
                             &nbsp; Site Settings
                         </a>

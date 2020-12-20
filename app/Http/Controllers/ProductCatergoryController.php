@@ -9,7 +9,7 @@ use App\Repositries\ProductCatergoryRepository;
 class ProductCatergoryController extends Controller
 {
     public $perpage = 5;
-    public $permissonName = 'pagelayouts';
+    public $permissonName = 'productcatergories';
 
     public $headers=array( 
         array('title'=>'Type ', 'value'=>'type'),
@@ -29,10 +29,10 @@ class ProductCatergoryController extends Controller
     {
         $headers = $this->headers;
         $permisson = $this->permissonName;
-        $prodctcatergory = $this->repository->getall();
+        $prodctcatergorylist = $this->repository->getall();
         $action = true;
         $data = array('data'=> "not null");
-        return view('pagelayouts.index', compact('headers','prodctcatergory','permisson','action','data'));
+        return view('productcatergories.index', compact('headers','prodctcatergorylist','permisson','action','data'));
     }
     
     public function store()

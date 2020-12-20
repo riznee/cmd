@@ -18,6 +18,7 @@ class Cards extends Component
     public $action = false;
     public $permissionname = null;
     public $slotFeilds =null;
+    public $title = null;
 
 
     public function __construct($headers,$item, $permissionname, $action = false, $slotFeilds = null, $title = null)
