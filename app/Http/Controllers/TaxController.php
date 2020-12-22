@@ -40,9 +40,15 @@ class TaxController extends Controller
        
     }
     
-    public function show()
+    public function show($id)
     {
-        
+        $title="User Information";
+        $headers = $this->fields;
+        $permisson = $this->permissonName;
+        $action = true;
+        $tax = $this->repository->findOrFail($id);
+        $title ="User Details";
+        return view('tax.show', compact('headers','tax','permisson','action', 'title'));
     }
     
     public function edit()
