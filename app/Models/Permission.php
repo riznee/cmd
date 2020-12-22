@@ -2,18 +2,18 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Permission 
+class Permission extends Model
 {
-    protected $fillable =[];
-
-    public static function mapping()
-    {
-
-    }
-
+    /**
+     * A permission can be applied to roles.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function roles()
     {
-        
+        return $this->belongsToMany(Role::class);
     }
 }

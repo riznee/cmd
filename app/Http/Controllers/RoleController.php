@@ -59,10 +59,14 @@ class RoleController extends Controller
     }
 
     public function show($id)
-    {
-        $role =  $this->repository->getItem($id);
-        $rolePermissions = $this->repository->getRolePermssion();
-        return view('roles.show', compact('role', 'rolePermissions'));
+    {   
+        $title="Roles";
+        $headers = $this->headers;
+        $permisson = $this->permissonName;
+        $action = false;
+        $data =  $this->repository->getRolePermssion($id);
+        // dd($data);
+        return view('roles.show', compact('headers','data','permisson','action', 'title'));
     }
 
     public function edit($id)

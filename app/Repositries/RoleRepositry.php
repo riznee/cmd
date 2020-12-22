@@ -37,9 +37,7 @@ class RoleRepository extends BaseRepository
 
     public function getRolePermssion($id)
     {
-        $rolePermissions =  $this->permission->join("role_has_permissions", "role_has_permissions.permission_id", "=", "permissions.id")
-            ->where("role_has_permissions.role_id", $id)
-            ->get();
+        $rolePermissions = $this->model->with('permissions')->where('id', $id)->get();
         return  $rolePermissions;
     }
 
