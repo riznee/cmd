@@ -1,9 +1,16 @@
 <div class="card  border-info mb-3">
     <div class="card-header">
         <div class="row">
-            <div class="col-md-8">{{$title}}</div>
+            <div class="col col-sm-1">
+                    <a href="{{route($permissionname.'.index')}}" class="card-header-icon" aria-label="more options">
+                        <span class="icon">
+                            <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                        </span>
+                    </a>
+            </div>
+            <div class="col-sm-8"> <h5>{{$title}}</h5></div>
             
-                <div class="col-12 col-sm-1">
+                <div class="col col-sm-1">
                     @if($action)
                         @can( $permissionname.'-show')
                         <a class=" btn btn-primary" href="{{route($permissionname.'.edit',$item['id'])}}">
@@ -11,7 +18,7 @@
                         </a> 
                         @endcan
                 </div>
-                <div class="col-12 col-sm-1">  
+                <div class="col col-sm-1">  
                         @can($permissionname.'-destroy')											
                         <form  accept-charset="UTF-8" method="post" action="{{route($permissionname.'.destroy',$item['id'])}}">
                             @csrf
