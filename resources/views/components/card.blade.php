@@ -2,11 +2,13 @@
     <div class="card-header">
         <div class="row">
             <div class="col col-sm-1">
-                    <a href="{{route($permissionname.'.index')}}" class="card-header-icon" aria-label="more options">
-                        <span class="icon">
-                            <i class="fas fa-arrow-left" aria-hidden="true"></i>
-                        </span>
-                    </a>
+                    @if(Route::currentRouteName() != $permissionname.'.index')
+                        <a href="{{route($permissionname.'.index')}}" class="card-header-icon" aria-label="more options">
+                            <span class="icon">
+                                <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                            </span>
+                        </a>
+                    @endif
             </div>
             <div class="col-sm-8"> <h5>{{$title}}</h5></div>
             

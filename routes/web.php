@@ -43,8 +43,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('pages/{id}/publsih', 'PageController@enable')->name('pages.enable');
     Route::get('pages/{id}/unpublsih', 'PageController@disable')->name('pages.disable');
 
+    Route::get('settings', 'SettingController@index')->name('settings.index');
+    Route::get('settings/edit', 'SettingController@edit')->name('settings.edit');
+    Route::delete('settings/delete', 'SettingController@delete')->name('settings.destroy');
+    Route::patch('settings/update', 'SettingController@update')->name('settings.update');
+
     Route::resource('articles', 'ArticleController');
-    Route::resource('settings', 'SettingController');
     Route::resource('pages', 'PageController');
     Route::resource('categories', 'CategoryController');
     Route::resource('users', 'UserController');

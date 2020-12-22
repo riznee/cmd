@@ -18,8 +18,8 @@ class SettingController extends Controller
         array('title'=>'Twitter', 'value'=>'twitter'),     
         array('title'=>'Display Short Name', 'value'=>'disqus_shortname'),     
         array('title'=>'Email', 'value'=>'email'),     
-        array ( 'title'=>'Created At', 'value' =>'created_at'),
-        array ( 'title'=>'Updated At', 'value' =>'updated_at'),
+        array ('title'=>'Created At', 'value' =>'created_at'),
+        array ('title'=>'Updated At', 'value' =>'updated_at'),
 
 
     );

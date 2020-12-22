@@ -40,9 +40,14 @@ class PageLayoutController extends Controller
        
     }
     
-    public function show()
+    public function show($id)
     {
-        
+        $title="Page Layout Details";
+        $headers = $this->headers;
+        $permisson = $this->permissonName;
+        $action = true;
+        $data = $this->repository->findOrFail($id);
+        return view('pagelayouts.show', compact('headers','data','permisson','action', 'title'));
     }
     
     public function edit()
