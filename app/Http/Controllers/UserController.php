@@ -109,10 +109,10 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = $this->repository->find($id);
-        $roles = $this->repository->getRoles();;
+        $user = $this->repository->findOrFail($id);
         $userRole = $user->roles->pluck('name', 'name')->all();
-        return view('users.edit', compact('user', 'roles', 'userRole'));
+        dd($user);
+        // return view('users.edit', compact('user', 'roles', 'userRole'));
     }
     /**
      * Update the specified resource in storage.
