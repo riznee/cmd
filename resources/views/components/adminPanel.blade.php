@@ -1,5 +1,5 @@
-<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block  sidebar collapse">
-    <div class="sidebar-sticky pt-3">
+<nav id="sidebarMenu" class="col-md-3 col-lg-1 d-md-block  sidebar collapse">
+    <div class="sidebar  pt-3">
         <ul class="nav flex-column">
             <li class="nav-item">
                 <a class="nav-link" href="{{route('dashboard')}}">

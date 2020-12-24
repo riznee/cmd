@@ -2,12 +2,7 @@
 @section('content')
     <br/>
     <div class="row">
-        <div class="col-sm-3">
-            <h5>
-               User Privacy Notice
-            </h5> 
-        </div>
-        
+               
         <nav id="privacy" class="navbar navbar-light bg-light px-3">
             <a class="navbar-brand" href="#"> User Privacy Notice</a>
             <ul class="nav nav-pills">

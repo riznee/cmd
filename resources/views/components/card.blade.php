@@ -43,7 +43,8 @@
                 <strong> 
                     {{$header['title']}}:
                 </strong>
-                {{$item[$header['value']]}} </li>            
+                {{$item[$header['value']]}} 
+            </li>            
         @endforeach     
         </ul>
     </div>
