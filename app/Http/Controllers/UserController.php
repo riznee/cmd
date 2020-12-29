@@ -59,10 +59,10 @@ class UserController extends Controller
         $headers = $this->headers;
         $permisson = $this->permissonName;
         $users = $this->repository->getUsers();
-        $permissionList = $this->repositoy->getPermssionList();
+     
         $action = true;
         $data = array('data'=> "not null");
-        return view('users.index', compact('headers','users','permisson','action','data','permissionList'));
+        return view('users.index', compact('headers','users','permisson','action','data'));
     }
     /**
      * Show the form for creating a new resource.
@@ -99,8 +99,9 @@ class UserController extends Controller
         $permisson = $this->permissonName;
         $action = true;
         $user = $this->repository->findOrFail($id);
+        $permissionList = $this->repositoy->getPermission();
         $title ="User Details";
-        return view('users.show', compact('headers','user','permisson','action', 'title'));
+        return view('users.show', compact('headers','user','permisson','action', 'title', 'permissionList'));
     }
     /**
      * Show the form for editing the specified resource.

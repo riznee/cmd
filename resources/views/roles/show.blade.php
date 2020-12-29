@@ -20,6 +20,7 @@
 
         <div class="card  border-info mb-3">
           <div class="card-header">Permissions</div>
+          {{$permissionList ?? ''}}
           <div class="card-body text-dark">
             <form method="patch" action="./">
               {{ csrf_field() }}
