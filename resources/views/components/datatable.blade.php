@@ -50,7 +50,7 @@
 
 									<div class="col">
 										@can( $permissionname.'-show')
-										<a class=" btn btn-outline-primary" href="{{route($permissionname.'.show',$item['id'])}}">
+										<a class=" btn badge bg-primary" href="{{route($permissionname.'.show',$item['id'])}}">
 											<i class="fas fa-eye" aria-hidden="true"></i>
 										</a> 
 										@endcan
@@ -58,7 +58,7 @@
 
 									<div class="col">
 										@can( $permissionname.'-show')
-										<a class=" btn btn-outline-primary" href="{{route($permissionname.'.edit',$item['id'])}}">
+										<a class=" btn badge bg-primary" href="{{route($permissionname.'.edit',$item['id'])}}">
 											<i class="fas fa-pen" aria-hidden="true"></i>
 										</a> 
 										@endcan
@@ -70,7 +70,7 @@
 										<form  accept-charset="UTF-8" method="post" action="{{route($permissionname.'.destroy',$item['id'])}}">
 											@csrf
 											{{ method_field('DELETE') }}{{ method_field('DELETE') }}
-											<button type="submit" class="btn btn-outline-danger">
+											<button type="submit" class="btn badge bg-danger">
 													<i class="fas fa-times" aria-hidden="true"></i>
 											</button>
 										</form>

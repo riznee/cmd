@@ -59,6 +59,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('role/{id}/permission/{permssion_id}/set', 'RolePermissionController@store')->name('role.permission.set');
     Route::delete('role/{id}/permission/{permssion_id}/remove', 'RolePermissionController@destroy')->name('role.permission.remove');
 
+    Route::post('users/{id}/roles/{role_id}/set', 'RoleUsernController@store')->name('user.role.set');
+    Route::delete('users/{id}/roles/{role_id}/remove', 'RoleUsernController@destroy')->name('user.role.remove');
+
 
 
     Route::resource('articles', 'ArticleController');
