@@ -17,7 +17,32 @@
 				@foreach($items as $item)	
 					<tr>
 						@foreach($headers as $header)
-							<td>{{$item[$header['value']]}}</td>
+							<td>
+								@if(!empty($header['type']))
+									@if(!empty($option))
+										@if($header['type'] =='boolen')
+											@if($item[$header['value']] == 1)
+												{{$option['true']}}
+											@else
+												{{$option['false']}}
+											@endif
+										@endif
+										
+										@if($header['type'] =='userRole')
+											{{$item->roles()->pluck('name')->implode(' ') }}
+										@endif
+									@else
+										No Option is define
+									@endif
+
+									@if($header['type'] =='variable')
+
+									@endif
+
+								@else
+								{{$item[$header['value']]}}
+								@endif
+							</td>						
 						@endforeach
 						@if($action)
 							<td>
@@ -25,7 +50,7 @@
 
 									<div class="col">
 										@can( $permissionname.'-show')
-										<a class=" btn btn-outline-primary" href="{{route($permissionname.'.show',$item['id'])}}">
+										<a class=" btn badge bg-primary" href="{{route($permissionname.'.show',$item['id'])}}">
 											<i class="fas fa-eye" aria-hidden="true"></i>
 										</a> 
 										@endcan
@@ -33,7 +58,7 @@
 
 									<div class="col">
 										@can( $permissionname.'-show')
-										<a class=" btn btn-outline-primary" href="{{route($permissionname.'.edit',$item['id'])}}">
+										<a class=" btn badge bg-primary" href="{{route($permissionname.'.edit',$item['id'])}}">
 											<i class="fas fa-pen" aria-hidden="true"></i>
 										</a> 
 										@endcan
@@ -45,7 +70,7 @@
 										<form  accept-charset="UTF-8" method="post" action="{{route($permissionname.'.destroy',$item['id'])}}">
 											@csrf
 											{{ method_field('DELETE') }}{{ method_field('DELETE') }}
-											<button type="submit" class="btn btn-outline-danger">
+											<button type="submit" class="btn badge bg-danger">
 													<i class="fas fa-times" aria-hidden="true"></i>
 											</button>
 										</form>

@@ -12,6 +12,10 @@ class Tax extends Model
 {
    use SoftDeletes;
 
+
+
+    protected $table = 'tax';
+    
     protected $fillable = [
         'tax',
         'tax_perce',

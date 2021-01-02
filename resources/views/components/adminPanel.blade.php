@@ -1,5 +1,5 @@
-<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block  sidebar collapse">
-    <div class="sidebar-sticky pt-3">
+<nav id="sidebarMenu" class="col-md-3 col-lg-1 d-md-block  sidebar collapse">
+    <div class="sidebar  pt-3">
         <ul class="nav flex-column">
             <li class="nav-item">
                 <a class="nav-link" href="{{route('dashboard')}}">
@@ -63,7 +63,7 @@
                         </li>
                     @endcan
                     
-                    @can('role-list')
+                    @can('role-index')
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('roles.index')}}">
                                 <i class="fab fa-redhat" aria-hidden="true"></i>
@@ -73,35 +73,41 @@
                     @endcan
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{route('tax.index')}}">
                             <i class="fas fa-hand-holding-usd"></i>
                             &nbsp; Tax Setting
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{route('pagelayouts.index')}}">
                             <i class="far fa-list-alt"></i>
                             &nbsp; Page Layouts
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{route('pagetypes.index')}}">
                             <i class="fab fa-buffer" aria-hidden="true"></i>
                             &nbsp; Page Types
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{route( 'productcatergories.index')}}">
                             <i class="fab fa-dropbox"></i>
                             &nbsp; Product Catergories
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route( 'roles.index')}}">
+                            <i class="fa fa-users"></i>
+                            &nbsp; Roles
+                        </a>
+                    </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{route('settings.index')}}">
                             <i class="fab fa-whmcs"></i>
                             &nbsp; Site Settings
                         </a>

@@ -37,9 +37,7 @@ class RoleRepository extends BaseRepository
 
     public function getRolePermssion($id)
     {
-        $rolePermissions =  $this->permission->join("role_has_permissions", "role_has_permissions.permission_id", "=", "permissions.id")
-            ->where("role_has_permissions.role_id", $id)
-            ->get();
+        $rolePermissions = $this->model->with('permissions')->where('id', $id)->get();
         return  $rolePermissions;
     }
 
@@ -65,6 +63,24 @@ class RoleRepository extends BaseRepository
     {
         return DB::table("roles")->where('id', $id)->delete();
 
+    }
+
+    public function setPermissions($role_id, $permission_id)
+    {
+        $role=$this->model->findOrFail($role_id);
+        $role->permissions()->attach($permission_id);
+        $role->forgetCachedPermissions();
+        $role->load('permissions');
+        return $role; 
+    }
+
+    public function removePermissions($role_id, $permission_id)
+    {
+        $role=$this->model->findOrFail($role_id);
+        $role->permissions()->detach($permission_id);
+        $role->forgetCachedPermissions();
+        $role->load('permissions');
+        return $role;      
     }
 
 }
