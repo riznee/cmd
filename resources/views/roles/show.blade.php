@@ -20,26 +20,36 @@ $ifData = false;
           <div class="card-header"> <h6> Permissions </h6> </div>
           <table class="table table-striped table-sm table-hover ">
             <thead>
-              <th> ID </th>
               <th> Name </th>
               <th> Gaurd </th>
-              <th> Add / Remove </th>
+              <th> Add/ Remove </th>
             </thead>
             <tbody>
                   @foreach( $permissionList as $item)
                     <tr>
-                      <td> {{$item['id']}} </td>
                       <td>  {{$item['name'] }} </td>
                       <td> {{$item['guard_name'] }} </td>
-                      <td> 
+                      <td class="align-center"> 
                           @foreach( $data[0]['permissions'] as $row)
                             @if($item['id'] == $row['id'])
-                              Assigned
+                            <form  accept-charset="UTF-8" method="post" action="{{route('role.permission.remove',[ $data[0]['id'], $item['id']])}}">
+                              @csrf
+                              {{ method_field('DELETE') }}
+                              <button type="submit" class="btn badge bg-danger">
+                                  <i class="fas fa-times" aria-hidden="true"></i>
+                              </button>
+                            </form>
                              <?php $ifData = true ?>
                             @endif
                           @endforeach 
                           @if(!$ifData)
-                            Not Assigned
+                          <form  accept-charset="UTF-8" method="post" action="{{route('role.permission.set',[$data[0]['id'], $item['id']])}}">
+                            @csrf
+                            <button type="submit" class="btn badge bg-success">
+                              <i class="fa fa-check" aria-hidden="true"></i>
+                            </button>
+                          </form>
+                    
                           @endif                      
                         </td>
                     </tr>       

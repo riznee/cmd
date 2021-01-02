@@ -45,8 +45,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('dashboard', 'AdminController@index')->name('dashboard');
             
     Route::get('settings', 'SettingController@index')->name('settings.index');
-    Route::get('settings/edit', 'SettingController@edit')->name('settings.edit');    
-    Route::delete('settings/delete', 'SettingController@delete')->name('settings.destroy');    
+    Route::get('settings/edit', 'SettingController@edit')->name('settings.edit');     
     Route::patch('settings/update', 'SettingController@update')->name('settings.update');
 
     
@@ -55,6 +54,10 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::patch('articles/{id}/publsih', 'ArticleController@publish')->name('articles.publish');
     Route::patch('articles/{id}/unpublsih', 'ArticleController@unPublish')->name('articles.unpublish');
+
+
+    Route::post('role/{id}/permission/{permssion_id}/set', 'RolePermissionController@store')->name('role.permission.set');
+    Route::delete('role/{id}/permission/{permssion_id}/remove', 'RolePermissionController@destroy')->name('role.permission.remove');
 
 
 
