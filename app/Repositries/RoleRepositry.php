@@ -65,4 +65,22 @@ class RoleRepository extends BaseRepository
 
     }
 
+    public function setPermissions($role_id, $permission_id)
+    {
+        $role=$this->model->findOrFail($role_id);
+        $role->permissions()->attach($permission_id);
+        $role->forgetCachedPermissions();
+        $role->load('permissions');
+        return $role; 
+    }
+
+    public function removePermissions($role_id, $permission_id)
+    {
+        $role=$this->model->findOrFail($role_id);
+        $role->permissions()->detach($permission_id);
+        $role->forgetCachedPermissions();
+        $role->load('permissions');
+        return $role;      
+    }
+
 }

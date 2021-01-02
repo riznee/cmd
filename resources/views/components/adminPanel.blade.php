@@ -63,7 +63,7 @@
                         </li>
                     @endcan
                     
-                    @can('role-list')
+                    @can('role-index')
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('roles.index')}}">
                                 <i class="fab fa-redhat" aria-hidden="true"></i>

@@ -1,9 +1,7 @@
 
 @extends('layouts.admin')
 @section('content')
-<?php
-$ifData = false;
-?>
+
 <br/>
 <hr/>
        
@@ -30,27 +28,26 @@ $ifData = false;
                       <td>  {{$item['name'] }} </td>
                       <td> {{$item['guard_name'] }} </td>
                       <td class="align-center"> 
-                          @foreach( $data[0]['permissions'] as $row)
-                            @if($item['id'] == $row['id'])
-                            <form  accept-charset="UTF-8" method="post" action="{{route('role.permission.remove',[ $data[0]['id'], $item['id']])}}">
-                              @csrf
-                              {{ method_field('DELETE') }}
-                              <button type="submit" class="btn badge bg-danger">
-                                  <i class="fas fa-times" aria-hidden="true"></i>
-                              </button>
-                            </form>
-                             <?php $ifData = true ?>
+            
+                            @if($data[0]->hasPermissionTo(''.$item->name.''))
+                              <form  accept-charset="UTF-8" method="post" action="{{route('role.permission.remove',[ $data[0]['id'], $item['id']])}}">
+                                @csrf
+                                {{ method_field('DELETE') }}
+                                <button type="submit" class="btn badge bg-danger">
+                                    <i class="fas fa-times" aria-hidden="true"></i> Remove Permission
+                                </button>
+                              </form>
+                            @else
+                              <form  accept-charset="UTF-8" method="post" action="{{route('role.permission.set',[$data[0]['id'], $item['id']])}}">
+                                @csrf
+                                <button type="submit" class="btn badge bg-success">
+                                  <i class="fa fa-check" aria-hidden="true"></i> Add Permission
+                                </button>
+                              </form>  
+                             
                             @endif
-                          @endforeach 
-                          @if(!$ifData)
-                          <form  accept-charset="UTF-8" method="post" action="{{route('role.permission.set',[$data[0]['id'], $item['id']])}}">
-                            @csrf
-                            <button type="submit" class="btn badge bg-success">
-                              <i class="fa fa-check" aria-hidden="true"></i>
-                            </button>
-                          </form>
-                    
-                          @endif                      
+                         
+                                           
                         </td>
                     </tr>       
                   @endforeach
