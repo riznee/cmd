@@ -26,8 +26,7 @@
     
     public function store($request)
     {
-        // return  $this->model->create($request->all());  
-        return  $this->model->create($request->all())->toSql();  
+        return  $this->model->create($request->all());  
     }
 
     public function getitem($id)
@@ -54,6 +53,11 @@
     {
         $data = $data->update($request->all());
         return $data;
+    }
+
+    public function search($param)
+    {
+        return null;
     }
 
     
