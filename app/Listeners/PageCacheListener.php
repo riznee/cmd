@@ -6,7 +6,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use cache;
 
-use App\Repositries\PageRepositry;
+use App\Repositries\PageRepository;
 
 class PageCacheListener
 {
@@ -15,7 +15,7 @@ class PageCacheListener
      *
      * @return void
      */
-    public function __construct(PageRepositry $pageRepository)
+    public function __construct(PageRepository $pageRepository)
     {
         $this->repository = $pageRepository;
     }
