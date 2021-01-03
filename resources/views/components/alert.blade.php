@@ -13,7 +13,7 @@
 @if ($message = Session::get('error'))
     <div class="_11mpalert alert-light alert-dismissible fade show" role="alert">
         <strong>
-            {{type}}
+            
             {{ $message }}
         </strong>
         <button type="button" class="btn btn-outline-danger" data-dismiss="alert" aria-label="Close">
