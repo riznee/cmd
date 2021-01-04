@@ -26,7 +26,7 @@
                     </button>
                   </form>
               @else
-                  <form  accept-charset="UTF-8" method="post" action="{{route('role.permission.set',[ $user->id, $item['id']])}}">
+                  <form  accept-charset="UTF-8" method="post" action="{{route('user.role.set',[ $user->id, $item['id']])}}">
                     @csrf
                     <button type="submit" class="btn badge bg-success">
                       <i class="fa fa-check" aria-hidden="true"></i> Add Permission

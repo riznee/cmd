@@ -1,9 +1,6 @@
 <?php
 
 // Application Routes
-
-
-
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home.get');
 
@@ -23,15 +20,13 @@ Route::get('password-reset', 'UserController@resetPasswordView')->name('reset');
 Route::post('password-reset','UserController@sendResetRequest')->name('reset.post');
 Route::post('password-confirmation','UserController@resetPassword')->name('resetpassword.post');
 
-
+// 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
-
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('signup', 'UserController@register')->name('signup');
 Route::post('signup', 'UserController@registerRequest')->name('signup.post');
-
 Route::view('privacy', 'static.privacy')->name('privacy');
 
 
@@ -48,7 +43,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('settings/edit', 'SettingController@edit')->name('settings.edit');   
     
     Route::post('role/{id}/permission/{permssion_id}/set', 'RolePermissionController@store')->name('role.permission.set');
-    Route::post('usere/{id}/roles/{role_id}/set', 'UserRoleController@store')->name('user.role.set');
+    Route::post('users/{id}/roles/{role_id}/set', 'UserRoleController@store')->name('user.role.set');
 
     Route::patch('settings/update', 'SettingController@update')->name('settings.update');
     Route::patch('pages/{id}/publsih', 'PageController@enable')->name('pages.enable');
