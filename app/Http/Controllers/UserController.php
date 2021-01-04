@@ -99,8 +99,9 @@ class UserController extends Controller
         $permisson = $this->permissonName;
         $action = true;
         $user = $this->repository->findOrFail($id);
+        $roles = $this->repository->getRoles();
         $title ="User Details";
-        return view('users.show', compact('headers','user','permisson','action', 'title'));
+        return view('users.show', compact('headers','user','permisson','action', 'title' , 'roles'));
     }
     /**
      * Show the form for editing the specified resource.

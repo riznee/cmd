@@ -29,7 +29,7 @@ class UserRepository extends BaseRepository
 
     public function getRoles()
     {
-        $data = $this->role->pluck('name', 'name')->all();
+        $data = $this->role->get();
         return $data;
     }
 

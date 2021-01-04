@@ -45,25 +45,21 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('dashboard', 'AdminController@index')->name('dashboard');
             
     Route::get('settings', 'SettingController@index')->name('settings.index');
-    Route::get('settings/edit', 'SettingController@edit')->name('settings.edit');     
-    Route::patch('settings/update', 'SettingController@update')->name('settings.update');
-
+    Route::get('settings/edit', 'SettingController@edit')->name('settings.edit');   
     
+    Route::post('role/{id}/permission/{permssion_id}/set', 'RolePermissionController@store')->name('role.permission.set');
+    Route::post('usere/{id}/roles/{role_id}/set', 'UserRoleController@store')->name('user.role.set');
+
+    Route::patch('settings/update', 'SettingController@update')->name('settings.update');
     Route::patch('pages/{id}/publsih', 'PageController@enable')->name('pages.enable');
     Route::patch('pages/{id}/unpublsih', 'PageController@disable')->name('pages.disable');
-
     Route::patch('articles/{id}/publsih', 'ArticleController@publish')->name('articles.publish');
     Route::patch('articles/{id}/unpublsih', 'ArticleController@unPublish')->name('articles.unpublish');
 
-
-    Route::post('role/{id}/permission/{permssion_id}/set', 'RolePermissionController@store')->name('role.permission.set');
     Route::delete('role/{id}/permission/{permssion_id}/remove', 'RolePermissionController@destroy')->name('role.permission.remove');
+    Route::delete('users/{id}/roles/{role_id}/remove', 'UserRoleController@destroy')->name('user.role.remove');
 
-    Route::post('users/{id}/roles/{role_id}/set', 'RoleUsernController@store')->name('user.role.set');
-    Route::delete('users/{id}/roles/{role_id}/remove', 'RoleUsernController@destroy')->name('user.role.remove');
-
-
-
+ 
     Route::resource('articles', 'ArticleController');
     Route::resource('pages', 'PageController');
     Route::resource('categories', 'CategoryController');
