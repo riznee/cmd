@@ -1,14 +1,16 @@
 @extends('layouts.admin')
 @section('content')
 
+<br/>
 <div class ="card  border-info mb-3">		
 		<div class="card-header">
 			<div class="row">
 				<div class="col-sm-3">	 
-					<a href="{{URL::previous()}}" class="card-header-icon">
+					<a href="{{URL::previous()}}" style="text-decoration: none;" class="card-header-icon">
 						<i class="fas fa-arrow-left" aria-hidden="true"></i>
 					</a>
-					| <strong>Users</strong>		
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<strong>Users</strong>		
 				</div>
 				@can('roles-create')
 				<div class="col-sm-9">

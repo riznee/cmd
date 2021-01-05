@@ -14,7 +14,7 @@
     <div class="card-body">
       <div class="row justify-content-center">
         @foreach( $roles as $item)
-          <div class="card"  style="width: Auto;">             
+          <div class="card"  style="width: 11rem;">             
             <div class="card-body">
               <h5 class="card-title"> {{$item['name'] }}</h5>
               @if($user->hasRole(''.$item->name.''))
