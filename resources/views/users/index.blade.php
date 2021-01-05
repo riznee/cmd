@@ -1,9 +1,25 @@
 @extends('layouts.admin')
 @section('content')
 
-	<div class ="row">
-		<div class="col">
-			<h2> Users </h2>
+<div class ="card  border-info mb-3">		
+		<div class="card-header">
+			<div class="row">
+				<div class="col-sm-3">	 
+					<a href="{{URL::previous()}}" class="card-header-icon">
+						<i class="fas fa-arrow-left" aria-hidden="true"></i>
+					</a>
+					| <strong>Users</strong>		
+				</div>
+				@can('roles-create')
+				<div class="col-sm-9">
+					<div class="float-right">
+						<a href="{{route('users.create')}}"  aria-label="">
+							<i class="fas fa-plus" aria-hidden="true"></i>
+						</a>
+					</div>
+				</div>
+				@endcan
+			</div>
 		</div>
 	</div>
 
@@ -17,7 +33,4 @@
 		>
 		</x-dataTable>
 	</div>
-		
-
-	
 @stop
