@@ -24,8 +24,8 @@
 					This Privacy Policy describes how your personal information is collected, used, and shared when you visit or make a purchase from {{ config('app.name', 'SSCM') }} site.
 				</div>
 			</div>
-
 			
+
 		</div>
     </div>
 </div>
