@@ -7,7 +7,7 @@ class RoleUsernController extends Controller {
 
     public function __construct()
     {
-        $this->repository = $repository;
+        // $this->repository = $repository;
         // $this->setPermission($this->permissonName);
         parent::__construct();
     }
