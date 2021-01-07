@@ -29,7 +29,7 @@ class UserRepository extends BaseRepository
 
     public function getRoles()
     {
-        $data = $this->role->pluck('name', 'name')->all();
+        $data = $this->role->get();
         return $data;
     }
 
@@ -174,7 +174,25 @@ class UserRepository extends BaseRepository
         $user->update(['password' => Hash::make($request->password)]);
         $this->passwordReset->where('email', $user->email)->update(['verified' => True]);
         return $user;
+    }
 
+    public function setRole($id, $role_id)
+    {
+        $user=$this->model->findOrFail($id);
+        $user->assignRole($role_id);
+        $user->syncRoles();
+        $user->load('roles');
+        return $user;
+
+    }
+
+    public function removeRole($id, $role_id)
+    {
+        $user=$this->model->findOrFail($id);
+        $user->removeRole($role_id);
+        $user->syncRoles();
+        $user->load('roles');
+        return $user; 
     }
        
 
