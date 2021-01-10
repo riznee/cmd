@@ -12,6 +12,12 @@ class Role extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
+    protected $fillable = [
+        'name',
+        'gard_name',
+    ];
+
+
     public function permissions()
     {
         return $this->belongsToMany(Permission::class);
