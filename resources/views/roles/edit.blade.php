@@ -4,7 +4,7 @@
         {{ csrf_field() }}
         <div class="col-md-4">
             <label for="validationCustom01" class="form-label">Name </label>
-            <input type="text" name="name" class="form-control" id="validationCustom01" value= " " required>
+            <input type="text" name="name" class="form-control" id="validationCustom01" value= "{{$role->name}}" required>
             <div class="valid-feedback">
                 Looks good!
             </div>
@@ -15,7 +15,7 @@
 
         <div class="col-md-4">
             <label for="validationCustom01" class="form-label"> Guard Name</label>
-            <input type="text" name="guard_name" class="form-control" id="validationCustom01" value= " " required>
+            <input type="text" name="guard_name" class="form-control" id="validationCustom01" value= "{{$role->guard_name}}" required>
             <div class="valid-feedback">
                 Looks good!
             </div>

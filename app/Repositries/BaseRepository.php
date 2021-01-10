@@ -36,7 +36,9 @@
     
     public function update($request, $id)
     {
-       return $this->mode->find($id)->update($request->all());
+        $data = $this->model->find($id);
+        $data->update($request->all());
+       return $data;
     }
     
     public function destroy($id)

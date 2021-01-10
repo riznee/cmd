@@ -41,8 +41,7 @@ class RoleController extends Controller
 
     public function create()
     {
-        $permission = $this->repository->getPermission();
-        return view('roles.create', compact('permission'));
+        return view('roles.create');
     }
 
     public function store(StoreRoleRequest $request)
@@ -73,9 +72,7 @@ class RoleController extends Controller
     public function edit($id)
     {
         $role =  $this->repository->getItem($id);
-        $permission =  $this->repository->getPermission();
-        $rolePermissions = $this->repository->getAllRolePermission($id);
-        return view('roles.edit', compact('role', 'permission', 'rolePermissions'));
+        return view('roles.edit', compact('role'));
     }
 
     public function update(UpdateRoleRequest $request, $id)
