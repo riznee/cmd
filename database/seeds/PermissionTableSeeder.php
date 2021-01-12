@@ -13,10 +13,15 @@ class PermissionTableSeeder extends Seeder
     public function run()
     {
         $permissions = [
-            'role-list',
-            'role-create',
-            'role-edit',
-            'role-delete',
+
+
+            'roles-store',
+            'roles-index', 
+            'roles-create',
+            'roles-show',
+            'roles-update',
+            'roles-destroy',
+            'roles-edit',
 
             'articles-store',
             'articles-index', 
@@ -33,7 +38,7 @@ class PermissionTableSeeder extends Seeder
             'categories-create',
             'categories-show',
             'categories-update',
-            'categories-destroy ',
+            'categories-destroy',
             'categories-edit',
 
             'upload',
@@ -63,6 +68,63 @@ class PermissionTableSeeder extends Seeder
             'users-update',      
             'users-destroy',     
             'users-edit',
+
+            'pagelayouts-store',
+            'pagelayouts-index',
+            'pagelayouts-create',
+            'pagelayouts-show',
+            'pagelayouts-destroy',
+            'pagelayouts-update',
+            'pagelayouts-edit',
+
+
+            'pagetypes-store',
+            'pagetypes-index',
+            'pagetypes-create',
+            'pagetypes-show',
+            'pagetypes-destroy',
+            'pagetypes-update',
+            'pagetypes-edit',
+
+            'tax-store',
+            'tax-index',
+            'tax-create',
+            'tax-show',
+            'tax-destroy',
+            'tax-update',
+            'tax-edit',
+
+            'attriibutes-store',
+            'attriibutes-index',
+            'attriibutes-create',
+            'attriibutes-show',
+            'attriibutes-destroy',
+            'attriibutes-update',
+            'attriibutes-edit',
+
+            'contacts-store',
+            'contacts-index',
+            'contacts-create',
+            'contacts-show',
+            'contacts-destroy',
+            'contacts-update',
+            'contacts-edit',
+
+            'banners-store',
+            'banners-index',
+            'banners-create',
+            'banners-show',
+            'banners-destroy',
+            'banners-update',
+            'banners-edit',
+
+            'productcatergories-store',
+            'productcatergories-index',
+            'productcatergories-create',
+            'productcatergories-show',
+            'productcatergories-destroy',
+            'productcatergories-update',
+            'productcatergories-edit',
 
             
         ];

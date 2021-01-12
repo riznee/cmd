@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Repositries\UserRepositry;
+use App\Repositries\UserRepository;
 use App\Http\Requests\User\StoreUserRequest;
 use App\Http\Requests\User\UpdateUserRequest;
 use App\Http\Requests\User\ResetRequest;
@@ -25,7 +25,29 @@ class UserController extends Controller
      */
     public $permissonName='users';
 
-    public function __construct(UserRepositry $repository)
+    public $headers=array( 
+        array('title'=>'Name ', 'value'=>'name'),
+        array ( 'title'=>'Email', 'value' =>'email'),
+        array ( 'title'=>'Last IP Address', 'value' =>'ip_address'),
+        array ( 'title'=>'User Role', 'value' =>'role', 'type'=>'userRole'),
+        array ( 'title'=>'Created At', 'value' =>'created_at'),
+        array ( 'title'=>'Updated At', 'value' =>'updated_at')
+    );
+
+    public $fields=array( 
+        array('title'=>'Name ', 'value'=>'name'),
+        array ( 'title'=>'Email', 'value' =>'email'),
+        array ( 'title'=>'Last IP Address', 'value' =>'ip_address'),
+        array ( 'title'=>'Profile Piture', 'value' =>'picture'),
+        array ( 'title'=>'Account Verified', 'value' =>'verified'),
+        array ( 'title'=>'Remember Token', 'value' =>'remember_token'),
+        array ( 'title'=>'Last Login At', 'value' =>'logged_in_at'),
+        array ( 'title'=>'Last Logout At', 'value' =>'logged_out_at'),
+        array ( 'title'=>'Created At', 'value' =>'created_at'),
+        array ( 'title'=>'Updated At', 'value' =>'updated_at')
+    );
+
+    public function __construct(UserRepository $repository)
     {
         $this->repository = $repository;
         $this->setPermission($this->permissonName);
@@ -34,9 +56,13 @@ class UserController extends Controller
 
     public function index(Request $request)
     {
-        $data = $this->repository->getusers();
-        return view('users.index', compact('data'))
-            ->with('i', ($request->input('page', 1) - 1) * 5);
+        $headers = $this->headers;
+        $permisson = $this->permissonName;
+        $users = $this->repository->getUsers();
+     
+        $action = true;
+        $data = array('data'=> "not null");
+        return view('users.index', compact('headers','users','permisson','action','data'));
     }
     /**
      * Show the form for creating a new resource.
@@ -68,8 +94,13 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = $this->repository->find($id);
-        return view('users.show', compact('user'));
+        $title="User Information";
+        $headers = $this->fields;
+        $permisson = $this->permissonName;
+        $action = true;
+        $user = $this->repository->findOrFail($id);
+        $title ="User Details";
+        return view('users.show', compact('headers','user','permisson','action', 'title'));
     }
     /**
      * Show the form for editing the specified resource.

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositries\ContactRepositry;
+use App\Repositries\ContactRepository;
 use App\Http\Requests\Contact\StoreContactRequest;
 use App\Http\Requests\Contact\UpdateContactRequest;
 
@@ -11,7 +11,7 @@ class ContactController extends Controller
     public $perpage = 5;
     public $permissonName='contact';
 
-    public function __construct(ContactRepositry $repository)
+    public function __construct(ContactRepository $repository)
     {
         $this->repository = $repository;
         $this->setPermission($this->permissonName);

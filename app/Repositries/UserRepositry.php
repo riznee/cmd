@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 use DB;
 use Hash;
 
-class UserRepositry extends BaseRepositry
+class UserRepository extends BaseRepository
 {
 
     public function __construct(User $user, Role $role,VerifyUser $verifyUser, PasswordReset $passwordReset )
@@ -38,7 +38,7 @@ class UserRepositry extends BaseRepositry
         $input = $request->all();
         $input['password'] = Hash::make($input['password']);
         $user = User::create($input);
-        $user->assignRole('user');
+        $user->assignRole('customer');
         $verifyUser = $this->verifyUser->create([
             'user_id' => $user->id,
             'token' => Str::random(40)

@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Auth;
+use App\Repositries\UserRepository;
 
 class LoginController extends Controller
 {
@@ -38,9 +39,15 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+        $this->setTheme();
     }
 
 
+    public function showLoginForm()
+    {
+        // dd($this->theme);
+        return view('auth.login');
+    }
 
     public function login(Request $request)
     {
@@ -51,6 +58,7 @@ class LoginController extends Controller
             $user = Auth::user();
 
             if($user->verified){
+
                 return back();
             } else{
                 $this->logout($request);

@@ -12,8 +12,6 @@ use App\Models\VerifyUser;
 use App\Models\PasswordReset;
 
 
-
-
 class User extends Authenticatable
 {
     use Notifiable, HasApiTokens, HasRoles, SoftDeletes;
@@ -45,4 +43,7 @@ class User extends Authenticatable
     {
         return $this->hasOne(PasswordReset::class, 'email' ,'email');
     }
+
+   
+
 }
