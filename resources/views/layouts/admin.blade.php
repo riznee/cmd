@@ -4,6 +4,20 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
         <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.css')}}">
+        <!-- Default Statcounter code for devlopment http://dev.enol.mv -->
+            <script type="text/javascript">
+          var sc_project=12461662; 
+          var sc_invisible=1; 
+          var sc_security="3b453db4"; 
+          var sc_https=1; 
+          </script>
+          <script type="text/javascript"
+          src="https://www.statcounter.com/counter/counter.js" async></script>
+          <noscript><div class="statcounter"><a title="Web Analytics"
+          href="https://statcounter.com/" target="_blank"><img class="statcounter"
+          src="https://c.statcounter.com/12461662/0/3b453db4/1/" alt="Web
+          Analytics"></a></div></noscript>
+        <!-- End of Statcounter Code -->
         {{-- THEME LOADING  CHECK VARIABLE IF CONDITION--}}
         <link rel="stylesheet" href="{{asset('enol/css/enolbase.css')}}">
         <title>{{ config('app.name', 'SSCM') }}</title>
