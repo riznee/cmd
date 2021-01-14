@@ -99,8 +99,9 @@ class UserController extends Controller
         $permisson = $this->permissonName;
         $action = true;
         $user = $this->repository->findOrFail($id);
+        $roles = $this->repository->getRoles();
         $title ="User Details";
-        return view('users.show', compact('headers','user','permisson','action', 'title'));
+        return view('users.show', compact('headers','user','permisson','action', 'title' , 'roles'));
     }
     /**
      * Show the form for editing the specified resource.
@@ -110,10 +111,10 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = $this->repository->find($id);
-        $roles = $this->repository->getRoles();;
+        $user = $this->repository->findOrFail($id);
         $userRole = $user->roles->pluck('name', 'name')->all();
-        return view('users.edit', compact('user', 'roles', 'userRole'));
+        dd($user);
+        // return view('users.edit', compact('user', 'roles', 'userRole'));
     }
     /**
      * Update the specified resource in storage.
