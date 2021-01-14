@@ -25,17 +25,16 @@ class UpdateRoleRequest extends FormRequest
     {
         
         return [
-            'name' => 'required',
-            'permission' => 'required',
+            'name' => 'required |unique:name',$id,
+            'guard_name' => 'required',
         ];
     } 
 
     public function messages()
     {
         return [
-            'slug.required'      => ' The slug should be uniquie with maxmium size of 255 charachers',
-            'title.required'     => 'The name is maximucm size 255 char',
-            'description.required' => 'The name is maximucm size 255 char',
+            'name.required'      => ' The slug should be uniquie with maxmium size of 255 charachers',
+            'guard_name.required'     => 'The name is maximucm size 255 char',
         ];
     }
 

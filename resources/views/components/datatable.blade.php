@@ -11,8 +11,7 @@
 			@endif
             </tr>
         </thead>
-        <tbody>
-		
+        <tbody>		
 			@if(!empty($items))
 				@foreach($items as $item)	
 					<tr>
@@ -48,7 +47,7 @@
 							<td>
 								<div class="row">
 
-									<div class="col">
+									<div class="col-sm-2">
 										@can( $permissionname.'-show')
 										<a class=" btn badge bg-primary" href="{{route($permissionname.'.show',$item['id'])}}">
 											<i class="fas fa-eye" aria-hidden="true"></i>
@@ -56,7 +55,7 @@
 										@endcan
 									</div>
 
-									<div class="col">
+									<div class="col-sm-2">
 										@can( $permissionname.'-show')
 										<a class=" btn badge bg-primary" href="{{route($permissionname.'.edit',$item['id'])}}">
 											<i class="fas fa-pen" aria-hidden="true"></i>
@@ -65,7 +64,7 @@
 									</div>
 								
 
-									<div class="col">
+									<div class="col-sm-2">
 										@can($permissionname.'-destroy')											
 										<form  accept-charset="UTF-8" method="post" action="{{route($permissionname.'.destroy',$item['id'])}}">
 											@csrf
@@ -80,8 +79,7 @@
 
 								</div>
 							</td>
-						@endif	
-
+						@endif
 					</tr>
 				@endforeach		
 			@else

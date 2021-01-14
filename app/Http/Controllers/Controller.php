@@ -14,6 +14,8 @@ class Controller extends BaseController
 
     public $theme;
 
+    protected $repository;
+
 
     public function __construct()
     {
