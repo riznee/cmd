@@ -1,13 +1,13 @@
- 	@extends('layouts.app')
+@extends('layouts.admin')
 @section('content')
 <div class="container is-fluid">
 	<div class="wrapper">
 		<head>
-			@include('partials.admiNav')
+		
 		</head>
 		<section class="columns">
 			<div class="column is-one-fifth">
-				@include('partials.adminPanel')
+			
 			</div>
 			<div class="column">
 				<div class="hero is-fullheight">
@@ -124,7 +124,7 @@
 				</div>
 			</div>
         </section>			  
-		@include('partials.footer')
+	
 	</div>
 </div>
 @stop

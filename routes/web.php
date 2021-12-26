@@ -46,12 +46,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('users/{id}/roles/{role_id}/set', 'UserRoleController@store')->name('user.role.set');
 
     Route::patch('settings/update', 'SettingController@update')->name('settings.update');
-    Route::patch('pages/{id}/publsih', 'PageController@enable')->name('pages.enable');
-    Route::patch('pages/{id}/unpublsih', 'PageController@disable')->name('pages.disable');
+
+    Route::get('pages/{id}/publsih', 'PageController@enable')->name('pages.enable');
+    Route::get('pages/{id}/unpublsih', 'PageController@disable')->name('pages.disable');
+
     Route::patch('articles/{id}/publsih', 'ArticleController@publish')->name('articles.publish');
     Route::patch('articles/{id}/unpublsih', 'ArticleController@unPublish')->name('articles.unpublish');
 
-    Route::delete('role/{id}/permission/{permssion_id}/remove', 'RolePermissionController@destroy')->name('role.permission.remove');
+    Route::delete('role/{id}/permission/{permssion_id}/remove', 'RolePermissionController@destroy')->name('role.permission.remove');    
     Route::delete('users/{id}/roles/{role_id}/remove', 'UserRoleController@destroy')->name('user.role.remove');
 
  
@@ -61,10 +63,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('users', 'UserController');
     Route::resource('roles', 'RoleController');
     Route::resource('contacts', 'ContactController');
-    Route::resource('tax', 'TaxController');
-    Route::resource('pagelayouts', 'PageLayoutController');
-    Route::resource('pagetypes', 'PageTypeController');
-    Route::resource('productcatergories', 'ProductCatergoryController');
     Route::resource('roles', 'RoleController');
   
 });

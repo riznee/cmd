@@ -46,6 +46,46 @@
 						@if($action)
 							<td>
 								<div class="row">
+									@if($permissionname == 'pages')
+										@if($item['visible'] ==1)
+											<div class="col-sm-2">
+												@can( $permissionname.'-disable')
+												<a class=" btn badge bg-primary" href="{{route($permissionname.'.disable',$item['id'])}}">
+													<i class="fa fa-toggle-off" aria-hidden="true"></i>
+												</a> 
+												@endcan
+											</div>
+										@else
+											<div class="col-sm-2">
+												@can( $permissionname.'-enable')
+												<a class=" btn badge bg-primary" href="{{route($permissionname.'.enable',$item['id'])}}">
+													<i class="fa fa-toggle-on" aria-hidden="true"></i>
+												</a> 
+												@endcan
+											</div>
+										@endif
+									@endif
+
+									@if($permissionname == 'articles')
+										@if($item['visible'] ==1)
+											<div class="col-sm-2">
+												@can( $permissionname.'-enable')
+												<a class=" btn badge bg-primary" href="{{route($permissionname.'.enable',$item['id'])}}">
+													<i class="fa fa-toggle-on" aria-hidden="true"></i>
+												</a> 
+												@endcan
+											</div>
+										@else
+
+										<div class="col-sm-2">
+											@can( $permissionname.'-disable')
+											<a class=" btn badge bg-primary" href="{{route($permissionname.'.disable',$item['id'])}}">
+												<i class="fa fa-toggle-off" aria-hidden="true"></i>
+											</a> 
+											@endcan
+										</div>
+										@endif
+									@endif
 
 									<div class="col-sm-2">
 										@can( $permissionname.'-show')

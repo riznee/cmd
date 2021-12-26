@@ -71,34 +71,6 @@
                             </a>
                         </li>
                     @endcan
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('tax.index')}}">
-                            <i class="fas fa-hand-holding-usd"></i>
-                            &nbsp; Tax Setting
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('pagelayouts.index')}}">
-                            <i class="far fa-list-alt"></i>
-                            &nbsp; Page Layouts
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('pagetypes.index')}}">
-                            <i class="fab fa-buffer" aria-hidden="true"></i>
-                            &nbsp; Page Types
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route( 'productcatergories.index')}}">
-                            <i class="fab fa-dropbox"></i>
-                            &nbsp; Product Catergories
-                        </a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{route( 'roles.index')}}">
                             <i class="fa fa-users"></i>

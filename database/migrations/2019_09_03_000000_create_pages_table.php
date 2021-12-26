@@ -13,7 +13,7 @@ class CreatePagesTable extends Migration
             $table->integer('parent_id')->nullable()->unsigned();
             $table->integer('depth')->nullable();
             $table->string('title');
-            $table->integer('layout_id')->unsigned();
+            // $table->integer('layout_id')->unsigned();
             $table->integer('type_id')->unsigned();
             $table->string('icon')->nullable();
             $table->integer('file_id')->nullable();
