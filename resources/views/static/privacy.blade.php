@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.site')
 @section('content')
     <br/>
     <div class="card  border-info mb-3">
