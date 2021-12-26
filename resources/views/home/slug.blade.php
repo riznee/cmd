@@ -45,10 +45,10 @@
 						</div>
 						<div class="card-content">
 							<span class="tag is-white">Type: &nbsp;
-								<a class="tag {{ $article->category->color }}"> {{ $article->category->title }} </a>
+								{{-- <a class="tag {{ $article->category->color }}"> {{ $article->category->title }} </a> --}}
 							</span>
 							<span class="tag is-white"> Updated &nbsp;
-								{{ $article->category->created_at }}
+								{{-- {{ $article->category->created_at }} --}}
 							</span>
 						</div>
 					</div>
