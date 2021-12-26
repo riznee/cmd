@@ -15,7 +15,9 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.4",
         "laravelcollective/html": "^6.2",
-        "spatie/laravel-permission": "^3.17"
+        "spatie/laravel-permission": "^3.17",
+        "mews/captcha": "^3.2"
+
     },
     "require-dev": {
         "facade/ignition": "^2.0",
