@@ -46,10 +46,10 @@
 
       @guest
       <li class="nav-item">
-        <a class=" btn   btn-outline-info" href="{{route('signup')}}">Sign Up  &nbsp; </a>  &nbsp;              
+        <a class=" btn   btn-outline" href="{{route('signup')}}">Sign Up  &nbsp; </a>  &nbsp;              
       </li>
       <li class="nav-item">
-        <a class=" btn  btn-outline-info" href="{{route('login')}}">Sign In  &nbsp; <i class="fas fa-sign-in-alt" aria-hidden="true"></i></a>
+        <a class=" btn  btn-outline" href="{{route('login')}}">Sign In  &nbsp; <i class="fas fa-sign-in-alt" aria-hidden="true"></i></a>
       </li>
       @endguest
     </ul>
