@@ -68,10 +68,10 @@ Route::group(['middleware' => ['auth']], function () {
  
     Route::resource('articles', 'ArticleController');
     Route::resource('pages', 'PageController');
-    Route::resource('categories', 'CategoryController');
+    // Route::resource('categories', 'CategoryController');
     Route::resource('users', 'UserController');
     Route::resource('roles', 'RoleController');
-    Route::resource('contacts', 'ContactController');
+    Route::resource('contactus', 'ContactController');
     Route::resource('roles', 'RoleController');
   
 });

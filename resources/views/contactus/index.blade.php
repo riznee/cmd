@@ -13,12 +13,12 @@
 						</span>
 					</a>
 					&nbsp;&nbsp;&nbsp;&nbsp;
-					<strong>Catergories</strong>		
+					<strong>Pages</strong>		
 				</div>
-				@can('categories-create')
+				@can('pages-create')
 				<div class="col-sm-9">
 					<div class="float-right">
-						<a href="{{route('categories.create')}}"  aria-label="">
+						<a href="{{route('pages.create')}}"  aria-label="">
 							<i class="fas fa-plus" aria-hidden="true"></i>
 						</a>
 					</div>
@@ -31,9 +31,10 @@
 	<div class ="row">
 		<x-dataTable
 		:headers="$headers"
-		:items="$categories"
+		:items="$pages"
 		:permissionname="$permisson"
-		:action="$action"	
+		:action="$action"
+		:option="$data"
 		></x-dataTable>
 	</div>
 		

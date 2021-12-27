@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use cache;
 
 use App\Repositries\ArticleRepository;
-use App\Repositries\CategoryRepository;
+
 use App\Repositries\PageRepository;
 use App\Repositries\ContactRepository;
 
@@ -17,13 +17,13 @@ class HomeController extends Controller
     public $perpage = 15;
 
     public function __construct(ArticleRepository $articleRepository, 
-                                CategoryRepository $categoryRepository, 
+
                                 PageRepository $pageRepository, 
                                 ContactRepository $contactRepository
                                 )
     {
         $this->articleRepository = $articleRepository;
-        $this->categoryRepository =$categoryRepository;
+
         $this->pageRepository = $pageRepository;
         $this->contactRepository = $contactRepository;
         parent::__construct();

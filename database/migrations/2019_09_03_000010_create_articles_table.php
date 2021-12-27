@@ -9,7 +9,6 @@ class CreateArticlesTable extends Migration
     {
         Schema::create('articles', function(Blueprint $table){
             $table->increments('id');
-            $table->unsignedInteger('category_id');
             $table->unsignedInteger('page_id');
             $table->string('slug')->index();
             $table->smallInteger('published_at')->nullable();
@@ -18,8 +17,6 @@ class CreateArticlesTable extends Migration
             $table->string('description');
             $table->timestamps();
             $table->softDeletes();
-
-            $table->foreign('category_id')->references('id')->on('categories');
             $table->foreign('page_id')->references('id')->on('pages');
         });
     }
