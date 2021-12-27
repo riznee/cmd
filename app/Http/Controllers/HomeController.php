@@ -8,7 +8,7 @@ use App\Repositries\ArticleRepository;
 use App\Repositries\CategoryRepository;
 use App\Repositries\PageRepository;
 use App\Repositries\ContactRepository;
-use App\Http\Requests\Contact\StoreContactRequest;
+
 
 
 
@@ -73,7 +73,14 @@ class HomeController extends Controller
         }
     }
 
-    public function contactSend(StoreContactRequest $request)
+    public function contactus(){
+
+
+        return view('home.contactus');
+    }
+
+
+    public function contactSend($request)
     {
         try{
             $data = $this->contactRepository->store($request);

@@ -15,9 +15,10 @@ class StoreContactRequest extends FormRequest
         return [
             'name' => 'required',
             'email' => 'required|email',
+            'subject' => 'required',
             'message' => 'required',
         ];
-    } 
+    }
 
     public function messages()
     {
@@ -27,5 +28,5 @@ class StoreContactRequest extends FormRequest
             // 'description.required' => 'The name is maximucm size 255 char',
         ];
     }
-    
+
 }
