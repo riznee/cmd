@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use cache;
 
 use App\Repositries\ArticleRepository;
-use App\Repositries\CategoryRepository;
+
 use App\Repositries\PageRepository;
 use App\Repositries\ContactRepository;
-use App\Http\Requests\Contact\StoreContactRequest;
+
 
 
 
@@ -17,13 +17,13 @@ class HomeController extends Controller
     public $perpage = 15;
 
     public function __construct(ArticleRepository $articleRepository, 
-                                CategoryRepository $categoryRepository, 
+
                                 PageRepository $pageRepository, 
                                 ContactRepository $contactRepository
                                 )
     {
         $this->articleRepository = $articleRepository;
-        $this->categoryRepository =$categoryRepository;
+
         $this->pageRepository = $pageRepository;
         $this->contactRepository = $contactRepository;
         parent::__construct();
@@ -73,7 +73,13 @@ class HomeController extends Controller
         }
     }
 
-    public function contactSend(StoreContactRequest $request)
+    public function contactus()
+    {
+        return view('home.contactus');
+    }
+
+
+    public function contactSend($request)
     {
         try{
             $data = $this->contactRepository->store($request);

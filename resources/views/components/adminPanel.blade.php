@@ -25,11 +25,11 @@
                         </li>
                     @endcan
 
-                    @can('categories-index')
+                    @can('contacts-index')
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('categories.index')}}">
+                            <a class="nav-link" href="{{route('contacts.index')}}">
                                 <i class="fas fa-book-open" aria-hidden="true"></i>
-                                &nbsp; Catergories
+                                &nbsp; Contactus
                             </a>
                         </li>
                     @endcan

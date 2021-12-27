@@ -23,13 +23,14 @@ class UpdateContactRequest extends FormRequest
      */
     public function rules()
     {
-        
+
         return [
             'name' => 'required',
             'email' => 'required|email',
-            'message' => 'required|same:confirm-password',
+            'subject' => 'required',
+            'message' => 'required',
         ];
-    } 
+    }
 
     public function messages()
     {
@@ -42,3 +43,4 @@ class UpdateContactRequest extends FormRequest
 
 
 }
+

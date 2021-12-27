@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Repositries\ArticleRepository;
-use App\Repositries\CategoryRepository;
 use App\Repositries\PageRepository;
 
 use App\Http\Requests\Article\StoreArticleRequest;
@@ -16,10 +15,9 @@ class ArticleController extends Controller
 
     
 
-    public function __construct(ArticleRepository $repository, CategoryRepository $categoryRepositry, PageRepository $pageRepositry )
+    public function __construct(ArticleRepository $repository, PageRepository $pageRepositry )
     {
         $this->repository = $repository;
-        $this->categoryRepositry =$categoryRepositry;
         $this->pageRepositry = $pageRepositry;
         $this->setPermission($this->permissonName);
         parent::__construct();
@@ -35,8 +33,8 @@ class ArticleController extends Controller
     public function create()
     {
         $pages = $this->pageRepositry->pageList();
-        $categories = $this->categoryRepositry->getall();
-        return view('articles.create', compact('pages', 'categories'));
+        // $categories = $this->categoryRepositry->getall();
+        return view('articles.create', compact('pages'));
     }
     
     public function store(StoreArticleRequest $request)
@@ -58,8 +56,7 @@ class ArticleController extends Controller
     {
         $article =  $this->repository->getItem($id);
         $pages = $this->pageRepositry->pageList();
-        $categories = $this->categoryRepositry->getall();
-        return view('articles.create',compact('article', 'pages', 'categories'));   
+        return view('articles.create',compact('article', 'pages'));   
     }
     
     public function update(UpdateArticleRequest $request, $id)

@@ -19,7 +19,7 @@
       @foreach($pages as $page)
         <li class="nav-item">
             @if($page->slug =='contactus')
-            <a class="nav-link" href="#{{$page->slug}}">
+            <a class="nav-link" href="{{route('contact.us')}}">
                 {{$page->title}}
             </a>
             @elseif($page->slug =='home')
@@ -46,10 +46,10 @@
 
       @guest
       <li class="nav-item">
-        <a class=" btn   btn-outline-info" href="{{route('signup')}}">Sign Up  &nbsp; </a>  &nbsp;              
+        <a class=" btn   btn-outline" href="{{route('signup')}}">Sign Up  &nbsp; </a>  &nbsp;              
       </li>
       <li class="nav-item">
-        <a class=" btn  btn-outline-info" href="{{route('login')}}">Sign In  &nbsp; <i class="fas fa-sign-in-alt" aria-hidden="true"></i></a>
+        <a class=" btn  btn-outline" href="{{route('login')}}">Sign In  &nbsp; <i class="fas fa-sign-in-alt" aria-hidden="true"></i></a>
       </li>
       @endguest
     </ul>

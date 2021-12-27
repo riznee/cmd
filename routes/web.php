@@ -3,9 +3,9 @@
 // Application Routes
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home.get');
-
 Route::get('/page/{slug}', 'HomeController@page')->name('page');
 Route::get('/article/{slug}', 'HomeController@artilcePage')->name('article');
+Route::get('/contact_us', 'HomeController@contactus')->name('contact.us');
 
 //contact us Post informstion
 Route::post('/contactus/send', 'HomeController@contactSend')->name('contactus.send');
@@ -28,6 +28,15 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('signup', 'UserController@register')->name('signup');
 Route::post('signup', 'UserController@registerRequest')->name('signup.post');
 Route::view('privacy', 'static.privacy')->name('privacy');
+Route::view('cookies', 'static.cookies')->name('cookies');
+Route::view('user_agreement', 'static.useragrement')->name('useragreement');
+Route::view('accessibility', 'static.accessibility')->name('accessibility');
+
+
+//capture routes
+Route::post('/captcha-validation','CaptchaServiceController@conctactCaptcaValidate')->name('captcha.validation');
+Route::get('/reload-captcha', 'CaptchaServiceController@reloadCaptcha')->name('captcha.reload');
+
 
 
 
@@ -59,10 +68,10 @@ Route::group(['middleware' => ['auth']], function () {
  
     Route::resource('articles', 'ArticleController');
     Route::resource('pages', 'PageController');
-    Route::resource('categories', 'CategoryController');
+    // Route::resource('categories', 'CategoryController');
     Route::resource('users', 'UserController');
     Route::resource('roles', 'RoleController');
-    Route::resource('contacts', 'ContactController');
+    Route::resource('contactus', 'ContactController');
     Route::resource('roles', 'RoleController');
   
 });

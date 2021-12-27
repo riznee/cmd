@@ -52,54 +52,7 @@ $index = 0;
                 @endforeach
             @endif
         </div>
-		<hr>
-        <div class="row" id="">
-            <div class="col-md-6">
-                <h2>Contact Us</h2>
-
-                <hr>
-                <p>Please select topic below to relate you inquiry if you dont find out what you need , fill the contact
-                    form. Our team is ready to answer all questions </p>
-                <a class="btn btn-secondary" href="{{ route('login') }}"> Inquire About your project </a>
-                <a class="btn btn-secondary" href="{{ route('login') }}"> Live Chat </a>
-            </div>
-            <div class="col-md-6" id="contactus">
-                <form method="post" action="{{ route('contactus.send') }}">
-                    {{ csrf_field() }}
-                    <div class="form-group">
-                        <label>Name</label>
-                        <div class="control">
-                            <input class="form-control" name="name" type="text" placeholder="Ahmed Mohamed">
-                            <small id="emailHelp" class="form-text text-muted">We will never share your email with anyone
-                                else.</small>
-                        </div>
-                    </div>
-                    <br>
-
-                    <div class="form-group">
-                        <label class="label has-text-white">Email</label>
-                        <div class="control">
-                            <input class="form-control" name="email" type="email" placeholder="Ahmed@enol.mv">
-                        </div>
-                    </div>
-                    <br>
-
-                    <div class="form-group">
-                        <label class="label has-text-white">Message</label>
-                        <div class="control">
-                            <textarea class="form-control" name="message" placeholder="your inquery"></textarea>
-                        </div>
-                    </div>
-                    <br>
-
-                    <div class="form-group">
-                        <div class="control">
-                            <button class="btn btn-primary">Submit</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
+		
 
     </div>
 
