@@ -9,13 +9,28 @@ use App\Http\Requests\Contact\UpdateContactRequest;
 class ContactController extends Controller
 {
     public $perpage = 5;
-    public $permissonName='contact';
+    public $permissonName='contactus';
+
+
+    public $headers=array( 
+        array('title'=>'Slug', 'value'=>'slug'),
+        array ( 'title'=>'Title', 'value' =>'title'),
+        array ( 'title'=>'Published', 'value' =>'visible', 'type' =>'boolen'),
+        array ( 'title'=>'Created At', 'value' =>'created_at'),
+        array ( 'title'=>'Updated At', 'value' =>'updated_at')
+    );
+
+    public $slotfeild = array( 
+        'value'=> 'visible', );
+
 
     public function __construct(ContactRepository $repository)
     {
         $this->repository = $repository;
         $this->setPermission($this->permissonName);
         parent::__construct();
+
+
     }
 
     public function index()

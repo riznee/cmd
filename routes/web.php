@@ -5,6 +5,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home.get');
 Route::get('/page/{slug}', 'HomeController@page')->name('page');
 Route::get('/article/{slug}', 'HomeController@artilcePage')->name('article');
+Route::get('/contact_us', 'HomeController@contactus')->name('contact.us');
 
 //contact us Post informstion
 Route::post('/contactus/send', 'HomeController@contactSend')->name('contactus.send');
@@ -31,8 +32,7 @@ Route::view('cookies', 'static.cookies')->name('cookies');
 Route::view('user_agreement', 'static.useragrement')->name('useragreement');
 Route::view('accessibility', 'static.accessibility')->name('accessibility');
 
-//contact us Post informstion
-Route::get('/contactus', 'HomeController@contactus')->name('contactus');
+
 //capture routes
 Route::post('/captcha-validation','CaptchaServiceController@conctactCaptcaValidate')->name('captcha.validation');
 Route::get('/reload-captcha', 'CaptchaServiceController@reloadCaptcha')->name('captcha.reload');

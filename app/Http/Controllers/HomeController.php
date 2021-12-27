@@ -73,9 +73,8 @@ class HomeController extends Controller
         }
     }
 
-    public function contactus(){
-
-
+    public function contactus()
+    {
         return view('home.contactus');
     }
 
