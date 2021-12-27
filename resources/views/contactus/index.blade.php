@@ -13,17 +13,8 @@
 						</span>
 					</a>
 					&nbsp;&nbsp;&nbsp;&nbsp;
-					<strong>Pages</strong>		
+					<strong>Recvied Messagers </strong>		
 				</div>
-				@can('pages-create')
-				<div class="col-sm-9">
-					<div class="float-right">
-						<a href="{{route('pages.create')}}"  aria-label="">
-							<i class="fas fa-plus" aria-hidden="true"></i>
-						</a>
-					</div>
-				</div>
-				@endcan
 			</div>
 		</div>
 	</div>
@@ -31,10 +22,10 @@
 	<div class ="row">
 		<x-dataTable
 		:headers="$headers"
-		:items="$pages"
+		:items="$contacts"
 		:permissionname="$permisson"
 		:action="$action"
-		:option="$data"
+		{{-- :option="$data" --}}
 		></x-dataTable>
 	</div>
 		

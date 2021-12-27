@@ -13,16 +13,18 @@ class ContactController extends Controller
 
 
     public $headers=array( 
-        array('title'=>'Slug', 'value'=>'slug'),
-        array ( 'title'=>'Title', 'value' =>'title'),
-        array ( 'title'=>'Published', 'value' =>'visible', 'type' =>'boolen'),
+    
+        array ( 'title'=>'Name', 'value' =>'name'),
+        array ( 'title'=>'Email', 'value' =>'email'),
+        array ( 'title'=>'Subject', 'value' =>'subject'),
+        array ( 'title'=>'Read', 'value' =>'read'),
         array ( 'title'=>'Created At', 'value' =>'created_at'),
         array ( 'title'=>'Updated At', 'value' =>'updated_at')
-        
+
     );
 
     public $slotfeild = array( 
-        'value'=> 'visible', );
+        'value'=> 'read', );
 
 
     public function __construct(ContactRepository $repository)
@@ -36,26 +38,13 @@ class ContactController extends Controller
 
     public function index()
     {
-        $pages = $this->repository->getPages();
-        return view('contacts.index', compact('pages'));
+        $headers = $this->headers;
+        $permisson = $this->permissonName;
+        $contacts = $this->repository->getall();
+        $action = true;    
+        return view('contactus.index', compact('headers','contacts','permisson','action'));
     }
     
-    
-    
-    public function store(StoreContactRequest $request)
-    {
-       
-        try{
-            $data = $this->repository->store($request);
-            return redirect()->route('contacts.index')->with('success', $data->title.'New Page is created');
-        }
-        catch (\Exception $exeption)
-        {
-            return redirect()->route('home.index')
-                ->withError($exeption->getMessage())
-                ->withInput();
-        }
-    }
 
     public function show($id)
     {
@@ -81,20 +70,7 @@ class ContactController extends Controller
 
     }
     
-    public function destroy($id)
-    {
-        try{
-            $this->repository->destroy($id);
-            return redirect()->route('contacts.index')->with('success','A Page is deleted');
-        }
-        catch (\Exception $exeption)
-        {
-            return redirect()->route('contacts.index')
-                ->withError($exeption->getMessage())
-                ->withInput();
-        }
-
-    }
+   
     
 
     

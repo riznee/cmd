@@ -23,22 +23,22 @@
                                 &nbsp; Pages
                             </a>
                         </li>
-                    @endcan
-
-                    @can('contacts-index')
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('contacts.index')}}">
-                                <i class="fas fa-book-open" aria-hidden="true"></i>
-                                &nbsp; Contactus
-                            </a>
-                        </li>
-                    @endcan
+                    @endcan                  
 
                     @can('articles-index')
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('articles.index')}}">
                                 <i class="fas fa-book-reader" aria-hidden="true"></i>
                                 &nbsp; Articles
+                            </a>
+                        </li>
+                    @endcan
+
+                    @can('contactus-index')
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('contactus.index')}}">
+                                <i class="fas fa-book-open" aria-hidden="true"></i>
+                                &nbsp; Recived Messagers
                             </a>
                         </li>
                     @endcan
