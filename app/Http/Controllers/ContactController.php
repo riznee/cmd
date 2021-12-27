@@ -18,6 +18,7 @@ class ContactController extends Controller
         array ( 'title'=>'Published', 'value' =>'visible', 'type' =>'boolen'),
         array ( 'title'=>'Created At', 'value' =>'created_at'),
         array ( 'title'=>'Updated At', 'value' =>'updated_at')
+        
     );
 
     public $slotfeild = array( 
