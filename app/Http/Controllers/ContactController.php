@@ -69,7 +69,22 @@ class ContactController extends Controller
         }
 
     }
+
+    public function edit($id)
+    {
+        return view('error.index');
+    }
     
+    public function create()
+    {
+        return view('error.index');
+    }
+
+    public function destroy($id)
+    {
+        return view('error.index');
+
+    }
    
     
 
