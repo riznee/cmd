@@ -19,6 +19,7 @@
 							<td>
 								@if(!empty($header['type']))
 									@if(!empty($option))
+									
 										@if($header['type'] =='boolen')
 											@if($item[$header['value']] == 1)
 												{{$option['true']}}
@@ -46,6 +47,19 @@
 						@if($action)
 							<td>
 								<div class="row">
+									@if($permissionname == 'contactus')
+										@if($item['read'] == 0 )
+											<div class="col-sm-2">											
+												@can( $permissionname.'-reply')
+												<a class=" btn badge bg-primary" href="{{route($permissionname.'.reply',$item['id'])}}" data-toggle="tooltip" title="press to reply!">
+													<i class="fa fa-paper-plane" aria-hidden="true"></i>
+												</a> 													
+												@endcan											
+											</div>											
+										@endif
+									@endif
+
+
 									@if($permissionname == 'pages')
 										@if($item['visible'] ==1)
 											<div class="col-sm-2">

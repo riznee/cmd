@@ -17,7 +17,7 @@ class ContactController extends Controller
         array ( 'title'=>'Name', 'value' =>'name'),
         array ( 'title'=>'Email', 'value' =>'email'),
         array ( 'title'=>'Subject', 'value' =>'subject'),
-        array ( 'title'=>'Read', 'value' =>'read'),
+        array ( 'title'=>'Read', 'value' =>'read', 'type' =>'boolen'),
         array ( 'title'=>'Created At', 'value' =>'created_at'),
         array ( 'title'=>'Updated At', 'value' =>'updated_at')
 
@@ -73,9 +73,10 @@ class ContactController extends Controller
 
     }
 
-    public function edit($id)
+    public function edit($id, $request)
     {
-        return view('error.index');
+        dd($id);
+        // return $this->show($id);
     }
     
     public function create()
@@ -87,6 +88,11 @@ class ContactController extends Controller
     {
         return view('error.index');
 
+    }
+
+    public function reply($id)
+    {
+        // return view('error.index');
     }
    
     

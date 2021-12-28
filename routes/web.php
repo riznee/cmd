@@ -51,7 +51,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('settings', 'SettingController@index')->name('settings.index');
     Route::get('settings/edit', 'SettingController@edit')->name('settings.edit');   
 
-    // Route::get('/contact_us','ContactController@index')->name('contactus.index');
+    Route::get('/contactus/{id}','ContactController@reply')->name('contactus.reply');
     
     Route::post('role/{id}/permission/{permssion_id}/set', 'RolePermissionController@store')->name('role.permission.set');
     Route::post('users/{id}/roles/{role_id}/set', 'UserRoleController@store')->name('user.role.set');

@@ -116,6 +116,7 @@ class PermissionTableSeeder extends Seeder
             // 'contactus-update',
             // 'contactus-edit',
             'contactus-list',
+            'contactus-reply',
 
             // 'banners-store',
             // 'banners-index',
