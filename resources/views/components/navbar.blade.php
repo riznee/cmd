@@ -19,7 +19,7 @@
       @foreach($pages as $page)
         <li class="nav-item">
             @if($page->slug =='contactus')
-            <a class="nav-link" href="{{route('contact.us')}}">
+            <a class="nav-link" href="{{route('contactus.form')}}">
                 {{$page->title}}
             </a>
             @elseif($page->slug =='home')

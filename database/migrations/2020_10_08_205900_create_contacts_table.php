@@ -13,7 +13,7 @@ class CreateContactsTable extends Migration
             $table->string('email');
             $table->string('subject');
             $table->string('message');
-            $table->tinyInteger('read')->default(0);
+            $table->boolean('read')->default(false);
             $table->timestamps();
             $table->softDeletes();
         });

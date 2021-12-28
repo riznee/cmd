@@ -42,15 +42,18 @@ class ContactController extends Controller
         $permisson = $this->permissonName;
         $contacts = $this->repository->getall();
         $action = true;    
-        return view('contactus.index', compact('headers','contacts','permisson','action'));
+        $data = array('true' => 'Read', 'false' => 'Unread');
+        return view('contactus.index', compact('headers','contacts','permisson','action','data'));
     }
     
 
     public function show($id)
     {
-        $page =  $this->repository->getItem($id);
-        $pages = $this->repository->pageList();
-        return view('contacts.view',compact('page', 'pages'));   
+        $headers = $this->headers;
+        $permisson = $this->permissonName;
+        $action = true;
+        $message =  $this->repository->getItem($id);
+        return view('contactus.show',compact('headers','message','permisson','action'));  
     }
     
     public function update(UpdateContactRequest $request, $id)

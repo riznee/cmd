@@ -3,7 +3,7 @@
     <div class ="row">
         <x-card
         :headers="$headers"
-		:item="$page"
+		:item="$message"
 		:permissionname="$permisson"
 		:action="$action"
         >

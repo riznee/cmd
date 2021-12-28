@@ -5,7 +5,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home.get');
 Route::get('/page/{slug}', 'HomeController@page')->name('page');
 Route::get('/article/{slug}', 'HomeController@artilcePage')->name('article');
-Route::get('/contact_us', 'HomeController@contactus')->name('contact.us');
+Route::get('/contactus/form', 'HomeController@contactus')->name('contactus.form');
 
 //contact us Post informstion
 Route::post('/contactus/send', 'HomeController@contactSend')->name('contactus.send');
@@ -50,6 +50,8 @@ Route::group(['middleware' => ['auth']], function () {
             
     Route::get('settings', 'SettingController@index')->name('settings.index');
     Route::get('settings/edit', 'SettingController@edit')->name('settings.edit');   
+
+    // Route::get('/contact_us','ContactController@index')->name('contactus.index');
     
     Route::post('role/{id}/permission/{permssion_id}/set', 'RolePermissionController@store')->name('role.permission.set');
     Route::post('users/{id}/roles/{role_id}/set', 'UserRoleController@store')->name('user.role.set');
@@ -68,7 +70,6 @@ Route::group(['middleware' => ['auth']], function () {
  
     Route::resource('articles', 'ArticleController');
     Route::resource('pages', 'PageController');
-    // Route::resource('categories', 'CategoryController');
     Route::resource('users', 'UserController');
     Route::resource('roles', 'RoleController');
     Route::resource('contactus', 'ContactController');

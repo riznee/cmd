@@ -99,7 +99,7 @@
 									</div>
 
 									<div class="col-sm-2">
-										@can( $permissionname.'-show')
+										@can( $permissionname.'-edit')
 										<a class=" btn badge bg-primary" href="{{route($permissionname.'.edit',$item['id'])}}"data-toggle="tooltip" title="press to edit!">
 											<i class="fas fa-pen" aria-hidden="true"></i>
 										</a> 

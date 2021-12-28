@@ -25,7 +25,7 @@
 		:items="$contacts"
 		:permissionname="$permisson"
 		:action="$action"
-		{{-- :option="$data" --}}
+		:option="$data"
 		></x-dataTable>
 	</div>
 		
