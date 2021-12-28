@@ -92,7 +92,7 @@ class ContactController extends Controller
 
     public function reply($id)
     {
-        // return view('error.index');
+        dd($id);
     }
    
     
