@@ -75,8 +75,13 @@ class ContactController extends Controller
 
     public function edit($id, $request)
     {
-        dd($id);
-        // return $this->show($id);
+
+        dd($request);
+        $headers = $this->headers;
+        $permisson = $this->permissonName;
+        $action = true;
+        $message =  $this->repository->getItem($id);
+        return view('contactus.show',compact('headers','message','permisson','action'));  
     }
     
     public function create()
