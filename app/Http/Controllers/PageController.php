@@ -68,11 +68,12 @@ class PageController extends Controller
 
     public function show($id)
     {
+        $title ='Page';
         $headers = $this->headers;
         $permisson = $this->permissonName;
         $page =  $this->repository->getItem($id);
         $action = true;
-        return view('pages.show',compact('headers','page','permisson','action'));   
+        return view('pages.show',compact('headers','page','permisson','action','title','id'));   
     }
     
     public function update(UpdatePageRequest $request, $id)

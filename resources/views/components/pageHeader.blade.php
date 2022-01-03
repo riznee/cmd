@@ -11,25 +11,33 @@
                 <strong>{{$title}}</strong>		
             </div>
             <div class="col-sm-9">
-                <div class="float-right">
-                    @if($action)
+                @if($action)
+                    <div class="float-right">
                         @can( $permissionname.'-create')
-                            <a href="{{route($permissionname.'.create')}}"  aria-label="" data-toggle="tooltip" title="press to create!">
-                                <i class="fas fa-plus" aria-hidden="true"></i>
-                            </a>
+                        <a href="{{route($permissionname.'.create')}}"  aria-label="" data-toggle="tooltip" title="press to create!">
+                            <i class="fas fa-plus" aria-hidden="true"></i>
+                        </a>
                         @endcan
-
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    
+                    <div class="float-right">
                         @can( $permissionname.'-reply')
                             <a class=" btn badge bg-primary" href="{{route($permissionname.'.reply',$id)}}"aria-label="" data-toggle="tooltip" title="press to reply!">
                                 <i class="fa fa-paper-plane" aria-hidden="true"></i>
                             </a> 
                         @endcan
-                                                                              
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="float-right">                                                          
                         @can( $permissionname.'-edit')
                             <a class=" btn badge bg-primary" href="{{route($permissionname.'.edit',$id)}}" aria-label="" data-toggle="tooltip" title="press to edit!">
                                 <i class="fas fa-pen" aria-hidden="true"></i> 
                             </a> 
                         @endcan
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="float-right">
                         @can($permissionname.'-destroy')											
                             <form  accept-charset="UTF-8" method="post" action="{{route($permissionname.'.destroy',$id)}}"aria-label="" data-toggle="tooltip" title="press to delete!">
                                 @csrf
@@ -39,6 +47,7 @@
                                 </button>
                             </form>
                         @endcan
+                    </div>
                     @endif                    
                     </div>
                 </div>
