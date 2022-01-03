@@ -31,8 +31,6 @@ class ContactController extends Controller
         array ( 'title'=>'Updated At', 'value' =>'updated_at'),
         array ( 'title'=>'Subject', 'value' =>'subject'),
         array ( 'title'=>'Message', 'value' =>'message')
-        // array ( 'title'=>'Read', 'value' =>'read', 'type' =>'boolen'),
-
     );
 
     public $slotfeild = array( 
@@ -66,6 +64,7 @@ class ContactController extends Controller
         $permisson = $this->permissonName;
         $action = true;
         $message =  $this->repository->getItem($id);
+        $this->repository->read($id);
         return view('contactus.show',compact('title','headers','message','permisson','action', 'id'));  
     }
     

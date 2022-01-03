@@ -11,4 +11,14 @@
     {
         parent::__construct($contact);
     }
+
+
+    public function read($id)
+    {
+        $data=$this->model->findOrFail($id);
+        $data->update(array(
+            'read' => 1
+        ));
+        return $data;
+    }
  }
