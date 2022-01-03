@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-    <div class ="row">
+   
 
     <x-pageHeader
         :title="$title"
@@ -17,5 +17,5 @@
         >
 
         </x-card>
-    </div>
+   
 @stop
