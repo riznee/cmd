@@ -23,6 +23,18 @@ class ContactController extends Controller
 
     );
 
+    public $headers_show=array( 
+    
+        array ( 'title'=>'Name', 'value' =>'name'),
+        array ( 'title'=>'Email', 'value' =>'email'),
+        array ( 'title'=>'Created At', 'value' =>'created_at'),
+        array ( 'title'=>'Updated At', 'value' =>'updated_at'),
+        array ( 'title'=>'Subject', 'value' =>'subject'),
+        array ( 'title'=>'Message', 'value' =>'message')
+        // array ( 'title'=>'Read', 'value' =>'read', 'type' =>'boolen'),
+
+    );
+
     public $slotfeild = array( 
         'value'=> 'read', );
 
@@ -49,11 +61,12 @@ class ContactController extends Controller
 
     public function show($id)
     {
-        $headers = $this->headers;
+        $title="Messages";
+        $headers = $this->headers_show;
         $permisson = $this->permissonName;
         $action = true;
         $message =  $this->repository->getItem($id);
-        return view('contactus.show',compact('headers','message','permisson','action'));  
+        return view('contactus.show',compact('title','headers','message','permisson','action', 'id'));  
     }
     
     public function update(UpdateContactRequest $request, $id)

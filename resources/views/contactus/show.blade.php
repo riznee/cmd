@@ -1,14 +1,20 @@
 @extends('layouts.admin')
 @section('content')
-    <div>
-        <div class="box">
-            {{$permisson}}
-        </div>
-        {{-- {{$headers}} --}}
-        <br>
-        <br>
-        {{$action}}
-        <br>
-        {{$message}}
-    </div>
+
+<br/>
+<div>
+    <x-pageHeader
+        :title="$title"
+		:permissionname="$permisson"
+		:action="$action"
+        :id="$id"
+    >
+    </x-pageHeader>
+
+    <x-card
+    :headers="$headers"
+    :item="$message"    
+    >
+    </x-card>
+</div>
 @stop

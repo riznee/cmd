@@ -2,14 +2,19 @@
 @extends('layouts.admin')
 @section('content')
 
-<br/>
+<div>
+
+<x-pageHeader
+    :title="$title"
+		:permissionname="$permisson"
+		:action="$action"
+    :id="$id"
+    >
+</x-pageHeader>
        
 <x-card
-  :title="$title"
   :headers="$headers"
   :item="$data[0]"
-  :permissionname="$permisson"
-  :action="$action"
 >
 </x-card>
 
@@ -46,5 +51,6 @@
           </div>
  
         </div>
+</div>
 
 @stop
