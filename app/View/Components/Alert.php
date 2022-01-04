@@ -2,7 +2,10 @@
 
 namespace App\View\Components;
 
+// use Illuminate\Contracts\Session\Session as Session;
 use Illuminate\View\Component;
+use Session;
+// 
 
 class Alert extends Component
 {
@@ -14,12 +17,32 @@ class Alert extends Component
     
 
     // public $type;
-    public $message;    
+    public $message= NULL;  
+    public $color=NULL;
+    public $checkValue = Null;
 
 
     public function __construct()
     {
-        
+        $this->messageType();
+    }
+
+    public function messageType()
+    {
+        // $this->checkValue = Session::get('sucess');
+        // if($this->checkValue =='success')
+        // {
+        //     $this->message = $this->checkValue;
+        //     $this->color   = 'primary';
+        // }
+        // else
+        // {
+        //     $this->message = $this->checkValue;
+        //     $this->color   = 'danger';
+        // }
+      
+       
+
     }
        
 

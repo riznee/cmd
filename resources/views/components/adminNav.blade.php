@@ -1,10 +1,3 @@
-<?php
-if(Auth::check()) { 
-    $user  = Auth::user();
-}
-?>
-
-
 <nav class="navbar navbar-expand-md  fixed-top "> 
   <a class="navbar-brand" href="{{route('home')}}">{{ config('app.name') }}</a>
 

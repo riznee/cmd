@@ -25,11 +25,8 @@ class Cards extends Component
     {
         $this->headers = $headers;
         $this->item = $item;
-        // $this->permissionname = $permissionname;
-        // $this->action = $action;
         $this->slotFeilds = $slotFeilds;
-        // $this->title = $title;
-
+     
 
     }
 

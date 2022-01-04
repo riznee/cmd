@@ -5,6 +5,8 @@ namespace App\View\Components;
 use Illuminate\View\Component;
 use App\Repositries\PageRepository;
 use cache;
+use Auth;
+
 class Navbar extends Component
 {
     /**
@@ -14,14 +16,30 @@ class Navbar extends Component
      */    
     
 
-    public $pages = Null;    
+    public $pages = Null;  
+    public $user = Null;  
+
 
 
     public function __construct(PageRepository $pageRepository)
     {
         $this->pageRepository = $pageRepository;
         $this->pages = $this->getHomePageMenu(); 
+        $this->checkuser();
+        $this->user = $this->checkuser();
+      
     }
+
+    public function checkuser()
+    {
+        if(Auth::check())
+        {
+          $user  = Auth::user();
+        } 
+        return $user;
+    }
+
+
 
     public function getHomePageMenu()
     {

@@ -55,3 +55,13 @@
         </button>
     </div>
 @endif
+
+{{-- <div class="alert alert-{{$color}} alert-dismissible fade show" role="alert">
+    <strong>
+            {{ $message }}
+    </strong>
+    <button type="button" class="btn btn-outline-danger" data-dismiss="alert" aria-label="Close">
+        <i class="fas fa-times" aria-hidden="true"></i>
+    </button>
+</div> --}}
+
