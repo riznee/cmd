@@ -30,9 +30,7 @@
         <div class="container">
             <x-navbar></x-navbar>
             <x-alert></x-alert>
-            <div class="container has-text-centered">
-              @yield('content')
-            </div>
+            @yield('content')         
             <x-footer></x-footer>
          </div>     
         <script src="{{ asset('enol/js/enolscripts.js') }}"></script>

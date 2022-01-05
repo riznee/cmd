@@ -1,16 +1,21 @@
 
-    <div class="card" style="width: 75%">
-        <div class="card-body text-dark">
-            <ul class="list-group list-group-flush">
+    <div class="card">
+        <div class="card-content">
+            <div class="media-content">            
                 @foreach($headers as $header)
-                    <li class="list-group-item">
-                        <strong> 
-                            {{$header['title']}}:
-                        </strong>
+                    
+                <p class="title is-4"> {{$header['title']}}</p>
+                <div class="content">
                         {{$item[$header['value']]}} 
-                    </li>            
+                </div>
+                              
                 @endforeach     
-            </ul>
+            </div>
         </div>
+        <footer class="card-footer">
+            <a href="#" class="card-footer-item">Save</a>
+            <a href="#" class="card-footer-item">Edit</a>
+            <a href="#" class="card-footer-item">Delete</a>
+        </footer>
     </div>
 

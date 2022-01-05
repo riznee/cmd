@@ -1,7 +1,8 @@
 @extends('layouts.site')
 @section('content')
 
-    <form class="box" method="post" action="{{ route('captcha.validation') }}">
+<section class=" section column is-four-fifths">
+    <form class="box is-two-thirds" method="post" action="{{ route('captcha.validation') }}">
         {{ csrf_field() }}
         {{ method_field('POST') }}
         <div class="field">
@@ -28,14 +29,14 @@
         <div class="field">
             <label class="label">Message</label>
             <div class="control">
-                <textarea class="input"name="message"  id="message" type="text" required></textarea>
+                <textarea class="textarea"name="message"  id="message" type="text" row="10" required></textarea>
             </div>
         </div>
  
         <div class="field">     
             <label class="label">Captcha</label>
             <span>{!! captcha_img() !!}</span>
-            <button type="button" class="btn btn-secondary" class="refresh-captcha" id="refresh-captcha">
+            <button   class="button is-rounded" id="refresh-captcha">
                 &#x21bb;
             </button>
         </div>
@@ -47,5 +48,7 @@
         </div>
        
     </form>
+
+</section>
                
 @stop
