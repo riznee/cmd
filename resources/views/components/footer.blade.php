@@ -1,6 +1,6 @@
-<footer class="footer fixed-bottom footer-light footer-shadow content container-fluid">
-    <div class="container">
-        <p class="text-light">
+<footer class="footer">
+    <div class="content has-text-centered">
+        <p>
             by&copy <a href="https://enol.mv"> Enol Maldives </a> 2019 from {{ date('Y') }} | 
             <a href="{{route('accessibility')}}">Accessibility<a/> |
             <a href="{{route('useragreement')}}"> User Agreement </a>| 

@@ -3,7 +3,7 @@
 
 <x-carousle></x-carousle>
 
-    <div class="container">
+    
         <div class="row">
             @if (!empty($pages))
                 @foreach ($pages as $page)
@@ -24,7 +24,7 @@
                 @endforeach
             @endif
         </div>
-    </div>
+
 
 
 @stop

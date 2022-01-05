@@ -32,6 +32,7 @@ class Navbar extends Component
 
     public function checkuser()
     {
+        $user = Null;
         if(Auth::check())
         {
           $user  = Auth::user();
