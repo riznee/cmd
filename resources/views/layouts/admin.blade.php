@@ -19,15 +19,17 @@
           Analytics"></a></div></noscript>
         <!-- End of Statcounter Code -->
         {{-- THEME LOADING  CHECK VARIABLE IF CONDITION--}}
+
         <link rel="stylesheet" href="{{asset('bulma/css/bulma.css')}}">
         <link rel="stylesheet" href="{{asset('enol/css/enolbase.css')}}">
+
         <title>{{ config('app.name', 'SSCM') }}</title>
         <script defer src="{{ asset('fontawesome/js/all.js') }}"></script>
         <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
     </head>
     <body>
 
-        <main class="container-fluid">
+        <div class="container is-1">
            <x-adminNav></x-adminNav>
             <div class="row">
                <x-adminPanel></x-adminPanel>
@@ -43,7 +45,7 @@
                 </main>
             </div>
             <x-footer></x-footer>
-        </main>
+        </div>
         <script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
     </body>
 </html>

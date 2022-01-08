@@ -1,6 +1,6 @@
 
 <div class="table-responsive">
-    <table class="table table-striped table-sm table-hover ">
+    <table class="table table is-bordered table is-striped">
         <thead>
             <tr>
             @foreach($headers as $header)
