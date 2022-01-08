@@ -28,7 +28,7 @@
 @if ($errors->any())
 <div class="notification is-link is-light">
     <button class="delete" onclick="this.parentElement.style.display='none'" ></button>
-        {{ $message }}
+        {{ $errors }}
     </div>
 </div>
 @endif

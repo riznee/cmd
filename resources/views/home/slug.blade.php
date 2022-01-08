@@ -1,39 +1,61 @@
 @extends('layouts.site')
 @section('content')
 
-	<nav aria-label="breadcrumb">
-		<ol class="breadcrumb">
-		<li class="breadcrumb-item"><a href="{{ route('home') }}">Back</a></li>
-		@if (!empty($grandParent))
+<br>
+<div class="box"  style="padding: 20px;">	
+	<nav  class="breadcrumb has-arrow-separator">
+		<ul>
+			<li><a href="{{ route('home') }}">Back</a></li>
+			@if (!empty($grandParent))
 				@foreach (array_reverse($grandParent) as $parent)
-					<li class="breadcrumb-item active" aria-current="page"> <a href="{{ route('page', $parent->slug)}}">{{ $parent->title }}</a></li>
+					<li> <a href="{{ route('page', $parent->slug)}}">{{ $parent->title }}</a></li>
 				@endforeach
 			@endif
-		</ol>
+		</ul>
 	</nav>
-	<div class="jumbotron">
-		<h1 class="display-4">{{$page->title}}</h1>
-		@if(empty($page->childrean))
-			@foreach ($page->children as $child)		
-				<a class="btn btn-primary" href="{{route('page',$child->slug)}}">&nbsp; {{$child->title}}</a>
-			@endforeach
-		@endif
+</div>
+
+<div class="columns" style="padding: 20px;">
+	<div class=" box column is-3 " style="gap: 10px;">
+		<aside class="menu">
+			<p class="menu-label">
+			{{$page->title}}
+			</p>
+			<ul class="menu-list">
+				<ul>
+					@if (!$articles->isEmpty())
+						@foreach($articleList as $item)
+							<li><a class="list-group-item list-group-item-action" href="{{route('article',$item->slug)}}">{{$item->title}}</a></li>
+						@endforeach
+					@else
+						<li><a class="list-group-item list-group-item-action"  href="#">No Content Availble</a></li>	
+					@endif
+				</ul>	
+			</ul>
+			<p class="menu-label">
+				Sub Pages
+			</p>
+			<ul class="menu-list">
+				@if(empty($page->childrean))
+					@foreach ($page->children as $child)		
+					<li> 
+						<a class="btn btn-primary" href="{{route('page',$child->slug)}}">&nbsp; {{$child->title}}</a>
+					</li>
+					@endforeach
+				@endif
+			</ul>
+		</aside>
+	
 	</div>
-	<br/>
+	<div class=" box column is-9" style="gap: 10px;">
+		
+
+	</div>
+</div>
+	
 
 	<div class="container">
-		<div class="row">
-		<div class="col-3">
-			<div class="list-group">
-				@if(!$articleList->isEmpty())
-					@foreach($articleList as $item)
-						<a class="list-group-item list-group-item-action" href="{{route('article',$item->slug)}}">{{$item->title}}</a>
-					@endforeach
-				@else
-					<a class="list-group-item list-group-item-action"  href="#">No Content Availble</a>			
-				@endif
-			</div>
-		</div>
+
 		<div class="col">
 			@if (!$articles->isEmpty())
 				@foreach ($articles as $article)
@@ -93,8 +115,7 @@
 		</div>
 	</div>
 
-	<br/>
-
+</div>
 @stop
 
 

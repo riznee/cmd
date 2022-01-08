@@ -34,7 +34,7 @@
                     </div>
                     <div class="field">
                       <div class="control">
-                          <input class="input"  type="password" id="inputPassword" name="confirm-password" class="form-control" placeholder="Password" required>
+                          <input class="input"  type="password" id="inputPassword" name="confirm-password" class="form-control" placeholder="Confirm your Password" required>
                       </div>
                   </div>
 
