@@ -15,12 +15,10 @@
 	</nav>
 </div>
 
-<div class="columns" style="padding: 20px;">
-	<div class=" box column is-3 " style="gap: 10px;">
+<div class="columns is-gapless" >
+	<div class=" box  column is-3" style=" margin: 10px 0px" >
 		<aside class="menu">
-			<p class="menu-label">
-			{{$page->title}}
-			</p>
+			<p class="menu-label">&nbsp;&nbsp; {{$page->title}} </p>
 			<ul class="menu-list">
 				<ul>
 					@if (!$articles->isEmpty())
@@ -32,7 +30,7 @@
 					@endif
 				</ul>	
 			</ul>
-			<p class="menu-label">
+			<p class="menu-label">&nbsp;&nbsp;
 				Sub Pages
 			</p>
 			<ul class="menu-list">
@@ -47,75 +45,36 @@
 		</aside>
 	
 	</div>
-	<div class=" box column is-9" style="gap: 10px;">
-		
-
-	</div>
-</div>
-	
-
-	<div class="container">
-
-		<div class="col">
-			@if (!$articles->isEmpty())
-				@foreach ($articles as $article)
-					<div class="card">
-						<div class="card-header">
-							<h1 class="title">
-								{{ $article->title }}
-							</h1>
-						</div>
-						<div class="card-content">
-							<span class="tag is-white">Type: &nbsp;
-								{{-- <a class="tag {{ $article->category->color }}"> {{ $article->category->title }} </a> --}}
-							</span>
-							<span class="tag is-white"> Updated &nbsp;
-								{{-- {{ $article->category->created_at }} --}}
-							</span>
-						</div>
-					</div>
-					<br/>
-					<div class="card-content">
-						{!! $article->content !!}
-					</div>
-				@endforeach
-				@if ($articles->hasPages())
-					<nav class="pagination is-centered is-small">
-						@if ($articles->onFirstPage())
-							<a class="pagination-previous" disabled>Previous Article</a>
-						@else
-							<a href="{{ $articles->previousPageUrl() }}" rel="prev" class="pagination-previous">Previous
-								Article</a>
-						@endif
-
-						@if ($articles->hasMorePages())
-							<a class="pagination-next" href="{{ $articles->nextPageUrl() }}" rel="next">Next Article</a>
-						@else
-							<a class="pagination-next" disabled>Next page Article</a>
-						@endif
-					</nav>
-				@endif
-
-			@else
+	<div class=" box  column" style=" margin: 10px 10px" >
+		@if (!$articles->isEmpty())
+			@foreach ($articles as $article)
 				<div class="card">
-					<div class="card-header">
-						<h1 class="title">
-							No conetent Available
-						</h1>
-					</div>
 					<div class="card-content">
-						under construction
+						<div class="media-content">
+							<p class="title is-4">{{ $article->title }}</p>
+							<p class="subtitle is-6">@johnsmith</p>
+						</div>
+						<div class="content">
+							{{ $article->content }}
+						</div>
 					</div>
 				</div>
-				<br />
+			@endforeach
+		@else
+			<div class="card">
 				<div class="card-content">
-
+					<div class="media-content">
+						<p class="title is-4"> No conetent Available </p>
+					</div>
 				</div>
-			@endif
-		</div>
+				<div class="card-content">
+					under construction
+				</div>
+			</div>
+		@endif
 	</div>
-
 </div>
+
 @stop
 
 

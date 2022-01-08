@@ -27,7 +27,7 @@
         <script defer src="{{ asset('fontawesome/js/all.js') }}"></script>
       </head>
       <body>
-        <div class="container">
+        <div class="container is-1">
             <x-navbar></x-navbar>
             <x-alert></x-alert>
             @yield('content')         
