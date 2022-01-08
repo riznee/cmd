@@ -12,7 +12,7 @@
     </a>
   </div>
 
-  <div id="navbarBasicExample" class="navbar-menu">
+  <div id="navbar" class="navbar-menu">
     <div class="navbar-start">
       	<div class="navbar-item has-dropdown is-hoverable">
 			@foreach($pages as $page)
@@ -34,7 +34,7 @@
 	</div>
 	
 
-
+	
     @guest      
       <div class="navbar-end">
         <div class="navbar-item">

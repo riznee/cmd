@@ -1,16 +1,21 @@
 <footer class="footer">
     <div class="content has-text-centered">
-        <p>
+      
             <a href="#">
-                <i class="fa fa-twitter" aria-hidden="true"></i> 
-            </a> &nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="{{asset('enol/img/instagram.png')}}" width="30" height="30">
+            </a> &nbsp;
             <a href="#">
-                <i class="fa fa-deaf" aria-hidden="true"></i> 
-            </a> &nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="{{asset('enol/img/twitter.png')}}" width="30" height="30">
+            </a>  &nbsp;
             <a href="#">
-                <i class="fa fa-envelope" aria-hidden="true"></i> 
-            </a> &nbsp;&nbsp;&nbsp;&nbsp;
-        </p>
+                <img src="{{asset('enol/img/facebook.png')}}" width="30" height="30">
+            </a> &nbsp;
+            <a href="#">
+                <img src="{{asset('enol/img/email.png')}}" width="30" height="30">
+            </a> &nbsp;
+            
+
+            
     </div>
     <div class="content has-text-centered">
         <p>
