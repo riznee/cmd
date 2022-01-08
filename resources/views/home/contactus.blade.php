@@ -44,7 +44,7 @@
             <input id="captcha" type="text" class="input" placeholder="Enter Captcha" name="captcha" required>
         </div>
         <div style="align-content: center">
-        <button class="button is-secoundary" type="submit">Save</button>
+            <button class="button is-secoundary" type="submit">Save</button>
         </div>
        
     </form>
