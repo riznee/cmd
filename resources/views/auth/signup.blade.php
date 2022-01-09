@@ -8,7 +8,7 @@
         <div class="column is-4 is-offset-4">
             <div class="box">
                 <figure class="avatar">
-                    <img src="{{ asset('img/pngwave.png') }}" alt="" width="100" height="100">
+                    <img src="{{ asset('enol/img/pngwave.png') }}" alt="" width="100" height="100">
                 </figure>
                 
                 <form   method="post" action="{{ route('signup.post') }}">

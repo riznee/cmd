@@ -13,7 +13,17 @@ class ArticleController extends Controller
     public $perpage = 15;
     public $permissonName='articles';
 
-    
+    public $headers=array( 
+        array('title'=>'Slug', 'value'=>'slug'),
+        array ( 'title'=>'Title', 'value' =>'title'),
+        array ( 'title'=>'Description', 'value' =>'descriptions'),
+        array ( 'title'=>'Published', 'value' =>'published_a', 'type' =>'boolen'),
+        array ( 'title'=>'Created At', 'value' =>'created_at'),
+        array ( 'title'=>'Updated At', 'value' =>'updated_at')
+    );
+
+    public $slotfeild = array( 
+        'value'=> 'visible', );
 
     public function __construct(ArticleRepository $repository, PageRepository $pageRepositry )
     {
@@ -26,8 +36,12 @@ class ArticleController extends Controller
 
     public function index()
     {
+        $headers = $this->headers;
+        $permisson = $this->permissonName;
         $articles = $this->repository->getArticles();
-        return view('articles.index', compact('articles'));
+        $action = true;
+        $data = array('true' => 'Published', 'false' => 'Unpublished');
+        return view('articles.index', compact('headers','articles','permisson','action', 'data'));
     }
     
     public function create()

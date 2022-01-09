@@ -4,14 +4,17 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
 
+        <title>{{ config('app.name', 'SSCM') }}</title>
         
-
         <link rel="stylesheet" href="{{asset('bulma/css/bulma.css')}}">
         <link rel="stylesheet" href="{{asset('enol/css/enolbase.css')}}">
-
-        <title>{{ config('app.name', 'SSCM') }}</title>
+        <link rel="stylesheet" href="{{asset('DataTables/datatables.min.css')}}">
+       
+ 
+        
         <script defer src="{{ asset('fontawesome/js/all.js') }}"></script>
         <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+        <script type="text/javascript" src="{{asset('DataTables/datatables.min.js')}}"></script>
 
         <!-- Default Statcounter code for devlopment http://dev.enol.mv -->
         <script type="text/javascript">
