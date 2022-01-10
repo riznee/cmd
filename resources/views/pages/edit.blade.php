@@ -17,13 +17,13 @@
 </div>
 
 <section class=" section ">
-    <form method="post" action="{{route('pages.store')}}">
+    <form method="post" action="{{route('pages.update', $page->id)}}">
         {{ csrf_field() }}
-        {{ method_field('POST') }}
+        {{ method_field('PUT') }}{{ method_field('PATCH') }}
         <div class="field">
             <label class="label">Title</label>
             <div class="control">
-                <input class="input"  name="title"  id="email" type="text" placeholder="Your Page Name" required>
+                <input class="input"  name="title"  id="email" type="text" placeholder="Your Page Name"  value="{{$page->title}}"required>
             </div>
         </div>
 
@@ -32,17 +32,17 @@
                 <div class="field">
                     <label class="label">Slug</label>
                     <div class="control">
-                        <input class="input"name="slug"  id="name" type="text" placeholder="enter page slug"required>
+                        <input class="input"name="slug"  id="name" type="text" placeholder="enter page slug" value="{{$page->slug}}"required>
                     </div>
                 </div>
             </div>
 
             <div class="column">
                 <label class="label">Icon</label>
-              {{-- <i class="fas fa-address-book" aria-hidden="true"></i> --}}
                 <div class="select">
                     <select name="icon" id="selectIcon">
-                        <option value=''>Null</option>
+                        <option value="{{$page->icon}}" selected >{{$page->icon}}</option>
+                        
                     </select>
                 </div>
             </div>
@@ -50,19 +50,23 @@
             <div class="column">
                 <label class="label" > Parent </label>
                     <div class="select">
-                        <select name="parent_id">
+                        <select name="parent_id">>
                             <option value='' selected>NULL</option>
-                                @foreach($pages as $page)
+                            @foreach($pageList as $page)
+                                @if($page->parent_id == $page->id)
+                                    <option value="{{$page->id}}" selected >{{$page->title}}</option>
+                                @else
                                     <option value="{{$page->id}}">{{$page->title}}</option>
-                                @endforeach
+                                @endif
+                            @endforeach
                         </select>
                     </div>
             </div>
             <div class="column">             
-                <label class="label"> Depth</label>
+                <label class="label"> Order</label>
                 <div class="select">
                     <select name="depth">
-                        <option value='' selected>NULL</option>
+                        <option value="{{$page->depth}}" selected>{{$page->depth}}</option>
                         <option value='1'>1</option>
                          <option value='2'>2</option>
                          <option value='3'>3</option>
@@ -76,7 +80,7 @@
         <div class="field">
             <label class="label">Descriptions</label>
             <div class="control">
-                <textarea class="textarea"name="description"  id="message" type="text" row="10" required></textarea>
+                <textarea class="textarea"name="description"  id="message" type="text" row="10" required> {{$page->description}}</textarea>
             </div>
         </div>
  

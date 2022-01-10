@@ -16,30 +16,30 @@ class Paginator extends Component
     public $j;
     public $lastPage;
     public $currentPage;
+    public $totalItems;
+    
 
 
 
     public function __construct($items)
     {
         $this->items = $items;
-        $this->pageNumberGenerator();
+        $this->lastPage =$items->lastPage();
+        $this->currentPage = $items->currentPage();
+        
 
     }
 
     public function pageNumberGenerator()
     {
-       
-        // $this->lastPage = $this->items->lastPage;
-        // $this->currentPage = $this->items->currentPage;
-        // $this->perPage = $this->items->perPage;
+        if( $this->lastPage >= 0 && $this->currentPage < 2 ){
+            $this->j=1;
+        } else {
+            $this->j=$this->items->currentPage()-5 ;
+            $this->lastPage = $this->items->currentPage()+5;
+        }
 
-        // if($this->items->lastPage() >= 1 && $this->items->currentPage() <=2 ){
-        //     $this->j=1;
-        //     $this->lastPage = $this->pages->lastPage();
-        // } else {
-        //     $this->j=$this->items->currentPage()-5 ;
-        //     $this->lastPage = $this->items->currentPage()+5;
-        // }
+       
     }
        
 

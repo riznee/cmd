@@ -39,7 +39,7 @@
 
             <div class="column">
                 <label class="label">Icon</label>
-              {{-- <i class="fas fa-address-book" aria-hidden="true"></i> --}}
+            
                 <div class="select">
                     <select name="icon" id="selectIcon">
                         <option value=''>Null</option>
@@ -59,7 +59,7 @@
                     </div>
             </div>
             <div class="column">             
-                <label class="label"> Depth</label>
+                <label class="label"> Order</label>
                 <div class="select">
                     <select name="depth">
                         <option value='' selected>null</option>

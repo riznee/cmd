@@ -66,6 +66,14 @@ class PageController extends Controller
         }
     }
 
+
+    public function edit($id)
+    {
+        $page =  $this->repository->getItem($id);
+        $pageList = $this->repository->pageList();
+        return view('pages.edit', compact('page','pageList'));
+    }
+
     public function show($id)
     {
         $title ='Page';

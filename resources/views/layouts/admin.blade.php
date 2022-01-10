@@ -44,18 +44,26 @@
             <x-alert></x-alert>
         </div>
         <section class="container">
-            <section class="hero hero is-fullheight is-default">
+            <section class="hero is-fullheight-with-navbar">
                 <div class="columns is-gapless" >
-                    <div class=" box  column is-3" style=" margin: 10px 0px" >    
-                        <x-adminPanel></x-adminPanel>
+
+                    <div class=" box  column is-3" style=" margin: 10px 0px" > 
+                        <section class="hero is-fullheight">   
+                            <x-adminPanel></x-adminPanel>
+                        </section>
                     </div>
+
                     <div class=" box  column" style=" margin: 10px 10px" >
-                        @yield('content')
-                        </div>         
+
+                            
+                            @yield('content')
+                       
+                                 
                     </div> 
-                    <script src="{{ asset('enol/js/enolscripts.js') }}"></script>
-                    <x-footer></x-footer>
                 </div>
+                    <script src="{{ asset('enol/js/enolscripts.js') }}"></script>
+                <x-footer></x-footer>
+                {{--  </div>  --}}
             </section>
         </section>
          
