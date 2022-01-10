@@ -1,14 +1,37 @@
 @extends('layouts.admin')
 @section('content')
-<div class="container is-fluid">
+
+    <div class="card has-background-success" style=" margin: 10px">
+        <header class="card-header has-text-info-light">
+            <a href="{{ url()->previous() }}" class="card-header-icon" aria-label="more options">
+                <span class="icon">
+                    <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                </span>
+            </a>
+            <p class="card-header-title">
+                Create Articles
+            </p>
+
+        </header>
+    </div>
+
+    <section class=" section ">
+        <form method="post" action="{{ route('articles.store') }}">
+            {{ csrf_field() }}
+
+        </form>
+    </section>
+
+
+    {{-- <div class="container is-fluid">
 	<div class="wrapper">
 		<head class="p-6">
 			{{-- @include('partials.admiNav') --}}
-		</head>
+    {{-- </head>
 		<section class="columns">
-			<div class="column is-one-fifth">
-				{{-- @include('partials.adminPanel') --}}
-			</div>
+			<div class="column is-one-fifth"> --}}
+    {{-- @include('partials.adminPanel') --}}
+    {{-- </div>
 			<div class="column">
 				<div class="hero is-fullheight">
 					<div class="card">
@@ -19,7 +42,7 @@
                                   <i class="fas fa-arrow-left" aria-hidden="true"></i>
                                 </span>
                               </a>
-                            @if(Request::is('articles/create'))
+                            @if (Request::is('articles/create'))
                                 Create
                             @elseif(Request::is('articles/*'))
                                 Edit
@@ -28,7 +51,7 @@
 						  </p>
 						</header>
 						<div class="card-content">
-                            @if(Request::is('articles/create'))
+                            @if (Request::is('articles/create'))
                             <form method="post" action="{{route('articles.store')}}">
                                 {{ csrf_field() }}
                                 <div class="feild">
@@ -50,7 +73,7 @@
                                             <label class="label" > Page </label>
                                             <div class="select">
                                                 <select name="page_id">
-                                                    @foreach($pages as $page)
+                                                    @foreach ($pages as $page)
                                                     <option value="{{$page->id}}">{{$page->title}}</option>
                                                     @endforeach
                                                 </select>
@@ -63,7 +86,7 @@
                                             <label class="label" > Category </label>
                                             <div class="select">
                                                 <select name="category_id">
-                                                    @foreach($categories as $category)
+                                                    @foreach ($categories as $category)
                                                     <option value="{{$category->id}}">{{$category->title}}</option>
                                                     @endforeach
                                                 </select>
@@ -114,7 +137,7 @@
                                             <label class="label" > Page </label>
                                             <div class="select">
                                                 <select name="page_id">
-                                                    @foreach($pages as $page)
+                                                    @foreach ($pages as $page)
                                                     <option value="{{$page->id}}">{{$page->title}}</option>
                                                     @endforeach
                                                 </select>
@@ -127,7 +150,7 @@
                                             <label class="label" > Category </label>
                                             <div class="select">
                                                 <select name="category_id">
-                                                    @foreach($categories as $category)
+                                                    @foreach ($categories as $category)
                                                     <option value="{{$category->id}}">{{$category->title}}</option>
                                                     @endforeach
                                                 </select>
@@ -163,14 +186,11 @@
 			</div>
         </section>			  
 	</div>
-</div>
-<script>
-    CKEDITOR.replace( 'summary-ckeditor', {
-        filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
-        filebrowserUploadMethod: 'form'
-    });
-</script>
+</div> --}}
+    <script>
+        CKEDITOR.replace('summary-ckeditor', {
+            filebrowserUploadUrl: "{{ route('upload', ['_token' => csrf_token()]) }}",
+            filebrowserUploadMethod: 'form'
+        });
+    </script>
 @stop
-
-
-

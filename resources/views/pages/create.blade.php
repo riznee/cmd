@@ -37,15 +37,14 @@
                 </div>
             </div>
 
-            <div class="column">
-                <label class="label">Icon</label>
-            
+            {{--  <div class="column">
+                <label class="label">Icon</label>            
                 <div class="select">
                     <select name="icon" id="selectIcon">
                         <option value=''>Null</option>
                     </select>
                 </div>
-            </div>
+            </div>  --}}
 
             <div class="column">
                 <label class="label" > Parent </label>

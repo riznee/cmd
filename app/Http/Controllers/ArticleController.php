@@ -47,7 +47,6 @@ class ArticleController extends Controller
     public function create()
     {
         $pages = $this->pageRepositry->pageList();
-        // $categories = $this->categoryRepositry->getall();
         return view('articles.create', compact('pages'));
     }
     

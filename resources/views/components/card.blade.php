@@ -1,21 +1,42 @@
+<table class="table   is-striped">
+    <thead>
+        <tr>
+            <th>Field name</th>
+            <th style="width:100%">Detials</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($headers as $header)
+            <tr>
+                <td>{{ $header['title'] }}</td>
+                <td>
+                    @if (!empty($header['type']))
+                        @if (!empty($option))
 
-    <div class="card">
-        <div class="card-content">
-            <div class="media-content">            
-                @foreach($headers as $header)
-                    
-                <p class="title is-4"> {{$header['title']}}</p>
-                <div class="content">
-                        {{$item[$header['value']]}} 
-                </div>
-                              
-                @endforeach     
-            </div>
-        </div>
-        <footer class="card-footer">
-            <a href="#" class="card-footer-item">Save</a>
-            <a href="#" class="card-footer-item">Edit</a>
-            <a href="#" class="card-footer-item">Delete</a>
-        </footer>
-    </div>
+                            @if ($header['type'] == 'boolen')
+                                @if ($item[$header['value']] == 1)
+                                    {{ $option['true'] }}
+                                @else
+                                    {{ $option['false'] }}
+                                @endif
+                            @endif
 
+                            @if ($header['type'] == 'userRole')
+                                {{ $item->roles()->pluck('name')->implode(' ') }}
+                            @endif
+                        @else
+                            No Option is define
+                        @endif
+
+                        @if ($header['type'] == 'variable')
+
+                        @endif
+
+                    @else
+                        {{ $item[$header['value']] }}
+                    @endif
+                </td>
+            </tr>
+        @endforeach
+    </tbody>
+</table>
