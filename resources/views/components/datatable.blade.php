@@ -1,5 +1,5 @@
 
-<div class="table-responsive">
+<div class="table-responsive" style=" margin: 10px">
     <table class="table table is-bordered table is-striped">
         <thead>
             <tr>
@@ -46,10 +46,10 @@
 						@endforeach
 						@if($action)
 							<td>
-								<div class="row">
+								<div class="columns">
 									@if($permissionname == 'contactus')
 										@if($item['read'] == 0 )
-											<div class="col-sm-2">											
+											<div class="column">											
 												@can( $permissionname.'-reply')
 												<a class=" btn badge bg-primary" href="{{route($permissionname.'.reply',$item['id'])}}" data-toggle="tooltip" title="press to reply!">
 													<i class="fa fa-paper-plane" aria-hidden="true"></i>
@@ -62,7 +62,7 @@
 
 									@if($permissionname == 'pages')
 										@if($item['visible'] ==1)
-											<div class="col-sm-2">
+											<div class="column">
 											
 												@can( $permissionname.'-disable')
 												<a class=" btn badge bg-danger" href="{{route($permissionname.'.disable',$item['id'])}}" data-toggle="tooltip" title="press to disable!">
@@ -73,7 +73,7 @@
 											
 											</div>
 										@else
-											<div class="col-sm-2">
+											<div class="column">
 												@can( $permissionname.'-enable')
 												<a class=" btn badge bg-success" href="{{route($permissionname.'.enable',$item['id'])}}"data-toggle="tooltip" title="press to enable!">
 													<i class="fa fa-toggle-on" aria-hidden="true"></i>
@@ -85,7 +85,7 @@
 
 									@if($permissionname == 'articles')
 										@if($item['visible'] ==1)
-											<div class="col-sm-2">
+											<div class="column">
 												@can( $permissionname.'-enable')
 												<a class=" btn badge bg-primary" href="{{route($permissionname.'.enable',$item['id'])}}"data-toggle="tooltip" title="press to view!">
 													<i class="fa fa-toggle-on" aria-hidden="true"></i>
@@ -94,7 +94,7 @@
 											</div>
 										@else
 
-										<div class="col-sm-2">
+										<div class="column">
 											@can( $permissionname.'-disable')
 											<a class=" btn badge bg-primary" href="{{route($permissionname.'.disable',$item['id'])}}"data-toggle="tooltip" title="press to edit!">
 												<i class="fa fa-toggle-off" aria-hidden="true"></i>
@@ -104,7 +104,7 @@
 										@endif
 									@endif
 
-									<div class="col-sm-2">
+									<div class="column">
 										@can( $permissionname.'-show')
 										<a class=" btn badge bg-primary" href="{{route($permissionname.'.show',$item['id'])}}"data-toggle="tooltip" title="press to view!">
 											<i class="fas fa-eye" aria-hidden="true"></i>
@@ -112,7 +112,7 @@
 										@endcan
 									</div>
 
-									<div class="col-sm-2">
+									<div class="column">
 										@can( $permissionname.'-edit')
 										<a class=" btn badge bg-primary" href="{{route($permissionname.'.edit',$item['id'])}}"data-toggle="tooltip" title="press to edit!">
 											<i class="fas fa-pen" aria-hidden="true"></i>
@@ -121,7 +121,7 @@
 									</div>
 								
 
-									<div class="col-sm-2">
+									<div class="column">
 										@can($permissionname.'-destroy')											
 										<form  accept-charset="UTF-8" method="post" action="{{route($permissionname.'.destroy',$item['id'])}}"data-toggle="tooltip" title="press to delete!">
 											@csrf
