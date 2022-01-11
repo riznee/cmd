@@ -25,14 +25,16 @@ class UpdateArticleRequest extends FormRequest
     {
         
         return [
-            'slug'    => 'required|max:255',
+            
+            // 'slug'    => 'required|slug|unique:article'. $this->article ,
             'title'   => 'required|max:255',
             'page_id' => 'required|numeric', 
             'published_at'=> 'nullable|numeric', 
-            'description' => 'required|max:255',    
-            'content'     => 'required|min:3|max:10000', 
-            'category_id' => 'required|numeric',
+            'description' => 'required',    
+            'content'     => 'required', 
         ];
+            
+    
     } 
 
     public function messages()

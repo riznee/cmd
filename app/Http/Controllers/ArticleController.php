@@ -65,19 +65,29 @@ class ArticleController extends Controller
         }
     }
 
+
+
     public function show($id)
     {
         $article =  $this->repository->getItem($id);
         $pages = $this->pageRepositry->pageList();
         return view('articles.create',compact('article', 'pages'));   
     }
+
+    public function edit($id)
+    {
+        $article =  $this->repository->getItem($id);
+        $pages = $this->pageRepositry->pageList();
+        return view('articles.edit', compact('article', 'pages'));
+    }
+
     
     public function update(UpdateArticleRequest $request, $id)
     {
-        $page =  $this->repository->findOrFail($id);
+        $article =  $this->repository->findOrFail($id);
         try
         {
-            $this->repository->updateUniquefeild($page,$request);
+            $this->repository->updateUniquefeild($article,$request);
             return redirect()->route('articles.index')->with('success', 'Page information is updated Successfull');
         }
         catch (\Exception $exeption)

@@ -51,7 +51,7 @@
                 <label class="label" > Parent </label>
                     <div class="select">
                         <select name="parent_id">>
-                            <option value='' selected>NULL</option>
+                            {{-- <option value='' selected>NULL</option> --}}
                             @foreach($pageList as $page)
                                 @if($page->parent_id == $page->id)
                                     <option value="{{$page->id}}" selected >{{$page->title}}</option>

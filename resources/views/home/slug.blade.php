@@ -54,8 +54,8 @@
                     <div class="card">
                         <div class="card-content">
                             <div class="media-content">
-                                <p class="title is-4">{{ $article->title }}</p>
-                                <p class="subtitle is-6">@johnsmith</p>
+                                {{-- <p class="title is-4">{{ $article->title }}</p> --}}
+                                {{-- <p class="subtitle is-6">@johnsmith</p> --}}
                             </div>
                             <div class="content">
                                 {!! html_entity_decode($article->content) !!}
