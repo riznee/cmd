@@ -70,8 +70,8 @@ class ArticleController extends Controller
     public function show($id)
     {
         $article =  $this->repository->getItem($id);
-        $pages = $this->pageRepositry->pageList();
-        return view('articles.create',compact('article', 'pages'));   
+
+        return view('articles.show',compact('article'));   
     }
 
     public function edit($id)
