@@ -13,8 +13,8 @@ class CreateArticlesTable extends Migration
             $table->string('slug')->index();
             $table->smallInteger('published_at')->nullable();
             $table->string('title');
-            $table->text('content');
-            $table->string('description');
+            $table->longText('content');
+            $table->text('description');
             $table->timestamps();
             $table->softDeletes();
             $table->foreign('page_id')->references('id')->on('pages');

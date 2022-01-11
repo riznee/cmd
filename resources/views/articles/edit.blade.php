@@ -61,11 +61,10 @@
 
             <div class="feild">
                 <label class="label"> Content</label>
-                <textarea id ="summary-ckeditor" name='content' class="textarea" rows="10" ></textarea>
+                <textarea id ="summary-ckeditor" name='content' class="textarea" rows="3" placeholder="Content"></textarea>
             </div>
-            <br/>
     
-            <div class="field">
+            <div style="align-content: center">
                 <button class="button is-primary" type="submit">Save</button>
             </div>
 
