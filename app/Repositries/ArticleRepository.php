@@ -18,7 +18,6 @@ class ArticleRepository extends BaseRepository {
     public function getArticles()
     {
         $articles = $this->model->with('page')
-        ->with('category')
         ->orderBy('id','desc')->paginate();
         return $articles;
     }
@@ -28,7 +27,6 @@ class ArticleRepository extends BaseRepository {
         $latest =$this->model->latest()
         ->where('published_at', '=','1')
         ->with('page')
-        ->with('category')
         ->first();
         return $latest;
     }

@@ -17,13 +17,13 @@ class ArticleController extends Controller
         array('title'=>'Slug', 'value'=>'slug'),
         array ( 'title'=>'Title', 'value' =>'title'),
         array ( 'title'=>'Description', 'value' =>'descriptions'),
-        array ( 'title'=>'Published', 'value' =>'published_a', 'type' =>'boolen'),
+        array ( 'title'=>'Published', 'value' =>'published_at', 'type' =>'boolen'),
         array ( 'title'=>'Created At', 'value' =>'created_at'),
         array ( 'title'=>'Updated At', 'value' =>'updated_at')
     );
 
     public $slotfeild = array( 
-        'value'=> 'visible', );
+        'value'=> 'published_at', );
 
     public function __construct(ArticleRepository $repository, PageRepository $pageRepositry )
     {

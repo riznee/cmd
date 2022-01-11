@@ -39,9 +39,9 @@
     
                
                 <div class="column">
-                    <label class="label" > Parent </label>
+                    <label class="label" >  Belongs to </label>
                         <div class="select">
-                            <select name="parent_id">
+                            <select name="page_id">
                                 <option value='' selected>null</option>
                                     @foreach($pages as $page)
                                         <option value="{{$page->id}}">{{$page->title}}</option>

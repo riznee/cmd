@@ -11,7 +11,7 @@ class CreateArticlesTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('page_id');
             $table->string('slug')->index();
-            $table->smallInteger('published_at')->nullable();
+            $table->boolean('published_at')->default(false);
             $table->string('title');
             $table->longText('content');
             $table->text('description');

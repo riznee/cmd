@@ -61,8 +61,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('pages/{id}/publsih', 'PageController@enable')->name('pages.enable');
     Route::get('pages/{id}/unpublsih', 'PageController@disable')->name('pages.disable');
 
-    Route::patch('articles/{id}/publsih', 'ArticleController@publish')->name('articles.publish');
-    Route::patch('articles/{id}/unpublsih', 'ArticleController@unPublish')->name('articles.unpublish');
+    Route::get('articles/{id}/publsih', 'ArticleController@publish')->name('articles.publish');
+    Route::get('articles/{id}/unpublsih', 'ArticleController@unPublish')->name('articles.unpublish');
 
     Route::delete('role/{id}/permission/{permssion_id}/remove', 'RolePermissionController@destroy')->name('role.permission.remove');    
     Route::delete('users/{id}/roles/{role_id}/remove', 'UserRoleController@destroy')->name('user.role.remove');
