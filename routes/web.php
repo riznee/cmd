@@ -50,7 +50,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('dashboard', 'AdminController@index')->name('dashboard');
             
     Route::get('settings', 'SettingController@index')->name('settings.index');
-    Route::get('settings/edit', 'SettingController@edit')->name('settings.edit');   
+    Route::post('settings/update', 'SettingController@update')->name('settings.update');   
 
     Route::get('/contactus/{id}/replay','ContactController@reply')->name('contactus.reply');
     
