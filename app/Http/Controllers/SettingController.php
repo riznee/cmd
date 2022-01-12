@@ -13,11 +13,14 @@ class SettingController extends Controller
 
     public $headers=array( 
         array('title'=>'Logo ', 'value'=>'logo'),
+        array('title'=>'Web Site Name ', 'value'=>'site_name'),
         array('title'=>'Email', 'value'=>'email'),     
         array('title'=>'Facebook', 'value'=>'facebook'),     
         array('title'=>'Twitter', 'value'=>'twitter'),     
-        array('title'=>'Display Short Name', 'value'=>'disqus_shortname'),     
-        array('title'=>'Email', 'value'=>'email'),     
+        array('title'=>'Display Short Name', 'value'=>'disqus_shortname'),   
+        array ('title'=>'Enable Login', 'value' =>'display_login_buttion'),
+        array ('title'=>'Display Artile on Top of page ', 'value' =>'display_title_site'),
+        array ('title'=>'Display Artile on Top of description', 'value' =>'display_article_descirption'),
         array ('title'=>'Created At', 'value' =>'created_at'),
         array ('title'=>'Updated At', 'value' =>'updated_at'),
 

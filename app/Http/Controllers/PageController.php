@@ -131,12 +131,19 @@ class PageController extends Controller
     
     public function enable($id)
     {
+
         $this->repository->enable($id);
         return redirect()->route('pages.index')->with('success','Enable is Papge to public');
     }
 
     public function disable($id)
     {
+        $page =  $this->repository->findOrFail($id);
+        if($page->slug =="home")
+        {
+            return redirect()->route('pages.index')->with('info', 'You cannot disable Home Page');
+        }
+       
         $this->repository->disable($id);
         return redirect()->route('pages.index')->with('success','Disable is Page to public');
     }
