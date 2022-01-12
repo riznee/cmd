@@ -77,6 +77,15 @@ class ArticleRepository extends BaseRepository {
         return $result;
     }
 
+    public function homePage()
+    {
+        $result =$this->model->latest()
+        ->where('published_at', '=','1')
+        ->where('slug','=','home')
+        ->first();   
+        return $result;
+    }
+
     
  
     

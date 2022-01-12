@@ -1,5 +1,5 @@
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
-using Bootstrap 
+using Bulma 
 
 # Simple Single User Content Managment System (SSUCMS)
 
