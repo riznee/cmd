@@ -23,9 +23,9 @@
                             {{ $page->title }}
                         </a>
                     @elseif($page->slug =='home')
-                        {{--  <a class="navbar-item" href="{{ route('home') }}">  --}}
-                            {{--  {{ $page->title }}  --}}
-                        {{--  </a>  --}}
+                         {{-- <a class="navbar-item" href="{{ route('home') }}"> 
+                             {{ $page->title }} 
+                         </a>  --}}
                     @else
                         <a class="navbar-item" href="{{ route('page', $page->slug) }}">
                             {{ $page->title }}

@@ -28,10 +28,13 @@
       </head>
       <body>
         <div class="container is-1">
-            <x-navbar></x-navbar>
-            <x-alert></x-alert>
-            @yield('content')         
-            <x-footer></x-footer>
+          <x-navbar></x-navbar>
+          <x-alert></x-alert>
+          {{-- <section class="hero is-fullheight"> --}}
+            @yield('content') 
+              
+        {{-- </section>         --}}
+        <x-footer></x-footer>
          </div>     
         <script src="{{ asset('enol/js/enolscripts.js') }}"></script>
     </body>

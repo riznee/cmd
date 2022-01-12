@@ -103,16 +103,29 @@ class PageController extends Controller
     
     public function destroy($id)
     {
-        try{
-            $this->repository->destroy($id);
-            return redirect()->route('pages.index')->with('success','A Page is deleted');
-        }
-        catch (\Exception $exeption)
+        $page =  $this->repository->findOrFail($id);
+        if($page->slug =="home")
         {
-            return redirect()->route('pages.index')
-                ->withError($exeption->getMessage())
-                ->withInput();
+            return redirect()->route('pages.index')->with('info', 'You cannot delete Home Page');
         }
+        else if ($page->slug =="contactus")
+        {
+            return redirect()->route('pages.index')->with('info', 'You cannot delete Contact pages');
+        }
+        else
+        {
+            try{
+                $this->repository->destroy($id);
+                return redirect()->route('pages.index')->with('success','A Page is deleted');
+            }
+            catch (\Exception $exeption)
+            {
+                return redirect()->route('pages.index')
+                    ->withError($exeption->getMessage())
+                    ->withInput();
+            }
+        }
+
 
     }
     

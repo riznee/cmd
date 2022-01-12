@@ -9,6 +9,7 @@ Route::get('/contactus/form', 'HomeController@contactus')->name('contactus.form'
 
 //contact us Post informstion
 Route::post('/contactus/send', 'HomeController@contactSend')->name('contactus.send');
+// Route::post('/ownform', 'HomeController@ownform')->name('ownform');
 
 // User verifiction
 Route::get('/user/verify/{token}','UserController@userVerification')->name('user.verification');
@@ -66,6 +67,12 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::delete('role/{id}/permission/{permssion_id}/remove', 'RolePermissionController@destroy')->name('role.permission.remove');    
     Route::delete('users/{id}/roles/{role_id}/remove', 'UserRoleController@destroy')->name('user.role.remove');
+
+    // Route::get('/', array('as' => 'index','uses' => 'AlbumsController@getList'));
+    // Route::get('/createalbum', array('as' => 'create_album_form','uses' => 'AlbumsController@getForm'));
+    // Route::post('/createalbum', array('as' => 'create_album','uses' => 'AlbumsController@postCreate'));
+    // Route::get('/deletealbum/{id}', array('as' => 'delete_album','uses' => 'AlbumsController@getDelete'));
+    // Route::get('/album/{id}', array('as' => 'show_album','uses' => 'AlbumsController@getAlbum'));
 
  
     Route::resource('articles', 'ArticleController');

@@ -113,7 +113,30 @@
     </div>
 
 </section>  --}}
-<br/>
+
+
+<section class="section">
+    <div class="container">
+        <div id="post_images" class="carousel">
+            <div class="item-1">
+                <figure class="image is-16by9 has-ratio">
+                    <img src="https://www.technocrazed.com/wp-content/uploads/2015/12/Windows-XP-wallpaper-21-640x360.jpg"/>
+                </figure>
+            </div>
+            <div class="item-2">
+                <figure class="image is-16by9 has-ratio">
+                    <img src="https://www.technocrazed.com/wp-content/uploads/2015/12/Windows-XP-wallpaper-21-640x360.jpg"/>
+                </figure>
+            </div>
+            <div class="item-3">
+                <figure class="image is-16by9 has-ratio">
+                    <img src="https://www.technocrazed.com/wp-content/uploads/2015/12/Windows-XP-wallpaper-21-640x360.jpg"/>
+                </figure>
+            </div>
+        </div>
+    </div>
+</section>
+
 @if(!empty($article))
 <div class="card">
     <div class="card-content">

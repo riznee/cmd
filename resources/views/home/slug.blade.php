@@ -1,7 +1,5 @@
 @extends('layouts.site')
 @section('content')
-
-    <br>
     <div class="box" style="padding: 20px;">
         <nav class="breadcrumb has-arrow-separator">
             <ul>
@@ -16,37 +14,39 @@
     </div>
 
     <div class="columns is-gapless">
-        <div class=" box  column is-3" style=" margin: 10px 0px">
-            <aside class="menu">
-                <p class="menu-label">&nbsp;&nbsp; {{ $page->title }} </p>
-                <ul class="menu-list">
-                    <ul>
-                        @if (!$articles->isEmpty())
-                            @foreach ($articleList as $item)
-                                <li><a class="list-group-item list-group-item-action"
-                                        href="{{ route('article', $item->slug) }}">{{ $item->title }}</a></li>
-                            @endforeach
-                        @else
-                            <li><a class="list-group-item list-group-item-action" href="#">No Content Availble</a></li>
-                        @endif
-                    </ul>
-                </ul>
-                @if (!empty($page->childrean))
-                    <p class="menu-label">&nbsp;&nbsp;
-                        Sub Pages
-                    </p>
-                    <ul class="menu-list">
-                        {{-- @if (empty($page->childrean)) --}}
-                        @foreach ($page->children as $child)
-                            <li>
-                                <a class="btn btn-primary" href="{{ route('page', $child->slug) }}">&nbsp;
-                                    {{ $child->title }}</a>
-                            </li>
-                        @endforeach
-                    </ul>
-                @endif
-            </aside>
 
+        <div class=" box  column is-3" style=" margin: 10px 0px">
+            <section class="hero hero is-fullheight">
+                <aside class="menu">
+                    <p class="menu-label">&nbsp;&nbsp; {{ $page->title }} </p>
+                    <ul class="menu-list">
+                        <ul>
+                            @if (!$articles->isEmpty())
+                                @foreach ($articleList as $item)
+                                    <li><a class="list-group-item list-group-item-action"
+                                            href="{{ route('article', $item->slug) }}">{{ $item->title }}</a></li>
+                                @endforeach
+                            @else
+                                <li><a class="list-group-item list-group-item-action" href="#">No Content Availble</a></li>
+                            @endif
+                        </ul>
+                    </ul>
+                    @if (!empty($page->childrean))
+                        <p class="menu-label">&nbsp;&nbsp;
+                            Sub Pages
+                        </p>
+                        <ul class="menu-list">
+                            {{-- @if (empty($page->childrean)) --}}
+                            @foreach ($page->children as $child)
+                                <li>
+                                    <a class="btn btn-primary" href="{{ route('page', $child->slug) }}">&nbsp;
+                                        {{ $child->title }}</a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    @endif
+                </aside>
+            </section>
         </div>
         <div class=" box  column" style=" margin: 10px 10px">
             @if (!$articles->isEmpty())
@@ -77,5 +77,6 @@
             @endif
         </div>
     </div>
+
 
 @stop

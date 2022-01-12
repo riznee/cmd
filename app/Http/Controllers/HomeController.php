@@ -9,6 +9,8 @@ use App\Repositries\ArticleRepository;
 use App\Repositries\PageRepository;
 use App\Repositries\ContactRepository;
 
+use Mail;
+
 
 
 
@@ -108,6 +110,13 @@ class HomeController extends Controller
             return $this->pageRepository->findGrandParents($slug);
         });
         return $gradParent;
+    }
+
+    public function ownform($request)
+    {
+        $adminuser;
+        Mail::send($adminuser)->send($request);
+        return redirect()->route('home')->with('success', 'You request complete');
     }
 
 
