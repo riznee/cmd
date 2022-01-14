@@ -78,19 +78,19 @@
                     </div>
                     <div class="column">
                         <label class="checkbox">
-                            Display login form
+                            Disable login form
                             <input type="checkbox" name="display_login_buttion">
                         </label>
                     </div>
                     <div class="column">
                         <label class="checkbox">
-                            Display Artile title
+                            Disable Artile title
                             <input type="checkbox" name="display_title_site">
                         </label>
                     </div>
                     <div class="column">
                         <label class="checkbox">
-                            Display Artile descriptions
+                            Disable Artile descriptions
                             <input type="checkbox" name="display_article_descirption">
                         </label>
                     </div>
@@ -101,13 +101,13 @@
                 <div class="columns">
                     <div class="column">
                         <label class="checkbox">
-                            Main Page Carasoule
+                            Disable Main Page Carasoule
                             <input type="checkbox" name="carasoule">
                         </label>
                     </div>
                     <div class="column">
                         <label class="checkbox">
-                            Display login form
+                            Disable Login form
                             <input type="checkbox" name="display_login_buttion">
                         </label>
                     </div>
