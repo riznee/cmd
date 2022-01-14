@@ -50,14 +50,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('dashboard', 'AdminController@index')->name('dashboard');
             
     Route::get('settings', 'SettingController@index')->name('settings.index');
-    Route::post('settings/update', 'SettingController@update')->name('settings.update');   
+    Route::post('settings/store', 'SettingController@store')->name('settings.store');   
+    Route::patch('settings/update', 'SettingController@update')->name('settings.update');
 
     Route::get('/contactus/{id}/replay','ContactController@reply')->name('contactus.reply');
     
     Route::post('role/{id}/permission/{permssion_id}/set', 'RolePermissionController@store')->name('role.permission.set');
     Route::post('users/{id}/roles/{role_id}/set', 'UserRoleController@store')->name('user.role.set');
 
-    Route::patch('settings/update', 'SettingController@update')->name('settings.update');
 
     Route::get('pages/{id}/publsih', 'PageController@enable')->name('pages.enable');
     Route::get('pages/{id}/unpublsih', 'PageController@disable')->name('pages.disable');

@@ -11,10 +11,15 @@ class Setting extends Model
     use SoftDeletes;
 
     protected $fillable = [
+        'logo',
+        'site_name',
         'disqus_shortname',
-        'email', 
-        'facebook', 
-        'logo', 
-        'twitter'
-    ];
+        'email',
+        'facebook',
+        'twitter',
+        'display_login_buttion',
+        'display_title_site',
+        'display_article_descirption',
+
+        ];
 }

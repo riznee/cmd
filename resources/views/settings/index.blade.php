@@ -15,27 +15,117 @@
     </div>
 
     @if ($setting == null)
+        <form class="box is-two-thirds" method="post" action="{{ route('settings.store') }}">
+            {{ csrf_field() }}
+            {{ method_field('POST') }}
 
-    <button class="js-modal-trigger" data-target="modal-js-example" >
-        Open JS example modal
-     
-    </button>
-        <div class="modal" id="js-modal-trigger">
-            <div class="modal-background"></div>
-            <div class="modal-card">
-                <header class="modal-card-head">
-                    <p class="modal-card-title">Modal title</p>
-                    <button class="delete" aria-label="close"></button>
-                </header>
-                <section class="modal-card-body">
-                    <!-- Content ... -->
-                </section>
-                <footer class="modal-card-foot">
-                    <button class="button is-success">Save changes</button>
-                    <button class="button">Cancel</button>
-                </footer>
+            <div class="field">
+                <label class="label">Site Name </label>
+                <div class="control">
+                    <input class="input" name="site_name" id="name" type="text">
+                </div>
             </div>
-        </div>
+
+            <div class="field">
+                <label class="label">Email </label>
+                <div class="control">
+                    <input class="input" name="email" id="name" type="email">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Facebook Page ID </label>
+                <div class="control">
+                    <input class="input" name="facebook" id="name" type="text">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Twitter ID </label>
+                <div class="control">
+                    <input class="input" name="twitter" id="name" type="text">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Instergram </label>
+                <div class="control">
+                    <input class="input" name="inster" id="name" type="text">
+                </div>
+            </div>
+            <br />
+            <div class="file">
+                <label class="file-label">
+                    <input class="file-input" type="file" name="logo">
+                    <span class="file-cta">
+                        <span class="file-icon">
+                            <i class="fas fa-upload"></i>
+                        </span>
+                        <span class="file-label">
+                            Choose Logo
+                        </span>
+                    </span>
+                </label>
+            </div>
+            <br />
+            <hr>
+                <div class="columns">
+                    <div class="column">
+                        <label class="checkbox">
+                            Display Website Name
+                            <input type="checkbox" name="disqus_shortname">
+                        </label>
+                    </div>
+                    <div class="column">
+                        <label class="checkbox">
+                            Display login form
+                            <input type="checkbox" name="display_login_buttion">
+                        </label>
+                    </div>
+                    <div class="column">
+                        <label class="checkbox">
+                            Display Artile title
+                            <input type="checkbox" name="display_title_site">
+                        </label>
+                    </div>
+                    <div class="column">
+                        <label class="checkbox">
+                            Display Artile descriptions
+                            <input type="checkbox" name="display_article_descirption">
+                        </label>
+                    </div>
+                </div>
+            <br/>
+            <hr>
+       
+                <div class="columns">
+                    <div class="column">
+                        <label class="checkbox">
+                            Main Page Carasoule
+                            <input type="checkbox" name="carasoule">
+                        </label>
+                    </div>
+                    <div class="column">
+                        <label class="checkbox">
+                            Display login form
+                            <input type="checkbox" name="display_login_buttion">
+                        </label>
+                    </div>
+                    
+                </div>
+            <br/>
+            <hr>
+
+            <div style="align-content: center">
+                <button class="button is-primary" type="submit">Save</button>
+            </div>
+
+
+
+        </form>
+
+
+
     @else
         <form class="box is-two-thirds" method="post" action="{{ route('settings.update') }}">
             {{ csrf_field() }}
