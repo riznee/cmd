@@ -40,6 +40,7 @@ class ContactController extends Controller
     public function __construct(ContactRepository $repository)
     {
         $this->repository = $repository;
+        $this->repository->perpage = $this->perpage;
         $this->setPermission($this->permissonName);
         parent::__construct();
 
