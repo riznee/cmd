@@ -48,17 +48,15 @@
                                 <td>
                                     <div class="columns">
                                         @if ($permissionname == 'contactus')
-                                            @if ($item['read'] == 0)
-                                                <div class="column">
-                                                    @can($permissionname . '-reply')
-                                                        <a class="tag is-warning is-inverted"
-                                                            href="{{ route($permissionname . '.reply', $item['id']) }}"
-                                                            data-toggle="tooltip" title="press to reply!">
-                                                            <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                                                        </a>
-                                                    @endcan
-                                                </div>
-                                            @endif
+                                            <div class="column">
+                                                @can($permissionname . '-reply')
+                                                    <a class="tag is-warning is-inverted"
+                                                        href="{{ route($permissionname . '.reply', $item['id']) }}"
+                                                        data-toggle="tooltip" title="press to reply!">
+                                                        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                                    </a>
+                                                @endcan
+                                            </div>
                                         @endif
 
 

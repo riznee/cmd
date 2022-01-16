@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Repositries\ContactRepository;
 use App\Http\Requests\Contact\StoreContactRequest;
 use App\Http\Requests\Contact\UpdateContactRequest;
+use Illuminate\Support\Facades\Log;
 
 class ContactController extends Controller
 {
@@ -60,6 +61,7 @@ class ContactController extends Controller
     {
         try {
             $message =  $this->repository->read($id);
+            Log::info('data '.$message);
             $permisson = $this->permissonName;
             $action = true;
             return view('contactus.show', compact('message', 'permisson', 'action', 'id'));

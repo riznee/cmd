@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class PageHeader extends Component
+class CardList extends Component
 {
     /**
      * Create a new component instance.
@@ -13,18 +13,20 @@ class PageHeader extends Component
      */    
     
 
-    public $title  =null;
+    public $headers =null;
+    public $items = null;
     public $action = false;
-    public $permissionname = null;    
-    public $id = null;    
+    public $permissionname = null;
+    public $option = null;    
 
 
-    public function __construct($title,$permissionname,$action = false, $id)
+    public function __construct($headers,$items, $permissionname, $action = false, $option = null)
     {
-        $this->title= $title;
+        $this->headers = $headers;
+        $this->items = $items;
         $this->permissionname = $permissionname;
         $this->action = $action;
-        $this->id = $id;
+        $this->option = $option;
     }
        
 
@@ -35,6 +37,6 @@ class PageHeader extends Component
      */
     public function render()
     {
-        return view('components.pageHeader');
+        return view('components.cardList');
     }
 }

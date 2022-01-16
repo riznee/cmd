@@ -27,31 +27,31 @@ class SettingController extends Controller
     
     public function store()
     {
-       
+        return view('error.index');
     }
     
     public function show()
     {
-        
+        return view('error.index');
     }
     
     public function edit()
     {
-        
+        return view('error.index');
     }
     
     public function update()
     {
-       
+        return view('error.index');
     }
     
     public function destroy()
     {
-       
+        return view('error.index');
     }
     
     protected function getSelectList()
     {
-        
+        return view('error.index');
     }
 }
