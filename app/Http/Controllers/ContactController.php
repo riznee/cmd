@@ -59,13 +59,12 @@ class ContactController extends Controller
 
     public function show($id)
     {
-        $title="Messages";
-        $headers = $this->headers_show;
+
         $permisson = $this->permissonName;
         $action = true;
         $message =  $this->repository->getItem($id);
         $this->repository->read($id);
-        return view('contactus.show',compact('title','headers','message','permisson','action', 'id'));  
+        return view('contactus.show',compact('message','permisson','action', 'id'));  
     }
     
     public function update(UpdateContactRequest $request, $id)
