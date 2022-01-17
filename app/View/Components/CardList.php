@@ -13,22 +13,21 @@ class CardList extends Component
      */    
     
 
-    public $headers =null;
+ 
+    
     public $items = null;
     public $action = false;
     public $permissionname = null;
-    public $option = null;    
+  
 
 
-    public function __construct($headers,$items, $permissionname, $action = false, $option = null)
+    public function __construct($items, $permissionname, $action = false )
     {
-        $this->headers = $headers;
+       
         $this->items = $items;
         $this->permissionname = $permissionname;
         $this->action = $action;
-        $this->option = $option;
     }
-       
 
     /**
      * Get the view / contents that represent the component.

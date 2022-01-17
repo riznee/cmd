@@ -7,6 +7,8 @@ use App\Http\Requests\Contact\StoreContactRequest;
 use App\Http\Requests\Contact\UpdateContactRequest;
 use Illuminate\Support\Facades\Log;
 
+use App\Mail\ReplayToCustomer;
+
 class ContactController extends Controller
 {
     public $perpage = 5;
@@ -42,6 +44,7 @@ class ContactController extends Controller
     public function __construct(ContactRepository $repository)
     {
         $this->repository = $repository;
+        $this->repository->perpage = $this->perpage;
         $this->setPermission($this->permissonName);
         parent::__construct();
     }
@@ -56,21 +59,14 @@ class ContactController extends Controller
         return view('contactus.index', compact('headers', 'contacts', 'permisson', 'action', 'data'));
     }
 
-
     public function show($id)
     {
-        try {
-            $message =  $this->repository->read($id);
-            Log::info('data '.$message);
-            $permisson = $this->permissonName;
-            $action = true;
-            return view('contactus.show', compact('message', 'permisson', 'action', 'id'));
-        } catch (\Exception $exeption) {
-            return redirect()->route('contacts.create')
-                ->withError($exeption->getMessage())
-                ->withInput();
-        }
+        $permisson = $this->permissonName;
+        $action = true;
+        $message =  $this->repository->read($id);
+        return view('contactus.show',compact('message','permisson','action', 'id'));  
     }
+    
 
     public function update(UpdateContactRequest $request, $id)
     {
@@ -80,7 +76,6 @@ class ContactController extends Controller
 
     public function edit($id, $request)
     {
-
         return view('error.index');
     }
 
@@ -96,6 +91,7 @@ class ContactController extends Controller
 
     public function reply($id)
     {
-        dd($id);
+
+       
     }
 }

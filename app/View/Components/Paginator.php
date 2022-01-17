@@ -32,7 +32,7 @@ class Paginator extends Component
 
     public function pageNumberGenerator()
     {
-        if( $this->lastPage >= 0 && $this->currentPage < 2 ){
+        if( $this->lastPage >= 2 && $this->currentPage <= 1 ){
             $this->j=1;
         } else {
             $this->j=$this->items->currentPage()-5 ;

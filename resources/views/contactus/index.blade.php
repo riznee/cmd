@@ -13,22 +13,15 @@
         </header>
     </div>
 
-    <section class=" section ">
+    <x-cardList 
+		:items="$contacts" 
+		:permissionname="$permisson" 
+		:action="$action"	>
+    </x-cardList>
 
-
-
-        <x-paginator :items="$contacts"></x-paginator>
-    </section>
-
-
-
-    {{-- <x-dataTable 
-		:headers="$headers"
-		:items="$contacts"
-		:permissionname="$permisson"
-		:action="$action"
-		:option="$data"
-	></x-dataTable> --}}
+	<div class="section">
+		<x-paginator :items="$contacts"></x-paginator>
+	</div>
 
 
 
