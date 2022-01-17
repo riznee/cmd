@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Repositries\ContactRepository;
 use App\Http\Requests\Contact\StoreContactRequest;
 use App\Http\Requests\Contact\UpdateContactRequest;
+use App\Http\Requests\Contact\MailContactRequest;
 use Illuminate\Support\Facades\Log;
+use Mail;
 
 use App\Mail\ReplayToCustomer;
 
@@ -91,7 +93,17 @@ class ContactController extends Controller
 
     public function reply($id)
     {
-
-       
+        $message =  $this->repository->read($id);
+        return view('contactus.replay',compact('message','id')) ;
+        
+    }
+    
+    public function sendMail(MailContactRequest $request, $id)
+    {
+        $user =  $this->repository->read($id);
+        $message = $request;
+        Mail::to($user->email)->send( new ReplayToCustomer($user, $message));
+        return redirect()->route('contactus.index')
+        ->with('success', 'Email is sent to your email reset the password');
     }
 }

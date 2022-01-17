@@ -30,7 +30,11 @@ class ReplayToCustomer extends Mailable
     public function build()
     {
         $user = $this->user;
-        $user = $this-> $this->message;
-        return $this->view('emails.replaytocustomer' ,compact('user'));
+        // $subject= $this->message->subject;
+        $message = json_decode($this->message->message);
+        // dd($message);
+
+
+        return $this->view('emails.replaytocustomer' ,compact('user', 'message'));
     }
 }

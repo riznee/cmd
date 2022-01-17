@@ -1,15 +1,7 @@
-<table class="table   is-striped">
-    <thead>
-        <tr>
-            <th>Field name</th>
-            <th style="width:100%">Detials</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach ($headers as $header)
-            <tr>
-                <td>{{ $header['title'] }}</td>
-                <td>
+    <div class="card">
+        <div class="card-content">
+            @foreach ($headers as $header)
+                <p> {{ $header['title'] }} :
                     @if (!empty($header['type']))
                         @if (!empty($option))
 
@@ -35,8 +27,8 @@
                     @else
                         {{ $item[$header['value']] }}
                     @endif
-                </td>
-            </tr>
-        @endforeach
-    </tbody>
-</table>
+                </p>
+
+            @endforeach
+        </div>
+    </div>

@@ -54,6 +54,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::patch('settings/update', 'SettingController@update')->name('settings.update');
 
     Route::get('/contactus/{id}/replay','ContactController@reply')->name('contactus.reply');
+    Route::post('/contactus/{id}/mailto','ContactController@sendMail')->name('contactus.mailto');
     
     Route::post('role/{id}/permission/{permssion_id}/set', 'RolePermissionController@store')->name('role.permission.set');
     Route::post('users/{id}/roles/{role_id}/set', 'UserRoleController@store')->name('user.role.set');
