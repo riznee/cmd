@@ -15,9 +15,9 @@
         </header>
     </div>
 
-
-    <br />
-    <x-card :headers="$headers" :item="$data[0]">
+    <x-card 
+	:headers="$headers" 
+	:item="$data[0]">
     </x-card>
 
     <div class="card has-background" style=" margin-top: 10px">
@@ -28,20 +28,21 @@
             </p>
         </header>
     </div>
-    <div class="content" style="padding-top: 10px">
 
-        @foreach ($permissionList as $item)
-
-            <div class="card has-background-success-light">
-                <div class="card-content">
-
-                    <div class="tag">
+	
+    <div class="columns is-2" style="padding: 10px">
+		@foreach ($permissionList as $item)
+		<div class="column is-2">
+			<div class="card has-background-success-light">
+				<div class="card-content">
+					<div class="columns">
+					  <div class="tag">
                         {{ $item['name'] }} --
 						{{ $item['guard_name'] }}
-                    </div>
+					  </div>
 
                     @if ($data[0]->hasPermissionTo('' . $item->name . ''))
-                        <form class="tag" accept-charset="UTF-8" method="post"
+                        <form class=" tag" accept-charset="UTF-8" method="post"
                             action="{{ route('role.permission.remove', [$data[0]['id'], $item['id']]) }}">
                             @csrf
                             {{ method_field('DELETE') }}
@@ -50,7 +51,7 @@
                             </button>
                         </form>
                     @else
-                        <form accept-charset="UTF-8" method="post"
+                        <form class="tag" accept-charset="UTF-8" method="post"
                             action="{{ route('role.permission.set', [$data[0]['id'], $item['id']]) }}">
                             @csrf
                             <button class="tag  is-success  is-inverted" style="border: none">
@@ -59,13 +60,13 @@
                         </form>
 
                     @endif
-
-                </div>
-
-            </div>
+				</div>
+			</div>
+		</div>
+	</div>
         @endforeach
-    </div>
+    {{-- </div> --}}
 
 
 @stop
-</div>
+

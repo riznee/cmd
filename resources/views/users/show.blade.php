@@ -14,7 +14,12 @@
         </header>
     </div>
 
-    <x-card :title="$title" :headers="$headers" :item="$user" :permissionname="$permisson" :action="$action">
+    <x-card 
+    :title="$title" 
+    :headers="$headers" 
+    :item="$user" 
+    :permissionname="$permisson" 
+    :action="$action">
     </x-card>
     <div class="card has-background" style=" margin-top: 10px">
         <header class="card-header has-text-info-light">
