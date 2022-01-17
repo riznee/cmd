@@ -1,6 +1,6 @@
 <div class="section" style="top: 50px;">
     @foreach ($items as $item)
-        <div class="card" >
+        <div class="card">
             <div class="card-content">
                 <div class="content">
                     <div class="columns">
@@ -13,11 +13,7 @@
                             <p class="is-size-7">Last update : {{ $item->updated_at }}</p>
                         </div>
                         <div class="column">
-                            @if ($item->read == 0)
-                                <p class=" tag is-warning is-size-7">Status : unread</p>
-                            @else
-                                <p class=" tag is-primary is-size-7">Status : Read</p>
-                            @endif
+
                             @if ($action)
                                 @if ($item['read'] == 0)
                                     @can($permissionname . '-reply')
@@ -36,16 +32,23 @@
                                     </a>
                                 @endcan
                             @endif
-
+                            <div class="span">
+                                @if ($item->read == 0)
+                                    <p class=" tag is-warning is-size-7">Status : unread</p>
+                                @else
+                                    <p class=" tag is-primary is-size-7">Status : Read</p>
+                                @endif
+                            </div>
                         </div>
+                        
 
                     </div>
                     <p> {{ $item->subject }}</p>
                 </div>
             </div>
-            
+
         </div>
-        <hr>
-        
+        <div class="span"> &nbsp; </div>
+
     @endforeach
 </div>

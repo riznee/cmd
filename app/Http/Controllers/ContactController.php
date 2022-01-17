@@ -6,6 +6,8 @@ use App\Repositries\ContactRepository;
 use App\Http\Requests\Contact\StoreContactRequest;
 use App\Http\Requests\Contact\UpdateContactRequest;
 
+use App\Mail\ReplayToCustomer;
+
 class ContactController extends Controller
 {
     public $perpage = 5;
@@ -60,11 +62,9 @@ class ContactController extends Controller
 
     public function show($id)
     {
-
         $permisson = $this->permissonName;
         $action = true;
-        $message =  $this->repository->getItem($id);
-        $this->repository->read($id);
+        $message =  $this->repository->read($id);
         return view('contactus.show',compact('message','permisson','action', 'id'));  
     }
     
@@ -87,13 +87,7 @@ class ContactController extends Controller
 
     public function edit($id, $request)
     {
-
-        dd($request);
-        $headers = $this->headers;
-        $permisson = $this->permissonName;
-        $action = true;
-        $message =  $this->repository->getItem($id);
-        return view('contactus.show',compact('headers','message','permisson','action'));  
+        return view('error.index');
     }
     
     public function create()
@@ -109,7 +103,8 @@ class ContactController extends Controller
 
     public function reply($id)
     {
-        dd($id);
+
+       
     }
    
     
