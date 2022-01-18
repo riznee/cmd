@@ -50,7 +50,7 @@
                 <label class="label" > Parent </label>
                     <div class="select">
                         <select name="parent_id">
-                            <option value='' selected>null</option>
+                            <option value='' >null</option>
                                 @foreach($pages as $page)
                                     <option value="{{$page->id}}">{{$page->title}}</option>
                                 @endforeach
