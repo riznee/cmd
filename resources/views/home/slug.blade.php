@@ -1,6 +1,6 @@
 @extends('layouts.site')
 @section('content')
-    <div class="box" style="padding: 20px;">
+    <div class="card has-background-info-light is-shadowless" style="padding: 20px;">
         <nav class="breadcrumb has-arrow-separator">
             <ul>
                 <li><a href="{{ route('home') }}">Back</a></li>
@@ -31,16 +31,18 @@
                             @endif
                         </ul>
                     </ul>
-                    {{-- {{dump($page)}} --}}
-                    @if ($page->childrean == null)
+                    @if (empty($page->childrean))
+                 
                         <p class="menu-label">&nbsp;&nbsp;
                             Sub Pages
                         </p>
                         <ul class="menu-list">                            
                             @foreach ($page->children as $child)
                                 <li>
+                                    @if($child->visible == true)
                                     <a class="btn btn-primary" href="{{ route('page', $child->slug) }}">&nbsp;
                                         {{ $child->title }}</a>
+                                    @endif
                                 </li>
                             @endforeach
                         </ul>
@@ -55,7 +57,6 @@
                         <div class="card-content">
                             <div class="media-content">
                                 {{-- <p class="title is-4">{{ $article->title }}</p> --}}
-                                {{-- <p class="subtitle is-6">@johnsmith</p> --}}
                             </div>
                             <div class="content">
                                 {!! html_entity_decode($article->content) !!}
