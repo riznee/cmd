@@ -5,7 +5,7 @@
         <div class="navbar-brand">
             <a class="navbar-item" href="{{ route('home') }}">
                 {{-- {{ config('app.name') }} --}}
-                <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+                <img src="{{ asset('enol/img/logoipsum-logo-55.svg') }}" width="200%" height="200%">
             </a>
             <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="">
                 <span aria-hidden="true"></span>
