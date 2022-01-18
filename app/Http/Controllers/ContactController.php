@@ -104,6 +104,6 @@ class ContactController extends Controller
         $message = $request;
         Mail::to($user->email)->send( new ReplayToCustomer($user, $message));
         return redirect()->route('contactus.index')
-        ->with('success', 'Email is sent to your email reset the password');
+        ->with('success', 'Email is sent to your customer');
     }
 }

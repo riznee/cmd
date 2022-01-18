@@ -26,7 +26,10 @@
             </div>
             <p  > Regarding your inquery about : <strong>{{$user->subject}}</strong></p>
             <hr/>
-            <p>{{$message}}</p>
+            <p>
+                {{--  { html_entity_decode($message)}  --}}
+                {{$message}}
+            </p>
 
         </div>
 
