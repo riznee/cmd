@@ -1,6 +1,6 @@
 @extends('layouts.site')
 @section('content')
-    <div class="box" style="padding: 20px;">
+    <div class="card has-background-info-light is-shadowless" style="padding: 20px;">
         <nav class="breadcrumb has-arrow-separator">
             <ul>
                 <li><a href="{{ route('home') }}">Back</a></li>
@@ -15,7 +15,7 @@
 
     <div class="columns is-gapless">
 
-        <div class=" box  column is-3" style=" margin: 10px 0px">
+        <div class=" column is-3" style=" margin: 10px 0px">
             <section class="hero hero is-fullheight">
                 <aside class="menu">
                     <p class="menu-label">&nbsp;&nbsp; {{ $page->title }} </p>
@@ -31,16 +31,18 @@
                             @endif
                         </ul>
                     </ul>
-                    @if (!empty($page->childrean))
+                    @if (empty($page->childrean))
+                 
                         <p class="menu-label">&nbsp;&nbsp;
                             Sub Pages
                         </p>
-                        <ul class="menu-list">
-                            {{-- @if (empty($page->childrean)) --}}
+                        <ul class="menu-list">                            
                             @foreach ($page->children as $child)
                                 <li>
+                                    @if($child->visible == true)
                                     <a class="btn btn-primary" href="{{ route('page', $child->slug) }}">&nbsp;
                                         {{ $child->title }}</a>
+                                    @endif
                                 </li>
                             @endforeach
                         </ul>
@@ -48,14 +50,13 @@
                 </aside>
             </section>
         </div>
-        <div class=" box  column" style=" margin: 10px 10px">
+        <div class=" column" style=" margin: 10px 10px">
             @if (!$articles->isEmpty())
                 @foreach ($articles as $article)
-                    <div class="card">
+                    <div class="card is-shadowless">
                         <div class="card-content">
                             <div class="media-content">
-                                <p class="title is-4">{{ $article->title }}</p>
-                                {{-- <p class="subtitle is-6">@johnsmith</p> --}}
+                                {{-- <p class="title is-4">{{ $article->title }}</p> --}}
                             </div>
                             <div class="content">
                                 {!! html_entity_decode($article->content) !!}

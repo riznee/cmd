@@ -28,7 +28,7 @@
     <script defer src="{{ asset('fontawesome/js/all.js') }}"></script>
 </head>
 
-<body>
+<body class="dark">
     <div class="container">
         <div class="section">
             <x-navbar></x-navbar>
@@ -42,6 +42,10 @@
         </div>
     </div>
     <script src="{{ asset('enol/js/enolscripts.js') }}"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
 </body>
 
 </html>
