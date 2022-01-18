@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositries\UserRepository;
+// use App\Repositries\UserRepository;
 use App\Http\Requests\User\StoreUserRequest;
 use App\Http\Requests\User\UpdateUserRequest;
 use App\Http\Requests\User\ResetRequest;
@@ -28,7 +29,7 @@ class UserController extends Controller
     public $headers=array( 
         array('title'=>'Name ', 'value'=>'name'),
         array ( 'title'=>'Email', 'value' =>'email'),
-        array ( 'title'=>'Last IP Address', 'value' =>'ip_address'),
+        // array ( 'title'=>'Last IP Address', 'value' =>'ip_address'),
         array ( 'title'=>'User Role', 'value' =>'role', 'type'=>'userRole'),
         array ( 'title'=>'Created At', 'value' =>'created_at'),
         array ( 'title'=>'Updated At', 'value' =>'updated_at')
@@ -37,7 +38,7 @@ class UserController extends Controller
     public $fields=array( 
         array('title'=>'Name ', 'value'=>'name'),
         array ( 'title'=>'Email', 'value' =>'email'),
-        array ( 'title'=>'Last IP Address', 'value' =>'ip_address'),
+        // array ( 'title'=>'Last IP Address', 'value' =>'ip_address'),
         array ( 'title'=>'Profile Piture', 'value' =>'picture'),
         array ( 'title'=>'Account Verified', 'value' =>'verified'),
         array ( 'title'=>'Remember Token', 'value' =>'remember_token'),

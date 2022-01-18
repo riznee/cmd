@@ -4,21 +4,22 @@
  
  use App\Models\Article;
 
+ use App\Repositries\PageRepository;
  use App\Repositries\BaseRepository;
 use PhpParser\Node\Expr\FuncCall;
 
 class ArticleRepository extends BaseRepository {
 
 
-    public function __construct(Article $article)
+    public function __construct(Article $article, PageRepository $pageRepository)
     {
         parent::__construct($article);
+        $this->pageRepository = $pageRepository;
     }
 
     public function getArticles()
     {
         $articles = $this->model->with('page')
-        ->with('category')
         ->orderBy('id','desc')->paginate();
         return $articles;
     }
@@ -28,7 +29,6 @@ class ArticleRepository extends BaseRepository {
         $latest =$this->model->latest()
         ->where('published_at', '=','1')
         ->with('page')
-        ->with('category')
         ->first();
         return $latest;
     }
@@ -76,6 +76,16 @@ class ArticleRepository extends BaseRepository {
         ->where('slug','=',$slug)
         ->where('published_at', '=','1')
         ->paginate();        
+        return $result;
+    }
+
+    public function homePage()
+    {
+        $page = $this->pageRepository->slugPages('home');
+        $result =$this->model->latest()
+        ->where('published_at', '=','1')
+        ->where('page_id', $page->id)
+        ->first();   
         return $result;
     }
 

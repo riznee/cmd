@@ -23,13 +23,8 @@
                         Click the link to verifiy your account 
                     <a class="button is-rounded is-success" href="{{url('user/verify', $user->verifyUser->token)}}"> Verify account </a>
                     </p>
-                    <p class="has-text-grey">
-                      If the above link does not work or you get an error,
-                    please go to <a href="{{url('user/confirm')}}">{{url('user/confirm')}}<a> and enter this activation code:
-                    <br>
-                    {{$user->verifyUser->token}}
-                    </p>         
-                      Thank you for your Support            
+                        
+                    Thank you for your Support            
               </div>
             </form>        
         </div>        

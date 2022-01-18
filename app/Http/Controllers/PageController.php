@@ -66,13 +66,22 @@ class PageController extends Controller
         }
     }
 
+
+    public function edit($id)
+    {
+        $page =  $this->repository->getItem($id);
+        $pageList = $this->repository->pageList();
+        return view('pages.edit', compact('page','pageList'));
+    }
+
     public function show($id)
     {
+    
         $headers = $this->headers;
         $permisson = $this->permissonName;
         $page =  $this->repository->getItem($id);
-        $action = true;
-        return view('pages.show',compact('headers','page','permisson','action'));   
+        $data = array('true' => 'Published', 'false' => 'Unpublished');
+        return view('pages.show',compact('headers','page','permisson','id', 'data'));   
     }
     
     public function update(UpdatePageRequest $request, $id)
@@ -94,27 +103,47 @@ class PageController extends Controller
     
     public function destroy($id)
     {
-        try{
-            $this->repository->destroy($id);
-            return redirect()->route('pages.index')->with('success','A Page is deleted');
-        }
-        catch (\Exception $exeption)
+        $page =  $this->repository->findOrFail($id);
+        if($page->slug =="home")
         {
-            return redirect()->route('pages.index')
-                ->withError($exeption->getMessage())
-                ->withInput();
+            return redirect()->route('pages.index')->with('info', 'You cannot delete Home Page');
         }
+        else if ($page->slug =="contactus")
+        {
+            return redirect()->route('pages.index')->with('info', 'You cannot delete Contact pages');
+        }
+        else
+        {
+            try{
+                $this->repository->destroy($id);
+                return redirect()->route('pages.index')->with('success','A Page is deleted');
+            }
+            catch (\Exception $exeption)
+            {
+                return redirect()->route('pages.index')
+                    ->withError($exeption->getMessage())
+                    ->withInput();
+            }
+        }
+
 
     }
     
     public function enable($id)
     {
+
         $this->repository->enable($id);
         return redirect()->route('pages.index')->with('success','Enable is Papge to public');
     }
 
     public function disable($id)
     {
+        $page =  $this->repository->findOrFail($id);
+        if($page->slug =="home")
+        {
+            return redirect()->route('pages.index')->with('info', 'You cannot disable Home Page');
+        }
+       
         $this->repository->disable($id);
         return redirect()->route('pages.index')->with('success','Disable is Page to public');
     }

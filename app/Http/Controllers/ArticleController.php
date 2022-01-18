@@ -13,7 +13,17 @@ class ArticleController extends Controller
     public $perpage = 15;
     public $permissonName='articles';
 
-    
+    public $headers=array( 
+        array('title'=>'Slug', 'value'=>'slug'),
+        array ( 'title'=>'Title', 'value' =>'title'),
+        array ( 'title'=>'Description', 'value' =>'descriptions'),
+        array ( 'title'=>'Published', 'value' =>'published_at', 'type' =>'boolen'),
+        array ( 'title'=>'Created At', 'value' =>'created_at'),
+        array ( 'title'=>'Updated At', 'value' =>'updated_at')
+    );
+
+    public $slotfeild = array( 
+        'value'=> 'published_at', );
 
     public function __construct(ArticleRepository $repository, PageRepository $pageRepositry )
     {
@@ -26,14 +36,17 @@ class ArticleController extends Controller
 
     public function index()
     {
+        $headers = $this->headers;
+        $permisson = $this->permissonName;
         $articles = $this->repository->getArticles();
-        return view('articles.index', compact('articles'));
+        $action = true;
+        $data = array('true' => 'Published', 'false' => 'Unpublished');
+        return view('articles.index', compact('headers','articles','permisson','action', 'data'));
     }
     
     public function create()
     {
         $pages = $this->pageRepositry->pageList();
-        // $categories = $this->categoryRepositry->getall();
         return view('articles.create', compact('pages'));
     }
     
@@ -52,19 +65,29 @@ class ArticleController extends Controller
         }
     }
 
+
+
     public function show($id)
     {
         $article =  $this->repository->getItem($id);
-        $pages = $this->pageRepositry->pageList();
-        return view('articles.create',compact('article', 'pages'));   
+
+        return view('articles.show',compact('article'));   
     }
+
+    public function edit($id)
+    {
+        $article =  $this->repository->getItem($id);
+        $pages = $this->pageRepositry->pageList();
+        return view('articles.edit', compact('article', 'pages'));
+    }
+
     
     public function update(UpdateArticleRequest $request, $id)
     {
-        $page =  $this->repository->findOrFail($id);
+        $article =  $this->repository->findOrFail($id);
         try
         {
-            $this->repository->updateUniquefeild($page,$request);
+            $this->repository->updateUniquefeild($article,$request);
             return redirect()->route('articles.index')->with('success', 'Page information is updated Successfull');
         }
         catch (\Exception $exeption)

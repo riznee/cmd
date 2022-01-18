@@ -9,11 +9,8 @@ class CreateSettingsTable extends Migration
     {
         Schema::create('settings', function(Blueprint $table){
             $table->unsignedTinyInteger('id')->unique();
-            $table->string('logo')->nullable();
-            $table->string('email')->nullable();
-            $table->string('facebook')->nullable();
-            $table->string('twitter')->nullable();
-            $table->string('disqus_shortname')->nullable();
+            $table->string('key');
+            $table->string('value')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

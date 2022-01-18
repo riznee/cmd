@@ -11,18 +11,6 @@ class SettingController extends Controller
     public $perpage = 5;
     public $permissonName = 'settings';
 
-    public $headers=array( 
-        array('title'=>'Logo ', 'value'=>'logo'),
-        array('title'=>'Email', 'value'=>'email'),     
-        array('title'=>'Facebook', 'value'=>'facebook'),     
-        array('title'=>'Twitter', 'value'=>'twitter'),     
-        array('title'=>'Display Short Name', 'value'=>'disqus_shortname'),     
-        array('title'=>'Email', 'value'=>'email'),     
-        array ('title'=>'Created At', 'value' =>'created_at'),
-        array ('title'=>'Updated At', 'value' =>'updated_at'),
-
-
-    );
 
     public function __construct(SettingRepository $repository)
     {
@@ -33,42 +21,37 @@ class SettingController extends Controller
     
     public function index()
     {
-        $headers = $this->headers;
-        $permisson = $this->permissonName;
-        $settings = $this->repository->getall();
-        $action = true;
-        $data = array('data'=> "not null");
-        $title = "Settings";
-        return view('settings.index', compact('headers','settings','permisson','action','title'));
+        $setting = $this->repository->getItem(1);
+        return view('settings.index', compact('setting'));
     }
     
     public function store()
     {
-       
+        return view('error.index');
     }
     
     public function show()
     {
-        
+        return view('error.index');
     }
     
     public function edit()
     {
-        
+        return view('error.index');
     }
     
     public function update()
     {
-       
+        return view('error.index');
     }
     
     public function destroy()
     {
-       
+        return view('error.index');
     }
     
     protected function getSelectList()
     {
-        
+        return view('error.index');
     }
 }

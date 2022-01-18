@@ -4,6 +4,8 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
+use Auth;
+
 class AdminNav extends Component
 {
     /**
@@ -12,12 +14,22 @@ class AdminNav extends Component
      * @return void
      */    
     
+    public $user= NULL;
+
+
     public function __construct()
     {
-       
+       $this->user = $this->checkuser();
     }
        
-
+    public function checkuser()
+    {
+        if(Auth::check())
+        {
+          $user  = Auth::user();
+        } 
+        return $user;
+    }
     /**
      * Get the view / contents that represent the component.
      *

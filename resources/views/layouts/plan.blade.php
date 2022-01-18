@@ -3,8 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
-        <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.css')}}">
+        <link rel="stylesheet" href="{{asset('bulma/css/bulma.css')}}">
         <link rel="stylesheet" href="{{asset('enol/css/enolbase.css')}}">
+
         <!-- Default Statcounter code for devlopment http://dev.enol.mv -->
           <script type="text/javascript">
           var sc_project=12461662; 

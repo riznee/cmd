@@ -1,23 +1,23 @@
-									
-<nav aria-label="Page Pagination">
-	<ul class="pagination">
+<nav class="pagination is-centered" role="navigation" aria-label="pagination">
+	
 		@if ($items->onFirstPage())
-			<li class="page-item"><a class="pagination-previous" href="#">Previous</a></li>
+		<a class="pagination-previous" disabled >Previous</a>
 		@else
-			<li class="page-item"><a class="pagination-previous"  href="{{ $items->previousPageUrl() }}" rel="prev">Previous</a></li>	
-        @endif
-        
-        @for($i=$j; $i <=  ($lastPage); $i++)
-            <li class="page-item"><a class="pagination-link" href="{{ $items->url($i)}}">{{$i}}</a></li>									
-		@endfor
+			<a class="pagination-previous"  href="{{ $items->previousPageUrl() }}" rel="prev">Previous</a>
+        @endif 
 
 		@if ($items->hasMorePages())
-			<li class="page-item"><a class="page-link" href="{{ $items->nextPageUrl() }}" rel="next">Next</a></li>
+			<a class="pagination-next" href="{{ $items->nextPageUrl() }}" rel="next">Next</a></li>
 		@else
 			<a class="pagination-next" disabled>Next page</a>
-			<li class="page-item"><a class="page-link" href="#">Next</a></li>
 		@endif
 
-    </ul>
+        <ul class="pagination-list">
+			@for($i=$j; $i<= ($lastPage); ++$i)
+				<li>
+					<a class="pagination-link" href="{{ $items->url($i)}}">{{$i}}</a>
+				</li>									
+			@endfor
+    	</ul>
 </nav>
 							

@@ -21,6 +21,8 @@ class PermissionTableSeeder extends Seeder
             'roles-edit',
             'roles-update',
             'roles-destroy',
+            'roles-list',
+            
 
             'articles-store',
             'articles-index', 
@@ -31,6 +33,8 @@ class PermissionTableSeeder extends Seeder
             'articles-edit',
             'articles-publish',
             'articles-unpublish', 
+            'articles-list', 
+
 
             // 'categories-store',
             // 'categories-index',
@@ -51,6 +55,7 @@ class PermissionTableSeeder extends Seeder
             'pages-edit',
             'pages-enable',
             'pages-disable',
+            'pages-list',
 
             'settings-store',
             'settings-index',
@@ -59,6 +64,7 @@ class PermissionTableSeeder extends Seeder
             'settings-destroy',
             'settings-update',
             'settings-edit',
+            'settings-list',
             
             'users-index',      
             'users-store',        
@@ -67,6 +73,7 @@ class PermissionTableSeeder extends Seeder
             'users-update',      
             'users-destroy',     
             'users-edit',
+            'users-list',
 
             // 'pagelayouts-store',
             // 'pagelayouts-index',
@@ -101,13 +108,15 @@ class PermissionTableSeeder extends Seeder
             // 'attriibutes-update',
             // 'attriibutes-edit',
 
-            'contactus-store',
+            // 'contactus-store',
             'contactus-index',
-            'contactus-create',
+            // 'contactus-create',
             'contactus-show',
-            'contactus-destroy',
-            'contactus-update',
-            'contactus-edit',
+            // 'contactus-destroy',
+            // 'contactus-update',
+            // 'contactus-edit',
+            'contactus-list',
+            'contactus-reply',
 
             // 'banners-store',
             // 'banners-index',

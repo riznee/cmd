@@ -7,7 +7,7 @@
           <a href="{{ route('home') }}">{{ config('app.name', 'SSCM') }}</a>
       </h3>
 
-      <img src="{{ asset('img/pngwave.png') }}" alt="" width="150" height="150">
+      <img src="{{ asset('enol/img/pngwave.png') }}" alt="" width="150" height="150">
 
       {{ csrf_field() }}
       <h1 class="h3 mb-3 font-weight-normal">Sign In</h1>

@@ -66,7 +66,7 @@ class RoleController extends Controller
         $data =  $this->repository->getRolePermssion($id);
         $permissionList = $this->repository->getPermission();
         // dd($permissionList);
-        return view('roles.show', compact('headers','data','permisson','action', 'title','permissionList'));
+        return view('roles.show', compact('headers','data','permisson','action', 'title','permissionList','id'));
     }
 
     public function edit($id)
