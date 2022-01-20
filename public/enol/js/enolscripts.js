@@ -9,6 +9,17 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+
+$('#reload').click(function () {
+  $.ajax({
+      type: 'GET',
+      url: 'reload-captcha',
+      success: function (data) {
+          $(".captcha span").html(data.captcha);
+      }
+  });
+});
+
 var select = document.getElementById("selectIcon");
 var options = [
   'null',

@@ -27,8 +27,8 @@
             <p  > Regarding your inquery about : <strong>{{$user->subject}}</strong></p>
             <hr/>
             <p>
-                {{--  { html_entity_decode($message)}  --}}
-                {{$message}}
+                html_entity_decode($message)
+               
             </p>
 
         </div>

@@ -70,7 +70,7 @@
                                 <div class="field">
                                     <label class="label">Captcha</label>
                                     <span>{!! captcha_img() !!}</span>
-                                    <button class="button is-rounded" id="refresh-captcha">
+                                    <button class="button is-rounded" id="reload">
                                         &#x21bb;
                                     </button>
                                 </div>
