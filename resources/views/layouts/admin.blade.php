@@ -15,7 +15,7 @@
 
     <script defer src="{{ asset('fontawesome/js/all.js') }}"></script>
     <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('DataTables/datatables.min.js') }}"></script>
+    {{--  <script type="text/javascript" src="{{ asset('DataTables/datatables.min.js') }}"></script>  --}}
 
     <!-- Default Statcounter code for devlopment http://dev.enol.mv -->
     <script type="text/javascript">
@@ -26,6 +26,8 @@
     </script>
     <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async>
     </script>
+    <script src="{{ asset('enol/js/enolscripts.js') }}"></script>
+    <script src="{{ asset('enol/js/axios.min.js') }}"></script>
     <noscript>
         <div class="statcounter"><a title="Web Analytics" href="https://statcounter.com/" target="_blank"><img
                     class="statcounter" src="https://c.statcounter.com/12461662/0/3b453db4/1/" alt="Web
@@ -60,13 +62,15 @@
 
                 </div>
             </div>
-            <script src="{{ asset('enol/js/enolscripts.js') }}"></script>
+
             <x-footer></x-footer>
 
         </section>
     </section>
 
 
+    <script src="{{ asset('enol/js/enolscripts.js') }}"></script>
+    {{--  <script src="{{ asset('enol/js/enolscripts.js') }}"></script>  --}}
 </body>
 
 </html>

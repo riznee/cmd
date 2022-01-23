@@ -16,6 +16,8 @@
         var sc_security = "3b453db4";
         var sc_https = 1;
     </script>
+    <script src="{{ asset('enol/js/enolscripts.js') }}"></script>
+    <script src="{{ asset('enol/js/axios.min.js') }}"></script>
     <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async></script>
     <noscript>
         <div class="statcounter"><a title="Web Analytics" href="https://statcounter.com/" target="_blank"><img
@@ -42,10 +44,11 @@
         </div>
     </div>
     <script src="{{ asset('enol/js/enolscripts.js') }}"></script>
-    <script
+    <script src="{{ asset('enol/js/axios.min.js') }}"></script>
+    {{--  <script
       src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=&v=weekly"
       async
-    ></script>
+    ></script>  --}}
 </body>
 
 </html>

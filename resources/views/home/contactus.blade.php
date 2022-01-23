@@ -70,9 +70,7 @@
                                 <div class="field">
                                     <label class="label">Captcha</label>
                                     <span>{!! captcha_img() !!}</span>
-                                    <button class="button is-rounded" id="reload">
-                                        &#x21bb;
-                                    </button>
+                                    <a class=" button tag is-primary" href="javascript:void(0)" onclick="refreshCaptcha()">&#x21bb; </a>
                                 </div>
                                 <div class="field">
                                     <input id="captcha" type="text" class="input" placeholder="Enter Captcha"
