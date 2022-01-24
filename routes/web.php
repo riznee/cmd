@@ -29,9 +29,9 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('signup', 'UserController@register')->name('signup');
 Route::post('signup', 'UserController@registerRequest')->name('signup.post');
 Route::view('privacy', 'static.privacy')->name('privacy');
-Route::view('cookies', 'static.cookies')->name('cookies');
-Route::view('user_agreement', 'static.useragrement')->name('useragreement');
-Route::view('accessibility', 'static.accessibility')->name('accessibility');
+// Route::view('cookies', 'static.cookies')->name('cookies');
+// Route::view('user_agreement', 'static.useragrement')->name('useragreement');
+// Route::view('accessibility', 'static.accessibility')->name('accessibility');
 
 
 //capture routes

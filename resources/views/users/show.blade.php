@@ -46,7 +46,7 @@
                                     @csrf
                                     {{ method_field('DELETE') }}
                                     <button class="tag  is-danger  is-inverted" style="border: none">
-                                        <i class="fas fa-times" aria-hidden="true"></i>
+                                        <i class="fas fa-minus-square" aria-hidden="true"></i>
                                     </button>
                                 </form>
                             @else
@@ -54,7 +54,7 @@
                                     action="{{ route('user.role.set', [$user->id, $item['id']]) }}">
                                     @csrf
                                     <button class="tag  is-success  is-inverted" style="border: none">
-                                        <i class="fa fa-check" aria-hidden="true"></i> 
+                                        <i class="fas fa-plus-square" aria-hidden="true"></i> 
                                     </button>
                                 </form>
                             @endif
