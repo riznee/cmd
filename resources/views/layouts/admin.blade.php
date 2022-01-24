@@ -27,7 +27,7 @@
     <script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async>
     </script>
     <script src="{{ asset('enol/js/enolscripts.js') }}"></script>
-    <script src="{{ asset('enol/js/axios.min.js') }}"></script>
+   
     <noscript>
         <div class="statcounter"><a title="Web Analytics" href="https://statcounter.com/" target="_blank"><img
                     class="statcounter" src="https://c.statcounter.com/12461662/0/3b453db4/1/" alt="Web
@@ -69,8 +69,8 @@
     </section>
 
 
+    <script src="{{ asset('enol/js/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('enol/js/enolscripts.js') }}"></script>
-    {{--  <script src="{{ asset('enol/js/enolscripts.js') }}"></script>  --}}
 </body>
 
 </html>

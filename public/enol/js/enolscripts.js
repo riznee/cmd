@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
       dataType: 'html',        
       success: function(data) {
           $('.captcha-image').html(data);
-          console.log(data);
+
       },
       error: function(data) {
         alert('Try Again.');

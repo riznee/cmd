@@ -26,8 +26,8 @@
 
     <title>{{ config('app.name', 'SSCM') }}</title>
     <script defer src="{{ asset('fontawesome/js/all.js') }}"></script>
+    <script src="{{ asset('enol/js/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('enol/js/enolscripts.js') }}"></script>
-    <script src="{{ asset('enol/js/axios.min.js') }}"></script>
 
 </head>
 
