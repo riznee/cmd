@@ -12,55 +12,17 @@ class SettingsTableSeeder extends Seeder
     public function run()
     {
         DB::table('settings')->insert([
-            'id' => 1,
-            'key'=>'logo',
-            'value'=> 'null'
+            'id'=>1,
+           'logo'=>'http://enol.test/enol/img/logoipsum-logo-55.svg',
+           'email'=>'example@enol.mv',
+           'facebook'=>'facebook.com',
+           'twitter'=>'twitter.com',
+           'linkin'=>'linkin.com',
+           'instagram'=>'instragram.com',
+           'page_name'=>'program.com',
         ]);
         
-        DB::table('settings')->insert([
-            'id' => 2,
-            'key'=>'site_name',
-            'value'=> 'null'
-        ]);
-        DB::table('settings')->insert([
-            'id' => 3,
-            'key'=>'email',
-            'value'=> 'null'
-        ]);
-            
-        DB::table('settings')->insert([
-            'id' => 4,
-            'key'=>'facebook',
-            'value'=> 'null'
-        ]);
-        DB::table('settings')->insert([
-            'id' => 5,
-            'key'=>'twitter',
-            'value'=> 'null'
-        ]);
         
-        DB::table('settings')->insert([
-            'id' => 6,
-            'key'=>'displayshortname',
-            'value'=> 'false'
-        ]);
-
-        DB::table('settings')->insert([
-            'id' => 7,
-            'key'=>'displayLoginform',
-            'value'=> 'false'
-        ]);
-        DB::table('settings')->insert([
-            'id' => 8,
-            'key'=>'display_title_site',
-            'value'=> 'false'
-        ]);
-
-        DB::table('settings')->insert([
-            'id' => 9,
-            'key'=>'display_article_descirption',
-            'value'=> 'false'
-        ]);
     }
 
         

@@ -45,6 +45,7 @@
     </div>
     <script src="{{ asset('enol/js/enolscripts.js') }}"></script>
     <script src="{{ asset('enol/js/axios.min.js') }}"></script>
+    <script src="{{ asset('enol/js/jquery-3.6.0.min.js') }}"></script>
     {{--  <script
       src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=&v=weekly"
       async

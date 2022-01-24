@@ -36,7 +36,7 @@ Route::view('accessibility', 'static.accessibility')->name('accessibility');
 
 //capture routes
 Route::post('/captcha-validation','CaptchaServiceController@conctactCaptcaValidate')->name('captcha.validation');
-Route::get('/reload-captcha', 'CaptchaServiceController@reloadCaptcha')->name('captcha.reload');
+Route::get('/refereshcapcha', 'CaptchaServiceController@reloadCaptcha')->name('captcha.reload');
 
 
 

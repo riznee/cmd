@@ -15,7 +15,7 @@ class CreateSettingsTable extends Migration
             $table->string('twitter')->nullable();
             $table->string('linkin')->nullable();
             $table->string('instagram')->nullable();
-            $table->string('disqus_shortname')->nullable();
+            $table->string('page_name')->nullable();
             $table->timestamps();
             $table->softDeletes();
 

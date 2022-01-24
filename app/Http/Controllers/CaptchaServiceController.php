@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\HomeController;
 
 use Illuminate\Http\Request;
+use Captcha;
 
 class CaptchaServiceController extends Controller
 {
@@ -30,6 +31,10 @@ class CaptchaServiceController extends Controller
 
     public function reloadCaptcha()
     {
-        return response()->json(['captcha'=> captcha_img()]);
+        // return response()->json(['data'=> captcha_img()]);
+        return response(captcha_img());
+        // return response()->json([
+        //     'captcha' => Captcha::img()
+        // ]);
     }
 }
