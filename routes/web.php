@@ -29,14 +29,14 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('signup', 'UserController@register')->name('signup');
 Route::post('signup', 'UserController@registerRequest')->name('signup.post');
 Route::view('privacy', 'static.privacy')->name('privacy');
-Route::view('cookies', 'static.cookies')->name('cookies');
-Route::view('user_agreement', 'static.useragrement')->name('useragreement');
-Route::view('accessibility', 'static.accessibility')->name('accessibility');
+// Route::view('cookies', 'static.cookies')->name('cookies');
+// Route::view('user_agreement', 'static.useragrement')->name('useragreement');
+// Route::view('accessibility', 'static.accessibility')->name('accessibility');
 
 
 //capture routes
 Route::post('/captcha-validation','CaptchaServiceController@conctactCaptcaValidate')->name('captcha.validation');
-Route::get('/reload-captcha', 'CaptchaServiceController@reloadCaptcha')->name('captcha.reload');
+Route::get('/refereshcapcha', 'CaptchaServiceController@reloadCaptcha')->name('captcha.reload');
 
 
 

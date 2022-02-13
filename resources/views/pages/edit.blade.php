@@ -46,19 +46,20 @@
                     </select>
                 </div>
             </div>  --}}
-
+                {{--  {{$page}}  --}}
             <div class="column">
                 <label class="label" > Parent </label>
                     <div class="select">
                         <select name="parent_id">>
                             <option value=''>NULL</option>
-                            @foreach($pageList as $page)
-                                @if($page->parent_id == $page->id)
-                                    <option value="{{$page->id}}" selected >{{$page->title}}</option>
+                            @foreach($pageList as $pageitem)
+                                @if($page->parent_id == $pageitem->id)
+                                    <option value="{{$pageitem->id}}" selected >{{$pageitem->title}}</option>
                                 @else
-                                    <option value="{{$page->id}}">{{$page->title}}</option>
+                                    <option value="{{$pageitem->id}}">{{$pageitem->title}}</option>
                                 @endif
                             @endforeach
+                            
                         </select>
                     </div>
             </div>

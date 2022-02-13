@@ -41,11 +41,13 @@
             <x-footer></x-footer>
         </div>
     </div>
+    
+    <script src="{{ asset('enol/js/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('enol/js/enolscripts.js') }}"></script>
-    <script
+    {{--  <script
       src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=&v=weekly"
       async
-    ></script>
+    ></script>  --}}
 </body>
 
 </html>
